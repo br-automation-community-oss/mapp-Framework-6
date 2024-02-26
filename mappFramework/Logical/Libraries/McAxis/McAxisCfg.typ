@@ -122,6 +122,63 @@ TYPE
 	McCfgAxMoveLimType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_MOVE_LIM*)
 		MovementLimits : McAMLType; (*Various limit values that will be considered for axis movements*)
 	END_STRUCT;
+	McAFPGJFEnum :
+		( (*Jerk filter selector setting*)
+		mcAFPGJF_NOT_USE := 0, (*Not used - No jerk filter is applied*)
+		mcAFPGJF_USE := 1, (*Used - Jerk filter is applied*)
+		mcAFPGJF_JERK_LIM := 2 (*Jerk limited - Jerk is considered in the profile generator*)
+		);
+	McAFPGJFUseType : STRUCT (*Type mcAFPGJF_USE settings*)
+		MaximumJerkTime : REAL; (*Maximum configurable jerk filter time [s]*)
+		JerkTime : REAL; (*Used jerk filter time ('Jerk time' <= 'Maximum jerk time') [s]*)
+	END_STRUCT;
+	McAFPGJFJerkLimType : STRUCT (*Type mcAFPGJF_JERK_LIM settings*)
+		JerkLimit : REAL; (*Jerk limit in any movement direction [Measurement units/s³]*)
+	END_STRUCT;
+	McAFPGJFType : STRUCT (*Jerk filter*)
+		Type : McAFPGJFEnum; (*Jerk filter selector setting*)
+		Used : McAFPGJFUseType; (*Type mcAFPGJF_USE settings*)
+		JerkLimited : McAFPGJFJerkLimType; (*Type mcAFPGJF_JERK_LIM settings*)
+	END_STRUCT;
+	McAFPGZVFEnum :
+		( (*Zero vibration filter selector setting*)
+		mcAFPGZVF_NOT_USE := 0, (*Not used - No zero vibration filter is applied*)
+		mcAFPGZVF_USE := 1 (*Used - Zero vibration filter is applied*)
+		);
+	McAFPGZVFUseType : STRUCT (*Type mcAFPGZVF_USE settings*)
+		MaximumZeroVibrationFilterTime : REAL; (*Maximum configurable zero vibration filter time [s]*)
+		ZeroVibrationFilterCoefficient : REAL; (*Zero vibration filter coefficient*)
+		ZeroVibrationFilterTime : REAL; (*Zero vibration filter time ('Zero vibration filter time' <= 'Maximum zero vibration filter time') [s]*)
+	END_STRUCT;
+	McAFPGZVFType : STRUCT (*Zero vibration filter*)
+		Type : McAFPGZVFEnum; (*Zero vibration filter selector setting*)
+		Used : McAFPGZVFUseType; (*Type mcAFPGZVF_USE settings*)
+	END_STRUCT;
+	McAFPGCSMaSetValSrcEnum :
+		( (*Master set value source selector setting*)
+		mcAFPGCSMSVS_PROF_GEN_SET_POS := 0, (*Profile generator set position - Value of profile generator of master is used*)
+		mcAFPGCSMSVS_ACP_SET_POS := 1 (*ACOPOS set position - SGEN_S_SET of ACOPOS master is used*)
+		);
+	McAFPGCSMaSetValSrcType : STRUCT (*Used position value in case a slave axis is coupled to the set position value of this master axis.*)
+		Type : McAFPGCSMaSetValSrcEnum; (*Master set value source selector setting*)
+	END_STRUCT;
+	McAFPGCSType : STRUCT (*Advanced settings for coupling to a master axis to which this axis feature is applied.*)
+		MasterSetValueSource : McAFPGCSMaSetValSrcType; (*Used position value in case a slave axis is coupled to the set position value of this master axis.*)
+	END_STRUCT;
+	McCfgAxFeatProfGenType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_PROF_GEN*)
+		JerkFilter : McAFPGJFType; (*Jerk filter*)
+		ZeroVibrationFilter : McAFPGZVFType; (*Zero vibration filter*)
+		CouplingSettings : McAFPGCSType; (*Advanced settings for coupling to a master axis to which this axis feature is applied.*)
+	END_STRUCT;
+	McCfgAxFeatPgJerkFltrType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_PG_JERK_FLTR*)
+		JerkFilter : McAFPGJFType; (*Jerk filter*)
+	END_STRUCT;
+	McCfgAxFeatPgZeroVibFltrType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_PG_ZERO_VIB_FLTR*)
+		ZeroVibrationFilter : McAFPGZVFType; (*Zero vibration filter*)
+	END_STRUCT;
+	McCfgAxFeatPgCplgSetType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_PG_CPLG_SET*)
+		CouplingSettings : McAFPGCSType; (*Advanced settings for coupling to a master axis to which this axis feature is applied.*)
+	END_STRUCT;
 	McAFDCSTypEnum :
 		( (*Digital cam switch type selector setting*)
 		mcAFDCST_ACP := 0 (*ACOPOS - ACOPOS specific part is used*)
@@ -206,10 +263,10 @@ TYPE
 	END_STRUCT;
 	McAFDCSACOPOSmultiDigOutEnum :
 		( (*Digital output selector setting*)
-		mcAFDCSACOPOSMULTIDO_SS1X111 := 0, (*SS1.X11.1 -*)
-		mcAFDCSACOPOSMULTIDO_SS1X113 := 1, (*SS1.X11.3 -*)
-		mcAFDCSACOPOSMULTIDO_SS1X115 := 2, (*SS1.X11.5 -*)
-		mcAFDCSACOPOSMULTIDO_SS1X116 := 3 (*SS1.X11.6 -*)
+		mcAFDCSACOPOSMULTIDO_SS2X111 := 0, (*SS2.X11.1 -*)
+		mcAFDCSACOPOSMULTIDO_SS2X113 := 1, (*SS2.X11.3 -*)
+		mcAFDCSACOPOSMULTIDO_SS2X115 := 2, (*SS2.X11.5 -*)
+		mcAFDCSACOPOSMULTIDO_SS2X116 := 3 (*SS2.X11.6 -*)
 		);
 	McAFDCSACOPOSmultiDigOutType : STRUCT
 		Type : McAFDCSACOPOSmultiDigOutEnum; (*Digital output selector setting*)
@@ -320,10 +377,10 @@ TYPE
 	END_STRUCT;
 	McAFDOACOPOSmultiDigOutEnum :
 		( (*Digital output selector setting*)
-		mcAFDOACOPOSMULTIDO_SS1X111 := 0, (*SS1.X11.1 -*)
-		mcAFDOACOPOSMULTIDO_SS1X113 := 1, (*SS1.X11.3 -*)
-		mcAFDOACOPOSMULTIDO_SS1X115 := 2, (*SS1.X11.5 -*)
-		mcAFDOACOPOSMULTIDO_SS1X116 := 3 (*SS1.X11.6 -*)
+		mcAFDOACOPOSMULTIDO_SS2X111 := 0, (*SS2.X11.1 -*)
+		mcAFDOACOPOSMULTIDO_SS2X113 := 1, (*SS2.X11.3 -*)
+		mcAFDOACOPOSMULTIDO_SS2X115 := 2, (*SS2.X11.5 -*)
+		mcAFDOACOPOSMULTIDO_SS2X116 := 3 (*SS2.X11.6 -*)
 		);
 	McAFDOACOPOSmultiDigOutType : STRUCT
 		Type : McAFDOACOPOSmultiDigOutEnum; (*Digital output selector setting*)

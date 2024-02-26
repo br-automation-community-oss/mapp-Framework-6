@@ -1,23 +1,4 @@
 
-FUNCTION_BLOCK MpPackMLCore (*Centralized PackML state machine handling*) (* $GROUP=mapp Services,$CAT=OMAC PackML,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpPackML.png *)
-	VAR_INPUT
-		MpLink : REFERENCE TO MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
-		Enable : BOOL; (*Enables/Disables the function block*) (* *) (*#PAR#;*)
-		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
-	END_VAR
-	VAR_OUTPUT
-		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
-		Error : BOOL; (*Indicates that the function block is in an error state or a command was not executed correctly*) (* *) (*#PAR#;*)
-		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#; *)
-		ModeCurrent : DINT; (*Current mode*) (* *) (*#CMD#;*)
-		StateCurrent : MpPackMLStateEnum; (*Current state, depends on the active mode*) (* *) (*#CMD#;*)
-		Info : MpPackMLCoreInfoType; (*Additional information about the component*) (* *) (*#CMD#; *)
-	END_VAR
-	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
-	END_VAR
-END_FUNCTION_BLOCK
-
 FUNCTION_BLOCK MpPackMLMode (*Controls state transitions*) (* $GROUP=mapp Services,$CAT=OMAC PackML,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpPackML.png *)
 	VAR_INPUT
 		MpLink : REFERENCE TO MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
@@ -46,7 +27,8 @@ FUNCTION_BLOCK MpPackMLMode (*Controls state transitions*) (* $GROUP=mapp Servic
 		Info : MpPackMLModeInfoType; (*Additional information about the component*) (* *) (*#CMD#; *)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
+		InternalState : USINT; (*Internal stucture*)
+		InternalData : ARRAY[0..19] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -61,10 +43,11 @@ FUNCTION_BLOCK MpPackMLBasicUI (*mapp component for connecting a VC4 visualizati
 		Active : BOOL; (*Function block is active (mapp standard interface)*) (* *) (*#PAR#;*)
 		Error : BOOL; (*Indicates an error (mapp standard interface)*) (* *) (*#PAR#;*)
 		StatusID : DINT; (*Error/Status information (mapp standard interface)*) (* *) (*#PAR#;*)
-		Info : MpPackMLUIInfoType; (*Structure with information*) (* *) (*#CMD#;*)
+		Info : MpPackMLBasicUIInfoType; (*Structure with information*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
+		InternalState : USINT; (*Internal stucture*)
+		InternalData : ARRAY[0..25] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -79,10 +62,11 @@ FUNCTION_BLOCK MpPackMLStatisticsUI (*mapp component for connecting a VC4 visual
 		Active : BOOL; (*Function block is active (mapp standard interface)*) (* *) (*#PAR#;*)
 		Error : BOOL; (*Indicates an error (mapp standard interface)*) (* *) (*#PAR#;*)
 		StatusID : DINT; (*Error/Status information (mapp standard interface)*) (* *) (*#PAR#;*)
-		Info : MpPackMLUIInfoType; (*Structure with information*) (* *) (*#CMD#;*)
+		Info : MpPackMLStatisticsUIInfoType; (*Structure with information*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
+		InternalState : USINT; (*Internal stucture*)
+		InternalData : ARRAY[0..19] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -110,7 +94,8 @@ FUNCTION_BLOCK MpPackMLModule (*Synchronized PackML state machine handling*) (* 
 		Info : MpPackMLModuleInfoType; (*Additional information about the component*) (* *) (*#CMD#; *)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
+		InternalState : USINT; (*Internal stucture*)
+		InternalData : ARRAY[0..14] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 

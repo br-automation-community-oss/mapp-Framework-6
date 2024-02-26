@@ -10,44 +10,46 @@ TYPE
 	END_STRUCT;
 	MpFileManagerUIItemTypeEnum : 
 		(
-		mpFILE_ITEM_TYPE_NONE := 0, (*No type defined*)
-		mpFILE_ITEM_TYPE_FOLDER := 1, (*Indicates that the element is a folder*)
-		mpFILE_ITEM_TYPE_FILE := 2, (*Indicates that the element is a file*)
-		mpFILE_ITEM_TYPE_TXT := 3, (*Indicates that the element is a text file*)
-		mpFILE_ITEM_TYPE_HTML := 4, (*Indicates that the element is an HTML file*)
-		mpFILE_ITEM_TYPE_DOC := 5, (*Indicates that the element is a Word file (.doc) *)
-		mpFILE_ITEM_TYPE_XLS := 6, (*Indicates that the element is an Excel file (.xls)*)
-		mpFILE_ITEM_TYPE_XML := 7, (*Indicates that the element is an XML file (.xml)*)
-		mpFILE_ITEM_TYPE_CSV := 8, (*Indicates that the element is an CSV file (.csv)*)
-		mpFILE_ITEM_TYPE_JPG := 9, (*Indicates that the element is an image file (.jpg)*)
-		mpFILE_ITEM_TYPE_BMP := 10, (*Indicates that the element is an image file (.bmp)*)
-		mpFILE_ITEM_TYPE_USER1 := 89, (*Indicates that the element is an user predefined type 1*)
-		mpFILE_ITEM_TYPE_USER2 := 90, (*Indicates that the element is an user predefined type 2*)
-		mpFILE_ITEM_TYPE_USER3 := 91, (*Indicates that the element is an user predefined type 3*)
-		mpFILE_ITEM_TYPE_USER4 := 92, (*Indicates that the element is an user predefined type 4*)
-		mpFILE_ITEM_TYPE_USER5 := 93, (*Indicates that the element is an user predefined type 5*)
-		mpFILE_ITEM_TYPE_USER6 := 94, (*Indicates that the element is an user predefined type 6*)
-		mpFILE_ITEM_TYPE_USER7 := 95, (*Indicates that the element is an user predefined type 7*)
-		mpFILE_ITEM_TYPE_USER8 := 96, (*Indicates that the element is an user predefined type 8*)
-		mpFILE_ITEM_TYPE_USER9 := 97, (*Indicates that the element is an user predefined type 9*)
-		mpFILE_ITEM_TYPE_USER10 := 98, (*Indicates that the element is an user predefined type 10*)
-		mpFILE_ITEM_TYPE_UNKNOWN := 99 (*Indicates that the file type is unknown*)
+		mpFILE_UI_ITEM_TYPE_NONE := 0, (*No type defined*)
+		mpFILE_UI_ITEM_TYPE_FOLDER := 1, (*Indicates that the element is a folder*)
+		mpFILE_UI_ITEM_TYPE_FILE := 2, (*Indicates that the element is a file*)
+		mpFILE_UI_ITEM_TYPE_TXT := 3, (*Indicates that the element is a text file*)
+		mpFILE_UI_ITEM_TYPE_HTML := 4, (*Indicates that the element is an HTML file*)
+		mpFILE_UI_ITEM_TYPE_DOC := 5, (*Indicates that the element is a Word file (.doc) *)
+		mpFILE_UI_ITEM_TYPE_XLS := 6, (*Indicates that the element is an Excel file (.xls)*)
+		mpFILE_UI_ITEM_TYPE_XML := 7, (*Indicates that the element is an XML file (.xml)*)
+		mpFILE_UI_ITEM_TYPE_CSV := 8, (*Indicates that the element is an CSV file (.csv)*)
+		mpFILE_UI_ITEM_TYPE_JPG := 9, (*Indicates that the element is an image file (.jpg)*)
+		mpFILE_UI_ITEM_TYPE_BMP := 10, (*Indicates that the element is an image file (.bmp)*)
+		mpFILE_UI_ITEM_TYPE_USER1 := 89, (*Indicates that the element is an user predefined type 1*)
+		mpFILE_UI_ITEM_TYPE_USER2 := 90, (*Indicates that the element is an user predefined type 2*)
+		mpFILE_UI_ITEM_TYPE_USER3 := 91, (*Indicates that the element is an user predefined type 3*)
+		mpFILE_UI_ITEM_TYPE_USER4 := 92, (*Indicates that the element is an user predefined type 4*)
+		mpFILE_UI_ITEM_TYPE_USER5 := 93, (*Indicates that the element is an user predefined type 5*)
+		mpFILE_UI_ITEM_TYPE_USER6 := 94, (*Indicates that the element is an user predefined type 6*)
+		mpFILE_UI_ITEM_TYPE_USER7 := 95, (*Indicates that the element is an user predefined type 7*)
+		mpFILE_UI_ITEM_TYPE_USER8 := 96, (*Indicates that the element is an user predefined type 8*)
+		mpFILE_UI_ITEM_TYPE_USER9 := 97, (*Indicates that the element is an user predefined type 9*)
+		mpFILE_UI_ITEM_TYPE_USER10 := 98, (*Indicates that the element is an user predefined type 10*)
+		mpFILE_UI_ITEM_TYPE_UNKNOWN := 99 (*Indicates that the file type is unknown*)
 		);
 	MpFileManagerUISortOrderEnum : 
 		(
-		mpFILE_SORT_BY_NAME_ASC := 0, (*Sorts in ascending (alphabetic) order*)
-		mpFILE_SORT_BY_NAME_DESC := 1, (*Sorts in descending (alphabetic) order*)
-		mpFILE_SORT_BY_SIZE_ASC := 2, (*Sorts in ascending order by file size*)
-		mpFILE_SORT_BY_SIZE_DES := 3, (*Sorts in descending order by file size*)
-		mpFILE_SORT_BY_MOD_TIME_ASC := 4, (*Sorts in ascending order by date last modified*)
-		mpFILE_SORT_BY_MOD_TIME_DESC := 5 (*Sorts in descending order by date last modified*)
+		mpFILE_UI_SORT_BY_NAME_ASC := 0, (*Sorts in ascending (alphabetic) order*)
+		mpFILE_UI_SORT_BY_NAME_DESC := 1, (*Sorts in descending (alphabetic) order*)
+		mpFILE_UI_SORT_BY_SIZE_ASC := 2, (*Sorts in ascending order by file size*)
+		mpFILE_UI_SORT_BY_SIZE_DES := 3, (*Sorts in descending order by file size*)
+		mpFILE_UI_SORT_BY_MOD_TIME_ASC := 4, (*Sorts in ascending order by date last modified*)
+		mpFILE_UI_SORT_BY_MOD_TIME_DESC := 5 (*Sorts in descending order by date last modified*)
 		);
 	MpFileManagerUIMessageEnum : 
 		(
-		mpFILE_MSG_OK := 0, (*Dialog box for requesting confirmation of input*)
-		mpFILE_MSG_CONFIRM_DELETE := 1, (*Dialog box for requesting confirmation of deletion*)
-		mpFILE_MSG_CONFIRM_OVERWRITE := 2, (*Dialog box for requesting confirmation of overwriting*)
-		mpFILE_MSG_BUSY := 3 (*Dialog box for requesting confirmation of busy UI*)
+		mpFILE_UI_MSG_OK := 0, (*Dialog box for requesting confirmation of input*)
+		mpFILE_UI_MSG_CONFIRM_DELETE := 1, (*Dialog box for requesting confirmation of deletion*)
+		mpFILE_UI_MSG_CONFIRM_OVERWRITE := 2, (*Dialog box for requesting confirmation of overwriting*)
+		mpFILE_UI_MSG_BUSY := 3, (*Dialog box for requesting confirmation of busy UI*)
+		mpFILE_UI_MSG_WARNING := 4, (*Dialog box: Warning*)
+		mpFILE_UI_MSG_ERROR := 5 (*Dialog box: Error*)
 		);
 	MpFileDiagType : 	STRUCT 
 		StatusID : MpFileStatusIDType; (*StatusID diagnostic structure*)
@@ -55,25 +57,27 @@ TYPE
 	MpFileStatusIDType : 	STRUCT 
 		ID : MpFileErrorEnum; (*Error code for mapp component*)
 		Severity : MpComSeveritiesEnum; (*Describes the type of information supplied by the status ID (success, information, warning, error)*)
-		Code : UINT; (*Code for the status ID. This error number can be used to search for additional information in the help system.*)
 	END_STRUCT;
-	MpFileInfoType : 	STRUCT 
+	MpFileManagerUIInfoType : 	STRUCT 
+		Diag : MpFileDiagType; (*Diagnostic structure for the status ID*)
+	END_STRUCT;
+	MpFileConfigInfoType : 	STRUCT 
 		Diag : MpFileDiagType; (*Diagnostic structure for the status ID*)
 	END_STRUCT;
 	MpFileManagerUIStatusEnum : 
 		(
 		mpFILE_UI_STATUS_IDLE := 0, (*Indicates that no process is currently active*)
 		mpFILE_UI_STATUS_REFRESH := 1, (*Updating elements*)
-		mpFILE_UI_STATUS_CHANGE_PAGE := 2, (*Page change active*)
-		mpFILE_UI_STATUS_CHANGE_DIR := 3, (*Folder change active*)
-		mpFILE_UI_STATUS_CHANGE_DEVICE := 4, (*File Device Change active*)
-		mpFILE_UI_STATUS_CREATE := 5, (*Creating a file/folder active*)
-		mpFILE_UI_STATUS_RENAME := 6, (*Renaming a file/folder active*)
-		mpFILE_UI_STATUS_DELETE := 7, (*Deleting a file/folder active*)
-		mpFILE_UI_STATUS_COPY := 8, (*Copying a file/folder active*)
-		mpFILE_UI_STATUS_CUT := 9, (*Cutting a file/folder active*)
-		mpFILE_UI_STATUS_PASTE := 10, (*Pasting a file/folder active*)
-		mpFILE_UI_STATUS_SORT := 11, (*Sorting files/folders in specified sort order*)
+		mpFILE_UI_STATUS_CHANGE_DIR := 2, (*Folder change active*)
+		mpFILE_UI_STATUS_CHANGE_DEVICE := 3, (*File Device Change active*)
+		mpFILE_UI_STATUS_CREATE := 4, (*Creating a file/folder active*)
+		mpFILE_UI_STATUS_RENAME := 5, (*Renaming a file/folder active*)
+		mpFILE_UI_STATUS_DELETE := 6, (*Deleting a file/folder active*)
+		mpFILE_UI_STATUS_COPY := 7, (*Copying a file/folder active*)
+		mpFILE_UI_STATUS_CUT := 8, (*Cutting a file/folder active*)
+		mpFILE_UI_STATUS_PASTE := 9, (*Pasting a file/folder active*)
+		mpFILE_UI_STATUS_SORT := 10, (*Sorting files/folders in specified sort order*)
+		mpFILE_UI_STATUS_WARNING := 98, (*The last operation generated a warning*)
 		mpFILE_UI_STATUS_ERROR := 99 (*The last operation generated an error*)
 		);
 	MpFileManagerUISetupType : 	STRUCT 
@@ -91,6 +95,7 @@ TYPE
 		LayerStatus : UINT; (*Visibility of the dialog box*)
 		Type : MpFileManagerUIMessageEnum; (*Type of dialog box*)
 		ErrorNumber : UINT; (*Current error number to be displayed*)
+		StatusID : DINT; (*Current "StatusID" to be displayed *)
 		Confirm : BOOL; (*Confirms the operation*)
 		Cancel : BOOL; (*Cancels the operation*)
 	END_STRUCT;
@@ -128,8 +133,5 @@ TYPE
 	MpFileManagerUIDeviceListType : 	STRUCT 
 		DeviceNames : ARRAY[0..9]OF STRING[50]; (*List of all available data storage media*)
 		SelectedIndex : UINT; (*Index of the entry currently selected in the list*)
-	END_STRUCT;
-	MpFileManagerConfigType : 	STRUCT 
-		CustomizedFileType : ARRAY[0..9]OF STRING[5]; (*Customized file type names*)
 	END_STRUCT;
 END_TYPE

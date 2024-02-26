@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAudit 5.18.0 */
+/* MpAudit 6.0.7003 */
 
 #ifndef _MPAUDIT_
 #define _MPAUDIT_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAudit_VERSION
-#define _MpAudit_VERSION 5.18.0
+#define _MpAudit_VERSION 6.0.7003
 #endif
 
 #include <bur/plctypes.h>
@@ -37,13 +37,13 @@ typedef enum MpAuditTrailUIStatusEnum
 	mpAUDIT_UI_STATUS_UPDATE,
 	mpAUDIT_UI_STATUS_FILTER,
 	mpAUDIT_UI_STATUS_EXPORT,
+	mpAUDIT_UI_STATUS_WARNING,
 	mpAUDIT_UI_STATUS_ERROR
 } MpAuditTrailUIStatusEnum;
 
 typedef enum MpAuditFileTypeEnum
 {	mpAUDIT_FILE_TYPE_TXT = 0,
-	mpAUDIT_FILE_TYPE_XML = 1,
-	mpAUDIT_FILE_TYPE_PDF = 2
+	mpAUDIT_FILE_TYPE_XML = 1
 } MpAuditFileTypeEnum;
 
 typedef enum MpAuditArchiveModeEnum
@@ -52,69 +52,23 @@ typedef enum MpAuditArchiveModeEnum
 	mpAUDIT_ARCHIVE_BATCH = 2
 } MpAuditArchiveModeEnum;
 
-typedef enum MpAuditFontTypeEnum
-{	mpAUDIT_FONT_COURIER = 0,
-	mpAUDIT_FONT_HELVETICA = 1,
-	mpAUDIT_FONT_TIMESROMAN = 2,
-	mpAUDIT_FONT_SIMSUN = 3,
-	mpAUDIT_FONT_SIMHEI = 4,
-	mpAUDIT_FONT_MINGLIU = 5,
-	mpAUDIT_FONT_MINCYO = 6,
-	mpAUDIT_FONT_GOTHIC = 7,
-	mpAUDIT_FONT_PMINCYO = 8,
-	mpAUDIT_FONT_PGOTHIC = 9,
-	mpAUDIT_FONT_DOTUMCHE = 10,
-	mpAUDIT_FONT_DOTUM = 11,
-	mpAUDIT_FONT_BATANGCHE = 12,
-	mpAUDIT_FONT_BATANG = 13
-} MpAuditFontTypeEnum;
-
-typedef enum MpAuditPageFormatEnum
-{	mpAUDIT_PAGE_FORMAT_UNDEFINED = 0,
-	mpAUDIT_PAGE_FORMAT_LETTER = 1,
-	mpAUDIT_PAGE_FORMAT_LEGAL = 2,
-	mpAUDIT_PAGE_FORMAT_A3 = 3,
-	mpAUDIT_PAGE_FORMAT_A4 = 4,
-	mpAUDIT_PAGE_FORMAT_A5 = 5,
-	mpAUDIT_PAGE_FORMAT_B4 = 6,
-	mpAUDIT_PAGE_FORMAT_B5 = 7
-} MpAuditPageFormatEnum;
-
-typedef enum MpAuditPageDirectionEnum
-{	mpAUDIT_PAGE_DIRECTION_UNDEFINED = 0,
-	mpAUDIT_PAGE_DIRECTION_PORTRAIT = 1,
-	mpAUDIT_PAGE_DIRECTION_LANDSCAPE = 2
-} MpAuditPageDirectionEnum;
-
-typedef enum MpAuditPageMarginEnum
-{	mpAUDIT_PAGE_MARGIN_NORMAL = 0,
-	mpAUDIT_PAGE_MARGIN_NARROW = 1,
-	mpAUDIT_PAGE_MARGIN_MODERATE = 2,
-	mpAUDIT_PAGE_MARGIN_WIDE = 3
-} MpAuditPageMarginEnum;
-
 typedef enum MpAuditQueryModeEnum
 {	mpAUDIT_QUERY_MODE_ALL,
 	mpAUDIT_QUERY_MODE_NEW
 } MpAuditQueryModeEnum;
 
-typedef enum MpAuditMemoryEnum
-{	mpAUDIT_MEM_TEMP = 0,
-	mpAUDIT_MEM_ROM = 1,
-	mpAUDIT_MEM_SRAM = 2,
-	mpAUDIT_MEM_BUFFERD_ROM = 3
-} MpAuditMemoryEnum;
-
-typedef enum MpAuditTextSourceEnum
-{	mpAUDIT_TEXT_SOURCE_NONE = 0,
-	mpAUDIT_TEXT_SOURCE_VC4 = 1,
-	mpAUDIT_TEXT_SOURCE_TEXTSYS = 2
-} MpAuditTextSourceEnum;
-
 typedef enum MpAuditUIMessageEnum
 {	mpAUDIT_UI_MSG_NONE = 0,
-	mpAUDIT_UI_MSG_ERROR = 1
+	mpAUDIT_UI_MSG_WARNING = 1,
+	mpAUDIT_UI_MSG_ERROR = 2
 } MpAuditUIMessageEnum;
+
+typedef enum MpAuditMeasurementSystemEnum
+{	mpAUDIT_ENGINEERING_UNITS = 0,
+	mpAUDIT_METRIC = 1,
+	mpAUDIT_IMPERIAL = 2,
+	mpAUDIT_IMPERIAL_US = 3
+} MpAuditMeasurementSystemEnum;
 
 typedef enum MpAuditErrorEnum
 {	mpAUDIT_NO_ERROR = 0,
@@ -133,9 +87,6 @@ typedef enum MpAuditErrorEnum
 	mpAUDIT_ERR_TEXT_SOURCE = -1064124508,
 	mpAUDIT_ERR_TEXT_NAMESPACE = -1064124507,
 	mpAUDIT_ERR_TEXT_IDENT = -1064124506,
-	mpAUDIT_ERR_LANGUAGE = -1064124505,
-	mpAUDIT_WRN_LANGUAGE_FALLBACK = -2137866328,
-	mpAUDIT_WRN_LANGUAGE_IGNORED = -2137866327,
 	mpAUDIT_ERR_ARCHIVE_NOT_FOUND = -1064124502,
 	mpAUDIT_ERR_ARCHIVE_WRITE = -1064124501,
 	mpAUDIT_ERR_TEXT_OVERFLOW = -1064124500,
@@ -152,70 +103,15 @@ typedef enum MpAuditErrorEnum
 	mpAUDIT_WRN_OPC_AUDIT_DISABLED = -2137866313,
 	mpAUDIT_ERR_MONITOR_PV = -1064124488,
 	mpAUDIT_ERR_NO_BATCHID = -1064124487,
-	mpAUDIT_ERR_MEASUREMENT_SYSTEM = -1064124486,
 	mpAUDIT_ERR_QUERY_NOT_FOUND = -1064124485,
-	mpAUDIT_INF_QUERY_NO_DATA = 1083359164
+	mpAUDIT_INF_QUERY_NO_DATA = 1083359164,
+	mpAUDIT_ERR_INVALID_FILE_NAME = -1064124483
 } MpAuditErrorEnum;
 
 typedef enum MpAuditTrailAlarmEnum
 {	mpAUDIT_ALM_ARCHIVE_AVAILABLE = 0,
 	mpAUDIT_ALM_ARCHIVE_OVERFLOW = 1
 } MpAuditTrailAlarmEnum;
-
-typedef struct MpAuditDisplayTextSourceType
-{	plcstring FormatSource[101];
-	plcstring Format[256];
-} MpAuditDisplayTextSourceType;
-
-typedef struct MpAuditErrorMessageType
-{	plcstring TextNotFound[21];
-	plcstring SpecifierInvalid[21];
-} MpAuditErrorMessageType;
-
-typedef struct MpAuditTextSourceType
-{	enum MpAuditTextSourceEnum Type;
-	plcstring Name[51];
-	plcstring OutputFormat[256];
-	plcstring OutputFormatSource[101];
-	struct MpAuditDisplayTextSourceType Display;
-	struct MpAuditErrorMessageType ErrorMessage;
-} MpAuditTextSourceType;
-
-typedef struct MpAuditLanguageFontType
-{	plcstring Language[21];
-	enum MpAuditFontTypeEnum Font;
-} MpAuditLanguageFontType;
-
-typedef struct MpAuditPdfTitleType
-{	plcbit Enable;
-	plcstring Text[101];
-} MpAuditPdfTitleType;
-
-typedef struct MpAuditExportPdfType
-{	enum MpAuditFontTypeEnum DefaultFont;
-	enum MpAuditPageFormatEnum Format;
-	enum MpAuditPageDirectionEnum Direction;
-	enum MpAuditPageMarginEnum Margins;
-	plcstring OwnerPassword[51];
-	plcstring UserPassword[51];
-	plcbit AllowPrint;
-	plcbit AllowCopy;
-	plcbit AllowEdit;
-	plcstring Icon[101];
-	plcstring Header[101];
-	struct MpAuditPdfTitleType Title;
-	struct MpAuditLanguageFontType Fonts[5];
-} MpAuditExportPdfType;
-
-typedef struct MpAuditExportType
-{	plcstring FileNamePattern[51];
-	plcstring ArchiveNamePattern[51];
-	plcstring PassPhrase[101];
-	plcbit Encrypt;
-	plcbit RawData;
-	enum MpAuditFileTypeEnum FileType;
-	struct MpAuditExportPdfType PDF;
-} MpAuditExportType;
 
 typedef struct MpAuditTrailUICurrDTFilterType
 {	plcbit Enable;
@@ -254,23 +150,6 @@ typedef struct MpAuditExportFilterType
 	struct MpAuditTrailUIBatchFilterType Batch;
 } MpAuditExportFilterType;
 
-typedef struct MpAuditArchiveType
-{	plcbit Enable;
-	enum MpAuditArchiveModeEnum Mode;
-	plctod Time;
-	unsigned long MaxSize;
-} MpAuditArchiveType;
-
-typedef struct MpAuditTrailConfigType
-{	unsigned short Events[10];
-	unsigned long RecordingSize;
-	unsigned long SramBufferSize;
-	enum MpAuditMemoryEnum RecordMemory;
-	struct MpAuditTextSourceType TextSource;
-	struct MpAuditArchiveType Archive;
-	struct MpAuditExportType Export;
-} MpAuditTrailConfigType;
-
 typedef struct MpAuditTrailUISetupType
 {	unsigned short EventListSize;
 	unsigned char ScrollWindow;
@@ -278,7 +157,7 @@ typedef struct MpAuditTrailUISetupType
 
 typedef struct MpAuditTrailUIOutputType
 {	unsigned short EventID[20];
-	plcwstring EventText[20][101];
+	plcwstring EventText[20][256];
 	plcbit PageUp;
 	plcbit StepUp;
 	plcbit StepDown;
@@ -344,16 +223,19 @@ typedef struct MpAuditTrailUIConnectType
 typedef struct MpAuditStatusIDType
 {	enum MpAuditErrorEnum ID;
 	MpComSeveritiesEnum Severity;
-	unsigned short Code;
 } MpAuditStatusIDType;
 
 typedef struct MpAuditDiagType
 {	struct MpAuditStatusIDType StatusID;
 } MpAuditDiagType;
 
-typedef struct MpAuditInfoType
+typedef struct MpAuditTrailUIInfoType
 {	struct MpAuditDiagType Diag;
-} MpAuditInfoType;
+} MpAuditTrailUIInfoType;
+
+typedef struct MpAuditExportInfoType
+{	struct MpAuditDiagType Diag;
+} MpAuditExportInfoType;
 
 typedef struct MpAuditQueryInfoType
 {	unsigned long AvailableSpace;
@@ -362,8 +244,13 @@ typedef struct MpAuditQueryInfoType
 	struct MpAuditDiagType Diag;
 } MpAuditQueryInfoType;
 
+typedef struct MpAuditRegParInfoType
+{	struct MpAuditDiagType Diag;
+} MpAuditRegParInfoType;
+
 typedef struct MpAuditTrailInfoType
 {	unsigned short NumberArchives;
+	plcstring GeneratedFileName[256];
 	struct MpAuditDiagType Diag;
 } MpAuditTrailInfoType;
 
@@ -375,40 +262,22 @@ typedef struct MpAuditMonitorInternalType
 {	unsigned long Handle;
 } MpAuditMonitorInternalType;
 
-typedef struct MpAuditTrailConfig
-{
-	/* VAR_INPUT (analog) */
-	struct MpComIdentType* MpLink;
-	struct MpAuditTrailConfigType* Configuration;
-	/* VAR_OUTPUT (analog) */
-	signed long StatusID;
-	struct MpAuditTrailInfoType Info;
-	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
-	/* VAR_INPUT (digital) */
-	plcbit Enable;
-	plcbit ErrorReset;
-	plcbit Load;
-	plcbit Save;
-	/* VAR_OUTPUT (digital) */
-	plcbit Active;
-	plcbit Error;
-	plcbit CommandBusy;
-	plcbit CommandDone;
-} MpAuditTrailConfig_typ;
-
 typedef struct MpAuditTrailUI
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
+	plcstring (*DeviceName);
+	plcstring (*FileName);
 	struct MpAuditTrailUISetupType UISetup;
 	plcstring (*Language);
+	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	struct MpAuditTrailUIConnectType* UIConnect;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpAuditInfoType Info;
+	struct MpAuditTrailInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[30];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -422,19 +291,24 @@ typedef struct MpAuditTrail
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*Language);
 	plcstring (*DeviceName);
+	plcstring (*FileName);
+	plcstring (*Language);
+	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	unsigned long CurrentRecord;
+	unsigned long NumberEntries;
 	struct MpAuditTrailInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned long InternalState;
+	unsigned long InternalData[23];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
 	plcbit Export;
 	plcbit ExportArchive;
+	plcbit Clear;
 	/* VAR_OUTPUT (digital) */
 	plcbit Active;
 	plcbit Error;
@@ -467,12 +341,13 @@ typedef struct MpAuditRegPar
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
 	plcstring (*PVName);
-	plcstring (*Identiffier);
+	plcstring (*Identifier);
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpAuditTrailInfoType Info;
+	struct MpAuditRegParInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[23];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -487,14 +362,17 @@ typedef struct MpAuditExport
 	struct MpComIdentType* MpLink;
 	struct MpAuditExportFilterType* Filter;
 	unsigned long ToRecord;
-	plcstring (*Language);
 	plcstring (*DeviceName);
+	plcstring (*FileName);
+	plcstring (*Language);
+	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	unsigned long Record;
-	struct MpAuditInfoType Info;
+	struct MpAuditTrailInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned long InternalState;
+	unsigned long InternalData[20];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -513,11 +391,13 @@ typedef struct MpAuditQuery
 	enum MpAuditQueryModeEnum Mode;
 	plcstring (*Name);
 	plcstring (*Language);
+	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	struct MpAuditQueryInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned long InternalState;
+	unsigned long InternalData[23];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -533,7 +413,6 @@ typedef struct MpAuditQuery
 
 
 /* Prototyping of functions and function blocks */
-_BUR_PUBLIC void MpAuditTrailConfig(struct MpAuditTrailConfig* inst);
 _BUR_PUBLIC void MpAuditTrailUI(struct MpAuditTrailUI* inst);
 _BUR_PUBLIC void MpAuditTrail(struct MpAuditTrail* inst);
 _BUR_PUBLIC void MpAuditVC4Event(struct MpAuditVC4Event* inst);
@@ -544,7 +423,6 @@ _BUR_PUBLIC signed long MpAuditWStringChange(struct MpComIdentType* MpLink, plcw
 _BUR_PUBLIC signed long MpAuditStringChange(struct MpComIdentType* MpLink, plcstring* Old, plcstring* New, plcstring* Identifier);
 _BUR_PUBLIC signed long MpAuditCustomEvent(struct MpComIdentType* MpLink, plcwstring* Type, plcwstring* Message, plcwstring* Comment);
 _BUR_PUBLIC signed long MpAuditValueChange(struct MpComIdentType* MpLink, double Old, double New, plcstring* Identifier);
-_BUR_PUBLIC signed long MpAuditClearBuffer(struct MpComIdentType* MpLink);
 _BUR_PUBLIC signed long MpAuditStartBatch(struct MpComIdentType* MpLink, plcwstring* Name);
 
 

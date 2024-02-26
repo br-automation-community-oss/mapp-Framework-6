@@ -1,7 +1,7 @@
 (*Function Blocks*)
 VAR
 	MpBackupCoreSys : MpBackupCore; (*MpBackupCore instance*)
-	MpBackupCoreConfigSys : MpBackupCoreConfig; (*MpBackupCoreConfig instance*)
+	FixItFB : BOOL; (*MpBackupCoreConfigSys : MpBackupCoreConfig;*) (*MpBackupCoreConfig instance*)
 	MpFileManagerUIBackup : MpFileManagerUI; (*MpFileManagerUI instance*)
 	DirCreateBackup : DirCreate; (*DirCreate instance*)
 END_VAR
@@ -11,7 +11,7 @@ VAR CONSTANT
 END_VAR
 (*Structure Types*)
 VAR
-	MpBackupConfiguration : MpBackupCoreConfigType; (*MpBackup configuration*)
+	FixIt: BOOL; (*MpBackupConfiguration : MpBackupCoreConfigType;*) (*MpBackup configuration*)
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*MpFile connection to the HMI*)
 	HmiBackup : BackupHmiInterfaceType; (*HMI interface structure*)
 END_VAR

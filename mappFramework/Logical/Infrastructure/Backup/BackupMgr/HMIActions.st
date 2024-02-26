@@ -37,40 +37,40 @@ ACTION FormatDeviceDataProvider:
 END_ACTION
 
 ACTION SaveBackupConfiguration:
-
-	MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
-	MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
-	MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
-	MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
-	MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
-	CASE HmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
-		BACKUP_EVERYDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_DAILY;
-		BACKUP_MONDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_MONDAY;
-		BACKUP_TUESDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_TUESDAY;
-		BACKUP_WEDNESDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_WEDNESDAY;
-		BACKUP_THURSDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_THURSDAY;
-		BACKUP_FRIDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_FRIDAY;
-		BACKUP_SATURDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_SATURDAY;
-		BACKUP_SUNDAY:
-			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-			MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_SUNDAY;
-	END_CASE
-
-	// Save current backup setings to retain variable
-	AutomaticBackupRetain := HmiBackup.Parameters.AutomaticBackup;
+#warning "USER WRN: TODO: replace config FB"
+//	  MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
+//	  MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
+//	  MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
+//	  MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
+//	  MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
+//	  CASE HmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
+//		  BACKUP_EVERYDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_DAILY;
+//		  BACKUP_MONDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_MONDAY;
+//		  BACKUP_TUESDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_TUESDAY;
+//		  BACKUP_WEDNESDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_WEDNESDAY;
+//		  BACKUP_THURSDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_THURSDAY;
+//		  BACKUP_FRIDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_FRIDAY;
+//		  BACKUP_SATURDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_SATURDAY;
+//		  BACKUP_SUNDAY:
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
+//			  MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_SUNDAY;
+//	  END_CASE
+//
+//	  // Save current backup setings to retain variable
+//	  AutomaticBackupRetain := HmiBackup.Parameters.AutomaticBackup;
 
  END_ACTION
 

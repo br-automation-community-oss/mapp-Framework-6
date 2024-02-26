@@ -2,17 +2,20 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="UserMgmtX" Type="mpuserx">
-    <Group ID="Mgr">
-      <Property ID="PasswordChangeInterval" Value="7776000" />
-      <Property ID="PasswordExpirationNotification" Value="864000" />
+    <Group ID="ImportExport" />
+    <Group ID="UserAccount">
+      <Property Value="5" ID="InvalidPasswordAttempts" />
       <Property ID="UserExpirationTime" Value="31536000" />
-      <Property ID="PasswordChangeReq" Value="TRUE" />
+      <Property ID="UserNameLength" Value="3" />
+    </Group>
+    <Group ID="PasswordPolicy">
+      <Property Value="7776000" ID="PasswordMaxAge" />
+      <Property ID="PasswordExpirationNotification" Value="864000" />
+      <Property ID="PasswordHistory" Value="5" />
+      <Property Value="TRUE" ID="PasswordChangeRequired" />
       <Property ID="PasswordCase" Value="TRUE" />
       <Property ID="PasswordAlpha" Value="TRUE" />
       <Property ID="PasswordLength" Value="6" />
-      <Property ID="UserNameLength" Value="3" />
-      <Property ID="PasswordHistory" Value="5" />
-      <Property ID="LoginAttempts" Value="5" />
     </Group>
     <Group ID="ServerSettings">
       <Selector ID="Server">
@@ -27,59 +30,44 @@
         <Property ID="id" Value="Admin" />
         <Property ID="name" Value="Admin" />
         <Property ID="lang" Value="en" />
-        <Property ID="unit" Value="imperial" />
+        <Property ID="measSystem" Value="0" />
       </Group>
       <Group ID="DefUser#2">
         <Property ID="id" Value="Anonymous" />
         <Property ID="name" Value="Anonymous" />
         <Property ID="lang" Value="en" />
-        <Property ID="unit" Value="metric" />
+        <Property ID="measSystem" Value="0" />
       </Group>
       <Group ID="DefUser#3">
         <Property ID="id" Value="Operator" />
         <Property ID="name" Value="Operator" />
         <Property ID="lang" Value="en" />
-        <Property ID="unit" Value="imperial-us" />
+        <Property ID="measSystem" Value="0" />
       </Group>
       <Group ID="DefUser#4">
         <Property ID="id" Value="Service_Tech" />
         <Property ID="name" Value="Service_Tech" />
         <Property ID="lang" Value="zh" />
-        <Property ID="unit" Value="metric" />
+        <Property ID="measSystem" Value="0" />
       </Group>
     </Group>
-    <Group ID="Groups">
-      <Group ID="DefGroup#1">
+    <Group ID="Roles">
+      <Group ID="DefRole#1">
         <Property ID="id" Value="Administrators" />
         <Property ID="level" Value="100" />
         <Property ID="admin" Value="TRUE" />
-        <Group ID="rights">
-          <Property ID="[0]" Value="FullAccess" />
-          <Property ID="[1]" Value="ViewOnly" />
-          <Property ID="[2]" Value="StartOnly" />
-        </Group>
       </Group>
-      <Group ID="DefGroup#2">
+      <Group ID="DefRole#2">
         <Property ID="id" Value="Everyone" />
         <Property ID="level" Value="3" />
-        <Group ID="rights">
-          <Property ID="[0]" Value="ViewOnly" />
-        </Group>
       </Group>
-      <Group ID="DefGroup#3">
+      <Group ID="DefRole#3">
         <Property ID="id" Value="Operators" />
         <Property ID="level" Value="30" />
-        <Group ID="rights">
-          <Property ID="[0]" Value="StartOnly" />
-        </Group>
       </Group>
-      <Group ID="DefGroup#4">
+      <Group ID="DefRole#4">
         <Property ID="id" Value="Service" />
         <Property ID="level" Value="50" />
-        <Group ID="rights">
-          <Property ID="[0]" Value="StartOnly" />
-          <Property ID="[1]" Value="ViewOnly" />
-        </Group>
       </Group>
     </Group>
   </Element>

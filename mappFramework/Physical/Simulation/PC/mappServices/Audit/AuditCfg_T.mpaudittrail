@@ -3,6 +3,9 @@
 <Configuration>
   <Element ID="gMpLinkAuditTrail" Type="mpaudittrail">
     <Group ID="Audit">
+      <Selector ID="Memory" Value="0">
+        <Property ID="Type" Value="0" />
+      </Selector>
       <Group ID="Events">
         <Property ID="[0]" Value="33" />
         <Property ID="[1]" Value="2" />
@@ -11,13 +14,10 @@
         <Property ID="[4]" Value="48" />
         <Property ID="[5]" Value="149" />
       </Group>
-      <Selector ID="TextSource" Value="TXT">
-        <Property ID="Name" Value="" />
-        <Property ID="OutputFormat" Value="MpAudit/SysF/Event/Root" />
-        <Selector ID="Display" Value="Ne">
-          <Property ID="Format" Value="MpAudit/Display/SysF/Event/Root" />
-        </Selector>
-      </Selector>
+      <Group ID="TextSource">
+        <Property ID="DisplayFormat" Value="MpAudit/Display/SysF/Event/Root" />
+        <Property ID="ExportFormat" Value="MpAudit/SysF/Event/Root" />
+      </Group>
       <Selector ID="Archive" Value="On">
         <Property ID="Time" Value="57600000" />
         <Property ID="MaxSize" Value="1" />
@@ -25,10 +25,6 @@
       <Group ID="Export">
         <Property ID="FileType" Value="1" />
         <Property ID="PassPhrase" Value="123ABc" Description="Password (or passphrase) for file/archive encryption 123ABc" />
-        <Group ID="PDF">
-          <Property ID="OwnerPassword" Value="123ABc" Description="Password needed to change file permissions 123ABc" />
-          <Property ID="UserPassword" Value="" Description="Password needed to view the file (optional) " />
-        </Group>
       </Group>
     </Group>
     <Group ID="Monitor">

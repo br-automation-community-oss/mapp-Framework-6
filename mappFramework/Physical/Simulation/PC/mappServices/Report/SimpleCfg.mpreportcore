@@ -40,11 +40,11 @@
           </Group>
           <Group ID="[3]">
             <Property ID="Name" Value="TableText" />
-            <Property ID="NumberOfDecimalPlaces" Value="2" />
+            <Property Value="2" ID="Precision" />
           </Group>
           <Group ID="[4]">
             <Property ID="Name" Value="ChartText" />
-            <Property ID="NumberOfDecimalPlaces" Value="2" />
+            <Property Value="2" ID="Precision" />
           </Group>
         </Group>
         <Group ID="Table">

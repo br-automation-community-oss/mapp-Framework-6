@@ -12,6 +12,12 @@ TYPE
 		mcACPAX_PARTYPE_VOID := 65535   (*General data type*)
 	);
 
+	McAcpAxProcessDataBlockModeEnum :
+	(
+		mcACPAX_DATA_BLOCK_GET := 0,  (*Read data block*)
+		mcACPAX_DATA_BLOCK_SET	 (*Write data block*)
+	);
+
 	McAcpAxProcessParIDModeEnum :
 	(
 		mcACPAX_PARID_GET := 0,  (*Read ParID(s)*)
@@ -185,6 +191,29 @@ TYPE
 		 mcACPAX_FBCTRL_MODE_2ENC_SPEED := 5 (*Two encoder speed: nc2ENCOD_SPEED*)
 	);
 
+ 	McAcpAxSendChannelEnum :
+	(
+		mcACPAX_SEND_CHANNEL_AUTO := 0, (*Select channel automatically*)
+		mcACPAX_SEND_CHANNEL_1 := 1, (*Select channel 1*)
+		mcACPAX_SEND_CHANNEL_2 := 2, (*Select channel 2*)
+		mcACPAX_SEND_CHANNEL_3 := 3 (*Select channel 3*)
+	);
+
+	McAcpAxReceiveChannelEnum :
+	(
+		mcACPAX_RECEIVE_CHANNEL_AUTO := 0, (*Select channel automatically*)
+		mcACPAX_RECEIVE_CHANNEL_1 := 1, (*Select channel 1*)
+		mcACPAX_RECEIVE_CHANNEL_2 := 2, (*Select channel 2*)
+		mcACPAX_RECEIVE_CHANNEL_3 := 3, (*Select channel 3*)
+		mcACPAX_RECEIVE_CHANNEL_4 := 4, (*Select channel 4*)
+		mcACPAX_RECEIVE_CHANNEL_5 := 5 (*Select channel 5*)
+	);
+
+	McAcpAxHomingAddTorqLimParType : STRUCT
+		PositiveDirection : REAL; (*Positive torque limit value for homing to blocks. If '0.0' is specified, the value of 'TorqueLimit' is used for positive direction. [Nm]*)
+		NegativeDirection : REAL; (*Negative torque limit value for homing to blocks. If '0.0' is specified, the value of 'TorqueLimit' is used for negative direction. [Nm]*)
+	END_STRUCT;
+
    	McAcpAxHomingParType : STRUCT
         HomingMode : McHomingModeEnum; (*Mode for homing*)
 		Position : LREAL; (*Absolute position or homing offset when homing signal [Measurement units] occurs*)
@@ -201,6 +230,7 @@ TYPE
 		BlockDetectionPositionError : REAL; (*Lag error for block detection [Measurement units]*)
 		PositionErrorStopLimit : REAL; (*Lag error for canceling homing procedure [Measurement units]*)
 		RestorePositionVariableAddress : UDINT; (*Address of a remanent variable of type McAcpAxRestorePosType that is needed for "HomingMode" mcHOMING_RESTORE_POSITION*)
+		AdditionalTorqueLimit : McAcpAxHomingAddTorqLimParType; (*Additional, direction dependent torque limit values for homing to block*)
 	END_STRUCT;
 
 	McAcpAxProcessParIDType : STRUCT
@@ -599,122 +629,6 @@ TYPE
 		Parameters : McCfgAcpCtrlType; (*Parameter structure for usage on MC_BR_ProcessConfig and MC_BR_ProcessParam*)
 	END_STRUCT;
 
-	McAcpAxAdvCamAutSetParType : STRUCT
-		ParLock : McCamAutParLockCmdEnum; (*Command for the transfer of the parameter*)
-	END_STRUCT;
-
-	McAcpAxCamAutEventParType : STRUCT
-	    Type : McCamAutEventTypeEnum; (*Event type*)
-	    Transition :	McCamAutEventTransitionEnum; (*Event transition*)
-	    SynchronousUpdate: McSwitchEnum; (*Synchronous parameter update if event occurs*)
-	    NextState : USINT; (*Index of the next state if the event occurs*)
-	END_STRUCT;
-
-	McAcpAxCamAutCompParType : STRUCT
-	    MasterCompDistance : LREAL; (*Compensation distance for the master axis [Measurement units of master]*)
-	    SlaveCompDistance : LREAL; (*Compensation distance for the slave axis [Measurement units of slave]*)
-	    MasterCamLeadIn : LREAL; (*Relative position at which the master axis enters the state [Measurement units of master]*)
-	    MinMasterCompDistance : LREAL; (*Minimum compensation distance for the master axis [Measurement units of master]*)
-	    MinSlaveCompDistance : LREAL; (*Minimum compensation distance for the slave axis [Measurement units of slave]*)
-	    MaxSlaveCompDistance : LREAL; (*Maximum compensation distance for the slave axis [Measurement units of slave]*)
-	    MinSlaveCompVelocity : REAL; (*Minimum velocity of the slave axis during compensation [Measurement units of slave/s]*)
-	    MaxSlaveCompVelocity : REAL; (*Maximum velocity of the slave axis during compensation [Measurement units of slave/s]*)
-	    MaxSlaveCompAccel1 : REAL; (*Maximum acceleration of the slave axis during compensation phase 1 [Measurement units of slave/s²]*)
-	    MaxSlaveCompAccel2 : REAL; (*Maximum acceleration of the slave axis during compensation phase 2 [Measurement units of slave/s²]*)
-	    SlaveCompJoltTime : REAL; (*Jerk time of the slave axis during compensation [s]*)
-	END_STRUCT;
-
-	McAcpAxCamAutAdvStateParType : STRUCT
-	    RepeatCounterInit : UINT; (*Starting value of state repetitions for event*)
-	    RepeatCounterSetTransfer : McSwitchEnum; (*"RepeatCounterInit" is transferred*)
-	    RepeatCounterSet : UINT; (*State repetitions counter for event*)
-	    MasterAxis : REFERENCE TO McAxisType; (*Master axis for this state*)
-	    MasterParID : UINT; (*Parameter ID of the master axis for this state*)
-	END_STRUCT;
-
-	McAcpAxCamAutStateParType : STRUCT
-	    CamID : UINT; (*Index of the cam data for a state*)
-	    MasterFactor : DINT; (*Master gauge factor for the cam profile for this state*)
-	    SlaveFactor: DINT; (*Slave gauge factor for the cam profile for this state*)
-	    CompensationMode : McCamAutCompModeEnum; (*Compensation gear mode*)
-	    CompensationParameters : McAcpAxCamAutCompParType; (*Parameter for the compensation gear*)
-	    AdvancedParameters : McAcpAxCamAutAdvStateParType; (*Advanced state parameter*)
-	    Event : ARRAY[0..4] OF McAcpAxCamAutEventParType; (*Definition of the event for a state*)
-	END_STRUCT;
-
-	McAcpAxCamAutCtrlSettingsType : STRUCT
-	    CrossLeftBoundary : McCamAutCrossLeftBoundEnum; (*Function on the left cam edge during backward movement of the master without event*)
-	    CamChangeImmediately : McCamAutCamChangeImmedEnum; (*Direction of the cam change on event transition*)
-	END_STRUCT;
-
-	McAcpAxCamAutMsgSettingsType : STRUCT
-	    ErrorsInStandby : McCamAutErrorsInStandbyEnum; (*Used for setting an error message in stand-by mode*)
-	    ExceedingLimits : McCamAutExceedingLimitsEnum; (*Used for setting a message if the limit values are exceeded*)
-	END_STRUCT;
-
-	McAcpAxCamAutTriggerAndLatchType : STRUCT
-	    Trigger1Delay : REAL; (*Trigger1 delay time [s] to compensate for a signal delay*)
-	    Trigger2Delay : REAL; (*Trigger2 delay time [s] to compensate for a signal delay*)
-	    SlaveLatchParID : UINT; (*Parameter ID for the latch value of the slave axis*)
-	END_STRUCT;
-
-	McAcpAxCamAutStartStateParType : STRUCT
-	    StartState : USINT; (*State in which the cam automat is started*)
-	    MasterStartRelPos : LREAL; (*Master position within the starting state at which the cam automat is started [Measurements units of the master]*)
-	END_STRUCT;
-
-	McAcpAxCamAutAddAxesType : STRUCT
-	    AdditiveMasterAxis : REFERENCE TO McAxisType; (*Axis reference of additive master axis*)
-	    AdditiveMasterParID : UINT; (*ParID of the additive master axis*)
-	    AdditiveSlaveAxis : REFERENCE TO McAxisType; (*Axis reference of additive slave axis*)
-	    AdditiveSlaveParID : UINT; (*ParID of additive slave axis*)
-	END_STRUCT;
-
-	McAcpAxCamAutCommonFactorsType : STRUCT
-	    SlaveFactorParID : UINT; (*Parameter ID for multiplication factor of the slave axis*)
-	END_STRUCT;
-
-	McAcpAxCamAutAdvParType : STRUCT
-		StartStateParam : McAcpAxCamAutStartStateParType; (*Parameter used for starting directly from a state*)
-		AdditiveAxes : McAcpAxCamAutAddAxesType; (*Parameter for additive axes*)
-	    MasterStartPosMode : McCamAutMaStartPosModeEnum; (*Mode for event type*)
-	    ControlSettings : McAcpAxCamAutCtrlSettingsType; (*Control settings for cam automat*)
-	    MessageSettings : McAcpAxCamAutMsgSettingsType; (*Settings for warnings and error messages*)
-	    TriggerAndLatch : McAcpAxCamAutTriggerAndLatchType; (*Settings for triggering delay times and for latch value*)
-	    EventParID1 : UINT; (*Parameter ID for event input 1*)
-	    EventParID2 : UINT; (*Parameter ID for event input 2*)
-	    EventParID3 : UINT; (*Parameter ID for event input 3*)
-	    EventParID4 : UINT; (*Parameter ID for event input 4*)
-	    StartIntervalPos1 : LREAL; (*Relative starting positions of the master axis in the interval for generating event*)
-	    StartIntervalPos2 : LREAL; (*Relative starting positions of the master axis in the interval for generating event*)
-	    StartIntervalPos3 : LREAL; (*Relative starting positions of the master axis in the interval for generating event*)
-	    StartIntervalPos4 : LREAL; (*Relative starting positions of the master axis in the interval for generating event*)
-	    Factors : McAcpAxCamAutCommonFactorsType; (*Multiplication factors for all states of the cam automat*)
-	END_STRUCT;
-
-	McAcpAxCamAutMasterParType : STRUCT
-	    MasterAxis : REFERENCE TO McAxisType; (*Axis reference of the master axis*)
-	    MasterParID : UINT; (*ParID of the master axis*)
-	    MasterStartPosition : LREAL; (*Starting position of the master axis [Measurement units of master]*)
-	    MasterStartInterval : LREAL; (*Starting interval of the master axis [Measurement units of master]*)
-	    MaxMasterVelocity : REAL; (*Maximum velocity of the master axis [Measurement units of master/s]*)
-	END_STRUCT;
-
-	McAcpAxCamAutCommonParType : STRUCT
-	    Master : McAcpAxCamAutMasterParType; (*Parameter for the cam automat master*)
-	    AdvancedParameters : McAcpAxCamAutAdvParType; (*Optional parameter for the cam automat*)
-	END_STRUCT;
-
-	McAcpAxCamAutParType : STRUCT
-	    Common : McAcpAxCamAutCommonParType; (*General parameter for all states of the cam automat*)
-	    State : ARRAY[0..14] OF McAcpAxCamAutStateParType; (*Parameter for the states of the cam automat*)
-	END_STRUCT;
-
-	 McAcpAxCamAutDefineType : STRUCT
-	    DataObjectName : STRING[32]; (*Name of the cam automat configuration object*)
-	    DataAddress : UDINT; (*Address of a variable of data type McAcpAxCamAutParType*)
-	END_STRUCT;
-
 	McAcpAxAdvPhasingParType : STRUCT
 	    VelocityParID : UINT; (*ParID from which the velocity for the phase shift is read*)
 	    PosVelocityTriggerParID : UINT; (*ParID controls the addition of velocity "CyclicVelocity" or the value of "VelocityParID"*)
@@ -750,4 +664,64 @@ TYPE
 		Mass2 : McAcpAxLoadModelMass2Type; (*Mass 2 component of the load model.*)
 	END_STRUCT;
 
+	McAcpAxAdvInitParIDTransferType : STRUCT
+		MasterSendChannel : McAcpAxSendChannelEnum; (*Requested channel specifier on the Master axis to be used to send the value of the MasterParID.*)
+		SlaveReceiveChannel : McAcpAxReceiveChannelEnum; (*Requested channel specifier on the Slave axis to be used to receive the value of the MasterParID.*)
+	END_STRUCT;
+
+	McAcpAxParIDMasterSendInfoType : STRUCT
+		Used : BOOL; (*Indicates whether this channel is currently being used and the rest of the data below is valid.*)
+		ParID :  UINT; (*Master source ParID being sent via this channel.*)
+		ChangeAllowed : BOOL; (*Indicates whether it is possible to reconfigure this channel.*)
+	END_STRUCT;
+
+	McAcpAxParIDSlaveReceiveInfoType : STRUCT
+		Used : BOOL; (*Indicates whether this channel is currently being used and the rest of the data below is valid.*)
+		ParID :  UINT; (*Master source ParID being received via this channel.*)
+		ChangeAllowed : BOOL; (*Indicates whether it is possible to reconfigure this channel.*)
+		InterpolationMode : McIplModeEnum; (*Interpolation mode for the received value.*)
+		SendModuleAndElement : STRING[64]; (*Sender module (and element) information. Example: 'EPL: IF3.ST6 (CHAN1)'.*)
+	END_STRUCT;
+
+	McAcpAxParIDTransferInfoType : STRUCT
+		MasterSendInfo : ARRAY[0..3] OF McAcpAxParIDMasterSendInfoType; (*Detailed information about each of the individual send channels for the axis.*)
+		SlaveReceiveInfo : ARRAY[0..5] OF McAcpAxParIDSlaveReceiveInfoType; (*Detailed information about each of the individual receive channels for the axis.*)
+	END_STRUCT;
+
+	McAcpAxAdvInitReceiveNetDataType : STRUCT
+		NodeNumber : USINT; (*Node number of the POWERLINK station from which data should be received.*)
+		BitOffset : UINT; (*Bit offset of the POWERLINK data in the telegram from the transmitter from which point the data is read, must be a multiple of 16.*)
+		ReceiveChannel : McAcpAxReceiveChannelEnum; (*Requested channel number on the axis to be used to receive the data.*)
+	END_STRUCT;
+
+	McAcpAxAdvReceiveParIDOnPLCType : STRUCT
+		SendChannel : McAcpAxSendChannelEnum; (*Requested channel specifier on the source Axis to be used to send the value of the ParID.*)
+	END_STRUCT;
+
+	McAcpAxCyclicDataInfoType : STRUCT
+		Write : McAcpAxCyclicDataWriteInfoType; (*Information about the cyclic write data configuration.*)
+		Read : McAcpAxCyclicDataReadInfoType; (*Information about the cyclic read data configuration.*)
+	END_STRUCT;
+
+	McAcpAxCyclicDataWriteInfoType : STRUCT
+		RecordUpdateTime : UDINT; (*Time interval in which an individual telegram record is written to the drive channel [us].*)
+		Record : McAcpAxCyclicDataRecordInfoType; (*Information about the configuration of the telegram record written to the drive channel.*)
+	END_STRUCT;
+
+	McAcpAxCyclicDataReadInfoType : STRUCT
+		RecordUpdateTime : UDINT; (*Time interval in which an individual telegram record is read from the drive channel [us].*)
+		TotalUpdateTime : UDINT; (*Time interval in which all configured telegram records are read from the drive channel [us].*)
+		TotalParIDCount : USINT; (*Total number of ParIDs whose values are currently being read from the drive channel.*)
+		RecordCount : USINT; (*Number of configured telegrams records read from the drive channel.*)
+		Record : ARRAY[0..15] OF McAcpAxCyclicDataRecordInfoType; (*Information array about the configuration of the telegram records read from the drive channel.*)
+	END_STRUCT;
+
+	McAcpAxCyclicDataRecordInfoType : STRUCT
+		Size : USINT; (*Number of data bytes in this record.*)
+		OneByteCount : USINT; (*Number of one byte (8 bit) data in this record.*)
+		TwoByteCount : USINT; (*Number of two byte (16 bit) data in this record.*)
+		FourByteCount : USINT; (*Number of four byte (32 bit) data in this record.*)
+		ParIDCount : USINT; (*Number of ParIDs configured in this record (i.e. OneByteCount + TwoByteCount + FourByteCount).*)
+		ParID : ARRAY[0..11] OF UINT; (*Array of ParIDs configured in this record.*)
+	END_STRUCT;
 END_TYPE

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpFile 5.18.0 */
+/* MpFile 6.0.7003 */
 
 #ifndef _MPFILE_
 #define _MPFILE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpFile_VERSION
-#define _MpFile_VERSION 5.18.0
+#define _MpFile_VERSION 6.0.7003
 #endif
 
 #include <bur/plctypes.h>
@@ -36,59 +36,61 @@ extern "C"
 
 /* Datatypes and datatypes of function blocks */
 typedef enum MpFileManagerUIItemTypeEnum
-{	mpFILE_ITEM_TYPE_NONE = 0,
-	mpFILE_ITEM_TYPE_FOLDER = 1,
-	mpFILE_ITEM_TYPE_FILE = 2,
-	mpFILE_ITEM_TYPE_TXT = 3,
-	mpFILE_ITEM_TYPE_HTML = 4,
-	mpFILE_ITEM_TYPE_DOC = 5,
-	mpFILE_ITEM_TYPE_XLS = 6,
-	mpFILE_ITEM_TYPE_XML = 7,
-	mpFILE_ITEM_TYPE_CSV = 8,
-	mpFILE_ITEM_TYPE_JPG = 9,
-	mpFILE_ITEM_TYPE_BMP = 10,
-	mpFILE_ITEM_TYPE_USER1 = 89,
-	mpFILE_ITEM_TYPE_USER2 = 90,
-	mpFILE_ITEM_TYPE_USER3 = 91,
-	mpFILE_ITEM_TYPE_USER4 = 92,
-	mpFILE_ITEM_TYPE_USER5 = 93,
-	mpFILE_ITEM_TYPE_USER6 = 94,
-	mpFILE_ITEM_TYPE_USER7 = 95,
-	mpFILE_ITEM_TYPE_USER8 = 96,
-	mpFILE_ITEM_TYPE_USER9 = 97,
-	mpFILE_ITEM_TYPE_USER10 = 98,
-	mpFILE_ITEM_TYPE_UNKNOWN = 99
+{	mpFILE_UI_ITEM_TYPE_NONE = 0,
+	mpFILE_UI_ITEM_TYPE_FOLDER = 1,
+	mpFILE_UI_ITEM_TYPE_FILE = 2,
+	mpFILE_UI_ITEM_TYPE_TXT = 3,
+	mpFILE_UI_ITEM_TYPE_HTML = 4,
+	mpFILE_UI_ITEM_TYPE_DOC = 5,
+	mpFILE_UI_ITEM_TYPE_XLS = 6,
+	mpFILE_UI_ITEM_TYPE_XML = 7,
+	mpFILE_UI_ITEM_TYPE_CSV = 8,
+	mpFILE_UI_ITEM_TYPE_JPG = 9,
+	mpFILE_UI_ITEM_TYPE_BMP = 10,
+	mpFILE_UI_ITEM_TYPE_USER1 = 89,
+	mpFILE_UI_ITEM_TYPE_USER2 = 90,
+	mpFILE_UI_ITEM_TYPE_USER3 = 91,
+	mpFILE_UI_ITEM_TYPE_USER4 = 92,
+	mpFILE_UI_ITEM_TYPE_USER5 = 93,
+	mpFILE_UI_ITEM_TYPE_USER6 = 94,
+	mpFILE_UI_ITEM_TYPE_USER7 = 95,
+	mpFILE_UI_ITEM_TYPE_USER8 = 96,
+	mpFILE_UI_ITEM_TYPE_USER9 = 97,
+	mpFILE_UI_ITEM_TYPE_USER10 = 98,
+	mpFILE_UI_ITEM_TYPE_UNKNOWN = 99
 } MpFileManagerUIItemTypeEnum;
 
 typedef enum MpFileManagerUISortOrderEnum
-{	mpFILE_SORT_BY_NAME_ASC = 0,
-	mpFILE_SORT_BY_NAME_DESC = 1,
-	mpFILE_SORT_BY_SIZE_ASC = 2,
-	mpFILE_SORT_BY_SIZE_DES = 3,
-	mpFILE_SORT_BY_MOD_TIME_ASC = 4,
-	mpFILE_SORT_BY_MOD_TIME_DESC = 5
+{	mpFILE_UI_SORT_BY_NAME_ASC = 0,
+	mpFILE_UI_SORT_BY_NAME_DESC = 1,
+	mpFILE_UI_SORT_BY_SIZE_ASC = 2,
+	mpFILE_UI_SORT_BY_SIZE_DES = 3,
+	mpFILE_UI_SORT_BY_MOD_TIME_ASC = 4,
+	mpFILE_UI_SORT_BY_MOD_TIME_DESC = 5
 } MpFileManagerUISortOrderEnum;
 
 typedef enum MpFileManagerUIMessageEnum
-{	mpFILE_MSG_OK = 0,
-	mpFILE_MSG_CONFIRM_DELETE = 1,
-	mpFILE_MSG_CONFIRM_OVERWRITE = 2,
-	mpFILE_MSG_BUSY = 3
+{	mpFILE_UI_MSG_OK = 0,
+	mpFILE_UI_MSG_CONFIRM_DELETE = 1,
+	mpFILE_UI_MSG_CONFIRM_OVERWRITE = 2,
+	mpFILE_UI_MSG_BUSY = 3,
+	mpFILE_UI_MSG_WARNING = 4,
+	mpFILE_UI_MSG_ERROR = 5
 } MpFileManagerUIMessageEnum;
 
 typedef enum MpFileManagerUIStatusEnum
 {	mpFILE_UI_STATUS_IDLE = 0,
 	mpFILE_UI_STATUS_REFRESH = 1,
-	mpFILE_UI_STATUS_CHANGE_PAGE = 2,
-	mpFILE_UI_STATUS_CHANGE_DIR = 3,
-	mpFILE_UI_STATUS_CHANGE_DEVICE = 4,
-	mpFILE_UI_STATUS_CREATE = 5,
-	mpFILE_UI_STATUS_RENAME = 6,
-	mpFILE_UI_STATUS_DELETE = 7,
-	mpFILE_UI_STATUS_COPY = 8,
-	mpFILE_UI_STATUS_CUT = 9,
-	mpFILE_UI_STATUS_PASTE = 10,
-	mpFILE_UI_STATUS_SORT = 11,
+	mpFILE_UI_STATUS_CHANGE_DIR = 2,
+	mpFILE_UI_STATUS_CHANGE_DEVICE = 3,
+	mpFILE_UI_STATUS_CREATE = 4,
+	mpFILE_UI_STATUS_RENAME = 5,
+	mpFILE_UI_STATUS_DELETE = 6,
+	mpFILE_UI_STATUS_COPY = 7,
+	mpFILE_UI_STATUS_CUT = 8,
+	mpFILE_UI_STATUS_PASTE = 9,
+	mpFILE_UI_STATUS_SORT = 10,
+	mpFILE_UI_STATUS_WARNING = 98,
 	mpFILE_UI_STATUS_ERROR = 99
 } MpFileManagerUIStatusEnum;
 
@@ -123,12 +125,6 @@ typedef enum MpFileErrorEnum
 	mpFILE_INF_OVERWRITE = 1083318300
 } MpFileErrorEnum;
 
-typedef enum MpFileUIAlarmEnum
-{	mpFILE_ALM_DEVICE_NOT_FOUND = 0,
-	mpFILE_ALM_ALREADY_EXISTING = 1,
-	mpFILE_ALM_ERROR_FILE_SYSTEM = 2
-} MpFileUIAlarmEnum;
-
 typedef struct MpFileManagerUIItemType
 {	plcstring Name[256];
 	unsigned long Size;
@@ -141,16 +137,19 @@ typedef struct MpFileManagerUIItemType
 typedef struct MpFileStatusIDType
 {	enum MpFileErrorEnum ID;
 	MpComSeveritiesEnum Severity;
-	unsigned short Code;
 } MpFileStatusIDType;
 
 typedef struct MpFileDiagType
 {	struct MpFileStatusIDType StatusID;
 } MpFileDiagType;
 
-typedef struct MpFileInfoType
+typedef struct MpFileManagerUIInfoType
 {	struct MpFileDiagType Diag;
-} MpFileInfoType;
+} MpFileManagerUIInfoType;
+
+typedef struct MpFileConfigInfoType
+{	struct MpFileDiagType Diag;
+} MpFileConfigInfoType;
 
 typedef struct MpFileManagerUISetupType
 {	unsigned short FileListSize;
@@ -200,6 +199,7 @@ typedef struct MpFileManagerUIMessageBoxType
 {	unsigned short LayerStatus;
 	enum MpFileManagerUIMessageEnum Type;
 	unsigned short ErrorNumber;
+	signed long StatusID;
 	plcbit Confirm;
 	plcbit Cancel;
 } MpFileManagerUIMessageBoxType;
@@ -212,10 +212,6 @@ typedef struct MpFileManagerUIConnectType
 	unsigned short DefaultLayerStatus;
 } MpFileManagerUIConnectType;
 
-typedef struct MpFileManagerConfigType
-{	plcstring CustomizedFileType[10][6];
-} MpFileManagerConfigType;
-
 typedef struct MpFileManagerUI
 {
 	/* VAR_INPUT (analog) */
@@ -224,9 +220,10 @@ typedef struct MpFileManagerUI
 	struct MpFileManagerUIConnectType* UIConnect;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpFileInfoType Info;
+	struct MpFileManagerUIInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[51];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -235,33 +232,10 @@ typedef struct MpFileManagerUI
 	plcbit Error;
 } MpFileManagerUI_typ;
 
-typedef struct MpFileManagerConfig
-{
-	/* VAR_INPUT (analog) */
-	struct MpComIdentType* MpLink;
-	struct MpFileManagerConfigType* Configuration;
-	/* VAR_OUTPUT (analog) */
-	signed long StatusID;
-	struct MpFileInfoType Info;
-	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
-	/* VAR_INPUT (digital) */
-	plcbit Enable;
-	plcbit ErrorReset;
-	plcbit Load;
-	plcbit Save;
-	/* VAR_OUTPUT (digital) */
-	plcbit Active;
-	plcbit Error;
-	plcbit CommandBusy;
-	plcbit CommandDone;
-} MpFileManagerConfig_typ;
-
 
 
 /* Prototyping of functions and function blocks */
 _BUR_PUBLIC void MpFileManagerUI(struct MpFileManagerUI* inst);
-_BUR_PUBLIC void MpFileManagerConfig(struct MpFileManagerConfig* inst);
 
 
 #ifdef __cplusplus

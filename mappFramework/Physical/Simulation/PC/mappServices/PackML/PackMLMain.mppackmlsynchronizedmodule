@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gMpPackMLModuleMain" Type="mppackmlmodule">
+  <Element ID="gMpPackMLModuleMain" Type="mppackmlsynchronizedmodule">
+    <Group ID="mapp.Gen" />
     <Group ID="Module">
       <Property ID="Name" Value="Main" />
       <Selector ID="Parent" Value="1">

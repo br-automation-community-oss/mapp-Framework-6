@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpReport 5.18.0 */
+/* MpReport 6.0.7003 */
 
 #ifndef _MPREPORT_
 #define _MPREPORT_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpReport_VERSION
-#define _MpReport_VERSION 5.18.0
+#define _MpReport_VERSION 6.0.7003
 #endif
 
 #include <bur/plctypes.h>
@@ -32,6 +32,13 @@ extern "C"
 
 
 /* Datatypes and datatypes of function blocks */
+typedef enum MpReportMeasurementSystemEnum
+{	mpREPORT_ENGINEERING_UNITS = 0,
+	mpREPORT_METRIC = 1,
+	mpREPORT_IMPERIAL = 2,
+	mpREPORT_IMPERIAL_US = 3
+} MpReportMeasurementSystemEnum;
+
 typedef enum MpReportErrorEnum
 {	mpREPORT_NO_ERROR = 0,
 	mpREPORT_ERR_ACTIVATION = -1064239103,
@@ -55,7 +62,6 @@ typedef enum MpReportCoreAlarmEnum
 typedef struct MpReportStatusIDType
 {	enum MpReportErrorEnum ID;
 	MpComSeveritiesEnum Severity;
-	unsigned short Code;
 } MpReportStatusIDType;
 
 typedef struct MpReportDiagType
@@ -64,7 +70,7 @@ typedef struct MpReportDiagType
 
 typedef struct MpReportCoreInfoType
 {	unsigned long NumberOfReports;
-	plcstring GeneratedFileName[51];
+	plcstring GeneratedFileName[256];
 	struct MpReportDiagType Diag;
 } MpReportCoreInfoType;
 
@@ -72,17 +78,21 @@ typedef struct MpReportCore
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*Name);
-	plcstring (*Language);
+	plcstring (*ReportID);
 	plcstring (*DeviceName);
+	plcstring (*FileName);
+	plcstring (*Language);
+	enum MpReportMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	struct MpReportCoreInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[10];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
+	plcbit Overwrite;
 	plcbit Generate;
 	/* VAR_OUTPUT (digital) */
 	plcbit Active;

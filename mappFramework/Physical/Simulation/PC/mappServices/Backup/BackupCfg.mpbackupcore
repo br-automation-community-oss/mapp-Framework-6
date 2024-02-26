@@ -2,6 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkBackupCore" Type="mpbackupcore">
+    <Group ID="mapp.Gen">
+      <Property ID="Audit" Value="TRUE" />
+    </Group>
     <Group ID="Backup">
       <Selector ID="AutomaticBackup" Value="Enabled">
         <Selector ID="Mode" Value="Weekly" />
@@ -15,7 +18,6 @@
           <Property ID="Time" Value="57600000" />
         </Selector>
       </Selector>
-      <Selector ID="Auditing" Value="MpAudit" />
     </Group>
     <Selector ID="Alarms" Value="MpAlarmX">
       <Group ID="mapp.AlarmX.Core.Configuration">

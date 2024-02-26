@@ -2,7 +2,10 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">AlarmXCfg.mpalarmxcore</Object>
-    <Object Type="File">AlarmXHist.mpalarmxhistory</Object>
+    <Object Type="File" Description="Migrated from AlarmXCfg.mpalarmxcore (mapp Services Version 5)">AlarmXCfg_.mpalarmxcategory</Object>
+    <Object Type="File" Description="Migrated from AlarmXCfg.mpalarmxcore (mapp Services Version 5)">AlarmXCf_1.mpalarmxlist</Object>
+    <Object Type="File" Description="Migrated from AlarmXCfg.mpalarmxcore (mapp Services Version 5)">AlarmXCf_2.mpalarmxquery</Object>
+    <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)">AlarmXHi_1.mpalarmxhistory</Object>
+    <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)">AlarmXHi_2.mpalarmxquery</Object>
   </Objects>
 </Package>

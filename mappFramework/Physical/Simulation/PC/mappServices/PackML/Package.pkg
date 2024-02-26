@@ -2,7 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">PackMLCfg.mppackmlcore</Object>
-    <Object Type="File">PackMLMain.mppackmlmodule</Object>
+    <Object Type="File" Description="Migrated from PackMLCfg.mppackmlcore (mapp Services Version 5)">PackMLCfg.mppackmlsynchronizedunit</Object>
+    <Object Type="File" Description="Migrated from PackMLMain.mppackmlmodule (mapp Services Version 5)">PackMLMain.mppackmlsynchronizedmodule</Object>
+    <Object Type="File" TransferedForTargetSourceCompare="true">PackMLUnit.mppackmlstandaloneunit</Object>
   </Objects>
 </Package>

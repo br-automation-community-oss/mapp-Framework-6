@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxis 5.18.1 */
+/* McAxis 6.0.7001 */
 
 #ifndef _MCAXIS_
 #define _MCAXIS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxis_VERSION
-#define _McAxis_VERSION 5.18.1
+#define _McAxis_VERSION 6.0.7001
 #endif
 
 #include <bur/plctypes.h>
@@ -40,13 +40,6 @@ typedef enum McDirectionEnum
 	mcDIR_UNDEFINED,
 	mcDIR_BOTH
 } McDirectionEnum;
-
-typedef enum McCamAutCouplingSourceEnum
-{	mcCAMAUT_COUPLING_SRC_NOT_USED,
-	mcCAMAUT_COUPLING_SRC_AXIS,
-	mcCAMAUT_COUPLING_SRC_VARIABLE,
-	mcCAMAUT_COUPLING_SRC_SYSTIME
-} McCamAutCouplingSourceEnum;
 
 typedef enum McPlcopenParEnum
 {	mcPAR_COMMANDED_AX_POSITION = 1,
@@ -268,6 +261,11 @@ typedef enum McCamAutEventTransitionEnum
 	mcEVENT_END_OF_STATE = 12
 } McCamAutEventTransitionEnum;
 
+typedef enum McCamAutStartIntoEnum
+{	mcCAMAUT_START_INTO_CAM = 0,
+	mcCAMAUT_START_INTO_COMP = 1
+} McCamAutStartIntoEnum;
+
 typedef enum McCamStartModeEnum
 {	mcCAM_START_DIRECT,
 	mcCAM_START_ABSOLUTE,
@@ -311,7 +309,8 @@ typedef enum McAxisTypeEnum
 	mcAX_TYPE_PURE_VIRT,
 	mcAX_TYPE_PURE_VIRT_GPAI,
 	mcAX_TYPE_DS402_SERVO,
-	mcAX_TYPE_DS402_INV
+	mcAX_TYPE_DS402_INV,
+	mcAX_TYPE_PURE_VIRT_EXT_ENC
 } McAxisTypeEnum;
 
 typedef enum McAcpAxAutoTuneFeedFwdModeEnum
@@ -392,6 +391,13 @@ typedef enum McMechDevCompCmdEnum
 	mcMDC_CMD_CALC_COMP_DATA
 } McMechDevCompCmdEnum;
 
+typedef enum McCamAutCouplingSourceEnum
+{	mcCAMAUT_COUPLING_SRC_NOT_USED,
+	mcCAMAUT_COUPLING_SRC_AXIS,
+	mcCAMAUT_COUPLING_SRC_PARID_VAR,
+	mcCAMAUT_COUPLING_SRC_SYSTIME
+} McCamAutCouplingSourceEnum;
+
 typedef enum McABTEnum
 {	mcABT_LIN_BD = 0,
 	mcABT_LIN = 1,
@@ -421,6 +427,22 @@ typedef enum McAMoveLimDecEnum
 {	mcAMLD_BASIC = 0,
 	mcAMLD_ADV = 1
 } McAMoveLimDecEnum;
+
+typedef enum McAFPGJFEnum
+{	mcAFPGJF_NOT_USE = 0,
+	mcAFPGJF_USE = 1,
+	mcAFPGJF_JERK_LIM = 2
+} McAFPGJFEnum;
+
+typedef enum McAFPGZVFEnum
+{	mcAFPGZVF_NOT_USE = 0,
+	mcAFPGZVF_USE = 1
+} McAFPGZVFEnum;
+
+typedef enum McAFPGCSMaSetValSrcEnum
+{	mcAFPGCSMSVS_PROF_GEN_SET_POS = 0,
+	mcAFPGCSMSVS_ACP_SET_POS = 1
+} McAFPGCSMaSetValSrcEnum;
 
 typedef enum McAFDCSTypEnum
 {	mcAFDCST_ACP = 0
@@ -481,10 +503,10 @@ typedef enum McAFDCSACOPOSDigOutEnum
 } McAFDCSACOPOSDigOutEnum;
 
 typedef enum McAFDCSACOPOSmultiDigOutEnum
-{	mcAFDCSACOPOSMULTIDO_SS1X111 = 0,
-	mcAFDCSACOPOSMULTIDO_SS1X113 = 1,
-	mcAFDCSACOPOSMULTIDO_SS1X115 = 2,
-	mcAFDCSACOPOSMULTIDO_SS1X116 = 3
+{	mcAFDCSACOPOSMULTIDO_SS2X111 = 0,
+	mcAFDCSACOPOSMULTIDO_SS2X113 = 1,
+	mcAFDCSACOPOSMULTIDO_SS2X115 = 2,
+	mcAFDCSACOPOSMULTIDO_SS2X116 = 3
 } McAFDCSACOPOSmultiDigOutEnum;
 
 typedef enum McAFDCSACOPOSP3DigOutEnum
@@ -549,10 +571,10 @@ typedef enum McAFDOACOPOSDigOutEnum
 } McAFDOACOPOSDigOutEnum;
 
 typedef enum McAFDOACOPOSmultiDigOutEnum
-{	mcAFDOACOPOSMULTIDO_SS1X111 = 0,
-	mcAFDOACOPOSMULTIDO_SS1X113 = 1,
-	mcAFDOACOPOSMULTIDO_SS1X115 = 2,
-	mcAFDOACOPOSMULTIDO_SS1X116 = 3
+{	mcAFDOACOPOSMULTIDO_SS2X111 = 0,
+	mcAFDOACOPOSMULTIDO_SS2X113 = 1,
+	mcAFDOACOPOSMULTIDO_SS2X115 = 2,
+	mcAFDOACOPOSMULTIDO_SS2X116 = 3
 } McAFDOACOPOSmultiDigOutEnum;
 
 typedef enum McAFDOACOPOSP3DigOutEnum
@@ -686,6 +708,10 @@ typedef enum McAFANERNetwErrReacEnum
 	mcAFANERNER_DELAYED = 1
 } McAFANERNetwErrReacEnum;
 
+typedef struct McAdvCycDriveErrDecParType
+{	enum McDisableModeEnum DisableMode;
+} McAdvCycDriveErrDecParType;
+
 typedef struct McLibraryInfoType
 {	plcstring Name[33];
 } McLibraryInfoType;
@@ -708,6 +734,7 @@ typedef struct McAddInfoType
 	plcbit InMotion;
 	enum McMechDevCompStateEnum MechDeviationCompState;
 	enum McAutoTuneStateEnum AutoTuneState;
+	enum McBrakeStatusEnum BrakeStatus;
 } McAddInfoType;
 
 typedef struct McAdvVelCtrlParType
@@ -764,24 +791,16 @@ typedef struct McAdvCamInParType
 
 typedef struct McCamDefineType
 {	plcstring DataObjectName[13];
-	unsigned long DataAdress;
+	unsigned long DataAddress;
 } McCamDefineType;
 
 typedef struct McAdvCamAutSetParType
 {	enum McCamAutParLockCmdEnum ParLock;
 } McAdvCamAutSetParType;
 
-typedef struct McCamAutEventParType
-{	enum McCamAutEventTypeEnum Type;
-	enum McCamAutEventTransitionEnum Transition;
-	enum McSwitchEnum SynchronousUpdate;
-	unsigned char NextState;
-} McCamAutEventParType;
-
 typedef struct McCamAutCompParType
 {	double MasterCompDistance;
 	double SlaveCompDistance;
-	double MasterCamLeadIn;
 	double MinMasterCompDistance;
 	double MinSlaveCompDistance;
 	double MaxSlaveCompDistance;
@@ -794,10 +813,16 @@ typedef struct McCamAutCompParType
 } McCamAutCompParType;
 
 typedef struct McCamAutMasterAxisType
-{	struct McAxisType* Axis;
+{	struct McAxisType* AxisReference;
 	enum McValueSrcEnum ValueSource;
 	float MaxVelocity;
 } McCamAutMasterAxisType;
+
+typedef struct McCamAutMasterParIdType
+{	struct McAxisType* AxisReference;
+	unsigned short ParID;
+	float MaxVelocity;
+} McCamAutMasterParIdType;
 
 typedef struct McCamAutMasterVarType
 {	double* VariableAddress;
@@ -805,32 +830,18 @@ typedef struct McCamAutMasterVarType
 } McCamAutMasterVarType;
 
 typedef struct McCamAutAxisType
-{	struct McAxisType* Axis;
+{	struct McAxisType* AxisReference;
 	enum McValueSrcEnum ValueSource;
 } McCamAutAxisType;
+
+typedef struct McCamAutParIdType
+{	struct McAxisType* AxisReference;
+	unsigned short ParID;
+} McCamAutParIdType;
 
 typedef struct McCamAutVariableType
 {	double* VariableAddress;
 } McCamAutVariableType;
-
-typedef struct McCamAutAdvStateParType
-{	unsigned short RepeatCounterInit;
-	enum McSwitchEnum RepeatCounterSetTransfer;
-	unsigned short RepeatCounterSet;
-	enum McCamAutCouplingSourceEnum MasterSource;
-	struct McCamAutAxisType MasterAxis;
-	struct McCamAutVariableType MasterVariable;
-} McCamAutAdvStateParType;
-
-typedef struct McCamAutStateParType
-{	unsigned short CamID;
-	signed long MasterFactor;
-	signed long SlaveFactor;
-	enum McCamAutCompModeEnum CompensationMode;
-	struct McCamAutCompParType CompensationParameters;
-	struct McCamAutAdvStateParType AdvancedParameters;
-	struct McCamAutEventParType Event[5];
-} McCamAutStateParType;
 
 typedef struct McCamAutCtrlSettingsType
 {	enum McCamAutCrossLeftBoundEnum CrossLeftBoundary;
@@ -839,51 +850,13 @@ typedef struct McCamAutCtrlSettingsType
 
 typedef struct McCamAutStartStateParType
 {	unsigned char StartState;
-	double MasterStartRelPos;
+	enum McCamAutStartIntoEnum StartType;
+	double MasterStartPositionInCam;
 } McCamAutStartStateParType;
-
-typedef struct McCamAutAddAxesType
-{	enum McCamAutCouplingSourceEnum AdditiveMasterSource;
-	struct McCamAutAxisType AdditiveMasterAxis;
-	struct McCamAutVariableType AdditiveMasterVariable;
-	enum McCamAutCouplingSourceEnum AdditiveSlaveSource;
-	struct McCamAutAxisType AdditiveSlaveAxis;
-	struct McCamAutVariableType AdditiveSlaveVariable;
-} McCamAutAddAxesType;
-
-typedef struct McCamAutAdvParType
-{	struct McCamAutStartStateParType StartStateParam;
-	struct McCamAutAddAxesType AdditiveAxes;
-	enum McCamAutMaStartPosModeEnum MasterStartPosMode;
-	struct McCamAutCtrlSettingsType ControlSettings;
-	double StartIntervalPos1;
-	double StartIntervalPos2;
-	double StartIntervalPos3;
-	double StartIntervalPos4;
-} McCamAutAdvParType;
-
-typedef struct McCamAutMasterParType
-{	enum McCamAutCouplingSourceEnum MasterSource;
-	struct McCamAutMasterAxisType MasterAxis;
-	struct McCamAutMasterVarType MasterVariable;
-	double MasterStartPosition;
-	double MasterStartInterval;
-} McCamAutMasterParType;
-
-typedef struct McCamAutCommonParType
-{	struct McCamAutMasterParType Master;
-	struct McCamAutAdvParType AdvancedParameters;
-} McCamAutCommonParType;
-
-typedef struct McCamAutParType
-{	struct McCamAutCommonParType Common;
-	struct McCamAutStateParType State[15];
-} McCamAutParType;
 
 typedef struct McCamAutDefineType
 {	plcstring DataObjectName[33];
 	unsigned long DataAddress;
-	unsigned long DataSize;
 } McCamAutDefineType;
 
 typedef struct McPolynomialDataType
@@ -1124,7 +1097,7 @@ typedef struct McHwInfoDriveType
 {	plcstring ModelNumber[20];
 	plcstring ModuleID[12];
 	plcstring SerialNumber[20];
-	plcstring Revision[4];
+	plcstring Revision[12];
 	plcstring FirmwareVersion[8];
 } McHwInfoDriveType;
 
@@ -1152,6 +1125,95 @@ typedef struct McHardwareInfoType
 typedef struct McDigitalOutputType
 {	plcstring FeatureName[251];
 } McDigitalOutputType;
+
+typedef struct McCamAutEventParType
+{	enum McCamAutEventTypeEnum Type;
+	enum McCamAutEventTransitionEnum Transition;
+	enum McSwitchEnum SynchronousUpdate;
+	unsigned char NextState;
+} McCamAutEventParType;
+
+typedef struct McCamAutCouplingSrcType
+{	enum McCamAutCouplingSourceEnum CouplingSource;
+	struct McCamAutAxisType Axis;
+	struct McCamAutParIdType ParID;
+	struct McCamAutVariableType Variable;
+} McCamAutCouplingSrcType;
+
+typedef struct McCamAutAdvStateParType
+{	double MasterCamLeadIn;
+	unsigned short RepeatCounterInit;
+	enum McSwitchEnum RepeatCounterSetTransfer;
+	unsigned short RepeatCounterSet;
+	struct McCamAutCouplingSrcType StateMasterSource;
+} McCamAutAdvStateParType;
+
+typedef struct McCamAutStateParType
+{	unsigned short CamID;
+	signed long MasterFactor;
+	signed long SlaveFactor;
+	enum McCamAutCompModeEnum CompensationMode;
+	struct McCamAutCompParType CompensationParameters;
+	struct McCamAutAdvStateParType AdvancedParameters;
+	struct McCamAutEventParType Event[5];
+} McCamAutStateParType;
+
+typedef struct McCamAutMsgSettingsType
+{	enum McCamAutErrorsInStandbyEnum ErrorsInStandby;
+	enum McCamAutExceedingLimitsEnum ExceedingLimits;
+} McCamAutMsgSettingsType;
+
+typedef struct McCamAutTriggerAndLatchType
+{	float Trigger1Delay;
+	float Trigger2Delay;
+	unsigned short SlaveLatchParID;
+} McCamAutTriggerAndLatchType;
+
+typedef struct McCamAutCommonFactorsType
+{	unsigned short SlaveFactorParID;
+} McCamAutCommonFactorsType;
+
+typedef struct McCamAutAdvParType
+{	struct McCamAutCouplingSrcType AdditiveMasterSource;
+	struct McCamAutCouplingSrcType AdditiveSlaveSource;
+	enum McCamAutMaStartPosModeEnum MasterStartPosMode;
+	struct McCamAutCtrlSettingsType ControlSettings;
+	struct McCamAutMsgSettingsType MessageSettings;
+	struct McCamAutTriggerAndLatchType TriggerAndLatch;
+	unsigned short EventParID1;
+	unsigned short EventParID2;
+	unsigned short EventParID3;
+	unsigned short EventParID4;
+	double StartIntervalPos1;
+	double StartIntervalPos2;
+	double StartIntervalPos3;
+	double StartIntervalPos4;
+	struct McCamAutCommonFactorsType Factors;
+} McCamAutAdvParType;
+
+typedef struct McCamAutMasterCouplingSrcType
+{	enum McCamAutCouplingSourceEnum CouplingSource;
+	struct McCamAutMasterAxisType Axis;
+	struct McCamAutMasterParIdType ParID;
+	struct McCamAutMasterVarType Variable;
+} McCamAutMasterCouplingSrcType;
+
+typedef struct McCamAutMasterParType
+{	struct McCamAutMasterCouplingSrcType MasterSource;
+	double MasterStartPosition;
+	double MasterStartInterval;
+} McCamAutMasterParType;
+
+typedef struct McCamAutCommonParType
+{	struct McCamAutMasterParType Master;
+	struct McCamAutStartStateParType StartStateParam;
+	struct McCamAutAdvParType AdvancedParameters;
+} McCamAutCommonParType;
+
+typedef struct McCamAutParType
+{	struct McCamAutCommonParType Common;
+	struct McCamAutStateParType State[15];
+} McCamAutParType;
 
 typedef struct McABTLinBdType
 {	enum McCfgLocLenUnitEnum MeasurementUnit;
@@ -1263,6 +1325,58 @@ typedef struct McCfgAxBaseTypType
 typedef struct McCfgAxMoveLimType
 {	struct McAMLType MovementLimits;
 } McCfgAxMoveLimType;
+
+typedef struct McAFPGJFUseType
+{	float MaximumJerkTime;
+	float JerkTime;
+} McAFPGJFUseType;
+
+typedef struct McAFPGJFJerkLimType
+{	float JerkLimit;
+} McAFPGJFJerkLimType;
+
+typedef struct McAFPGJFType
+{	enum McAFPGJFEnum Type;
+	struct McAFPGJFUseType Used;
+	struct McAFPGJFJerkLimType JerkLimited;
+} McAFPGJFType;
+
+typedef struct McAFPGZVFUseType
+{	float MaximumZeroVibrationFilterTime;
+	float ZeroVibrationFilterCoefficient;
+	float ZeroVibrationFilterTime;
+} McAFPGZVFUseType;
+
+typedef struct McAFPGZVFType
+{	enum McAFPGZVFEnum Type;
+	struct McAFPGZVFUseType Used;
+} McAFPGZVFType;
+
+typedef struct McAFPGCSMaSetValSrcType
+{	enum McAFPGCSMaSetValSrcEnum Type;
+} McAFPGCSMaSetValSrcType;
+
+typedef struct McAFPGCSType
+{	struct McAFPGCSMaSetValSrcType MasterSetValueSource;
+} McAFPGCSType;
+
+typedef struct McCfgAxFeatProfGenType
+{	struct McAFPGJFType JerkFilter;
+	struct McAFPGZVFType ZeroVibrationFilter;
+	struct McAFPGCSType CouplingSettings;
+} McCfgAxFeatProfGenType;
+
+typedef struct McCfgAxFeatPgJerkFltrType
+{	struct McAFPGJFType JerkFilter;
+} McCfgAxFeatPgJerkFltrType;
+
+typedef struct McCfgAxFeatPgZeroVibFltrType
+{	struct McAFPGZVFType ZeroVibrationFilter;
+} McCfgAxFeatPgZeroVibFltrType;
+
+typedef struct McCfgAxFeatPgCplgSetType
+{	struct McAFPGCSType CouplingSettings;
+} McCfgAxFeatPgCplgSetType;
 
 typedef struct McAFDCSTypAcpValSrcRTOAUseType
 {	struct McCfgReferenceType AxisReference;
@@ -1657,6 +1771,24 @@ typedef struct McCfgAxFeatAcpNetwErrReacType
 {	struct McAFANERNetwErrReacType NetworkErrorReaction;
 } McCfgAxFeatAcpNetwErrReacType;
 
+typedef struct MC_BR_CyclicDriveErrorDecel
+{
+	/* VAR_INPUT (analog) */
+	struct McAxisType* Axis;
+	struct McAdvCycDriveErrDecParType AdvancedParameters;
+	float CyclicDeceleration;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Enable;
+	/* VAR_OUTPUT (digital) */
+	plcbit Valid;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_CyclicDriveErrorDecel_typ;
+
 typedef struct MC_BR_GetAxisLibraryInfo
 {
 	/* VAR_INPUT (analog) */
@@ -1801,7 +1933,7 @@ typedef struct MC_BR_CamAutomatCommand
 	plcbit CommandAborted;
 	plcbit Error;
 	plcbit Running;
-	plcbit StandBy;
+	plcbit Standby;
 	plcbit InCam;
 	plcbit InCompensation;
 	plcbit Ready;
@@ -2435,7 +2567,7 @@ typedef struct MC_BR_CamIn
 	plcbit Error;
 	plcbit DataInitialized;
 	plcbit Running;
-	plcbit StandBy;
+	plcbit Standby;
 	plcbit InLeadIn;
 	plcbit InCam;
 	plcbit InLeadOut;
@@ -3261,6 +3393,7 @@ typedef struct MC_WriteDigitalOutput
 
 
 /* Prototyping of functions and function blocks */
+_BUR_PUBLIC void MC_BR_CyclicDriveErrorDecel(struct MC_BR_CyclicDriveErrorDecel* inst);
 _BUR_PUBLIC void MC_BR_GetAxisLibraryInfo(struct MC_BR_GetAxisLibraryInfo* inst);
 _BUR_PUBLIC void MC_Power(struct MC_Power* inst);
 _BUR_PUBLIC void MC_Home(struct MC_Home* inst);

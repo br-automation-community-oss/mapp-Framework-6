@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="FileDialog_FIFO_dialog_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="FileDialog_FIFO_dialog_content" guid="f8b07e2c-5090-4273-a05e-212f3cb6eb1d" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.Button" id="BtnFIFOSave" top="235" left="15" width="150" height="50" zIndex="0" breakWord="true" image="Media/mappFrameworkSymbols/Edit/Save.svg" multiLine="true" text="$IAT/mappFramework/File/FIFO.Save" imageHeight="30" imageWidth="30" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Label" id="LabelDevice" top="30" left="20" width="155" zIndex="1" text="$IAT/mappFramework/File/FIFO.Device" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />

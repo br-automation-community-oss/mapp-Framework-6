@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.10.2.37 FileVersion="4.9"?>
+<?AutomationStudio Version=6.0.1.886 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
-  <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
+  <Module Name="PC" Type="PC_any" Version="1.1.2.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="mappFramework516_Simulation" />
     <Parameter ID="UserPartitionSize" Value="256" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
@@ -36,15 +36,12 @@
     <Group ID="FileDevice9" />
     <Parameter ID="FileDeviceName9" Value="mappPackMLFiles" />
     <Parameter ID="FileDevicePath9" Value="USER_PATH:\PackML" />
+    <Parameter ID="ActivateFtpServer" Value="1" />
     <Group ID="FtpUser1" />
     <Parameter ID="FtpUsername1" Value="Admin" />
     <Parameter ID="FtpUserPassword1" Value="jhTZ9rja+dMo4uQziZxIvYZJ7RF3iWJ9y9zyiFMZfoo=" Description="123ABc" />
     <Parameter ID="FtpUserSalt1" Value="8r0jnJ0m" />
     <Parameter ID="FTPAccessRight1" Value="0" />
     <Parameter ID="FTPdevice1" Value="ALL" />
-    <Parameter ID="ActivateOpcUa" Value="1" />
-    <Parameter ID="OpcUaActivateAuditEvents" Value="1" />
-    <Parameter ID="OpcUa_Security_AdminRole" Value="Administrators" />
-    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
   </Module>
 </Hardware>

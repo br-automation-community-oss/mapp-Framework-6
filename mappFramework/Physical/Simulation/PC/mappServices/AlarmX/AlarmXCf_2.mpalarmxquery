@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gMpLinkAlarmXCore_Query" Type="mpalarmxquery">
+    <Group ID="mapp.AlarmX.Queries">
+      <Group ID="[0]">
+        <Property ID="Name" Value="ActiveAlarms" />
+        <Property ID="Update" Value="::AlarmMgr:AlarmQuery.UpdateCount" />
+        <Selector ID="Source" Value="Query.Pending">
+          <Property ID="Component" Value="gMpLinkAlarmXCore" />
+          <Group ID="SELECT">
+            <Group ID="[0]">
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Name" />
+            </Group>
+            <Group ID="[1]">
+              <Property ID="Column" Value="1" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Message" />
+            </Group>
+            <Group ID="[2]">
+              <Property ID="Column" Value="3" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Code" />
+            </Group>
+            <Group ID="[3]">
+              <Property ID="Column" Value="4" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Severity" />
+            </Group>
+            <Group ID="[4]">
+              <Property ID="Column" Value="5" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Scope" />
+            </Group>
+            <Group ID="[5]">
+              <Property ID="Column" Value="10" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].TimeStamp" />
+            </Group>
+            <Group ID="[6]">
+              <Property ID="Column" Value="12" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].AdditionalInfo" />
+            </Group>
+            <Group ID="[7]">
+              <Property ID="Column" Value="7" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Active" />
+            </Group>
+            <Group ID="[8]">
+              <Property ID="Column" Value="8" />
+              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Acknowledged" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

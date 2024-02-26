@@ -3,16 +3,9 @@ TYPE
 	MpPackMLStatusIDType : 	STRUCT 
 		ID : MpPackMLErrorEnum; (*Error code for mapp component*)
 		Severity : MpComSeveritiesEnum; (*Describes the type of information supplied by the status ID (success, information, warning, error)*)
-		Code : UINT; (*Code for the status ID. This error number can be used to search for additional information in the help system*)
 	END_STRUCT;
 	MpPackMLDiagType : 	STRUCT 
 		StatusID : MpPackMLStatusIDType; (*StatusID diagnostic structure*)
-	END_STRUCT;
-	MpPackMLCoreInfoType : 	STRUCT 
-		ModeCurrent : STRING[50]; (*Current mode*)
-		StateCurrent : STRING[20]; (*Current state*)
-		Diag : MpPackMLDiagType; (*Diagnostic structure for the status ID*)
-		PackTagsStatus : MpPackMLPackTagsStatusEnum; (*PackTags initialization status*)
 	END_STRUCT;
 	MpPackMLModeInfoType : 	STRUCT 
 		ModeCurrent : STRING[50]; (*Current mode*)
@@ -20,7 +13,12 @@ TYPE
 		ActivationAborted : BOOL; (*Displayed if this mode could not be enabled after an "Activate" command*)
 		Diag : MpPackMLDiagType; (*Diagnostic structure for the status ID*)
 	END_STRUCT;
-	MpPackMLUIInfoType : 	STRUCT 
+	MpPackMLBasicUIInfoType : 	STRUCT 
+		ModeCurrent : STRING[50]; (*Current mode*)
+		StateCurrent : STRING[20]; (*Current state*)
+		Diag : MpPackMLDiagType; (*Diagnostic structure for the status ID*)
+	END_STRUCT;
+	MpPackMLStatisticsUIInfoType : 	STRUCT 
 		ModeCurrent : STRING[50]; (*Current mode*)
 		StateCurrent : STRING[20]; (*Current state*)
 		Diag : MpPackMLDiagType; (*Diagnostic structure for the status ID*)

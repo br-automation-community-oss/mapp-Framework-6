@@ -14,31 +14,32 @@ END_ACTION
 ACTION ArchiveSettings:
 
 	// Audit Trail Config implementation
-	IF (HmiAudit.Commands.SaveConfig) THEN
-		HmiAudit.Commands.SaveConfig := FALSE;
-		SaveAuditConfiguration;
-		MpAuditTrailConfigSys.Save := TRUE;
-	END_IF
-
-	// After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
-	IF NOT MpAuditTrailSys.Active THEN
-		MpAuditTrailSys.Enable := TRUE;
-	END_IF
+	#warning "USER WRN: TODO: replace config FB"
+//	  IF (HmiAudit.Commands.SaveConfig) THEN
+//		  HmiAudit.Commands.SaveConfig := FALSE;
+//		  SaveAuditConfiguration;
+//		  MpAuditTrailConfigSys.Save := TRUE;
+//	  END_IF
+//
+//	  // After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
+//	  IF NOT MpAuditTrailSys.Active THEN
+//		  MpAuditTrailSys.Enable := TRUE;
+//	  END_IF
 
 END_ACTION
 
 ACTION SaveAuditConfiguration:
-
+#warning "USER WRN: TODO: replace config FB"
 	// Assign current parameters from the HMI structure to AuditTrail configuration before saving it
-	AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) +
-	HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
-	AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
-	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
-	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
-	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
+//	  AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) +
+//	  HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
+//	  AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
+//	  AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
+//	  AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
+//	  AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
 
 	// Save current archive setings to retain variable
-	ArchiveSettingsRetain := HmiAudit.Parameters.ArchiveSettings;
+//	 ArchiveSettingsRetain := HmiAudit.Parameters.ArchiveSettings;
 
  END_ACTION
 

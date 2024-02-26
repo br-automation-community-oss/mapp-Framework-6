@@ -42,4 +42,9 @@ TYPE
 		Facility : MpComFacilitiesEnum; (*Status facility*)
 		Code : UINT; (*Status / Error code*)
 	END_STRUCT;
+	MpBaseCfgArrayType : 	STRUCT  (*General purpose datatype*)
+		DataAddress : UDINT;
+		Capacity : UDINT;
+		NumberOfElements : UDINT;
+	END_STRUCT;
 END_TYPE

@@ -12,7 +12,6 @@ TYPE
         mpPACKML_ERR_CONFIG_LOAD := -1064239094, (* Error loading configuration {2:ConfigName} (ErrorCause: {1:ErrorNumber}) [Error: 10, 0xc091000a] *)
         mpPACKML_ERR_CONFIG_SAVE := -1064239092, (* Error saving configuration {2:ConfigName} (ErrorCause: {1:ErrorNumber}) [Error: 12, 0xc091000c] *)
         mpPACKML_ERR_CONFIG_INVALID := -1064239091, (* Invalid Configuration [Error: 13, 0xc091000d] *)
-        mpPACKML_INF_CORE_NOT_READY := 1083474944, (* MpPackMLCore not ready [Informational: 33792, 0x40948400] *)
         mpPACKML_ERR_DEACTIVATION_FAIL := -1064008703, (* Cannot disable mode {2:Mode} [Error: 33793, 0xc0948401] *)
         mpPACKML_ERR_MODE_ID_INVALID := -1064008702, (* Invalid mode ID {2:ModeID} [Error: 33794, 0xc0948402] *)
         mpPACKML_ERR_PV_ADR_NULL := -1064008701, (* The specified address is NULL [Error: 33795, 0xc0948403] *)
@@ -32,6 +31,7 @@ TYPE
         mpPACKML_WRN_AMBIQUOUS_MODE_INF := -2137750511, (* Wrong mode information added in the configuration: {2.TypeInfo} {1.ErrorCode} [Warning: 33809, 0x80948411] *)
         mpPACKML_ERR_INVALID_STATE_MODE := -1064008686, (* The current state is not enabled in target mode {1.ErrorCode} [Error: 33810, 0xc0948412] *)
         mpPACKML_ERR_INVALID_STATE_CHLD := -1064008685, (* The hierarchy is not synchronized. Mode change not allowed {1.ErrorCode} [Error: 33811, 0xc0948413] *)
-        mpPACKML_INF_MODE_CHG_FORBIDDEN := 1083474964 (* Mode change is forbidden: either the related config parameter are set to FALSE or destination State is disabled. [Informational: 33812, 0x40948414] *)
+        mpPACKML_INF_MODE_CHG_FORBIDDEN := 1083474964, (* Mode change is forbidden: either the related config parameter are set to FALSE or destination State is disabled. [Informational: 33812, 0x40948414] *)
+        mpPACKML_INF_TAGS_READY := 1083474965 (* PackTags handling ok [Informational: 33813, 0x40948415] *)
         );
 END_TYPE

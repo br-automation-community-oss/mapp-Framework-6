@@ -131,8 +131,9 @@ ACTION RecipeHMIcommands:
 					HmiRecipe.Commands.LoadRecipe := TRUE;
 				END_IF
 			END_IF
-
-			Header.Name := MpRecipeUIConnect.New.FileName;
+		
+		  #warning "USER WRN: TODO: fix string type"	
+			//Header.Name := MpRecipeUIConnect.New.FileName;
 			DTGetTimeRecipe.enable := TRUE;
 			REPEAT
 				DTGetTimeRecipe();

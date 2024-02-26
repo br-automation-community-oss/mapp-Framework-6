@@ -17,28 +17,6 @@ FUNCTION MpAuditStringChange : DINT (*Detects the change of a string and creates
 	END_VAR
 END_FUNCTION
 
-FUNCTION_BLOCK MpAuditTrailConfig (*Configuration for audit trail*) (* $GROUP=mapp Services,$CAT=Audit Trail,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpAudit.png *)
-	VAR_INPUT
-		MpLink : REFERENCE TO MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
-		Enable : BOOL; (*Enables/Disables the function block*) (* *) (*#PAR#;*)
-		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
-		Configuration : REFERENCE TO MpAuditTrailConfigType; (*Structure used to specify the configuration*) (* *) (*#PAR#;*)
-		Load : BOOL; (*Loads the configuration of the component*) (* *) (*#CMD#;*)
-		Save : BOOL; (*Saves the configuration of the component*) (* *) (*#CMD#;*)
-	END_VAR
-	VAR_OUTPUT
-		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
-		Error : BOOL; (*Indicates that the function block is in an error state or a command was not executed correctly*) (* *) (*#PAR#;*)
-		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
-		CommandBusy : BOOL; (*Function block currently executing command*) (* *) (*#CMD#OPT#;*)
-		CommandDone : BOOL; (*Command successfully executed by function block*) (* *) (*#CMD#;*)
-		Info : MpAuditTrailInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
-	END_VAR
-	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType;
-	END_VAR
-END_FUNCTION_BLOCK
-
 FUNCTION MpAuditCustomEvent : DINT (*Sets a user-defined event*) (* $GROUP=mapp Services,$CAT=Audit Trail,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpAudit.png *)
 	VAR_INPUT
 		MpLink : MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
@@ -53,19 +31,23 @@ FUNCTION_BLOCK MpAuditTrailUI (*UI connection to a VC4 audit trail page*) (* $GR
 		MpLink : REFERENCE TO MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
 		Enable : BOOL; (*Enables/Disables the function block*) (* *) (*#PAR#;*)
 		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
+		DeviceName : REFERENCE TO STRING[50]; (*File device (data storage medium) where the files are stored*) (* *) (*#CMD#;*)
+		FileName : REFERENCE TO STRING[255]; (*Name of the file to be stored*) (* *) (*#CMD#;*)
 		UISetup : MpAuditTrailUISetupType; (*Used to configure the elements connected to the HMI application*) (* *) (*#PAR#;*)
 		Refresh : BOOL; (*A rising edge on this command updates the event list (e.g. after the language has been changed)*) (* *) (*#CMD#;*)
-		Language : REFERENCE TO STRING[20]; (*Language ID (and optionally measurement-system) that should be used when exporting data (e,g, "en|metric")*) (* *) (*#CMD#;*)
+		Language : REFERENCE TO STRING[20]; (*Language ID that should be used when displaying data*) (* *) (*#CMD#;*)
+		MeasurementSystem : MpAuditMeasurementSystemEnum; (*Measurement system that shoule be used when displaying data*) (* *) (*#CMD#;*)
 		UIConnect : REFERENCE TO MpAuditTrailUIConnectType; (*This structure contains the parameters needed for the connection to the HMI application*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR_OUTPUT
 		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
 		Error : BOOL; (*Indicates that the function block is in an error state or a command was not executed correctly*) (* *) (*#PAR#;*)
 		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#; *)
-		Info : MpAuditInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
+		Info : MpAuditTrailInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : MpComInternalDataType;
+		InternalState : USINT;
+		InternalData : ARRAY[0..29] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -74,10 +56,13 @@ FUNCTION_BLOCK MpAuditTrail (*Centralized event audit trail*) (* $GROUP=mapp Ser
 		MpLink : REFERENCE TO MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
 		Enable : BOOL; (*Enables/Disables the function block*) (* *) (*#PAR#;*)
 		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
-		Language : REFERENCE TO STRING[20]; (*Language ID (and optionally measurement-system) that should be used when exporting data (e,g, "en|metric")*) (* *) (*#CMD#;*)
 		DeviceName : REFERENCE TO STRING[50]; (*File device (data storage medium) where the files are stored*) (* *) (*#CMD#;*)
+		FileName : REFERENCE TO STRING[255]; (*Name of the file to be stored*) (* *) (*#CMD#;*)
+		Language : REFERENCE TO STRING[20]; (*Language ID that should be used when displaying data*) (* *) (*#CMD#;*)
+		MeasurementSystem : MpAuditMeasurementSystemEnum; (*Measurement-system that should be used when exporting data*) (* *) (*#CMD#;*)
 		Export : BOOL; (*Saves the currently logged from memory to a file on the specified data storage medium ("DeviceName")*) (* *) (*#CMD#;*)
 		ExportArchive : BOOL; (*Exports the oldest archive to the specified data storage medium ("DeviceName")*) (* *) (*#CMD#;*)
+		Clear : BOOL; (*Clears the audit buffer (archives are not effected)*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR_OUTPUT
 		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
@@ -86,11 +71,13 @@ FUNCTION_BLOCK MpAuditTrail (*Centralized event audit trail*) (* $GROUP=mapp Ser
 		CommandBusy : BOOL; (*Function block currently executing command*) (* *) (*#CMD#OPT#;*)
 		CommandDone : BOOL; (*Command successfully executed by function block*) (* *) (*#CMD#;*)
 		CurrentRecord : UDINT; (*Counts all events*) (* *) (*#CMD#;*)
+		NumberEntries : UDINT; (*Counts all events that are covered by the buffer*) (* *) (*#CMD#;*)
 		ArchiveAvailable : BOOL; (*Indicates that an archive is currently available and can be exported*) (* *) (*#CMD#;*)
 		Info : MpAuditTrailInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType;
+		InternalState : {REDUND_UNREPLICABLE} UDINT;
+		InternalData : {REDUND_UNREPLICABLE} ARRAY[0..22] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -128,24 +115,19 @@ FUNCTION_BLOCK MpAuditRegPar (*Register and monitor a PV*)
 		Enable : BOOL; (*The parameter is registered on a positive edge on this input and unregistered on a negative edge*) (* *) (*#PAR#;*)
 		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
 		PVName : REFERENCE TO STRING[100]; (*Name of PV that should be monitored*) (* *) (*#CMD#;*)
-		Identiffier : REFERENCE TO STRING[100]; (*Identifier for given PV used in MpAudit (optional). If no separate identifier is given than the PV-name will be used*) (* *) (*#CMD#OPT#;*)
+		Identifier : REFERENCE TO STRING[100]; (*Identifier for given PV used in MpAudit (optional). If no separate identifier is given than the PV-name will be used*) (* *) (*#CMD#OPT#;*)
 	END_VAR
 	VAR_OUTPUT
 		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
 		Error : BOOL; (*Indicates that the function block is in an error state or a command was not executed correctly*) (* *) (*#PAR#;*)
 		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#; *)
-		Info : MpAuditTrailInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
+		Info : MpAuditRegParInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType;
+		InternalState : USINT;
+		InternalData : ARRAY[0..22] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
-
-FUNCTION MpAuditClearBuffer : DINT (*Clears the audit buffer (archives are not effected)*)
-	VAR_INPUT
-		MpLink : MpComIdentType; (*Connection to mapp*) (* *) (*#PAR#;*)
-	END_VAR
-END_FUNCTION
 
 FUNCTION MpAuditStartBatch : DINT (*Creates a event marking the start of a new batch*)
 	VAR_INPUT
@@ -161,8 +143,10 @@ FUNCTION_BLOCK MpAuditExport (*Advanced export function*) (* $GROUP=mapp Service
 		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
 		Filter : REFERENCE TO MpAuditExportFilterType; (*Filter-settings to be applied for data to export*) (* *) (*#CMD#;*)
 		ToRecord : UDINT; (*Record-number up to which (and excluding) data is exported*) (* *) (*#CMD#;*)
-		Language : REFERENCE TO STRING[20]; (*Language ID (and optionally measurement-system) that should be used when exporting data (e,g, "en|metric")*) (* *) (*#CMD#;*)
 		DeviceName : REFERENCE TO STRING[50]; (*File device (data storage medium) where the files are stored*) (* *) (*#CMD#;*)
+		FileName : REFERENCE TO STRING[255]; (*Name of the file to be stored*) (* *) (*#CMD#;*)
+		Language : REFERENCE TO STRING[20]; (*Language ID that should be used when displaying data*) (* *) (*#CMD#;*)
+		MeasurementSystem : MpAuditMeasurementSystemEnum; (*Measurement-system that should be used when exporting data*) (* *) (*#CMD#;*)
 		Export : BOOL; (*Execute export*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR_OUTPUT
@@ -172,10 +156,11 @@ FUNCTION_BLOCK MpAuditExport (*Advanced export function*) (* $GROUP=mapp Service
 		CommandBusy : BOOL; (*Function block currently executing command*) (* *) (*#CMD#OPT#;*)
 		CommandDone : BOOL; (*Command successfully executed by function block*) (* *) (*#CMD#;*)
 		Record : UDINT; (*Record-number of last exported record (set after export)*) (* *) (*#CMD#;*)
-		Info : MpAuditInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
+		Info : MpAuditTrailInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType;
+		InternalState : {REDUND_UNREPLICABLE} UDINT;
+		InternalData : {REDUND_UNREPLICABLE} ARRAY[0..19] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -186,7 +171,8 @@ FUNCTION_BLOCK MpAuditQuery (*Query Data function*) (* $GROUP=mapp Services,$CAT
 		ErrorReset : BOOL; (*Resets function block errors*) (* *) (*#PAR#;*)
 		Mode : MpAuditQueryModeEnum; (*Kind of query*) (* *) (*#CMD#;*)
 		Name : REFERENCE TO STRING[50]; (*Name of query to execute*) (* *) (*#CMD#;*)
-		Language : REFERENCE TO STRING[20]; (*Language ID (and optionally measurement-system) that should be used when exporting data (e,g, "en|metric")*) (* *) (*#CMD#;*)
+		Language : REFERENCE TO STRING[20]; (*Language ID that should be used when displaying data*) (* *) (*#CMD#;*)
+		MeasurementSystem : MpAuditMeasurementSystemEnum; (*Measurement-system that should be used when exporting data*) (* *) (*#CMD#;*)
 		Execute : BOOL; (*Execute query*) (* *) (*#CMD#;*)
 		Next : BOOL; (*Execute query - get next entries*) (* *) (*#CMD#;*)
 	END_VAR
@@ -199,6 +185,7 @@ FUNCTION_BLOCK MpAuditQuery (*Query Data function*) (* $GROUP=mapp Services,$CAT
 		Info : MpAuditQueryInfoType; (*Additional information about the component*) (* *) (*#CMD#;*)
 	END_VAR
 	VAR
-		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType;
+		InternalState : {REDUND_UNREPLICABLE} UDINT;
+		InternalData : ARRAY[0..22] OF UDINT;
 	END_VAR
 END_FUNCTION_BLOCK

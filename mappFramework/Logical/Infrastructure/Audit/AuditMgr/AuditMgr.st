@@ -21,12 +21,13 @@ PROGRAM _INIT
 	MpAuditTrailSys.Language := ADR('en');
 	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrailSys();
-
-	MpAuditTrailConfigSys.Enable := TRUE;
-	MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
-	MpAuditTrailConfigSys.Load := TRUE;
-	MpAuditTrailConfigSys();
+	
+#warning "USER WRN: TODO: replace config FB"
+//	  MpAuditTrailConfigSys.Enable := TRUE;
+//	  MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
+//	  MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
+//	  MpAuditTrailConfigSys.Load := TRUE;
+//	  MpAuditTrailConfigSys();
 
 	MpAuditTrailCEvents.Enable := TRUE;
 	MpAuditTrailCEvents.MpLink := ADR(gMpLinkCustomEvents);
@@ -103,15 +104,17 @@ PROGRAM _CYCLIC
 	// Assign MpLinks & address references
 	MpAuditTrailSys.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
-	MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
+	#warning "USER WRN: TODO: replace config FB"
+   // MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
+	//MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
 	MpAuditTrailCEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrailUISys.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailUISys.UIConnect := ADR(MpAuditTrailUIConnect);
 
 	// Call function blocks
 	MpAuditTrailSys();
-	MpAuditTrailConfigSys();
+	#warning "USER WRN: TODO: replace config FB"
+	//MpAuditTrailConfigSys();
 	MpAuditTrailCEvents();
 	MpAuditTrailUISys();
 
@@ -121,13 +124,15 @@ PROGRAM _EXIT
 
 	// Disable the function blocks to unlink the MpLinks
 	MpAuditTrailSys.Enable := FALSE;
-	MpAuditTrailConfigSys.Enable := FALSE;
+	#warning "USER WRN: TODO: replace config FB"
+	//MpAuditTrailConfigSys.Enable := FALSE;
 	MpAuditTrailCEvents.Enable := FALSE;
 	MpAuditTrailUISys.Enable := FALSE;
 
 	// Call function blocks
 	MpAuditTrailSys();
-	MpAuditTrailConfigSys();
+	#warning "USER WRN: TODO: replace config FB"
+	//MpAuditTrailConfigSys();
 	MpAuditTrailCEvents();
 	MpAuditTrailUISys();
 

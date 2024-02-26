@@ -26,8 +26,8 @@ ACTION ReportFileExplorer:
 
 	// Set or reset bits based on when a report can be created, deleted, and/or viewed.
 	HmiReport.Status.CreateAllowed := NOT(MpReportCoreSys.CommandBusy);
-	HmiReport.Status.ViewAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
-	HmiReport.Status.DeleteAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
+	HmiReport.Status.ViewAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_UI_ITEM_TYPE_USER1);
+	HmiReport.Status.DeleteAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_UI_ITEM_TYPE_USER1);
 
 	// If the selected index on screen matches the index of a given file, mark that file as selected in the UIConnect structure
 	FOR i := 0 TO ((SIZEOF(HmiReport.Status.FileNames)/SIZEOF(HmiReport.Status.FileNames[0])) - 1) DO
@@ -95,17 +95,17 @@ ACTION ReportFileExplorer:
 	
 	// Sort reports for next cycle
 	IF HmiReport.Parameters.SortType = 'NameAsc' THEN
-		MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_ASC;
+		MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_NAME_ASC;
 	ELSIF HmiReport.Parameters.SortType = 'NameDesc' THEN
-			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_DESC;
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_NAME_DESC;
 	ELSIF HmiReport.Parameters.SortType = 'DateAsc' THEN
-			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_ASC;
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_MOD_TIME_ASC;
 	ELSIF HmiReport.Parameters.SortType = 'DateDesc' THEN
-			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_MOD_TIME_DESC;
 	ELSIF HmiReport.Parameters.SortType = 'SizeAsc' THEN
-			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_ASC;
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_SIZE_ASC;
 	ELSIF HmiReport.Parameters.SortType = 'SizeDesc' THEN
-			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_DES;
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_UI_SORT_BY_SIZE_DES;
 	END_IF
 	
 END_ACTION

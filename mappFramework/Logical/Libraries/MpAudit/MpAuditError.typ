@@ -1,8 +1,8 @@
 
 TYPE
-	MpAuditErrorEnum : 
-		( (* Error numbers of library MpAudit *)
-		mpAUDIT_NO_ERROR := 0, (* No error *)
+    MpAuditErrorEnum : 
+        ( (* Error numbers of library MpAudit *)
+        mpAUDIT_NO_ERROR := 0, (* No error *)
 		mpAUDIT_ERR_ACTIVATION := -1064239103, (* Could not create component [Error: 1, 0xc0910001] *)
 		mpAUDIT_ERR_MPLINK_NULL := -1064239102, (* MpLink is NULL pointer [Error: 2, 0xc0910002] *)
 		mpAUDIT_ERR_MPLINK_INVALID := -1064239101, (* MpLink connection not allowed [Error: 3, 0xc0910003] *)
@@ -18,9 +18,6 @@ TYPE
 		mpAUDIT_ERR_TEXT_SOURCE := -1064124508, (* Text source not found [Error: 49060, 0xc092bfa4] *)
 		mpAUDIT_ERR_TEXT_NAMESPACE := -1064124507, (* Text not found in text source [Error: 49061, 0xc092bfa5] *)
 		mpAUDIT_ERR_TEXT_IDENT := -1064124506, (* Text ID not found [Error: 49062, 0xc092bfa6] *)
-		mpAUDIT_ERR_LANGUAGE := -1064124505, (* Language not found [Error: 49063, 0xc092bfa7] *)
-		mpAUDIT_WRN_LANGUAGE_FALLBACK := -2137866328, (* Fallback-language being used [Warning: 49064, 0x8092bfa8] *)
-		mpAUDIT_WRN_LANGUAGE_IGNORED := -2137866327, (* "Language" input not evaluated [Warning: 49065, 0x8092bfa9] *)
 		mpAUDIT_ERR_ARCHIVE_NOT_FOUND := -1064124502, (* Archive not found [Error: 49066, 0xc092bfaa] *)
 		mpAUDIT_ERR_ARCHIVE_WRITE := -1064124501, (* Error writing archive [Error: 49067, 0xc092bfab] *)
 		mpAUDIT_ERR_TEXT_OVERFLOW := -1064124500, (* Text too long [Error: 49068, 0xc092bfac] *)
@@ -37,8 +34,8 @@ TYPE
 		mpAUDIT_WRN_OPC_AUDIT_DISABLED := -2137866313, (*Opc Auditing is disabled [Error: 49079, 0x8092bfb7]*)
 		mpAUDIT_ERR_MONITOR_PV := -1064124488, (*PV to monitor not found [Error: 49080, 0xc092bfb8]*)
 		mpAUDIT_ERR_NO_BATCHID := -1064124487, (*No batch-ID given [Error: 49081, 0xc092bfb9]*)
-		mpAUDIT_ERR_MEASUREMENT_SYSTEM := -1064124486, (*Invalid measurement system given [Error: 49082, 0xc092bfba]*)
 		mpAUDIT_ERR_QUERY_NOT_FOUND := -1064124485, (*Query with given name not found [Error: 49083, 0xc092bfbb]*)
-		mpAUDIT_INF_QUERY_NO_DATA := 1083359164 (*No data for query [Error: 49084, 0x4092bfbc]*)
-		);
+		mpAUDIT_INF_QUERY_NO_DATA := 1083359164, (*No data for query [Error: 49084, 0x4092bfbc]*)
+        mpAUDIT_ERR_INVALID_FILE_NAME := -1064124483 (* Invalid file-name [Error: 49085, 0xc092bfbd] *)
+        );
 END_TYPE

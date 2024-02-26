@@ -34,6 +34,8 @@
         </Group>
       </Group>
       <Property ID="SecurityAdminRole" Value="Administrators" />
+      <Property ID="EngineerRole" Value="Service" />
+      <Property ID="ObserverRole" Value="Operators" />
     </Group>
     <Group ID="Limits">
       <Group ID="General">

@@ -11,6 +11,7 @@
     <Object Type="Package">TextSystem</Object>
     <Object Type="Package">mappMotion</Object>
     <Object Type="Package">AccessAndSecurity</Object>
+    <Object Type="Package">Connectivity</Object>
   </Objects>
   <Configuration>
     <AutomationRuntime Version="E4.91" />
@@ -18,6 +19,6 @@
     <DefaultTargetMemory Tasks="UserROM" />
     <Safety SafetyRelease="0.0" />
     <Transfer AddToUserPart="True" AdditionalUserDir="\Logical\UserPartition" AllowDowngrade="True" AllowInitialTransfer="False" AllowPartitioning="False" ExecuteInitExitProgram="True" ForceInitialTransfer="False" GenerateRUCPackage="true" IdentificationTypeValue="" IgnoreVersion="True" KeepNonVolatileMemory="False" PreserveVariableValues="False" ProjectConsistent="False" RebootDuringTransfer="True" RunUnitTestsAfterTransfer="False" SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" TargetIdentificationType="Always" TryToBootInRunMode="False" UserFilesIgnoreDifference="True" />
-    <OnlineConfiguration Name="ARsim_TCPIP" DeviceType="TCPIP" DeviceParameters="/IF=tcpip /LOPO=11159 /SA=1" ConnectionParameters="/RT=1000 /AM=* /DAIP=127.0.0.1 /REPO=11160 /ANSL=1" Description="" />
+    <OnlineConfiguration Name="ARsim_TCPIP" DeviceType="TCPIP" DeviceParameters="/IF=tcpip /LOPO=11159 /SA=1" ConnectionParameters="/COMT=1000 /AM=* /IP=127.0.0.1 /PT=11169 /ANSL=1" Description="" />
   </Configuration>
 </Cpu>

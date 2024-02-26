@@ -1,29 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gMpLinkAlarmXCore" Type="mpalarmxcore">
-    <Group ID="mapp.AlarmX.Core">
-      <Group ID="BySeverity">
-        <Group ID="[0]">
-          <Property ID="Severity" Value="1..9" />
-          <Selector ID="[0]" Value="Reaction">
-            <Property ID="Name" Value="Info" />
-          </Selector>
-        </Group>
-        <Group ID="[1]">
-          <Property ID="Severity" Value="10..19" />
-          <Selector ID="[0]" Value="Reaction">
-            <Property ID="Name" Value="Warning" />
-          </Selector>
-        </Group>
-        <Group ID="[2]">
-          <Property ID="Severity" Value="20..29" />
-          <Selector ID="[0]" Value="Reaction">
-            <Property ID="Name" Value="Error" />
-          </Selector>
-        </Group>
-      </Group>
-    </Group>
+  <Element ID="gMpLinkAlarmXCore_List" Type="mpalarmxlist">
     <Group ID="mapp.AlarmX.Core.Configuration">
       <Group ID="[0]">
         <Property ID="Name" Value="EmergencyStop_0" />
@@ -1509,57 +1487,12 @@
         </Selector>
       </Group>
     </Group>
-    <Group ID="mapp.AlarmX.Core.Snippets">
+    <Group ID="mapp.AlarmX.Snippets">
       <Selector ID="AutoDetect" Value="1" />
       <Group ID="[0]">
         <Property ID="Key" Value="snippet1" />
         <Selector ID="Value">
           <Property ID="PV" Value="::AlarmMgr:AlarmExamples.SnippetValue" />
-        </Selector>
-      </Group>
-    </Group>
-    <Group ID="mapp.AlarmX.Core.Queries">
-      <Group ID="[0]">
-        <Property ID="Name" Value="ActiveAlarms" />
-        <Property ID="Update" Value="::AlarmMgr:AlarmQuery.UpdateCount" />
-        <Selector ID="Source">
-          <Group ID="SELECT">
-            <Group ID="[0]">
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Name" />
-            </Group>
-            <Group ID="[1]">
-              <Property ID="Column" Value="Message" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Message" />
-            </Group>
-            <Group ID="[2]">
-              <Property ID="Column" Value="Code" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Code" />
-            </Group>
-            <Group ID="[3]">
-              <Property ID="Column" Value="Severity" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Severity" />
-            </Group>
-            <Group ID="[4]">
-              <Property ID="Column" Value="Scope" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Scope" />
-            </Group>
-            <Group ID="[5]">
-              <Property ID="Column" Value="TimeStamp" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].TimeStamp" />
-            </Group>
-            <Group ID="[6]">
-              <Property ID="Column" Value="AdditionalInformation1" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].AdditionalInfo" />
-            </Group>
-            <Group ID="[7]">
-              <Property ID="Column" Value="StateActive" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Active" />
-            </Group>
-            <Group ID="[8]">
-              <Property ID="Column" Value="StateAcknowledged" />
-              <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Acknowledged" />
-            </Group>
-          </Group>
         </Selector>
       </Group>
     </Group>

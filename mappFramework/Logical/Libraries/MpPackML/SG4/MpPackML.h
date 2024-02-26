@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpPackML 5.18.0 */
+/* MpPackML 6.0.7003 */
 
 #ifndef _MPPACKML_
 #define _MPPACKML_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpPackML_VERSION
-#define _MpPackML_VERSION 5.18.0
+#define _MpPackML_VERSION 6.0.7003
 #endif
 
 #include <bur/plctypes.h>
@@ -79,7 +79,6 @@ typedef enum MpPackMLErrorEnum
 	mpPACKML_ERR_CONFIG_LOAD = -1064239094,
 	mpPACKML_ERR_CONFIG_SAVE = -1064239092,
 	mpPACKML_ERR_CONFIG_INVALID = -1064239091,
-	mpPACKML_INF_CORE_NOT_READY = 1083474944,
 	mpPACKML_ERR_DEACTIVATION_FAIL = -1064008703,
 	mpPACKML_ERR_MODE_ID_INVALID = -1064008702,
 	mpPACKML_ERR_PV_ADR_NULL = -1064008701,
@@ -99,7 +98,8 @@ typedef enum MpPackMLErrorEnum
 	mpPACKML_WRN_AMBIQUOUS_MODE_INF = -2137750511,
 	mpPACKML_ERR_INVALID_STATE_MODE = -1064008686,
 	mpPACKML_ERR_INVALID_STATE_CHLD = -1064008685,
-	mpPACKML_INF_MODE_CHG_FORBIDDEN = 1083474964
+	mpPACKML_INF_MODE_CHG_FORBIDDEN = 1083474964,
+	mpPACKML_INF_TAGS_READY = 1083474965
 } MpPackMLErrorEnum;
 
 typedef enum MpPackMLAlarmEnum
@@ -111,19 +111,11 @@ typedef enum MpPackMLAlarmEnum
 typedef struct MpPackMLStatusIDType
 {	enum MpPackMLErrorEnum ID;
 	MpComSeveritiesEnum Severity;
-	unsigned short Code;
 } MpPackMLStatusIDType;
 
 typedef struct MpPackMLDiagType
 {	struct MpPackMLStatusIDType StatusID;
 } MpPackMLDiagType;
-
-typedef struct MpPackMLCoreInfoType
-{	plcstring ModeCurrent[51];
-	plcstring StateCurrent[21];
-	struct MpPackMLDiagType Diag;
-	enum MpPackMLPackTagsStatusEnum PackTagsStatus;
-} MpPackMLCoreInfoType;
 
 typedef struct MpPackMLModeInfoType
 {	plcstring ModeCurrent[51];
@@ -132,11 +124,17 @@ typedef struct MpPackMLModeInfoType
 	struct MpPackMLDiagType Diag;
 } MpPackMLModeInfoType;
 
-typedef struct MpPackMLUIInfoType
+typedef struct MpPackMLBasicUIInfoType
 {	plcstring ModeCurrent[51];
 	plcstring StateCurrent[21];
 	struct MpPackMLDiagType Diag;
-} MpPackMLUIInfoType;
+} MpPackMLBasicUIInfoType;
+
+typedef struct MpPackMLStatisticsUIInfoType
+{	plcstring ModeCurrent[51];
+	plcstring StateCurrent[21];
+	struct MpPackMLDiagType Diag;
+} MpPackMLStatisticsUIInfoType;
 
 typedef struct MpPackMLColorIndexStatesType
 {	unsigned char Clearing;
@@ -283,25 +281,6 @@ typedef struct MpPackMLModulePVType
 	plcstring StateInfo[256];
 } MpPackMLModulePVType;
 
-typedef struct MpPackMLCore
-{
-	/* VAR_INPUT (analog) */
-	struct MpComIdentType* MpLink;
-	/* VAR_OUTPUT (analog) */
-	signed long StatusID;
-	signed long ModeCurrent;
-	enum MpPackMLStateEnum StateCurrent;
-	struct MpPackMLCoreInfoType Info;
-	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
-	/* VAR_INPUT (digital) */
-	plcbit Enable;
-	plcbit ErrorReset;
-	/* VAR_OUTPUT (digital) */
-	plcbit Active;
-	plcbit Error;
-} MpPackMLCore_typ;
-
 typedef struct MpPackMLMode
 {
 	/* VAR_INPUT (analog) */
@@ -312,7 +291,8 @@ typedef struct MpPackMLMode
 	enum MpPackMLStateEnum StateCurrent;
 	struct MpPackMLModeInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[20];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -341,9 +321,10 @@ typedef struct MpPackMLBasicUI
 	struct MpPackMLBasicUIConnectType* UIConnect;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpPackMLUIInfoType Info;
+	struct MpPackMLBasicUIInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[26];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -359,9 +340,10 @@ typedef struct MpPackMLStatisticsUI
 	struct MpPackMLStatisticsUIConnectType* UIConnect;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpPackMLUIInfoType Info;
+	struct MpPackMLStatisticsUIInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[20];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -385,7 +367,8 @@ typedef struct MpPackMLModule
 	signed long ModeID;
 	struct MpPackMLModuleInfoType Info;
 	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
+	unsigned char InternalState;
+	unsigned long InternalData[15];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
@@ -401,7 +384,6 @@ typedef struct MpPackMLModule
 
 
 /* Prototyping of functions and function blocks */
-_BUR_PUBLIC void MpPackMLCore(struct MpPackMLCore* inst);
 _BUR_PUBLIC void MpPackMLMode(struct MpPackMLMode* inst);
 _BUR_PUBLIC void MpPackMLBasicUI(struct MpPackMLBasicUI* inst);
 _BUR_PUBLIC void MpPackMLStatisticsUI(struct MpPackMLStatisticsUI* inst);

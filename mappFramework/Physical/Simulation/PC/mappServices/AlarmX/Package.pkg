@@ -7,5 +7,6 @@
     <Object Type="File" Description="Migrated from AlarmXCfg.mpalarmxcore (mapp Services Version 5)">AlarmXCf_2.mpalarmxquery</Object>
     <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)">AlarmXHi_1.mpalarmxhistory</Object>
     <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)">AlarmXHi_2.mpalarmxquery</Object>
+    <Object Type="File">Config.mpalarmxcore</Object>
   </Objects>
 </Package>

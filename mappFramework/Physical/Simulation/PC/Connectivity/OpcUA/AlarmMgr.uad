@@ -1,65 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio FileVersion="6.0.1.886"?>
-<OpcUaSource FileVersion="10" ArVersion="E4.91">
+<?AutomationStudio FileVersion="6.0"?>
+<OpcUaSource FileVersion="10" ArVersion="6.0.7000">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x005F" />
+        <ACE RoleName="Operators" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x005F" />
         <ACE RoleName="Administrators" Access="0x017F" />
-        <ACE RoleName="Operators" Access="0x015F" />
-        <ACE RoleName="Everyone" Access="0x015F" />
-      </ACL>
-      <ACL Id="3">
-        <ACE RoleName="Service" Access="0x01FF" />
-        <ACE RoleName="Administrators" Access="0x01FF" />
-        <ACE RoleName="Operators" Access="0x01FF" />
-        <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView AclId="3">
+  <DefaultView AclId="1">
     <Module Name="&lt;Default&gt;">
       <Task Name="AlarmMgr">
+        <Variable Name="HmiAlarmX" RecursiveEnable="2" />
         <Variable Name="MpAlarmXCoreMain">
-          <Variable Name="ActiveAlarms" />
-          <Variable Name="PendingAlarms" />
           <Variable Name="ErrorReset" />
-          <Variable Name="Error" />
           <Variable Name="Active" />
         </Variable>
         <Variable Name="MpAlarmXHistoryMain">
           <Variable Name="ErrorReset" />
-          <Variable Name="Error" />
-        </Variable>
-        <Variable Name="MpAlarmXHistoryUIMain">
-          <Variable Name="ErrorReset" />
-          <Variable Name="Error" />
-        </Variable>
-        <Variable Name="MpAlarmXListUIMain">
-          <Variable Name="ErrorReset" />
-          <Variable Name="Error" />
-        </Variable>
-        <Variable Name="MpAlarmXListUIConnect">
-          <Variable Name="Details">
-            <Variable Name="Backtrace" RecursiveEnable="1">
-              <Variable Name="RecordID" RecursiveEnable="1" />
-              <Variable Name="LogbookName" RecursiveEnable="1" />
-              <Variable Name="EventID" RecursiveEnable="1" />
-              <Variable Name="Description" RecursiveEnable="1" />
-            </Variable>
-          </Variable>
-        </Variable>
-        <Variable Name="HmiAlarmX" RecursiveEnable="1">
-          <Variable Name="Status">
-            <Variable Name="TableConfig" RecursiveEnable="1" />
-          </Variable>
-        </Variable>
-        <Variable Name="QueryActiveAlarms" />
-        <Variable Name="AlarmQuery">
-          <Variable Name="Alarms" RecursiveEnable="1" />
+          <Variable Name="Active" />
         </Variable>
       </Task>
     </Module>

@@ -7,7 +7,7 @@
       <Property ID="TcpPort" Value="4840" />
     </Group>
     <Group ID="Facets">
-      <Property ID="AuditingServerFacet" Value="1" />
+      <Property ID="AuditingServerFacet" Value="0" />
     </Group>
     <Group ID="Security">
       <Group ID="MessageSecurity">
@@ -33,9 +33,6 @@
           <Property ID="UserNameIdentityToken" Value="1" />
         </Group>
       </Group>
-      <Property ID="SecurityAdminRole" Value="Administrators" />
-      <Property ID="EngineerRole" Value="Service" />
-      <Property ID="ObserverRole" Value="Operators" />
     </Group>
     <Group ID="Limits">
       <Group ID="General">

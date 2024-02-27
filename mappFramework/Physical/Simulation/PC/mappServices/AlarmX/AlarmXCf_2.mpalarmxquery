@@ -6,10 +6,12 @@
       <Group ID="[0]">
         <Property ID="Name" Value="ActiveAlarms" />
         <Property ID="Update" Value="::AlarmMgr:AlarmQuery.UpdateCount" />
+        <Property ID="UpdateMode" Value="0" />
         <Selector ID="Source" Value="Query.Pending">
           <Property ID="Component" Value="gMpLinkAlarmXCore" />
           <Group ID="SELECT">
             <Group ID="[0]">
+              <Property ID="Column" Value="0" />
               <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Name" />
             </Group>
             <Group ID="[1]">
@@ -44,6 +46,9 @@
               <Property ID="Column" Value="8" />
               <Property ID="PV" Value="::AlarmMgr:AlarmQuery.Alarms[].Acknowledged" />
             </Group>
+          </Group>
+          <Group ID="WHERE">
+            <Property ID="Connect" Value="AND" />
           </Group>
         </Selector>
       </Group>

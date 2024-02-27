@@ -23,6 +23,5 @@
     <Object Type="Package" Description="mapp Framework Audit  mapp View Files">Audit</Object>
     <Object Type="Package" Description="mapp Framework Report  mapp View Files">Report</Object>
     <Object Type="Package" Description="mapp Framework PackML  mapp View Files">PackML</Object>
-    <Object Type="File">OpcUaServer.uaserver</Object>
   </Objects>
 </Package>

@@ -14,7 +14,7 @@ ACTION AxisStateMachine:
 			// Nothing to do as we are already handling any stop or errors in these states
 
 		ELSE
-			IF ((MpAxisBasicAppAxis.Error) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error')) THEN
+			IF ((MpAxisBasicAppAxis.Error) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) THEN
 				// Check alarm reaction
 				ResetAllAxisCommands;
 				State := STATE_ABORTING;
@@ -105,7 +105,7 @@ ACTION AxisStateMachine:
 			AxisControl.Status.Busy := FALSE;
 			IF (ReferenceEdgePos.Q) THEN
 				State := STATE_REFERENCE;
-			ELSIF ((NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Warning')) AND (AutomaticCommand(AxisControl.Command))) THEN
+			ELSIF ((NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning')) AND (AutomaticCommand(AxisControl.Command))) THEN
 				State := STATE_AUTOMATIC_OPERATION;
 			ELSIF (ManualCommand(AxisControl.Command)) THEN
 				State := STATE_MANUAL_OPERATION;
@@ -121,7 +121,7 @@ ACTION AxisStateMachine:
 		STATE_AUTOMATIC_OPERATION:
 			AxisControl.Status.Status := 'Automatic running';
 			AxisControl.Status.Busy := TRUE;
-			IF MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error') THEN
+			IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
 				AxisControl.Command.Stop := TRUE;
 			END_IF
 
@@ -149,7 +149,7 @@ ACTION AxisStateMachine:
 			MpAxisBasicAppAxis.Stop := MpAxisBasicAppAxis.PowerOn;
 			IF ((NOT MpAxisBasicAppAxis.PowerOn) OR (MpAxisBasicAppAxis.Stopped)) THEN
 				MpAxisBasicAppAxis.Stop := FALSE;
-				IF (MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'SafetyError')) THEN
+				IF (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'SafetyError')) THEN
 					// Safety errors also power off the axis
 					MpAxisBasicAppAxis.Power := FALSE;
 					IF (NOT MpAxisBasicAppAxis.PowerOn) THEN
@@ -169,7 +169,7 @@ ACTION AxisStateMachine:
 		// In this State the module attempts to clear any outstanding errors.  No hazardous motion should occur in this State.
 		STATE_RESETTING:
 			ResetAllAxisCommands;
-			IF (AxisControl.Command.Reset) OR ((NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error')) AND ZeroPendingAlarmsEdgePos.Q) THEN
+			IF (AxisControl.Command.Reset) OR ((NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) AND ZeroPendingAlarmsEdgePos.Q) THEN
 				AxisControl.Status.Busy := TRUE;
 				AxisControl.Command.Reset := FALSE;
 				MpAxisBasicAppAxis.ErrorReset := TRUE;
@@ -180,7 +180,7 @@ ACTION AxisStateMachine:
 				MpAxisBasicAppAxis.ErrorReset := FALSE;
 			END_IF
 
-			IF ((NOT MpAxisBasicAppAxis.Error) AND (NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error'))) THEN
+			IF ((NOT MpAxisBasicAppAxis.Error) AND (NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error'))) THEN
 				AxisControl.Status.Busy := FALSE;
 				IF (NOT MpAxisBasicAppAxis.PowerOn) THEN
 					State := STATE_POWER_ON;
@@ -198,7 +198,7 @@ ACTION AxisStateMachine:
 	MpAxisBasicAppAxis();
 
 	// Status assignments
-	AxisControl.Status.ErrorActive := MpAxisBasicAppAxis.Error OR (MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error'));
+	AxisControl.Status.ErrorActive := MpAxisBasicAppAxis.Error OR (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error'));
 	AxisControl.Status.IsHomed := MpAxisBasicAppAxis.IsHomed;
 	AxisControl.Status.IsPowered := MpAxisBasicAppAxis.PowerOn;
 	AxisControl.Status.PLCopenState := MpAxisBasicAppAxis.Info.AxisAdditionalInfo.PLCopenState;

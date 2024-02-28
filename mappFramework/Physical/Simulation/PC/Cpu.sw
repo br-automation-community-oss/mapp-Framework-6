@@ -4,27 +4,26 @@
   <TaskClass Name="Cyclic#1">
     <Task Name="AlarmMgr" Source="Infrastructure.AlarmX.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AppAxis_1" Source="MachineControl.AppAxis_1.AppAxis_1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="AxisMgr" Source="MachineControl.AxisTemplate.AxisMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />
-  <TaskClass Name="Cyclic#4">
-    <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-  </TaskClass>
-  <TaskClass Name="Cyclic#5">
-    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Description="USB manager" Language="IEC" Debugging="true" />
-    <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-  </TaskClass>
-  <TaskClass Name="Cyclic#6">
-    <Task Name="PackMLMgr" Source="Infrastructure.PackML.PackMLMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-  </TaskClass>
+  <TaskClass Name="Cyclic#4" />
+  <TaskClass Name="Cyclic#5" />
+  <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8">
     <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Description="USB manager" Language="IEC" Debugging="true" />
+    <Task Name="PackMLMgr" Source="Infrastructure.PackML.PackMLMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
+  <DataObjects>
+    <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
+  </DataObjects>
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
@@ -40,6 +39,7 @@
     <BinaryObject Name="SLO_Pos" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SLO_Speed" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvConfig" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="McAcpSim" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
@@ -92,6 +92,8 @@
     <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CustomCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config_2" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config_3" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />

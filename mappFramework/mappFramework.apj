@@ -9,7 +9,7 @@
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
     <mappCockpit Version="6.0.7013" />
-    <mappMotion McDriveLog="6.0.7001" McProfGen="6.0.7001" Version="6.0.7001" />
+    <mappMotion McAcpDrv="6.0.7001" McAcpSim="6.0.7001" McAcpSys="6.0.7001" McDriveLog="6.0.7001" McProfGen="6.0.7001" Version="6.0.7001" />
     <mappServices Version="6.0.7003" />
     <mappView Version="6.0.7012" />
     <OpcUaCs Version="6.0.0" />

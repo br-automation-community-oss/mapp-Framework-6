@@ -21,6 +21,10 @@
         <Variable Name="MpAlarmXCoreMain">
           <Variable Name="ErrorReset" />
           <Variable Name="Active" />
+          <Variable Name="ActiveAlarms" />
+          <Variable Name="PendingAlarms" />
+          <Variable Name="UnacknowledgedAlarms" />
+          <Variable Name="UnconfirmedAlarms" />
         </Variable>
         <Variable Name="MpAlarmXHistoryMain">
           <Variable Name="ErrorReset" />

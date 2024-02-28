@@ -33,6 +33,9 @@
           <Property ID="UserNameIdentityToken" Value="1" />
         </Group>
       </Group>
+      <Property ID="SecurityAdminRole" Value="Administrators" />
+      <Property ID="EngineerRole" Value="Everyone" />
+      <Property ID="ObserverRole" Value="Everyone" />
     </Group>
     <Group ID="Limits">
       <Group ID="General">

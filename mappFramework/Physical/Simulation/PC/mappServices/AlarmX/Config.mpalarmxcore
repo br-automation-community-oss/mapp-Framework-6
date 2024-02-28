@@ -4,7 +4,7 @@
   <Element ID="gMpLinkAlarmXCore" Type="mpalarmxcore">
     <Group ID="mapp.Gen">
       <Property ID="Enable" Value="TRUE" />
-      <Property ID="TaskClass" Value="0" />
+      <Property ID="TaskClass" Value="8" />
     </Group>
     <Selector ID="mapp.AlarmX.Create" Value="Disabled" />
     <Group ID="mapp.AlarmX.Core.Retain">

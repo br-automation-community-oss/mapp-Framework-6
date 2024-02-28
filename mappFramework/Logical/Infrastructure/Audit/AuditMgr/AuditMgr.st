@@ -10,8 +10,13 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreateAudit(enable := TRUE, pDevice := ADR('mappAuditFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreateAudit.status = ERR_FUB_BUSY) DO
+		DirCreateAudit();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreateAudit.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreateAudit.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateAudit.status = ERR_OK) THEN
 		DirCreateAudit(enable := FALSE);
 	END_IF
 

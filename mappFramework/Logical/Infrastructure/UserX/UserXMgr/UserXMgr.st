@@ -10,8 +10,13 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreateUser(enable := TRUE, pDevice := ADR('mappUserXFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreateUser.status = ERR_FUB_BUSY) DO
+		DirCreateUser();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreateUser.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreateUser.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateUser.status = ERR_OK) THEN
 		DirCreateUser(enable := FALSE);
 	END_IF
 

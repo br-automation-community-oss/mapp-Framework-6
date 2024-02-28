@@ -2,12 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkUserXLogin" Type="mpuserxlogin">
-    <Selector ID="Alarms" Value="MpAlarmX">
-      <Group ID="mapp.AlarmX.Core.Configuration">
-        <Group ID="[0]">
-          <Property ID="Message" Value="{$mappFramework/UserX/Alarms/UserLocked}" />
-        </Group>
-      </Group>
-    </Selector>
+    <Group ID="mapp.Gen">
+      <Property ID="Enable" Value="TRUE" />
+      <Property ID="Audit" Value="TRUE" />
+    </Group>
   </Element>
 </Configuration>

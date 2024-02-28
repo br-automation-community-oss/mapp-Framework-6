@@ -2,7 +2,12 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpPackMLModuleMain" Type="mppackmlsynchronizedmodule">
-    <Group ID="mapp.Gen" />
+    <Group ID="mapp.Gen">
+      <Property ID="Enable" Value="TRUE" />
+      <Selector ID="Auditing" Value="MpAudit">
+        <Selector ID="AuditStateDescription" Value="0" />
+      </Selector>
+    </Group>
     <Group ID="Module">
       <Property ID="Name" Value="Main" />
       <Selector ID="Parent" Value="1">

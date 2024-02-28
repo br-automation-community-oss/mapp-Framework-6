@@ -2,23 +2,13 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkFileManagerUIReport" Type="mpfilemanagerui">
+    <Group ID="mapp.Gen">
+      <Property ID="Enable" Value="TRUE" />
+    </Group>
     <Group ID="FileMan">
       <Group ID="CustomizedFileType">
         <Property ID="[0]" Value=".pdf" />
       </Group>
     </Group>
-    <Selector ID="Alarms" Value="MpAlarmX">
-      <Group ID="mapp.AlarmX.Core.Configuration">
-        <Group ID="[0]">
-          <Property ID="Message" Value="Report - {$mappFramework/File/Alarms/DeviceNotFound} " />
-        </Group>
-        <Group ID="[1]">
-          <Property ID="Message" Value="Report - {$mappFramework/File/Alarms/AlreadyExisting}" />
-        </Group>
-        <Group ID="[2]">
-          <Property ID="Message" Value="Report - {$mappFramework/File/Alarms/FileSystemError}" />
-        </Group>
-      </Group>
-    </Selector>
   </Element>
 </Configuration>

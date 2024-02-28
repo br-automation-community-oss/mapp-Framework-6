@@ -2,11 +2,16 @@
 <?AutomationStudio Version=6.0.1.886 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="PC" Type="PC_any" Version="1.1.2.0" OrderNumber="PC">
-    <Parameter ID="ConfigurationID" Value="mappFramework516_Simulation" />
+    <Parameter ID="ConfigurationID" Value="mappFramework6_Simulation" />
     <Parameter ID="UserPartitionSize" Value="256" />
+    <Parameter ID="TaskClassIdleTime" Value="10000" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
     <Parameter ID="Cyclic1Stack" Value="32000" />
+    <Parameter ID="Cyclic4Duration" Value="10000" />
+    <Parameter ID="Cyclic4Stack" Value="32000" />
     <Parameter ID="Cyclic5Duration" Value="10000" />
+    <Parameter ID="Cyclic5Stack" Value="32000" />
+    <Parameter ID="Cyclic6Duration" Value="20000" />
     <Parameter ID="Cyclic8Duration" Value="10000" />
     <Parameter ID="Cyclic8Stack" Value="32000" />
     <Group ID="FileDevice1" />
@@ -19,23 +24,26 @@
     <Parameter ID="FileDeviceName3" Value="mappBackupFiles" />
     <Parameter ID="FileDevicePath3" Value="USER_PATH:\Backup" />
     <Group ID="FileDevice4" />
-    <Parameter ID="FileDeviceName4" Value="mappRecipeFiles" />
-    <Parameter ID="FileDevicePath4" Value="USER_PATH:\Recipe" />
+    <Parameter ID="FileDeviceName4" Value="Test" />
+    <Parameter ID="FileDevicePath4" Value="USER_PATH:\Test" />
     <Group ID="FileDevice5" />
-    <Parameter ID="FileDeviceName5" Value="mappUserXFiles" />
-    <Parameter ID="FileDevicePath5" Value="USER_PATH:\UserX" />
+    <Parameter ID="FileDeviceName5" Value="RecipeFiles" />
+    <Parameter ID="FileDevicePath5" Value="USER_PATH:\Recipe" />
     <Group ID="FileDevice6" />
-    <Parameter ID="FileDeviceName6" Value="mappAuditFiles" />
-    <Parameter ID="FileDevicePath6" Value="USER_PATH:\Audit" />
+    <Parameter ID="FileDeviceName6" Value="mappUserXFiles" />
+    <Parameter ID="FileDevicePath6" Value="USER_PATH:\UserX" />
     <Group ID="FileDevice7" />
-    <Parameter ID="FileDeviceName7" Value="mappDataFiles" />
-    <Parameter ID="FileDevicePath7" Value="USER_PATH:\Data" />
+    <Parameter ID="FileDeviceName7" Value="mappAuditFiles" />
+    <Parameter ID="FileDevicePath7" Value="USER_PATH:\Audit" />
     <Group ID="FileDevice8" />
-    <Parameter ID="FileDeviceName8" Value="mappReportFiles" />
-    <Parameter ID="FileDevicePath8" Value="USER_PATH:\Report" />
+    <Parameter ID="FileDeviceName8" Value="mappDataFiles" />
+    <Parameter ID="FileDevicePath8" Value="USER_PATH:\Data" />
     <Group ID="FileDevice9" />
-    <Parameter ID="FileDeviceName9" Value="mappPackMLFiles" />
-    <Parameter ID="FileDevicePath9" Value="USER_PATH:\PackML" />
+    <Parameter ID="FileDeviceName9" Value="mappReportFiles" />
+    <Parameter ID="FileDevicePath9" Value="USER_PATH:\Report" />
+    <Group ID="FileDevice10" />
+    <Parameter ID="FileDeviceName10" Value="mappPackMLFiles" />
+    <Parameter ID="FileDevicePath10" Value="USER_PATH:\PackML" />
     <Parameter ID="ActivateFtpServer" Value="1" />
     <Group ID="FtpUser1" />
     <Parameter ID="FtpUsername1" Value="Admin" />

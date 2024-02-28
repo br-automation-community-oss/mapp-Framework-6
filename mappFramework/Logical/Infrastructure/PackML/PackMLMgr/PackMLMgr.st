@@ -10,10 +10,15 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreatePackML(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreatePackML.status = ERR_FUB_BUSY) DO
+		DirCreatePackML();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreatePackML.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreatePackML.status = fiERR_DIR_ALREADY_EXIST OR (DirCreatePackML.status = ERR_OK) THEN
 		DirCreatePackML(enable := FALSE);
-	END_IF 
+	END_IF
 	
 	// Initialize mapp function blocks
 	MpPackMLModuleMain.Parameters := ADR(MpPackMLModuleParMain);

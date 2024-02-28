@@ -8,37 +8,39 @@
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />
-  <TaskClass Name="Cyclic#4" />
-  <TaskClass Name="Cyclic#5" />
-  <TaskClass Name="Cyclic#6" />
-  <TaskClass Name="Cyclic#7" />
-  <TaskClass Name="Cyclic#8">
-    <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  <TaskClass Name="Cyclic#4">
+    <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
+  <TaskClass Name="Cyclic#5">
     <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Description="USB manager" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
+  <TaskClass Name="Cyclic#6">
     <Task Name="PackMLMgr" Source="Infrastructure.PackML.PackMLMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
+  <TaskClass Name="Cyclic#7" />
+  <TaskClass Name="Cyclic#8">
+    <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
   <Binaries>
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McProfGen" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mcacpdrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCLang" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="arflatprv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FWRules" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="arcoal" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvLoader" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="SLO_Pos" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SLO_Speed" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="mvConfig" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
@@ -47,11 +49,9 @@
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="RecipeFile" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="AlarmXCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Axis1Alm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="VAppAxis1" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="RecipeCSV" Source="" Memory="UserROM" Language="Binary" />
@@ -59,16 +59,38 @@
     <BinaryObject Name="AppAxis1" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="BackupCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="AlarmXHist" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="BackupFile" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UnitCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="CustomCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AdvCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SimpleCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ReportFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UaCsConfig" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm_C" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PackMLCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AuditCfg_T" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXHi_2" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm_Q" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXHi_1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PackMLMain" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AuditCfg_Q" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="PackMLUnit" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="CustomCf_1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXCf_2" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXCf_1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="CustomCfg_" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm_1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXCfg_" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm_L" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config_1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="arflatprv" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXHist" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="CustomCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
@@ -83,18 +105,6 @@
     <LibraryObject Name="AsUSB" Source="Libraries.AsUSB.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="AsARCfg" Source="Libraries.AsARCfg.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="IecCheck" Source="Libraries.IecCheck.lby" Memory="UserROM" Language="IEC" Debugging="true" />
-    <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="aseth" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="ashw" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="dataobj" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="aruser" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="CoTrace" Source="Libraries.CoTrace.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpServer" Source="Libraries.MpServer.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpAlarmX" Source="Libraries.MpAlarmX.lby" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -113,5 +123,19 @@
     <LibraryObject Name="McAcpPar" Source="Libraries.McAcpPar.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McPureVAx" Source="Libraries.McPureVAx.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpAxis" Source="Libraries.MpAxis.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="arcoal" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="aseth" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="ashw" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="dataobj" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="aruser" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="uacoalprv" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

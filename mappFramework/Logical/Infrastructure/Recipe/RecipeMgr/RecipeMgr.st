@@ -8,7 +8,7 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreateRecipe(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
+	DirCreateRecipe(enable := TRUE, pDevice := ADR('Test'), pName := ADR('/'));
 
 	// Wait for DirCreate_0 to complete.
 	WHILE (DirCreateRecipe.status = ERR_FUB_BUSY) DO
@@ -36,8 +36,8 @@ PROGRAM _INIT
 	MpRecipeUISys();
 
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
-	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
+	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"RecipeFiles","text":"CF/PLC"}';
+	HmiRecipe.Parameters.DeviceName := 'RecipeFiles';
 	MpRecipeSys.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeSys.Enable := TRUE;
 	MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
@@ -168,7 +168,7 @@ PROGRAM _INIT
 	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUIRecipe.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'RecipeFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
 	MpFileManagerUIRecipe();
 

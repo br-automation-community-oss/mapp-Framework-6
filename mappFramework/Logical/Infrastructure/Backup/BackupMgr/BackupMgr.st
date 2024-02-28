@@ -10,8 +10,13 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreateBackup(enable := TRUE, pDevice := ADR('mappBackupFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreateBackup.status = ERR_FUB_BUSY) DO
+		DirCreateBackup();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreateBackup.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreateBackup.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateBackup.status = ERR_OK) THEN
 		DirCreateBackup(enable := FALSE);
 	END_IF
 

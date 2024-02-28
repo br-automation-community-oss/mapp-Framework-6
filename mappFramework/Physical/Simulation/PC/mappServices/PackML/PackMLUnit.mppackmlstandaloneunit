@@ -4,7 +4,7 @@
   <Element ID="gPackMLStandaloneUnit" Type="mppackmlstandaloneunit">
     <Group ID="mapp.Gen">
       <Property ID="Enable" Value="TRUE" />
-      <Property ID="TaskClass" Value="4" />
+      <Property ID="TaskClass" Value="8" />
       <Property ID="Audit" Value="TRUE" />
     </Group>
     <Group ID="Settings">

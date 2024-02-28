@@ -2,10 +2,11 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkAuditTrail" Type="mpaudittrail">
+    <Group ID="mapp.Gen">
+      <Property ID="Enable" Value="TRUE" />
+      <Property ID="TaskClass" Value="8" />
+    </Group>
     <Group ID="Audit">
-      <Selector ID="Memory" Value="0">
-        <Property ID="Type" Value="0" />
-      </Selector>
       <Group ID="Events">
         <Property ID="[0]" Value="33" />
         <Property ID="[1]" Value="2" />
@@ -14,93 +15,89 @@
         <Property ID="[4]" Value="48" />
         <Property ID="[5]" Value="149" />
       </Group>
+      <Selector ID="Memory" Value="0">
+        <Property ID="Size" Value="200" />
+        <Property ID="Interval" Value="60" />
+        <Property ID="BufferSize" Value="10" />
+      </Selector>
       <Group ID="TextSource">
         <Property ID="DisplayFormat" Value="MpAudit/Display/SysF/Event/Root" />
         <Property ID="ExportFormat" Value="MpAudit/SysF/Event/Root" />
       </Group>
       <Selector ID="Archive" Value="On">
+        <Property ID="Mode" Value="0" />
         <Property ID="Time" Value="57600000" />
         <Property ID="MaxSize" Value="1" />
       </Selector>
       <Group ID="Export">
+        <Property ID="RawData" Value="FALSE" />
         <Property ID="FileType" Value="1" />
+        <Property ID="Encrypt" Value="TRUE" />
         <Property ID="PassPhrase" Value="123ABc" Description="Password (or passphrase) for file/archive encryption 123ABc" />
       </Group>
     </Group>
     <Group ID="Monitor">
       <Group ID="0">
         <Property ID="pv" Value="::AuditMgr:VariableMonitorExample" />
-      </Group>
-    </Group>
-    <Group ID="Queries">
-      <Group ID="0">
-        <Property ID="Name" Value="RecipeEvents" />
-        <Property ID="Update" Value="::AuditMgr:AuditQuery.UpdateCountRecipe" />
-        <Group ID="SELECT">
-          <Group ID="0">
-            <Property ID="Column" Value="op" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Op" />
-          </Group>
-          <Group ID="1">
-            <Property ID="Column" Value="evtime" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].EvTime" />
-          </Group>
-          <Group ID="2">
-            <Property ID="Column" Value="dtext" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].DText" />
-          </Group>
-          <Group ID="3">
-            <Property ID="Column" Value="text" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Text" />
-          </Group>
-        </Group>
-        <Group ID="WHERE">
-          <Group ID="0">
-            <Property ID="Column" Value="ev" />
-            <Selector ID="CompareTo">
-              <Property ID="Value" Value="48" />
-            </Selector>
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="1">
-        <Property ID="Name" Value="UserEvents" />
-        <Property ID="Update" Value="::AuditMgr:AuditQuery.UpdateCount" />
-        <Group ID="SELECT">
-          <Group ID="0">
-            <Property ID="Column" Value="op" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Op" />
-          </Group>
-          <Group ID="1">
-            <Property ID="Column" Value="evtime" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].EvTime" />
-          </Group>
-          <Group ID="2">
-            <Property ID="Column" Value="dtext" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].DText" />
-          </Group>
-          <Group ID="3">
-            <Property ID="Column" Value="text" />
-            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Text" />
-          </Group>
-        </Group>
-        <Group ID="WHERE">
-          <Group ID="0">
-            <Property ID="Column" Value="ev" />
-            <Selector ID="CompareTo">
-              <Property ID="Value" Value="2" />
-            </Selector>
-          </Group>
-        </Group>
+        <Property ID="id" />
       </Group>
     </Group>
     <Selector ID="Alarms" Value="MpAlarmX">
       <Group ID="mapp.AlarmX.Core.Configuration">
         <Group ID="[0]">
+          <Property ID="Name" Value="ArchiveAvailable" />
           <Property ID="Message" Value="{$mappFramework/Audit/Alarms/ArchiveAvailable}" />
+          <Property ID="Code" Value="0" />
+          <Property ID="Severity" Value="1" />
+          <Selector ID="Behavior" Value="PersistentAlarm">
+            <Property ID="AutoReset" Value="FALSE" />
+            <Property ID="Acknowledge" Value="1" />
+            <Property ID="Confirm" Value="0" />
+            <Property ID="MultipleInstances" Value="FALSE" />
+            <Property ID="ReactionWhilePending" Value="TRUE" />
+            <Property ID="Async" Value="FALSE" />
+            <Group ID="DataUpdate">
+              <Group ID="Activation">
+                <Property ID="TimeStamp" Value="FALSE" />
+                <Property ID="Snippets" Value="FALSE" />
+              </Group>
+            </Group>
+            <Group ID="Recording">
+              <Property ID="InactiveToActive" Value="TRUE" />
+              <Property ID="ActiveToInactive" Value="FALSE" />
+              <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+              <Property ID="AcknowledgedToUnacknowledged" Value="TRUE" />
+              <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+              <Property ID="ConfirmedToUnconfirmed" Value="TRUE" />
+              <Property ID="Update" Value="FALSE" />
+            </Group>
+          </Selector>
+          <Property ID="Disable" Value="FALSE" />
+          <Property ID="AdditionalInformation1" />
+          <Property ID="AdditionalInformation2" />
         </Group>
         <Group ID="[1]">
+          <Property ID="Name" Value="MaxArchives" />
           <Property ID="Message" Value="{$mappFramework/Audit/Alarms/MaxArchives}" />
+          <Property ID="Code" Value="0" />
+          <Property ID="Severity" Value="1" />
+          <Selector ID="Behavior" Value="EdgeAlarm">
+            <Property ID="AutoReset" Value="TRUE" />
+            <Property ID="Acknowledge" Value="1" />
+            <Property ID="Confirm" Value="0" />
+            <Property ID="MultipleInstances" Value="TRUE" />
+            <Property ID="ReactionWhilePending" Value="TRUE" />
+            <Property ID="Async" Value="FALSE" />
+            <Group ID="Recording">
+              <Property ID="InactiveToActive" Value="TRUE" />
+              <Property ID="ActiveToInactive" Value="FALSE" />
+              <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+              <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            </Group>
+          </Selector>
+          <Property ID="Disable" Value="FALSE" />
+          <Property ID="AdditionalInformation1" />
+          <Property ID="AdditionalInformation2" />
         </Group>
       </Group>
     </Selector>

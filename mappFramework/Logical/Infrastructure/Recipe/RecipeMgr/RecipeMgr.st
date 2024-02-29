@@ -8,7 +8,7 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreateRecipe(enable := TRUE, pDevice := ADR('Test'), pName := ADR('/'));
+	DirCreateRecipe(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
 
 	// Wait for DirCreate_0 to complete.
 	WHILE (DirCreateRecipe.status = ERR_FUB_BUSY) DO
@@ -23,6 +23,10 @@ PROGRAM _INIT
 	// Initialize mapp function blocks
 	// By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format"
 	// page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
+	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
+	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
+	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
+	
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
 	MpRecipeUISetup.RecipeListSize := 9;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
@@ -33,11 +37,11 @@ PROGRAM _INIT
 	MpRecipeUISys.Enable := TRUE;
 	MpRecipeUISys.UIConnect := ADR(MpRecipeUIConnect);
 	MpRecipeUISys.UISetup := MpRecipeUISetup;
+	MpRecipeUISys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipeUISys.Category := ADR(HmiRecipe.Parameters.Category);
+	MpRecipeUISys.Header := ADR(Header);
 	MpRecipeUISys();
 
-	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"RecipeFiles","text":"CF/PLC"}';
-	HmiRecipe.Parameters.DeviceName := 'RecipeFiles';
 	MpRecipeSys.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeSys.Enable := TRUE;
 	MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
@@ -49,7 +53,7 @@ PROGRAM _INIT
 	WHILE NOT(MpRecipeSys.Active OR MpRecipeSys.Error) DO
 		MpRecipeSys();
 		MpRecipeUISys();
-	END_WHILE
+	END_WHILE	 
 
 	// Register the preview variables to the recipe. These preview variables are a buffer between the recipe system and the
 	// variables used at runtime on the machine (Parameters, MachineSettings). By using these preview variables, you can
@@ -71,12 +75,12 @@ PROGRAM _INIT
 	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe,
 	// which is further down in the Initialization program.
 	#warning "USER WRN: TODO: Recipe FBs not active in INIT"
-//	  WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
-//		  MpRecipeRegPar_PreviewPar();
-//	  END_WHILE
-//	  WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
-//		  MpRecipeRegPar_PreviewCfg();
-//	  END_WHILE
+	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
+		MpRecipeRegPar_PreviewPar();
+	END_WHILE
+	WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
+		MpRecipeRegPar_PreviewCfg();   
+	END_WHILE
 
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
@@ -91,8 +95,8 @@ PROGRAM _INIT
 	MpRecipeSys.Load := TRUE;
    #warning "USER WRN: TODO: Recipe FBs not active in INIT"
 //	  WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
-//		  MpRecipeSys();
-//		  MpRecipeUISys();
+		MpRecipeSys();
+		MpRecipeUISys();
 //	  END_WHILE
 	MachineSettings := MachineSettingsPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
@@ -133,8 +137,8 @@ PROGRAM _INIT
 	MpRecipeSys.Load := TRUE;
 	#warning "USER WRN: TODO: Recipe FBs not active in INIT"
 //	  WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
-//		  MpRecipeSys();
-//		  MpRecipeUISys();
+	   MpRecipeSys();
+		MpRecipeUISys();
 //	  END_WHILE
 	Parameters := ParametersPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
@@ -157,8 +161,6 @@ PROGRAM _INIT
 		HmiRecipe.Status.ProductRecipeLoaded := FALSE;
 	END_IF
 
-
-
 	MpRecipeSys.ErrorReset := MpRecipeSys.Error;
 	MpRecipeSys.Load := FALSE;
 	MpRecipeSys();
@@ -171,7 +173,7 @@ PROGRAM _INIT
 	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUIRecipe.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'RecipeFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
 	MpFileManagerUIRecipe();
 
@@ -215,6 +217,9 @@ PROGRAM _CYCLIC
 	MpRecipeSys.Header := ADR(Header);
 	MpRecipeUISys.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeUISys.UIConnect := ADR(MpRecipeUIConnect);
+	MpRecipeUISys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipeUISys.Category := ADR(HmiRecipe.Parameters.Category);
+	MpRecipeUISys.Header := ADR(Header);
 	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');

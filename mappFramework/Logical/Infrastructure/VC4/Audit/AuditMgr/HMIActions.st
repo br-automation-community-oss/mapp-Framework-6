@@ -17,7 +17,8 @@ ACTION ArchiveSettings:
 	IF (HmiAudit.Commands.SaveConfig) THEN
 		HmiAudit.Commands.SaveConfig := FALSE;
 		SaveAuditConfiguration;
-		MpAuditTrailConfigSys.Save := TRUE;
+#warning "USER WRN: TODO: replace config FB"
+//		MpAuditTrailConfigSys.Save := TRUE;
 	END_IF
 
 	// After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
@@ -30,12 +31,13 @@ END_ACTION
 ACTION SaveAuditConfiguration:
 
 	// Assign current parameters from the HMI structure to AuditTrail configuration before saving it
-	AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) +
-	HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
-	AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
-	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
-	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
-	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
+#warning "USER WRN: TODO: replace config FB"
+//	AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) +
+//    HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
+//    AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
+//    AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
+//    AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
+//    AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
 
 	// Save current archive setings to retain variable
 	ArchiveSettingsRetain := HmiAudit.Parameters.ArchiveSettings;

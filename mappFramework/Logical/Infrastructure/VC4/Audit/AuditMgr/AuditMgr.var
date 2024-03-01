@@ -2,7 +2,7 @@
 VAR
 	DirCreateAudit : DirCreate; (*DirCreate instance*)
 	MpAuditTrailSys : MpAuditTrail; (*AuditTrail for regular mapp events*)
-	MpAuditTrailConfigSys : MpAuditTrailConfig; (*AuditTrail configuration*)
+	FixIt2 : BOOL; (*MpAuditTrailConfigSys : MpAuditTrailConfig; *)(*AuditTrail configuration*)
 	MpAuditTrailCEvents : MpAuditTrail; (*AuditTrail for custom events*)
 	QueryUserEvents : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
 	MpAuditTrailUISys : MpAuditTrailUI; (*AuditTrail UI interface*)
@@ -19,7 +19,7 @@ VAR
 	HmiAudit : AuditHmiInterfaceType; (*HMI interface structure*)
 	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType; (*Custom events*)
 	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
-	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
+	FixIt : BOOL; (*AuditTrailConfig : MpAuditTrailConfigType; *) (*Configuration structure for changing archiving setup*)
 	MpAuditTrailUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
 END_VAR
 VAR RETAIN

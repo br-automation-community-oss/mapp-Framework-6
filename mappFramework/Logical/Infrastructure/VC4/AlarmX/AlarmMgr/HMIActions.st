@@ -14,25 +14,26 @@ ACTION VC4_Cyclic:
 	
 	// Language assignments	  
 	CASE HmiAlarmX.Parameters.Language OF
-	
-		// English
-		0:
-			MpAlarmXListUIConnect.Language := 'en';
-			MpAlarmXHistoryMain.Language := ADR('en');
-			MpAlarmXHistoryUIConnect.Language := 'en';
-			QueryActiveAlarms.Language := ADR('en');
-		// German
-		1:
-			MpAlarmXListUIConnect.Language := 'de';
-			MpAlarmXHistoryMain.Language := ADR('de');
-			MpAlarmXHistoryUIConnect.Language := 'de';
-			QueryActiveAlarms.Language := ADR('de');
-		// Chinese
-		2:
-			MpAlarmXListUIConnect.Language := 'zh';
-			MpAlarmXHistoryMain.Language := ADR('zh');
-			MpAlarmXHistoryUIConnect.Language := 'zh';
-			QueryActiveAlarms.Language := ADR('zh');	  
+  
+#warning "USER WRN: TODO: replace config FB"	
+//		// English
+//		0:
+//			MpAlarmXListUIConnect.Language := 'en';
+//			MpAlarmXHistoryMain.Language := ADR('en');
+//			MpAlarmXHistoryUIConnect.Language := 'en';
+//			QueryActiveAlarms.Language := ADR('en');
+//		// German
+//		1:
+//			MpAlarmXListUIConnect.Language := 'de';
+//			MpAlarmXHistoryMain.Language := ADR('de');
+//			MpAlarmXHistoryUIConnect.Language := 'de';
+//			QueryActiveAlarms.Language := ADR('de');
+//		// Chinese
+//		2:
+//			MpAlarmXListUIConnect.Language := 'zh';
+//			MpAlarmXHistoryMain.Language := ADR('zh');
+//			MpAlarmXHistoryUIConnect.Language := 'zh';
+//			QueryActiveAlarms.Language := ADR('zh');
 		
 	END_CASE
 	

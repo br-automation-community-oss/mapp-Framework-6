@@ -26,8 +26,8 @@ ACTION ReportFileExplorer:
 
 	// Set or reset bits based on when a report can be created, deleted, and/or viewed.
 	HmiReport.Status.CreateAllowed := NOT(MpReportCoreSys.CommandBusy);
-	HmiReport.Status.ViewAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
-	HmiReport.Status.DeleteAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
+	HmiReport.Status.ViewAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_UI_ITEM_TYPE_USER1);
+	HmiReport.Status.DeleteAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_UI_ITEM_TYPE_USER1);
 
 	// If the selected index on screen matches the index of a given file, mark that file as selected in the UIConnect structure
 	FOR i := 0 TO ((SIZEOF(HmiReport.Status.FileNames)/SIZEOF(HmiReport.Status.FileNames[0])) - 1) DO

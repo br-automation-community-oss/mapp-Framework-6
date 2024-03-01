@@ -68,7 +68,7 @@ TYPE
 		Prefix : STRING[50]; (*Name prefix for each automatic backup file*)
 		Device : STRING[255]; (*File device to store the automatic backup*)
 		Mode : AutomaticBackupModeType; (*Automatic backup time interval*)
-		OverwriteOldest : MpBackupOverwriteOldestType; (*Defines whether older backups should be deleted or not*)
+		FixIt : BOOL; (*OverwriteOldest : MpBackupOverwriteOldestType; *) (*Defines whether older backups should be deleted or not*)
 	END_STRUCT;
 	AutomaticBackupModeType : 	STRUCT  (*Automatic backup time interval*)
 		Interval : AutomaticBackupIntervalEnum; (*Day interval (daily, or a specfiic day of the week)*)

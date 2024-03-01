@@ -77,8 +77,8 @@ ACTION FIFOOperation:
 
 		FILE_SORT_BY_DATE:
 			// Sort by date so the oldest files are at the end
-			IF (MpFileManagerUIConnect_FIFO.File.SortOrder <> mpFILE_SORT_BY_MOD_TIME_DESC) THEN
-				MpFileManagerUIConnect_FIFO.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
+			IF (MpFileManagerUIConnect_FIFO.File.SortOrder <> mpFILE_UI_SORT_BY_MOD_TIME_DESC) THEN
+				MpFileManagerUIConnect_FIFO.File.SortOrder := mpFILE_UI_SORT_BY_MOD_TIME_DESC;
 			ELSIF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
 				MpFileManagerUIConnect_FIFO.File.Refresh := TRUE;
 				MpFileManagerUI_FIFO();
@@ -163,7 +163,7 @@ ACTION FIFOOperation:
 
 				FOR i := StartIndex TO (FileNameArraySize - 1) DO
 					MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := FALSE;
-					IF (MpFileManagerUIConnect_FIFO.File.List.Items[i].ItemType <> mpFILE_ITEM_TYPE_NONE) AND NOT MpFileManagerUIConnect_FIFO.File.List.Items[i].IsFolder THEN
+					IF (MpFileManagerUIConnect_FIFO.File.List.Items[i].ItemType <> mpFILE_UI_ITEM_TYPE_NONE) AND NOT MpFileManagerUIConnect_FIFO.File.List.Items[i].IsFolder THEN
 						MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := TRUE;
 						HmiFile.Status.AutoDeleteSelected := HmiFile.Status.AutoDeleteSelected + 1;
 					END_IF
@@ -227,7 +227,7 @@ ACTION FIFOOperation:
 
 		FILE_CONFIRM_DELETE:
 			// Confirm the file delete
-			IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_MSG_CONFIRM_DELETE) THEN
+			IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_UI_MSG_CONFIRM_DELETE) THEN
 				MpFileManagerUIConnect_FIFO.MessageBox.Confirm := TRUE;
 			ELSIF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) AND (MpFileManagerUIConnect_FIFO.MessageBox.LayerStatus = 1) THEN
 				HmiFile.Status.DeleteStep := FILE_CONFIRM_DELETE_WAIT;
@@ -257,7 +257,7 @@ ACTION FIFOOperation:
 			// Wait for file manager to complete restoring previous sorting mode
 			IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
 				HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
-				IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_MSG_BUSY) THEN
+				IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_UI_MSG_BUSY) THEN
 					MpFileManagerUIConnect_FIFO.MessageBox.Confirm := TRUE;
 				END_IF
 			END_IF

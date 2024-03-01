@@ -1,7 +1,7 @@
 (*Function Blocks*)
 VAR
 	DirCreatePackML : DirCreate; (*DirCreate instance*)
-	MpPackMLCoreMain : MpPackMLCore;
+	MpPackMLCoreMain : MpPackMLModule;
 	MpPackMLModeMain : MpPackMLMode;
 	MpPackMLBasicUIMain : MpPackMLBasicUI;
 	MpPackMLStatisticsUIMain : MpPackMLStatisticsUI;

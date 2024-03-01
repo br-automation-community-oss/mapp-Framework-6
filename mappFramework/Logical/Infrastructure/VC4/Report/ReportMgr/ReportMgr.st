@@ -19,7 +19,7 @@ PROGRAM _INIT
 	MpReportCoreSys.Language := ADR('en');
 	MpReportCoreSys.DeviceName := ADR('mappReportFiles');
 	MpReportCoreSys.MpLink := ADR(gMpLinkSimpleReport);
-	MpReportCoreSys.Name := ADR(HmiReport.Parameters.Name);
+	MpReportCoreSys.FileName := ADR(HmiReport.Parameters.Name);
 	HmiReport.Parameters.Name := 'SimpleReport';
 	HmiReport.Parameters.SortType := 'NameAsc';
 	MpReportCoreSys();
@@ -61,7 +61,7 @@ PROGRAM _CYCLIC
 	
 	// Generate command
 	MpReportCoreSys.Generate := HmiReport.Commands.Generate;
-	MpReportCoreSys.Name := ADR(HmiReport.Parameters.Name);
+	MpReportCoreSys.FileName := ADR(HmiReport.Parameters.Name);
 	
 	// Assign address references
 	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);

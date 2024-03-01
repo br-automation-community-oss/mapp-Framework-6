@@ -2,18 +2,8 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkFileManagerUIRecipe" Type="mpfilemanagerui">
-    <Selector ID="Alarms" Value="MpAlarmX">
-      <Group ID="mapp.AlarmX.Core.Configuration">
-        <Group ID="[0]">
-          <Property ID="Message" Value="{$mappFramework/File/Alarms/DeviceNotFound}" />
-        </Group>
-        <Group ID="[1]">
-          <Property ID="Message" Value="{$mappFramework/File/Alarms/AlreadyExisting}" />
-        </Group>
-        <Group ID="[2]">
-          <Property ID="Message" Value="{$mappFramework/File/Alarms/FileSystemError}" />
-        </Group>
-      </Group>
-    </Selector>
+    <Group ID="mapp.Gen">
+      <Property ID="Enable" Value="TRUE" />
+    </Group>
   </Element>
 </Configuration>

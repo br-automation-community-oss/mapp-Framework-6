@@ -74,13 +74,13 @@ PROGRAM _INIT
 
 	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe,
 	// which is further down in the Initialization program.
-	#warning "USER WRN: TODO: Recipe FBs not active in INIT"
-	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
-		MpRecipeRegPar_PreviewPar();
-	END_WHILE
-	WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
-		MpRecipeRegPar_PreviewCfg();   
-	END_WHILE
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
+//    WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
+//        MpRecipeRegPar_PreviewPar();
+//    END_WHILE
+//    WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
+//        MpRecipeRegPar_PreviewCfg();   
+//    END_WHILE
 
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
@@ -93,7 +93,7 @@ PROGRAM _INIT
 		HmiRecipe.Parameters.FileName := HmiRecipe.Status.DefaultConfig;
 	END_IF		
 	MpRecipeSys.Load := TRUE;
-   #warning "USER WRN: TODO: Recipe FBs not active in INIT"
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
 //	  WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 		MpRecipeSys();
 		MpRecipeUISys();
@@ -135,7 +135,7 @@ PROGRAM _INIT
 	END_IF	   
 	
 	MpRecipeSys.Load := TRUE;
-	#warning "USER WRN: TODO: Recipe FBs not active in INIT"
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
 //	  WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 	   MpRecipeSys();
 		MpRecipeUISys();

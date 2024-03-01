@@ -70,7 +70,8 @@ _TEARDOWN_TEST(void)
 	if ((AxisControl.Status.ErrorActive == true) || (MpAlarmXCoreAxis.PendingAlarms > 0))
 	{
 		AxisControl.Command.Reset = true;
-		MpAlarmXAcknowledgeAll_0.Execute = true;
+#warning "Fix me!"
+		//MpAlarmXAcknowledgeAll_0.Execute = true;
 	}
 	TEST_BUSY_CONDITION(AxisControl.Status.ErrorActive);
 	AxisControl.Command.Reset = false;
@@ -86,10 +87,11 @@ _TEARDOWN_TEST(void)
 _CYCLIC_SET(void)
 {
 	cycleCount++;
-	MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
-	MpAlarmXAcknowledgeAll_0.Enable = true;
-	MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
-	MpAlarmXAcknowledgeAll_0.Execute = false;
+#warning "Fix me!"
+//    MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
+//    MpAlarmXAcknowledgeAll_0.Enable = true;
+//    MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+//    MpAlarmXAcknowledgeAll_0.Execute = false;
 }
 
 _TEST Start(void)

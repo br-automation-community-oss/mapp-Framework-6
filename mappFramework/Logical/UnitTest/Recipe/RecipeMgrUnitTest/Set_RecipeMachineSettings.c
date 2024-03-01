@@ -45,6 +45,8 @@ _SETUP_TEST(void)
 
 _TEARDOWN_TEST(void)
 {
+	TIMEOUT_TEST_CASE;
+	
 	memset(&HmiRecipe.Commands, 0, sizeof(HmiRecipe.Commands));
 	MpRecipeUIConnect.Recipe.Load = false;
 	TEST_BUSY_CONDITION(!SelectRecipe("Machine.mcfg"));

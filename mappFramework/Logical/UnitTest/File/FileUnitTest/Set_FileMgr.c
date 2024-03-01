@@ -1975,7 +1975,7 @@ _TEST Change_Sort(void)
 				
 				case 10:			
 					// Change SortOrder value
-					pMpFileManagerUIConnect->File.SortOrder = mpFILE_SORT_BY_MOD_TIME_DESC;
+					pMpFileManagerUIConnect->File.SortOrder = mpFILE_UI_SORT_BY_MOD_TIME_DESC;
 					TestState = 1;
 					break;
 			}

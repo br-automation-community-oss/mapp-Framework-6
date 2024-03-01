@@ -7,9 +7,9 @@
 # Ignore (all) debugging content
 /Diagnosis/**
 # But save the watch windows and task trace configurations (if it should stay in the repository)
-!/Diagnosis/**/
-!/Diagnosis/**/*.PVM
-!/Diagnosis/**/*.tc
+# !/Diagnosis/**/
+# !/Diagnosis/**/*.PVM
+# !/Diagnosis/**/*.tc
 # Ignore Temp/ directory
 /Temp/
 #Ignore Upgrades

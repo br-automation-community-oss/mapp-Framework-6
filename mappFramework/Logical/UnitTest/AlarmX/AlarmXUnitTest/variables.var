@@ -14,7 +14,7 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
-	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	MpAlarmXAcknowledgeAll : BOOL;
 	StartingActiveAlarms : UDINT;
 	StartingPendingAlarms : UDINT;
 	cycleCount : USINT;

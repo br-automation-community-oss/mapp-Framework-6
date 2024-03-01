@@ -43,6 +43,11 @@ _TEST CreateAdvReport(void)
 		case TEST_ACT:
 			TEST_BUSY_CONDITION(CoreInfoActive == false);
 			HmiReport_UT.Commands.Generate = true;
+			if (HmiReport_UT.Status.Error == true)
+			{
+				TEST_FAIL("HmiReport_UT.Status.Error");
+				TEST_DONE;
+			}
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == false);
 			TestState = TEST_ASSERT;
 			break;
@@ -72,6 +77,11 @@ _TEST CreateSimpleReport(void)
 		case TEST_ACT:
 			TEST_BUSY_CONDITION(CoreInfoActive == false);
 			HmiReport_UT.Commands.Generate = true;
+			if (HmiReport_UT.Status.Error == true)
+			{
+				TEST_FAIL("HmiReport_UT.Status.Error");
+				TEST_DONE;
+			}
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == false);
 			TestState = TEST_ASSERT;
 			break;

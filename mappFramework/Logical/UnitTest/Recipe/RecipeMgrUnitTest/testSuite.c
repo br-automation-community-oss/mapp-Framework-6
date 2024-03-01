@@ -81,6 +81,7 @@ bool SelectRecipe(char* wantedRecipe)
 
 testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char* category)
 {
+	TEST_ABORT_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR);
 	switch (SetupState)
 	{
 		case 0:

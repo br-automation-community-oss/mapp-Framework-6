@@ -7,5 +7,6 @@
     <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)" Reference="true">\Physical\Simulation\PC\mappServices\AlarmX\AlarmXHi_1.mpalarmxhistory</Object>
     <Object Type="File" Description="Migrated from AlarmXHist.mpalarmxhistory (mapp Services Version 5)" Reference="true">\Physical\Simulation\PC\mappServices\AlarmX\AlarmXHi_2.mpalarmxquery</Object>
     <Object Type="File" Description="Migrated from AlarmXCfg.mpalarmxcore (mapp Services Version 5)" Reference="true">\Physical\Simulation\PC\mappServices\AlarmX\AlarmXCfg_.mpalarmxcategory</Object>
+    <Object Type="File" Reference="true">\Physical\Simulation\PC\mappServices\AlarmX\Config.mpalarmxcore</Object>
   </Objects>
 </Package>

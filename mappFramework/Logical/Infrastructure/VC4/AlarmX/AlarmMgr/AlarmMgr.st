@@ -23,7 +23,7 @@ PROGRAM _INIT
 
 	// Initialize mapp function blocks
 	MpAlarmXCoreMain.Enable := TRUE;
-	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXCoreMain();
 
 	MpAlarmXHistoryMain.Enable := TRUE;
@@ -32,7 +32,7 @@ PROGRAM _INIT
 	MpAlarmXHistoryMain();
 
 	MpAlarmXListUIMain.Enable := TRUE;
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXListUIMain.UISetup.AlarmListSize := 50;
 	MpAlarmXListUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
@@ -68,11 +68,11 @@ PROGRAM _CYCLIC
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
 	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.
 	// Therefore, copy/paste these IF statements to other places in the application as needed.
-	IF MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Error') THEN
+	IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
 		// Error is active. Add code here to respond to error situation.
-	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Warning') THEN
+	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') THEN
 		// Warning is active. Add code here to respond to warning situation.
-	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore_List, 'Info') THEN
+	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Info') THEN
 		// Info is active. Add code here to resond to info situation.
 	END_IF
 
@@ -96,7 +96,7 @@ PROGRAM _CYCLIC
 	END_IF
 
 	// Assign MpLinks & address references
-	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
 	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);

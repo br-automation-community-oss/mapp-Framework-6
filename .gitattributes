@@ -1,6 +1,15 @@
-*.py filter=tabspace
-*.st filter=tabspace
-*.c filter=tabspace
-*.h filter=tabspace
-*.cpp filter=tabspace
-*.hpp filter=tabspace
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text filter=tabspace
+*.h text filter=tabspace
+*.py text filter=tabspace
+*.st text filter=tabspace
+*.cpp text filter=tabspace
+*.hpp text filter=tabspace
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.pdf binary

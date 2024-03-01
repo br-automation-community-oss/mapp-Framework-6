@@ -44,17 +44,17 @@ extern "C"
 	/* Prototyping of functions.
 	These declaration of functions are used by the compiler to check number and type of arguments. */
 	BOOL spl_assertImplRealArrayEqual(const REAL delta,
-	                                  const REAL *expected,
-	                                  const REAL *actual,
-	                                  const unsigned long nrOfEntries,
-	                                  unsigned long line, const char *file);
+									  const REAL *expected,
+									  const REAL *actual,
+									  const unsigned long nrOfEntries,
+									  unsigned long line, const char *file);
 
 
 	BOOL spl_assertImplRealArrayWithin(const REAL *delta,
-	                                   const REAL *expected,
-	                                   const REAL *actual,
-	                                   const unsigned long nrOfEntries,
-	                                   unsigned long line, const char *file);
+									   const REAL *expected,
+									   const REAL *actual,
+									   const unsigned long nrOfEntries,
+									   unsigned long line, const char *file);
 
 
 

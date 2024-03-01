@@ -27,8 +27,8 @@ line: location information
 file: location information
 */
 BOOL spl_assertImplRealArrayWithin(const REAL *delta,
-                                   const REAL *expected, 	const REAL *actual, const unsigned long nrOfEntries,
-                                   unsigned long line, const char *file)
+								   const REAL *expected, 	const REAL *actual, const unsigned long nrOfEntries,
+								   unsigned long line, const char *file)
 {
 	unsigned long i = 0;
 	unsigned long countFail = 0;
@@ -105,8 +105,8 @@ line: location information
 file: location information
 */
 BOOL spl_assertImplRealArrayEqual(const REAL delta,
-                                  const REAL *expected, 	const REAL *actual, const unsigned long nrOfEntries,
-                                  unsigned long line, const char *file)
+								  const REAL *expected, 	const REAL *actual, const unsigned long nrOfEntries,
+								  unsigned long line, const char *file)
 {
 	unsigned long i = 0;
 	char countFail = 0;

@@ -49,9 +49,9 @@ typedef struct __TestImplement	*TestImplementRef;/*downward compatible*/
 
 typedef enum testStatusEnum
 {
-    ut_BUSY = 0,
-    ut_DONE = 1,
-    ut_ABORT = 2
+	ut_BUSY = 0,
+	ut_DONE = 1,
+	ut_ABORT = 2
 } testStatusEnum;
 
 typedef char* 			(*TestNameFunction)(void *);
@@ -62,12 +62,12 @@ typedef int				(*TestCountTestCasesFunction)(void *);
 
 typedef enum testStateEnum
 {
-    stateStart, 	/* print something */
-    stateSetup,
-    stateRun,
-    stateTearDown,
-    stateEnd,		/* print something */
-    stateDefault, 	/* last state*/
+	stateStart, 	/* print something */
+	stateSetup,
+	stateRun,
+	stateTearDown,
+	stateEnd,		/* print something */
+	stateDefault, 	/* last state*/
 } testStateEnum;
 
 struct __TestImplement

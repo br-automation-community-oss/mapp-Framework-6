@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.0.22.47 SP?>
-<Program xmlns="http://br-automation.co.at/AS/Program">
+<?AutomationStudio FileVersion="4.9"?>
+<Program SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Program">
   <Files>
     <File>README.txt</File>
     <File Private="true">testSuite.var</File>

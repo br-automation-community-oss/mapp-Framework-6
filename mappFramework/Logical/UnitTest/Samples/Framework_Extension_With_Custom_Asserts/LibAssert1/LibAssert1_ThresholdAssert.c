@@ -23,7 +23,7 @@ line: location information
 file: location information
 */
 BOOL spl_assertUpperBoundary_DINT(const DINT threshold, const DINT actual,
-                                  unsigned long line, const char *file)
+								  unsigned long line, const char *file)
 {
 	STRING buffer[100];
 	STRING numbuf[15];

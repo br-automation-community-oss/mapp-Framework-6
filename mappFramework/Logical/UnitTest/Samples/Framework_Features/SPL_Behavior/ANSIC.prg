@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.2.1.211?>
-<Program xmlns="http://br-automation.co.at/AS/Program" Description="This sample is about the control flow of test programs">
+<?AutomationStudio FileVersion="4.9"?>
+<Program SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Program">
   <Objects>
     <Object Type="File">README.txt</Object>
     <Object Type="File" Private="true">testSuite.var</Object>

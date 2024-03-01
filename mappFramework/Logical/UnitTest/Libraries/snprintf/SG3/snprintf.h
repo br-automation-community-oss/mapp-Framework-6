@@ -23,6 +23,7 @@ extern "C"
 /* Prototyping of functions and function blocks */
 _BUR_PUBLIC signed char snprintf2(char *s, int size, char *fmt, ...);
 
+
 #ifdef __cplusplus
 };
 #endif

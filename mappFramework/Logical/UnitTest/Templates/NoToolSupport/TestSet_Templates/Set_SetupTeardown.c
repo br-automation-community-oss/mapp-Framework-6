@@ -71,7 +71,7 @@ _TEST testcase2(void)
 UNITTEST_FIXTURES(fixtures)
 {
 	new_TestFixture("testcase1",testcase1),
-	                new_TestFixture("testcase2",testcase2),
+					new_TestFixture("testcase2",testcase2),
 };
 
 

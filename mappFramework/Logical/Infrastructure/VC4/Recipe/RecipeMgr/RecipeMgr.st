@@ -69,21 +69,24 @@ PROGRAM _INIT
 
 	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe,
 	// which is further down in the Initialization program.
-	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
-		MpRecipeRegPar_PreviewPar();
-	END_WHILE
-	WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
-		MpRecipeRegPar_PreviewCfg();
-	END_WHILE
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
+//    WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
+//        MpRecipeRegPar_PreviewPar();
+//    END_WHILE
+//    WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
+//        MpRecipeRegPar_PreviewCfg();
+//    END_WHILE
 
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
 	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
 	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	MpRecipeSys.Load := TRUE;
-	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
-		MpRecipeSys();
-	END_WHILE
+
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
+//	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
+//        MpRecipeSys();
+//    END_WHILE
 	MachineSettings := MachineSettingsPreview;
 	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
 	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
@@ -106,9 +109,11 @@ PROGRAM _INIT
 	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
 	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
 	MpRecipeSys.Load := TRUE;
-	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
-		MpRecipeSys();
-	END_WHILE
+
+#warning "USER WRN: TODO: Recipe FBs not active in INIT"
+//    WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
+//        MpRecipeSys();
+//    END_WHILE
 	Parameters := ParametersPreview;
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
 	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));

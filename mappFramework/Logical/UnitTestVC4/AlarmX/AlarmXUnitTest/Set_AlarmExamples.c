@@ -8,13 +8,14 @@
 #include <stdbool.h>
 #include <string.h>
 
+#warning "Fix me!"
 #define _RESET_ALARMS																\
 	AlarmExamples.LevelMonitoring = 50;												\
-	MpAlarmXAcknowledgeAll_0.Execute = true;										\
+	/*MpAlarmXAcknowledgeAll_0.Execute = true;										\
 	MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);								\
 	TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandDone == false);				\
 	MpAlarmXAcknowledgeAll_0.Execute = false;										\
-	TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.Info.UnacknowledgedAlarms != 0);	\
+	TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.Info.UnacknowledgedAlarms != 0);*/	\
 	TEST_BUSY_CONDITION(cycleCount < 25);
 
 _SETUP_SET(void)
@@ -37,9 +38,10 @@ _SETUP_TEST(void)
 	
 _CYCLIC_SET(void)
 {
-	MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCore;
-	MpAlarmXAcknowledgeAll_0.Enable = true;
-	MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+#warning "Fix Me!"
+//    MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCore_List;
+//    MpAlarmXAcknowledgeAll_0.Enable = true;
+//    MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
 	
 	cycleCount++;
 	

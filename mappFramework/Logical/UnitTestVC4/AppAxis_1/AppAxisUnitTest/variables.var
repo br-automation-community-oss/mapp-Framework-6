@@ -16,7 +16,7 @@ END_VAR
 VAR
 	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmX list connection to the UI*)
 	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
-	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	MpAlarmXAcknowledgeAll : BOOL;
 	StartingActiveAlarms : UDINT;
 	StartingPendingAlarms : UDINT;
 	cycleCount : USINT;

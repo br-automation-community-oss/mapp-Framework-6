@@ -32,7 +32,7 @@ PROGRAM _INIT
 	MpAlarmXHistoryMain();
 
 	MpAlarmXListUIMain.Enable := TRUE;
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
 	MpAlarmXListUIMain.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXListUIMain.UISetup.AlarmListSize := 50;
 	MpAlarmXListUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">mappFramework/AlarmX/AlarmExamples</prop>
+  </header>
+  <body>
+    <tu tuid="LevelMonitoringAlarmExample">
+      <tuv xml:lang="de">
+        <seg>Beispiel f�r F�llstands�berwachung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>水位监控示例</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Level Monitoring Example</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LevelMonitoringAlarmLowLowTextExample">
+      <tuv xml:lang="de">
+        <seg>Niedriger Fehler</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>过低错误</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Low Error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LevelMonitoringAlarmLowTextExample">
+      <tuv xml:lang="de">
+        <seg>Niedrige Warnung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>过低报警</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Low Warning</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LevelMonitoringAlarmHighTextExample">
+      <tuv xml:lang="de">
+        <seg>Hohe Warnung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>过高报警</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>High Warning</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LevelMonitoringAlarmHighHighTextExample">
+      <tuv xml:lang="de">
+        <seg>Hoher Fehler</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>过高错误</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>High Error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DeviationMonitoringAlarmExample">
+      <tuv xml:lang="de">
+        <seg>Beispiel f�r Abweichungs�berwachung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>偏差监控示例</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Deviation Monitoring Example</seg>
+      </tuv>
+    </tu>
+    <tu tuid="RateOfChangeAlarmExample">
+      <tuv xml:lang="de">
+        <seg>Beispiel f�r die �nderungsrate</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>变化率示例</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Rate Of Change Example</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SnippetExample">
+      <tuv xml:lang="de">
+        <seg>{&amp;snippet1}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>{&amp;snippet1}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{&amp;snippet1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MpAlarmXControlExample">
+      <tuv xml:lang="de">
+        <seg>Beispiel f�r den Funktionsblock MpAlarmXControl</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>MpAlarmXControl功能块示例</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>MpAlarmXControl Function Block Example</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LimitText">
+      <tuv xml:lang="de">
+        <seg>{&amp;LimitText}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>{&amp;LimitText}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{&amp;LimitText}</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

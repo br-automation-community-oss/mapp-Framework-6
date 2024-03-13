@@ -17,7 +17,23 @@
   <DefaultView AclId="1">
     <Module Name="&lt;Default&gt;">
       <Task Name="AlarmMgr">
-        <Variable Name="HmiAlarmX" RecursiveEnable="2" />
+        <Variable Name="HmiAlarmX" RecursiveEnable="2">
+          <Variable Name="Status">
+            <Variable Name="TableConfig" RecursiveEnable="2" />
+            <Variable Name="Query">
+              <Variable Name="Active" RecursiveEnable="2" />
+              <Variable Name="Acknowledged" RecursiveEnable="2" />
+              <Variable Name="Scope" RecursiveEnable="2" />
+              <Variable Name="Name" RecursiveEnable="2" />
+              <Variable Name="Message" RecursiveEnable="2" />
+              <Variable Name="AdditionalInfo" RecursiveEnable="2" />
+              <Variable Name="TimeStamp" RecursiveEnable="2" />
+              <Variable Name="Code" RecursiveEnable="2" />
+              <Variable Name="Severity" RecursiveEnable="2" />
+              <Variable Name="State" RecursiveEnable="2" />
+            </Variable>
+          </Variable>
+        </Variable>
         <Variable Name="MpAlarmXCoreMain">
           <Variable Name="ErrorReset" />
           <Variable Name="Active" />

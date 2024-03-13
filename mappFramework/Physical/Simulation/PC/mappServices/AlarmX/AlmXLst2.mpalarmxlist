@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gMpLinkAlarmXCore_AlarmExamples" Type="mpalarmxlist">
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="LevelMonitoringExample" />
+        <Property ID="Message" Value="{$mappFramework/AlarmX/AlarmExamples/LevelMonitoringAlarmExample} {=$mappFramework/AlarmX/AlarmExamples/{&amp;LimitText}}" />
+        <Property ID="Code" Value="1" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="LevelMonitoring">
+          <Property ID="AutoReset" Value="TRUE" />
+          <Property ID="Acknowledge" Value="1" />
+          <Property ID="Confirm" Value="0" />
+          <Property ID="MultipleInstances" Value="TRUE" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="ActiveToInactive" Value="FALSE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AlarmMgr:AlarmExamples.LevelMonitoring" />
+            <Property ID="Exclusive" Value="TRUE" />
+            <Selector ID="LowLimitEnable" Value="Static">
+              <Property ID="Limit" Value="20" />
+              <Property ID="LimitText" Value="LevelMonitoringAlarmLowTextExample" />
+            </Selector>
+            <Selector ID="LowLowLimitEnable" Value="Disabled" />
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="80" />
+              <Property ID="LimitText" Value="LevelMonitoringAlarmHighTextExample" />
+            </Selector>
+            <Selector ID="HighHighLimitEnable" Value="Disabled" />
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+              <Property ID="Hysteresis" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="DeviationMonitoringExample" />
+        <Property ID="Message" Value="{$mappFramework/AlarmX/AlarmExamples/DeviationMonitoringAlarmExample} {&amp;LimitText}" />
+        <Property ID="Code" Value="2" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DeviationMonitoring">
+          <Property ID="AutoReset" Value="TRUE" />
+          <Property ID="Acknowledge" Value="1" />
+          <Property ID="Confirm" Value="0" />
+          <Property ID="MultipleInstances" Value="TRUE" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="ActiveToInactive" Value="FALSE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AlarmMgr:AlarmExamples.DeviationMonitoring" />
+            <Property ID="SetpointPV" Value="::AlarmMgr:AlarmExamples.DeviationMonitoringSetpoint" />
+            <Property ID="Exclusive" Value="TRUE" />
+            <Selector ID="LowLimitEnable" Value="Static">
+              <Property ID="Limit" Value="-5" />
+              <Property ID="LimitText" Value="Low limit exceeded" />
+            </Selector>
+            <Selector ID="LowLowLimitEnable" Value="Disabled" />
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="5" />
+              <Property ID="LimitText" Value="High limit exceeded" />
+            </Selector>
+            <Selector ID="HighHighLimitEnable" Value="Disabled" />
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+              <Property ID="Hysteresis" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="RateOfChangeExample" />
+        <Property ID="Message" Value="{$mappFramework/AlarmX/AlarmExamples/RateOfChangeAlarmExample}" />
+        <Property ID="Code" Value="3" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="RateOfChangeMonitoring">
+          <Property ID="AutoReset" Value="TRUE" />
+          <Property ID="Acknowledge" Value="1" />
+          <Property ID="Confirm" Value="0" />
+          <Property ID="MultipleInstances" Value="TRUE" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="ActiveToInactive" Value="FALSE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AlarmMgr:AlarmExamples.RateOfChange" />
+            <Property ID="Exclusive" Value="TRUE" />
+            <Selector ID="LowLimitEnable" Value="Disabled" />
+            <Selector ID="LowLowLimitEnable" Value="Disabled" />
+            <Selector ID="HighLimitEnable" Value="Static">
+              <Property ID="Limit" Value="5" />
+              <Property ID="LimitText" Value="High limit exceeded" />
+            </Selector>
+            <Selector ID="HighHighLimitEnable" Value="Disabled" />
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+              <Property ID="TimeConstant" Value="1.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[3]">
+        <Property ID="Name" Value="SnippetExample" />
+        <Property ID="Message" Value="Show a snippet directly: {&amp;snippet1}. Show from localizable text: {$mappFramework/AlarmX/AlarmExamples/SnippetExample}" />
+        <Property ID="Code" Value="4" />
+        <Property ID="Severity" Value="1" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Property ID="AutoReset" Value="TRUE" />
+          <Property ID="Acknowledge" Value="1" />
+          <Property ID="Confirm" Value="0" />
+          <Property ID="MultipleInstances" Value="TRUE" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="ActiveToInactive" Value="FALSE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+            <Property ID="Update" Value="FALSE" />
+          </Group>
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AlarmMgr:AlarmExamples.SnippetValue" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="50..100" />
+            </Group>
+            <Selector ID="Settings" Value="0">
+              <Property ID="Delay" Value="0.0" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+      <Group ID="[4]">
+        <Property ID="Name" Value="MpAlarmXControlExample" />
+        <Property ID="Message" Value="{$mappFramework/AlarmX/AlarmExamples/MpAlarmXControlExample}" />
+        <Property ID="Code" Value="5" />
+        <Property ID="Severity" Value="20" />
+        <Selector ID="Behavior" Value="EdgeAlarm">
+          <Property ID="AutoReset" Value="TRUE" />
+          <Property ID="Acknowledge" Value="1" />
+          <Property ID="Confirm" Value="0" />
+          <Property ID="MultipleInstances" Value="TRUE" />
+          <Property ID="ReactionWhilePending" Value="TRUE" />
+          <Property ID="Retain" Value="FALSE" />
+          <Property ID="Async" Value="TRUE" />
+          <Group ID="DataUpdate">
+            <Group ID="Activation">
+              <Property ID="TimeStamp" Value="FALSE" />
+              <Property ID="Snippets" Value="FALSE" />
+            </Group>
+          </Group>
+          <Group ID="Recording">
+            <Property ID="InactiveToActive" Value="TRUE" />
+            <Property ID="ActiveToInactive" Value="FALSE" />
+            <Property ID="UnacknowledgedToAcknowledged" Value="TRUE" />
+            <Property ID="AcknowledgedToUnacknowledged" Value="FALSE" />
+            <Property ID="UnconfirmedToConfirmed" Value="TRUE" />
+            <Property ID="ConfirmedToUnconfirmed" Value="FALSE" />
+          </Group>
+        </Selector>
+        <Property ID="Disable" Value="FALSE" />
+        <Property ID="InhibitPV" />
+        <Property ID="AdditionalInformation1" />
+        <Property ID="AdditionalInformation2" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Snippets">
+      <Selector ID="AutoDetect" Value="1">
+        <Property ID="Language" Value="" />
+      </Selector>
+      <Group ID="[0]">
+        <Property ID="Key" Value="snippet1" />
+        <Selector ID="Value" Value="PV">
+          <Property ID="PV" Value="::AlarmMgr:AlarmExamples.SnippetValue" />
+        </Selector>
+        <Property ID="Alarm" />
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

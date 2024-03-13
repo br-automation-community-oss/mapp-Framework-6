@@ -1,7 +1,7 @@
 ACTION ExecuteQuery:
 
 	// Initialize mapp function block
-	QueryActiveAlarms.MpLink := ADR(gMpLinkAlarmXCore);
+	QueryActiveAlarms.MpLink := ADR(gMpLinkAlarmXCore_Query);
 	QueryActiveAlarms.Enable := TRUE;
 	QueryActiveAlarms.Name := ADR('ActiveAlarms');
 	QueryActiveAlarms.Language := ADR('en');

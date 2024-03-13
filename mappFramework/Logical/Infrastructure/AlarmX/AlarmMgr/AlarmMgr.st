@@ -95,7 +95,7 @@ PROGRAM _CYCLIC
 
 	// Assign MpLinks & address references
 	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');

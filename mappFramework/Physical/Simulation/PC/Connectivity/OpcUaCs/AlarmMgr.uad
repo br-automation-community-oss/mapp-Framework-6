@@ -46,6 +46,16 @@
           <Variable Name="ErrorReset" />
           <Variable Name="Active" />
         </Variable>
+        <Variable Name="MpAlarmXListUIConnect">
+          <Variable Name="Details">
+            <Variable Name="Backtrace" RecursiveEnable="2">
+              <Variable Name="RecordID" RecursiveEnable="2" />
+              <Variable Name="LogbookName" RecursiveEnable="2" />
+              <Variable Name="EventID" RecursiveEnable="2" />
+              <Variable Name="Description" RecursiveEnable="2" />
+            </Variable>
+          </Variable>
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

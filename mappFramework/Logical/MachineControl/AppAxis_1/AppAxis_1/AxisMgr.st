@@ -11,10 +11,10 @@ PROGRAM _INIT
 	ST_name(0, ADR(AxisControl.Status.TaskName), 0);
 
 	// Call initialization actions
-	//RecipeInit;
-//	  ConfigurationInit;
-//	  ParameterInit;
-//	  AxisInit;
+	RecipeInit;
+	ConfigurationInit;
+	ParameterInit;
+	AxisInit;
 
 	// Call initialization variables
 	RestorePosition_AppAxis_1;
@@ -35,10 +35,10 @@ PROGRAM _CYCLIC
 	MpAxisBasicAppAxis();
 
 	// Call all actions
-//	  SimulationControl;
-//	  AxisStateMachine;
-//	  AxisCyclic;
-//	  RecipeCyclic;
+	SimulationControl;
+	AxisStateMachine;
+	AxisCyclic;
+	RecipeCyclic;
 
 	// Assign MpLink
 	MpAlarmXCoreAxis.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);

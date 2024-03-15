@@ -23,6 +23,8 @@ PROGRAM _INIT
 	// Initialize mapp function blocks
 	MpAuditTrailSys.Enable := TRUE;
 	MpAuditTrailSys.MpLink := ADR(gMpLinkAuditTrail);
+	HmiAudit.Parameters.FileName := 'Archive_%Y_%m_%d_%H_%M_%S';
+	MpAuditTrailSys.FileName := ADR(HmiAudit.Parameters.FileName); 
 	MpAuditTrailSys.Language := ADR('en');
 	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrailSys();

@@ -95,7 +95,7 @@
         <Property ID="RawData" Value="FALSE" />
         <Property ID="FileType" Value="1" />
         <Property ID="Encrypt" Value="TRUE" />
-        <Property ID="PassPhrase" Value="123ABc" Description="Password (or passphrase) for file/archive encryption 123ABc" />
+        <Property ID="PassPhrase" Value="0gdxRZninVUgZjiOx9qhudY29Li9Ve8PiVVCV9MwqXfE=" Description="Password (or passphrase) for file/archive encryption 123ABc" />
       </Group>
     </Group>
     <Group ID="Monitor">

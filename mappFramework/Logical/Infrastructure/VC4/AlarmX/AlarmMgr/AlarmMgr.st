@@ -32,7 +32,7 @@ PROGRAM _INIT
 	MpAlarmXHistoryMain();
 
 	MpAlarmXListUIMain.Enable := TRUE;
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXListUIMain.UISetup.AlarmListSize := 50;
 	MpAlarmXListUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
@@ -97,7 +97,7 @@ PROGRAM _CYCLIC
 
 	// Assign MpLinks & address references
 	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');

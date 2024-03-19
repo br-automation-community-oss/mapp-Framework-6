@@ -3,7 +3,9 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Program" Language="IEC" Description="Alarm manager">AlarmMgr</Object>
-    <Object Type="File" Description="Localizable text for alarms">Alarms.tmx</Object>
+    <Object Type="File" Description="Localizable text for alarms" TransferedForTargetSourceCompare="true">UserAlarms.tmx</Object>
+    <Object Type="File" Description="Localizable text for alarms" TransferedForTargetSourceCompare="true">MachineAlarms.tmx</Object>
+    <Object Type="File" Description="Localizable text for alarms" TransferedForTargetSourceCompare="true">AlarmExamples.tmx</Object>
     <Object Type="File" Description="Python script to Import or Export mpAlarmXCore files">AlarmImportExport.py</Object>
     <Object Type="File" Description="Unit Tests for AlarmImportExport">test_AlarmImportExport.py</Object>
   </Objects>

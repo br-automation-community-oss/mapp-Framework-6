@@ -97,11 +97,11 @@ _CYCLIC_SET(void)
 	MpAlarmXListUI(&MpAlarmXListUI_0);
 
 #warning "Fix Me!"
-//    MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
-//    MpAlarmXAcknowledgeAll_0.Enable = true;
-//    MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
-//    TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandBusy);
-//    MpAlarmXAcknowledgeAll_0.Execute = false;
+//	  MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
+//	  MpAlarmXAcknowledgeAll_0.Enable = true;
+//	  MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+//	  TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandBusy);
+//	  MpAlarmXAcknowledgeAll_0.Execute = false;
 
 }
 

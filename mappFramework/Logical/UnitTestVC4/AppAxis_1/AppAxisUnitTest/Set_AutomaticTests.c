@@ -89,9 +89,9 @@ _CYCLIC_SET(void)
 	cycleCount++;
 #warning "Fix Me!"
 //	MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
-//    MpAlarmXAcknowledgeAll_0.Enable = true;
-//    MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
-//    MpAlarmXAcknowledgeAll_0.Execute = false;
+//	  MpAlarmXAcknowledgeAll_0.Enable = true;
+//	  MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+//	  MpAlarmXAcknowledgeAll_0.Execute = false;
 }
 
 _TEST Start(void)

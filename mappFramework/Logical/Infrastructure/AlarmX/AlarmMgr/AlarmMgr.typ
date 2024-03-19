@@ -12,6 +12,8 @@ TYPE
 	END_STRUCT;
 	AlarmParametersType : 	STRUCT  (*Structure to hold the parameters from the HMI*)
 		InstanceID : UINT; (*The instanceID of the alarm that was most recently clicked in the AlarmList. Set by an eventbinding in mapp View*)
+		Language : STRING[20]; (*File name for history exports*)
+		FileName : STRING[255]; (*File name for history exports*)
 	END_STRUCT;
 	AlarmStatusType : 	STRUCT  (*Structure to hold status information to the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
 		AlarmHistSortCfg : STRING[1000]; (*Sort configuration property for the AlarmHistory widget *)

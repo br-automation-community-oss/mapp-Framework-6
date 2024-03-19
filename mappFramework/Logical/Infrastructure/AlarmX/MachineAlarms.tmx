@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">mappFramework/AlarmX/MachineAlarms</prop>
+  </header>
+  <body>
+    <tu tuid="EmergencyStop.0">
+      <tuv xml:lang="de">
+        <seg>Not-Halt-Taster 1 wurde gedr�ckt</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button 1 has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EmergencyStop.1">
+      <tuv xml:lang="de">
+        <seg>Not-Halt-Taster 2 wurde gedr�ckt</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button 2 has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EmergencyStop.2">
+      <tuv xml:lang="de">
+        <seg>Not-Halt-Taster 3 wurde gedr�ckt</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button 3 has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.0">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 1 ist offen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 1 is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.1">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 2 ist ge�ffnet</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 2 is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.2">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 3 ist offen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 3 is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.3">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 4 ist offen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 4 is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.4">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 5 ist offen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 5 is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.5">
+      <tuv xml:lang="de">
+        <seg>Schutzt�r 6 ist ge�ffnet</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Safety door 6 is open</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

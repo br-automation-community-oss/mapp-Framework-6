@@ -30,6 +30,9 @@ PROGRAM _INIT
 
 	MpAlarmXHistoryMain.Enable := TRUE;
 	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');
+	HmiAlarmX.Parameters.FileName := 'AlarmHistory_%Y_%m_%d_%H_%M_%S';
+	MpAlarmXHistoryMain.FileName := ADR(HmiAlarmX.Parameters.FileName);
+	MpAlarmXHistoryMain.Language := ADR(HmiAlarmX.Parameters.Language);
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryMain();
 
@@ -95,7 +98,7 @@ PROGRAM _CYCLIC
 
 	// Assign MpLinks & address references
 	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore_List);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');

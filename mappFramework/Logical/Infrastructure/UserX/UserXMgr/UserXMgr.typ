@@ -3,11 +3,16 @@
 TYPE
 	UserXHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : UserXCommandsType; (*Structure to hold the commands from the HMI*)
+		Parameters : UserXParametersType; (*Structure to hold parameters to/from the HMI*)
 		Status : UserXStatusType; (*Structure to hold status information to the HMI*)
 	END_STRUCT;
 	UserXCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
 		Export : BOOL; (*Export a user list*)
 		ConfirmOverwrite : BOOL; (*Confirm you want to overwrite an existing user export with the same filenmae*)
+	END_STRUCT;
+	UserXParametersType : 	STRUCT  (*Structure to hold parameters to/from the HMI*)
+		UserName : WSTRING[100]; (*UserName*)
+		Password : WSTRING[100]; (*Password*)
 	END_STRUCT;
 	UserXStatusType : 	STRUCT  (*Structure to hold status information to the HMI*)
 		FileDuplicate : BOOL; (*Flag that a user export file already exists with the specified name*)

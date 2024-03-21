@@ -111,6 +111,8 @@ PROGRAM _CYCLIC
 	// Assign MpLinks & address references
 	MpAuditTrailSys.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
+	MpAuditTrailSys.FileName := ADR(HmiAudit.Parameters.FileName); 
+	MpAuditTrailSys.Language := ADR('en');
 	#warning "USER WRN: TODO: replace config FB"
    // MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
 	//MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);

@@ -22,7 +22,7 @@
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
 		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content" />
 	</EventBindingsSets>
     <Dialogs>
         <Dialog refId="UserXLogin_dialog" />

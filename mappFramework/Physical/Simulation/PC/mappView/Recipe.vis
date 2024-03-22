@@ -13,14 +13,13 @@
 		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
 		<BindingsSet refId="RecipeMachConfig_content_binding" />
 		<BindingsSet refId="RecipePars_content_binding" />
-		<BindingsSet refId="Recipe_Navigation_content_binding" />
+		<BindingsSet refId="Navigation_content" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="Recipe_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
-		<EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content" />
     </EventBindingsSets>
     <Dialogs>
 		<Dialog refId="NewRecipe_dialog" />

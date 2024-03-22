@@ -11,6 +11,7 @@
 	</Navigations>
 	<BindingsSets>
 		<!--<BindingsSet refId="" />-->
+		<BindingsSet refId="Navigation_content" />
 		<BindingsSet refId="AlarmXCurrent_content_binding" />
 		<BindingsSet refId="AlarmXHistory_content_binding" />
 		<BindingsSet refId="AlarmXQuery_content_binding" />
@@ -18,7 +19,6 @@
 		<BindingsSet refId="Axis_content_binding" />
 		<BindingsSet refId="AxisAuto_content_binding" />
 		<BindingsSet refId="AxisManual_content_binding" />
-		<BindingsSet refId="Axis_Navigation_content_binding" />
 		<BindingsSet refId="BackupDialog_Create_content_binding" />
 		<BindingsSet refId="Backup_content_binding" />
 		<BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
@@ -27,13 +27,11 @@
 		<BindingsSet refId="File_content_binding" />
 		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
 		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" />
-		<BindingsSet refId="File_Navigation_content_binding" />
 		<BindingsSet refId="Recipe_content_binding" />
 		<BindingsSet refId="RecipeDialog_NewPars_content_binding" />
 		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
 		<BindingsSet refId="RecipeMachConfig_content_binding" />
 		<BindingsSet refId="RecipePars_content_binding" />
-		<BindingsSet refId="Recipe_Navigation_content_binding" />
 		<BindingsSet refId="UserX_content_binding" />
 		<BindingsSet refId="UserXDialog_Export_content_binding" />
 		<BindingsSet refId="UserXDialog_Import_content_binding" />
@@ -57,11 +55,10 @@
 		<EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
 		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
 		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content" />
 		<EventBindingsSet refId="AxisRecipe_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
-		<EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Backup_content_eventbinding" />
 		<EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
 		<EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
@@ -72,11 +69,9 @@
 		<EventBindingsSet refId="File_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
-		<EventBindingsSet refId="File_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Recipe_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
-		<EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="UserList_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
@@ -171,6 +166,7 @@
 		<VariablesSet refId="Recipe_svar" />
 		<VariablesSet refId="UserX_svar" />
 		<VariablesSet refId="Report_svar" />
+		<VariablesSet refId="Navigation" />
 	</VariablesSets>
 	<StartTheme themeRefId="BuRThemeFlat1" />
 	<Themes>

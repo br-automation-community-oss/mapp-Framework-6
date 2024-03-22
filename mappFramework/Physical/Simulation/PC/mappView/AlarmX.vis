@@ -17,7 +17,7 @@
         <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
 		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
 		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>

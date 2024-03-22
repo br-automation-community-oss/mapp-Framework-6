@@ -1,12 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="Navigation_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="Navigation_content" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Navigation_content.HelpContent.Click">
+    <EventBinding id="Navigation_content_HelpContent_Click">
       <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="Navigation_content" widgetRefId="HelpContent" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Help_content" pageId="Demo_page" areaId="AreaContent" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Navigation_content.LoadRecipeContent.Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="Navigation_content" widgetRefId="LoadRecipeContent" event="Click" />
+      <Operand datatype="ANY_STRING" name="Content">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="NavigationRecipe">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="=Content" pageId="Demo_page" areaId="AreaContent" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Navigation_content_LoadAxisContent_Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="Navigation_content" widgetRefId="LoadAxisContent" event="Click" />
+      <Operand datatype="ANY_STRING" name="Content">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="NavigationAxis">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="=Content" pageId="Demo_page" areaId="AreaContent" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Navigation_content_LoadFileContent_Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="Navigation_content" widgetRefId="LoadFileContent" event="Click" />
+      <Operand datatype="ANY_STRING" name="Content">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="NavigationFile">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="=Content" pageId="Demo_page" areaId="AreaContent" />
           </Target>
         </Action>
       </EventHandler>

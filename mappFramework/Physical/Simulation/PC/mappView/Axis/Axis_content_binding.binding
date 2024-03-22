@@ -5,5 +5,11 @@
 			<Source xsi:type="mapp" refId="gMpLinkAlarmXCoreAppAxis_1" attribute="link" />
 			<Target xsi:type="brease" contentRefId="Axis_content" widgetRefId="alrmLineAxis" attribute="mpLink" />
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::AppAxis_1:MpAxisBasicAppAxis.Active" attribute="value" />
+			<Target xsi:type="session" refId="NavigationAxisActive" attribute="value" />
+		</Binding>
 	</Bindings>
+	
+	
 </BindingsSet>

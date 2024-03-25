@@ -8,32 +8,32 @@
         <!--<Navigation refId="" />-->
     </Navigations>  
     <BindingsSets>
-		<BindingsSet refId="Axis_content_binding" />		
-        <BindingsSet refId="AxisAuto_content_binding" />        
-		<BindingsSet refId="AxisManual_content_binding" />
-		<BindingsSet refId="Axis_Navigation_content_binding" />
+		<BindingsSet refId="Axis" />		
+        <BindingsSet refId="AxisAuto" />        
+		<BindingsSet refId="AxisManual" />
+		<BindingsSet refId="AxisNavigation" />
     </BindingsSets>
     <EventBindingsSets>
-		<EventBindingsSet refId="AxisRecipe_content_eventbinding" />
-		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
-		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
-		<EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipe" />
+		<EventBindingsSet refId="AxisRecipeDialogNew" />
+		<EventBindingsSet refId="AxisRecipeDialogEdit" />
+		<EventBindingsSet refId="AxisNavigation" />
 		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>
     <Contents > 
-        <Content refId="Axis_content" />
-        <Content refId="AxisAuto_content" />
-        <Content refId="AxisManual_content" />
+        <Content refId="Axis" />
+        <Content refId="AxisAuto" />
+        <Content refId="AxisManual" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
     </Contents>	
     <SnippetsSets>
-        <SnippetsSet refId="PLCopenState_snippets" />
+        <SnippetsSet refId="PLCopenState" />
     </SnippetsSets>
     <ExpressionsSets>
-        <ExpressionsSet refId="AxisExpressionSet" />
+        <ExpressionsSet refId="Axis" />
     </ExpressionsSets>
     <VariablesSets>
     </VariablesSets>

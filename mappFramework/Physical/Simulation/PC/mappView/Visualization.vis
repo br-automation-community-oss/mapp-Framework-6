@@ -10,10 +10,10 @@
     <BindingsSet refId="AlarmXHistory" />
     <BindingsSet refId="AlarmXQuery" />
     <BindingsSet refId="AlarmXNavigation" />
-    <BindingsSet refId="Axis_content_binding" />
-    <BindingsSet refId="AxisAuto_content_binding" />
-    <BindingsSet refId="AxisManual_content_binding" />
-    <BindingsSet refId="Axis_Navigation_content_binding" />
+    <BindingsSet refId="Axis" />
+    <BindingsSet refId="AxisAuto" />
+    <BindingsSet refId="AxisManual" />
+    <BindingsSet refId="AxisNavigation" />
     <BindingsSet refId="BackupDialog_Create_content_binding" />
     <BindingsSet refId="Backup_content_binding" />
     <BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
@@ -51,10 +51,10 @@
     <EventBindingsSet refId="AlarmXCurrent" />
     <EventBindingsSet refId="AlarmXHistory" />
     <EventBindingsSet refId="AlarmXNavigation" />
-    <EventBindingsSet refId="AxisRecipe_content_eventbinding" />
-    <EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
-    <EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
-    <EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="AxisRecipe" />
+    <EventBindingsSet refId="AxisRecipeDialogNew" />
+    <EventBindingsSet refId="AxisRecipeDialogEdit" />
+    <EventBindingsSet refId="AxisNavigation" />
     <EventBindingsSet refId="Backup_content_eventbinding" />
     <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
     <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
@@ -116,9 +116,9 @@
     <Content refId="AlarmX" />
     <Content refId="Help" />
     <Content refId="Navigation" />
-    <Content refId="Axis_content" />
-    <Content refId="AxisAuto_content" />
-    <Content refId="AxisManual_content" />
+    <Content refId="Axis" />
+    <Content refId="AxisAuto" />
+    <Content refId="AxisManual" />
     <Content refId="Backup_content" />
     <Content refId="File_content" />
     <Content refId="RecipeMachConfig_content" />
@@ -147,7 +147,7 @@
     <Content refId="PackML_content" />
   </Contents>
   <SnippetsSets>
-    <SnippetsSet refId="PLCopenState_snippets" />
+    <SnippetsSet refId="PLCopenState" />
     <SnippetsSet refId="Recipe_snippets" />
     <SnippetsSet refId="User_snippets" />
   </SnippetsSets>
@@ -157,7 +157,7 @@
     <VariablesSet refId="Report_svar" />
   </VariablesSets>
   <ExpressionsSets>
-    <ExpressionsSet refId="AxisExpressionSet" />
+    <ExpressionsSet refId="Axis" />
     <ExpressionsSet refId="RecipeExpressionSet" />
   </ExpressionsSets>
   <StartTheme themeRefId="BuRThemeFlat1" />

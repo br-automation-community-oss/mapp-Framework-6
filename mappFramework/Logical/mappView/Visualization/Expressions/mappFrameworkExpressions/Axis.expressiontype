@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ExpressionTypeSet id="AxisExpression" xmlns="http://www.br-automation.com/iat2016/expressionType/v1">
+<ExpressionTypeSet id="Axis" xmlns="http://www.br-automation.com/iat2016/expressionType/v1">
   <ExpressionTypes>
 		<ExpressionType name="myInversExpr" datatype="BOOL">
 			<Operands>

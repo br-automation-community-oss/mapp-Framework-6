@@ -8,24 +8,24 @@
 		<!--<Navigation refId="" />-->
 	</Navigations>  
 	<BindingsSets>
-        <BindingsSet refId="AlarmXCurrent_content_binding" />
-		<BindingsSet refId="AlarmXHistory_content_binding" />
-		<BindingsSet refId="AlarmXQuery_content_binding" />
-		<BindingsSet refId="AlarmX_Navigation_content_binding" />
+        <BindingsSet refId="AlarmXCurrent" />
+		<BindingsSet refId="AlarmXHistory" />
+		<BindingsSet refId="AlarmXQuery" />
+		<BindingsSet refId="AlarmXNavigation" />
 	</BindingsSets>
     <EventBindingsSets>
-        <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
-		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
-		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
+        <EventBindingsSet refId="AlarmXCurrent" />
+		<EventBindingsSet refId="AlarmXHistory" />
+		<EventBindingsSet refId="AlarmXNavigation" />
 		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>
     <Contents > 
-        <Content refId="AlarmXCurrent_content" />
-		<Content refId="AlarmXHistory_content" />
-		<Content refId="AlarmXQuery_content" />
-		<Content refId="AlarmX_content" />
+        <Content refId="AlarmXCurrent" />
+		<Content refId="AlarmXHistory" />
+		<Content refId="AlarmXQuery" />
+		<Content refId="AlarmX" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
     </Contents>	

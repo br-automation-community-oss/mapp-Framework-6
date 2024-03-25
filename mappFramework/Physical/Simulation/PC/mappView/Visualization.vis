@@ -23,12 +23,12 @@
     <BindingsSet refId="FileDialogMessage" />
     <BindingsSet refId="FileDialogFIFO" />
     <BindingsSet refId="FileNavigation" />
-    <BindingsSet refId="Recipe_content_binding" />
-    <BindingsSet refId="RecipeDialog_NewPars_content_binding" />
-    <BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
-    <BindingsSet refId="RecipeMachConfig_content_binding" />
-    <BindingsSet refId="RecipePars_content_binding" />
-    <BindingsSet refId="Recipe_Navigation_content_binding" />
+    <BindingsSet refId="Recipe" />
+    <BindingsSet refId="RecipeDialogNewPars" />
+    <BindingsSet refId="RecipeDialogNewMachConfig" />
+    <BindingsSet refId="RecipeMachConfig" />
+    <BindingsSet refId="RecipePars" />
+    <BindingsSet refId="RecipeNavigation" />
     <BindingsSet refId="UserX_content_binding" />
     <BindingsSet refId="UserXDialog_Export_content_binding" />
     <BindingsSet refId="UserXDialog_Import_content_binding" />
@@ -66,10 +66,10 @@
     <EventBindingsSet refId="FileDialogMessage" />
     <EventBindingsSet refId="FileDialogFIFO" />
     <EventBindingsSet refId="FileNavigation" />
-    <EventBindingsSet refId="Recipe_content_eventbinding" />
-    <EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
-    <EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
-    <EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="Recipe" />
+    <EventBindingsSet refId="RecipeDialogNew" />
+    <EventBindingsSet refId="RecipeDialogEdit" />
+    <EventBindingsSet refId="RecipeNavigation" />
     <EventBindingsSet refId="UserList_content_eventbinding" />
     <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
     <EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
@@ -96,8 +96,8 @@
     <Dialog refId="BackupUpdate" />
     <Dialog refId="FileMessage" />
     <Dialog refId="FileFIFO" />
-    <Dialog refId="NewRecipe_dialog" />
-    <Dialog refId="EditRecipe_dialog" />
+    <Dialog refId="NewRecipe" />
+    <Dialog refId="EditRecipe" />
     <Dialog refId="UserXLogin_dialog" />
     <Dialog refId="UserXError_dialog" />
     <Dialog refId="UserXExport_dialog" />
@@ -121,13 +121,13 @@
     <Content refId="AxisManual" />
     <Content refId="Backup" />
     <Content refId="File" />
-    <Content refId="RecipeMachConfig_content" />
-    <Content refId="RecipeDialog_EditMachConfig_content" />
-    <Content refId="RecipeDialog_EditPars_content" />
-    <Content refId="RecipeDialog_NewMachConfig_content" />
-    <Content refId="RecipeDialog_NewPars_content" />
-    <Content refId="RecipePars_content" />
-    <Content refId="Recipe_content" />
+    <Content refId="RecipeMachConfig" />
+    <Content refId="RecipeDialogEditMachConfig" />
+    <Content refId="RecipeDialogEditPars" />
+    <Content refId="RecipeDialogNewMachConfig" />
+    <Content refId="RecipeDialogNewPars" />
+    <Content refId="RecipePars" />
+    <Content refId="Recipe" />
     <Content refId="UserX_content" />
     <Content refId="UserList_content" />
     <Content refId="UserXDialog_Login_content" />
@@ -148,18 +148,18 @@
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="PLCopenState" />
-    <SnippetsSet refId="Recipe_snippets" />
+    <SnippetsSet refId="Recipe" />
     <SnippetsSet refId="User_snippets" />
   </SnippetsSets>
   <VariablesSets>
 	<VariablesSet refId="File" />
-	<VariablesSet refId="Recipe_svar" />
+	<VariablesSet refId="Recipe" />
     <VariablesSet refId="UserX_svar" />
     <VariablesSet refId="Report_svar" />
   </VariablesSets>
   <ExpressionsSets>
     <ExpressionsSet refId="Axis" />
-    <ExpressionsSet refId="RecipeExpressionSet" />
+    <ExpressionsSet refId="Recipe" />
   </ExpressionsSets>
   <StartTheme themeRefId="BuRThemeFlat1" />
   <Themes>

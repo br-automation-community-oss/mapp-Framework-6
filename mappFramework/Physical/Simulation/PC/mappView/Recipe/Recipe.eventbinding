@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="Recipe_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="Recipe" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="Recipe_content.BtnDelete.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnDelete" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnDelete" event="Click" />
       <Operand datatype="ANY_STRING" name="myDeleteRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteRecipeText">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -56,7 +56,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnLoad.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnLoad" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnLoad" event="Click" />
       <Operand datatype="ANY_STRING" name="myLoadRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarLoadRecipeText">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -91,7 +91,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnCreate.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnCreate" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnCreate" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
@@ -111,7 +111,7 @@
           <Step order="5">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe" />
               </Target>
             </Action>
           </Step>
@@ -119,7 +119,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnEdit.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnEdit" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnEdit" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
@@ -139,7 +139,7 @@
           <Step order="4">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe" />
               </Target>
             </Action>
           </Step>
@@ -147,7 +147,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnRecipePageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnRecipePageDown" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnRecipePageDown" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageDown">
@@ -175,7 +175,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnRecipePageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnRecipePageUp" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnRecipePageUp" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageUp">
@@ -203,7 +203,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.DropDownRecipeCategory.SelectedIndexChanged">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory" event="SelectedIndexChanged" />
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -233,8 +233,8 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars" />
               </Target>
             </Action>
           </Step>
@@ -251,8 +251,8 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig" />
               </Target>
             </Action>
           </Step>
@@ -262,12 +262,12 @@
     <EventBinding id="Recipe_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_INT" name="CategoryDropdownValue">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory">
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="CurrentContentID">
-        <ReadTarget xsi:type="widgets.brease.ContentControl.ReadAction" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+        <ReadTarget xsi:type="widgets.brease.ContentControl.ReadAction" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
           <Method xsi:type="widgets.brease.ContentControl.Action.GetContentId" />
         </ReadTarget>
       </Operand>
@@ -289,8 +289,8 @@
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars" />
               </Target>
             </Action>
           </Step>
@@ -307,8 +307,8 @@
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig" />
               </Target>
             </Action>
           </Step>
@@ -360,7 +360,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/mappFramework/Recipe/New" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe" headerText="$IAT/mappFramework/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>
@@ -436,7 +436,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/mappFramework/Recipe/New" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe" headerText="$IAT/mappFramework/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>
@@ -480,21 +480,21 @@
     <EventBinding id="Recipe_content.ValueChanged.SessionVarEditRecipe">
       <Source xsi:type="session.Event" refId="SessionVarEditRecipe" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="CategoryDropdownValue">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory">
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
       <EventHandler condition="newValue=false AND  CategoryDropdownValue=0">
         <Action>
-          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue=false AND  CategoryDropdownValue=1">
         <Action>
-          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig" />
           </Target>
         </Action>
       </EventHandler>
@@ -510,7 +510,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnRefresh.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Recipe_content" widgetRefId="BtnRefresh" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Recipe" widgetRefId="BtnRefresh" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">

@@ -22,7 +22,7 @@
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
 		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation" />
 	</EventBindingsSets>
     <Dialogs>
         <Dialog refId="UserXLogin_dialog" />
@@ -41,8 +41,8 @@
 		<Content refId="UserXDialog_Import_content" />
 		<Content refId="UserXDialog_Duplicate_content" />
 		<Content refId="UserXDialog_Disabled_content" />
-		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
+		<Content refId="Help" />
+		<Content refId="Navigation" />
     </Contents>	
     <SnippetsSets>
 		<SnippetsSet refId="User_snippets" />

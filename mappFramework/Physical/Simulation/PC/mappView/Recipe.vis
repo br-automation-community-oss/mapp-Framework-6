@@ -20,7 +20,7 @@
 		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
 		<EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
 		<Dialog refId="NewRecipe_dialog" />
@@ -34,8 +34,8 @@
 		<Content refId="RecipeDialog_NewMachConfig_content" />
 		<Content refId="RecipeDialog_NewPars_content" />
 		<Content refId="Recipe_content" /> 
-		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
+		<Content refId="Help" />
+		<Content refId="Navigation" />
 	</Contents>	
     <SnippetsSets>
         <SnippetsSet refId="Recipe_snippets" />

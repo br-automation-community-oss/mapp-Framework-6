@@ -18,7 +18,7 @@
 		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
 		<EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>
@@ -26,8 +26,8 @@
         <Content refId="Axis_content" />
         <Content refId="AxisAuto_content" />
         <Content refId="AxisManual_content" />
-		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
+		<Content refId="Help" />
+		<Content refId="Navigation" />
     </Contents>	
     <SnippetsSets>
         <SnippetsSet refId="PLCopenState_snippets" />

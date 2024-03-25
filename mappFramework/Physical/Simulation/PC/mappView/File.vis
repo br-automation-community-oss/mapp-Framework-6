@@ -8,24 +8,24 @@
 		<!--<Navigation refId="" />-->
 	</Navigations>  
 	<BindingsSets>
-        <BindingsSet refId="File_content_binding" />
-		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
-		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" /> 
-		<BindingsSet refId="File_Navigation_content_binding" />
+        <BindingsSet refId="File" />
+		<BindingsSet refId="FileDialogMessage" />
+		<BindingsSet refId="FileDialogFIFO" /> 
+		<BindingsSet refId="FileNavigation" />
     </BindingsSets>
     <EventBindingsSets>
-        <EventBindingsSet refId="File_content_eventbinding" />
-		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
-		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
-		<EventBindingsSet refId="File_Navigation_content_eventbinding" />
+        <EventBindingsSet refId="File" />
+		<EventBindingsSet refId="FileDialogMessage" />
+		<EventBindingsSet refId="FileDialogFIFO" />
+		<EventBindingsSet refId="FileNavigation" />
 		<EventBindingsSet refId="Navigation" />
-    </EventBindingsSets>
+	</EventBindingsSets>
     <Dialogs>
-		<Dialog refId="FileMessage_dialog" />
-		<Dialog refId="FileFIFO_dialog" />
+		<Dialog refId="FileMessage" />
+		<Dialog refId="FileFIFO" />
     </Dialogs>
     <Contents > 
-        <Content refId="File_content" />
+        <Content refId="File" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
     </Contents>	
@@ -34,7 +34,7 @@
     <ExpressionsSets>
     </ExpressionsSets>
     <VariablesSets>
-    	<VariablesSet refId="File_svar" />
+    	<VariablesSet refId="File" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>

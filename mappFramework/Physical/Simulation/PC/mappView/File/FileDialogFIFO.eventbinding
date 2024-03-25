@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="FileDialog_FIFO_dialog_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="FileDialogFIFO" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="FileDialog_FIFO_dialog_content.ddFifoOptions.SelectedIndexChanged">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownFifoOptions" event="SelectedIndexChanged" />
+    <EventBinding id="FileDialogFIFO.ddFifoOptions.SelectedIndexChanged">
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="FileDialogFIFO" widgetRefId="DropDownFifoOptions" event="SelectedIndexChanged" />
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="LabelMaxNumFiles">
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialogFIFO" widgetRefId="LabelMaxNumFiles">
                 <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxNumFiles">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialogFIFO" widgetRefId="NumInMaxNumFiles">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetVisible" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="LabelMaxFolderSize">
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialogFIFO" widgetRefId="LabelMaxFolderSize">
                 <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="false" />
               </Target>
             </Action>
           </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxFolderSize">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialogFIFO" widgetRefId="NumInMaxFolderSize">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetVisible" value="false" />
               </Target>
             </Action>
@@ -39,28 +39,28 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="LabelMaxNumFiles">
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialogFIFO" widgetRefId="LabelMaxNumFiles">
                 <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="false" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxNumFiles">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialogFIFO" widgetRefId="NumInMaxNumFiles">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetVisible" value="false" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="LabelMaxFolderSize">
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialogFIFO" widgetRefId="LabelMaxFolderSize">
                 <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxFolderSize">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="FileDialogFIFO" widgetRefId="NumInMaxFolderSize">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetVisible" value="true" />
               </Target>
             </Action>
@@ -68,17 +68,17 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="FileDialog_FIFO_dialog_content.BtnFIFOSave.EnableChanged">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOSave" event="EnableChanged" />
+    <EventBinding id="FileDialogFIFO.BtnFIFOSave.EnableChanged">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialogFIFO" widgetRefId="BtnFIFOSave" event="EnableChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="LabelInProgressWarning">
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialogFIFO" widgetRefId="LabelInProgressWarning">
             <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="=NOT value" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="ContentLoaded.FileDialog_FIFO_dialog_content">
+    <EventBinding id="ContentLoaded.FileFIFO">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="FIFOenable">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:HmiFile.Parameters.Fifo.Enable">
@@ -120,14 +120,14 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot; AND NOT FIFOenable">
+      <EventHandler condition="contentId = &quot;FileDialogFIFO&quot; AND NOT FIFOenable">
         <Action>
-          <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice">
+          <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="FileDialogFIFO" widgetRefId="DropDownDevice">
             <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="= SelectedDeviceIndex" />
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot;">
+      <EventHandler condition="contentId = &quot;FileDialogFIFO&quot;">
         <Sequence>
           <Step order="0">
             <Action>
@@ -181,18 +181,18 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="FileDialog_FIFO_dialog_content.BtnCancel.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnCancel" event="Click" />
+    <EventBinding id="FileFIFO.BtnCancel.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialogFIFO" widgetRefId="BtnCancel" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO_dialog" />
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="FileDialog_FIFO_dialog_content.BtnFIFOSave.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOSave" event="Click" />
+    <EventBinding id="FileFIFO.BtnFIFOSave.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialogFIFO" widgetRefId="BtnFIFOSave" event="Click" />
       <Operand datatype="BOOL" name="Enable">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarFifoEnable">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -299,7 +299,7 @@
           <Step order="8">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO" />
               </Target>
             </Action>
           </Step>
@@ -359,7 +359,7 @@
           <Step order="8">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO" />
               </Target>
             </Action>
           </Step>
@@ -426,7 +426,7 @@
           <Step order="8">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO" />
               </Target>
             </Action>
           </Step>

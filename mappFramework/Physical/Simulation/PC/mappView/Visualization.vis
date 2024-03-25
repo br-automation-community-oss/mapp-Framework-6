@@ -19,10 +19,10 @@
     <BindingsSet refId="BackupDialogAutoSettings" />
     <BindingsSet refId="BackupNavigation" />
     <BindingsSet refId="BackupDialogUpdate" />
-    <BindingsSet refId="File_content_binding" />
-    <BindingsSet refId="FileDialog_Message_dialog_content_binding" />
-    <BindingsSet refId="FileDialog_FIFO_dialog_content_binding" />
-    <BindingsSet refId="File_Navigation_content_binding" />
+    <BindingsSet refId="File" />
+    <BindingsSet refId="FileDialogMessage" />
+    <BindingsSet refId="FileDialogFIFO" />
+    <BindingsSet refId="FileNavigation" />
     <BindingsSet refId="Recipe_content_binding" />
     <BindingsSet refId="RecipeDialog_NewPars_content_binding" />
     <BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
@@ -62,10 +62,10 @@
     <EventBindingsSet refId="BackupDialogAutoSettings" />
     <EventBindingsSet refId="BackupDialogUpdate" />
     <EventBindingsSet refId="BackupNavigation" />
-    <EventBindingsSet refId="File_content_eventbinding" />
-    <EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
-    <EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
-    <EventBindingsSet refId="File_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="File" />
+    <EventBindingsSet refId="FileDialogMessage" />
+    <EventBindingsSet refId="FileDialogFIFO" />
+    <EventBindingsSet refId="FileNavigation" />
     <EventBindingsSet refId="Recipe_content_eventbinding" />
     <EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
     <EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
@@ -94,8 +94,8 @@
     <Dialog refId="BackupRestore" />
     <Dialog refId="BackupAutoSettings" />
     <Dialog refId="BackupUpdate" />
-    <Dialog refId="FileMessage_dialog" />
-    <Dialog refId="FileFIFO_dialog" />
+    <Dialog refId="FileMessage" />
+    <Dialog refId="FileFIFO" />
     <Dialog refId="NewRecipe_dialog" />
     <Dialog refId="EditRecipe_dialog" />
     <Dialog refId="UserXLogin_dialog" />
@@ -120,7 +120,7 @@
     <Content refId="AxisAuto" />
     <Content refId="AxisManual" />
     <Content refId="Backup" />
-    <Content refId="File_content" />
+    <Content refId="File" />
     <Content refId="RecipeMachConfig_content" />
     <Content refId="RecipeDialog_EditMachConfig_content" />
     <Content refId="RecipeDialog_EditPars_content" />
@@ -152,7 +152,8 @@
     <SnippetsSet refId="User_snippets" />
   </SnippetsSets>
   <VariablesSets>
-    <VariablesSet refId="Recipe_svar" />
+	<VariablesSet refId="File" />
+	<VariablesSet refId="Recipe_svar" />
     <VariablesSet refId="UserX_svar" />
     <VariablesSet refId="Report_svar" />
   </VariablesSets>

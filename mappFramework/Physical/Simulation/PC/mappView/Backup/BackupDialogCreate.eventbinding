@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="BackupDialog_Create_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="BackupDialogCreate" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="BackupDialog_Create_content.BtnBackupDialogCreate.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Create_content" widgetRefId="BtnBackupDialogCreate" event="Click" />
+    <EventBinding id="BackupDialogCreate.BtnBackupDialogCreate.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialogCreate" widgetRefId="BtnBackupDialogCreate" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -14,7 +14,7 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialog_Create_content" widgetRefId="ContentGroup">
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialogCreate" widgetRefId="ContentGroup">
                 <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
               </Target>
             </Action>
@@ -22,33 +22,33 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="BackupDialog_Create_content.BtnBackupDialogCancel.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Create_content" widgetRefId="BtnBackupDialogCancel" event="Click" />
+    <EventBinding id="BackupDialogCreate.BtnBackupDialogCancel.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialogCreate" widgetRefId="BtnBackupDialogCancel" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate_dialog" />
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="BackupDialog_Create_content.ContentLoaded">
+    <EventBinding id="BackupDialogCreate.ContentLoaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-      <EventHandler condition="contentId = &quot;BackupDialog_Create_content&quot;">
+      <EventHandler condition="contentId = &quot;BackupDialog_Create&quot;">
         <Action>
-          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialog_Create_content" widgetRefId="ContentGroup">
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialogCreate" widgetRefId="ContentGroup">
             <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="BackupDialog_Create_content.BusyFalse">
+    <EventBinding id="BackupDialogCreate.BusyFalse">
       <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Busy" event="ValueChanged" />
       <EventHandler condition="(newValue = false) AND (oldValue = true)">
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialog_Create_content" widgetRefId="ContentGroup">
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialogCreate" widgetRefId="ContentGroup">
                 <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
               </Target>
             </Action>
@@ -56,20 +56,20 @@
           <Step order="1">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate" />
               </Target>
             </Action>
           </Step>
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="BackupDialog_Create.Status.Error">
+    <EventBinding id="BackupDialogCreate.Status.Error">
       <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Error" event="ValueChanged" />
       <EventHandler condition="(newValue = true)">
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialog_Create_content" widgetRefId="ContentGroup">
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialogCreate" widgetRefId="ContentGroup">
                 <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
               </Target>
             </Action>
@@ -77,7 +77,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate" />
               </Target>
             </Action>
           </Step>

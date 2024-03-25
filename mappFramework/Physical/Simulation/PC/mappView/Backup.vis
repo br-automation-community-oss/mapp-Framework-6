@@ -8,31 +8,31 @@
         <!--<Navigation refId="" />-->
     </Navigations>  
     <BindingsSets>
-        <BindingsSet refId="BackupDialog_Create_content_binding" />
-        <BindingsSet refId="Backup_content_binding" />
-		<BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
-		<BindingsSet refId="Backup_Navigation_content_binding" />
-		<BindingsSet refId="BackupDialog_Update_content_binding" />
+        <BindingsSet refId="BackupDialogCreate" />
+        <BindingsSet refId="Backup" />
+		<BindingsSet refId="BackupDialogAutoSettings" />
+		<BindingsSet refId="BackupNavigation" />
+		<BindingsSet refId="BackupDialogUpdate" />
     </BindingsSets>
     <EventBindingsSets>
-        <EventBindingsSet refId="Backup_content_eventbinding" />
-        <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
-        <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
-        <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
-		<EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
-		<EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="BackupDialog_Update_content_eventbinding" />
+        <EventBindingsSet refId="Backup" />
+        <EventBindingsSet refId="BackupDialogCreate" />
+        <EventBindingsSet refId="BackupDialogDelete" />
+        <EventBindingsSet refId="BackupDialogRestore" />
+		<EventBindingsSet refId="BackupDialogAutoSettings" />
+		<EventBindingsSet refId="BackupDialogUpdate" />
+		<EventBindingsSet refId="BackupNavigation" />
 		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
-        <Dialog refId="BackupCreate_dialog" />
-        <Dialog refId="BackupDelete_dialog" />
-        <Dialog refId="BackupRestore_dialog" />
-        <Dialog refId="BackupAutoSettings_dialog" />
-		<Dialog refId="BackupUpdate_dialog" />
+        <Dialog refId="BackupCreate" />
+        <Dialog refId="BackupDelete" />
+        <Dialog refId="BackupRestore" />
+        <Dialog refId="BackupAutoSettings" />
+		<Dialog refId="BackupUpdate" />
     </Dialogs>
     <Contents > 
-        <Content refId="Backup_content" />
+        <Content refId="Backup" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
     </Contents>	

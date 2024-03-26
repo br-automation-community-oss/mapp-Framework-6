@@ -7,6 +7,7 @@ TYPE
 		Status : {REDUND_UNREPLICABLE} AlarmStatusType; (*HMI status*)
 	END_STRUCT;
 	AlarmParType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
+		FileName : STRING[80]; (*Current file name*)
 		Language : USINT; (*Current VC4 language*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)

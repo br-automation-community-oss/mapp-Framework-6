@@ -29,10 +29,14 @@ PROGRAM _INIT
 	MpAlarmXHistoryMain.Enable := TRUE;
 	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');
 	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
+	HmiAlarmX.Parameters.FileName := 'AlarmHistory_%Y_%m_%d_%H_%M_%S';
+	MpAlarmXHistoryMain.FileName := ADR(HmiAlarmX.Parameters.FileName);
+	MpAlarmXHistoryMain.Language := ADR(HmiAlarmX.Parameters.Language);
 	MpAlarmXHistoryMain();
 
 	MpAlarmXListUIMain.Enable := TRUE;
 	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXListUIMain.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXListUIMain.UISetup.AlarmListSize := 50;
 	MpAlarmXListUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';

@@ -29,12 +29,12 @@
     <BindingsSet refId="RecipeMachConfig" />
     <BindingsSet refId="RecipePars" />
     <BindingsSet refId="RecipeNavigation" />
-    <BindingsSet refId="UserX_content_binding" />
-    <BindingsSet refId="UserXDialog_Export_content_binding" />
-    <BindingsSet refId="UserXDialog_Import_content_binding" />
-    <BindingsSet refId="UserXDialog_Error_content_binding" />
-    <BindingsSet refId="UserXDialog_Duplicate_content_binding" />
-    <BindingsSet refId="UserX_Navigation_content_binding" />
+    <BindingsSet refId="UserX" />
+    <BindingsSet refId="UserXDialogExport" />
+    <BindingsSet refId="UserXDialogImport" />
+    <BindingsSet refId="UserXDialogError" />
+    <BindingsSet refId="UserXDialogDuplicate" />
+    <BindingsSet refId="UserXNavigation" />
     <BindingsSet refId="Audit_Navigation_content_binding" />
     <BindingsSet refId="AuditTrail_content_binding" />
     <BindingsSet refId="CustomEvents_content_binding" />
@@ -70,12 +70,12 @@
     <EventBindingsSet refId="RecipeDialogNew" />
     <EventBindingsSet refId="RecipeDialogEdit" />
     <EventBindingsSet refId="RecipeNavigation" />
-    <EventBindingsSet refId="UserList_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
-    <EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="UserList" />
+    <EventBindingsSet refId="UserXDialogExport" />
+    <EventBindingsSet refId="UserXDialogImport" />
+    <EventBindingsSet refId="UserXDialogDuplicate" />
+    <EventBindingsSet refId="UserXDialogDisabled" />
+    <EventBindingsSet refId="UserXNavigation" />
     <EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
     <EventBindingsSet refId="AuditTrail_content_eventbinding" />
     <EventBindingsSet refId="CustomEvents_content_eventbinding" />
@@ -98,12 +98,12 @@
     <Dialog refId="FileFIFO" />
     <Dialog refId="NewRecipe" />
     <Dialog refId="EditRecipe" />
-    <Dialog refId="UserXLogin_dialog" />
-    <Dialog refId="UserXError_dialog" />
-    <Dialog refId="UserXExport_dialog" />
-    <Dialog refId="UserXImport_dialog" />
-    <Dialog refId="UserXDuplicate_dialog" />
-    <Dialog refId="UserXDisabled_dialog" />
+    <Dialog refId="UserXLogin" />
+    <Dialog refId="UserXError" />
+    <Dialog refId="UserXExport" />
+    <Dialog refId="UserXImport" />
+    <Dialog refId="UserXDuplicate" />
+    <Dialog refId="UserXDisabled" />
     <Dialog refId="AuditArchiveSettings_dialog" />
     <Dialog refId="ReportCreate_dialog" />
     <Dialog refId="ReportDelete_dialog" />
@@ -128,14 +128,14 @@
     <Content refId="RecipeDialogNewPars" />
     <Content refId="RecipePars" />
     <Content refId="Recipe" />
-    <Content refId="UserX_content" />
-    <Content refId="UserList_content" />
-    <Content refId="UserXDialog_Login_content" />
-    <Content refId="UserXDialog_Error_content" />
-    <Content refId="UserXDialog_Duplicate_content" />
-    <Content refId="UserXDialog_Disabled_content" />
-    <Content refId="UserXDialog_Export_content" />
-    <Content refId="UserXDialog_Import_content" />
+    <Content refId="UserX" />
+    <Content refId="UserList" />
+    <Content refId="UserXDialogLogin" />
+    <Content refId="UserXDialogError" />
+    <Content refId="UserXDialogDuplicate" />
+    <Content refId="UserXDialogDisabled" />
+    <Content refId="UserXDialogExport" />
+    <Content refId="UserXDialogImport" />
     <Content refId="Audit_content" />
     <Content refId="AuditTrail_content" />
     <Content refId="AuditQuery_content" />
@@ -149,12 +149,12 @@
   <SnippetsSets>
     <SnippetsSet refId="PLCopenState" />
     <SnippetsSet refId="Recipe" />
-    <SnippetsSet refId="User_snippets" />
+    <SnippetsSet refId="User" />
   </SnippetsSets>
   <VariablesSets>
-	<VariablesSet refId="File" />
-	<VariablesSet refId="Recipe" />
-    <VariablesSet refId="UserX_svar" />
+    <VariablesSet refId="File" />
+    <VariablesSet refId="Recipe" />
+    <VariablesSet refId="UserX" />
     <VariablesSet refId="Report_svar" />
   </VariablesSets>
   <ExpressionsSets>

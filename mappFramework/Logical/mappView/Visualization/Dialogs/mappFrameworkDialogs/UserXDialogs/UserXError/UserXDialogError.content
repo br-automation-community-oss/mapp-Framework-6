@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="UserXDialog_Error_content" guid="4a6b0b5c-c619-47fe-8a7a-987c62354878" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="UserXDialogError" guid="4a6b0b5c-c619-47fe-8a7a-987c62354878" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.TextOutput" id="TextOutUserError" top="130" left="0" width="450" height="90" zIndex="0" multiLine="true" wordWrap="true" textAlign="center" style="Output" />
     <Widget xsi:type="widgets.brease.Image" id="ImageWarning" top="5" left="165" width="120" height="120" zIndex="1" image="Media/mappFrameworkSymbols/Symbols/WarningRed.svg" />

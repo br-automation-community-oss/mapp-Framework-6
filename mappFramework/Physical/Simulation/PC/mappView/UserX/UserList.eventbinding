@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="UserList_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="UserList" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="UserList_content.BtnEditUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnEditUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnEditUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList" widgetRefId="UserListManagement">
             <Method xsi:type="widgets.brease.UserList.Action.OpenModifyUserDialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.BtnAddUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnAddUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnAddUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList" widgetRefId="UserListManagement">
             <Method xsi:type="widgets.brease.UserList.Action.OpenAddUserDialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.BtnDeleteUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnDeleteUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnDeleteUser" event="Click" />
       <Operand datatype="ANY_STRING" name="mySelectedUser">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SelectedUserNameMsg">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -38,7 +38,7 @@
               <Result>
                 <ResultHandler condition="result = 4">
                   <Action>
-                    <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
+                    <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList" widgetRefId="UserListManagement">
                       <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
                     </Target>
                     <Result>
@@ -94,7 +94,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.BtnExportUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnExportUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnExportUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Export.ShowDialog">
@@ -105,13 +105,13 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXExport_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXExport" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.BtnImportUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnImportUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnImportUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Import.ShowDialog">
@@ -122,7 +122,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXImport_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXImport" />
           </Target>
         </Action>
       </EventHandler>
@@ -139,7 +139,7 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXError_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXError" />
               </Target>
             </Action>
           </Step>
@@ -171,7 +171,7 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXError_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXError" />
               </Target>
             </Action>
           </Step>
@@ -214,7 +214,7 @@
       <EventHandler condition="newValue = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXDuplicate_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXDuplicate" />
           </Target>
         </Action>
       </EventHandler>
@@ -232,15 +232,15 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentCtrlUserList">
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX" widgetRefId="ContentCtrlUserList">
                 <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentCtrlUserList">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="UserList_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX" widgetRefId="ContentCtrlUserList">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="UserList" />
               </Target>
             </Action>
           </Step>
@@ -248,7 +248,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.UserListManagement.ItemClick">
-      <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserList_content" widgetRefId="UserListManagement" event="ItemClick" />
+      <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserList" widgetRefId="UserListManagement" event="ItemClick" />
       <EventHandler>
         <Action>
           <Target xsi:type="session.VariableAction" refId="SelectedUserName">
@@ -268,7 +268,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.BtnRefreshUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnRefreshUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList" widgetRefId="BtnRefreshUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="session.VariableAction" refId="UserXRefreshList">

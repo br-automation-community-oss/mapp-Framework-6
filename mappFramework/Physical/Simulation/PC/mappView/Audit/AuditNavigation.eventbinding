@@ -6,7 +6,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Audit" pageId="Demo_page" areaId="AreaContent" />
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Audit" pageId="Demo" areaId="AreaContent" />
           </Target>
         </Action>
       </EventHandler>

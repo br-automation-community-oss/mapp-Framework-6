@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="ReportDialog_Delete_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="ReportDialogDelete" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="ReportDialog_Delete_content.BtnDelete.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ReportDialog_Delete_content" widgetRefId="BtnDelete" event="Click" />
+    <EventBinding id="ReportDialogDelete.BtnDelete.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ReportDialogDelete" widgetRefId="BtnDelete" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -15,15 +15,15 @@
           <Step order="1">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ReportDelete_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ReportDelete" />
               </Target>
             </Action>
           </Step>
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="ReportDialog_Delete_content.BtnCancel.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ReportDialog_Delete_content" widgetRefId="BtnCancel" event="Click" />
+    <EventBinding id="ReportDialogDelete.BtnCancel.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ReportDialogDelete" widgetRefId="BtnCancel" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -36,7 +36,7 @@
           <Step order="2">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ReportDelete_dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ReportDelete" />
               </Target>
             </Action>
           </Step>

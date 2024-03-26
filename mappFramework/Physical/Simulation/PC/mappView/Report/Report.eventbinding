@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="Report_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="Report" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Report_content.BtnReportDialog_Create_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnReportDialog_Create_content" event="Click" />
+    <EventBinding id="Report.BtnReportDialogCreate.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportDialogCreate" event="Click" />
       <Operand datatype="ANY_STRING" name="SystemLanguage">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.languageId">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -13,7 +13,7 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportCreate_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportCreate" />
               </Target>
             </Action>
           </Step>
@@ -27,8 +27,8 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Report_content.BtnReportDialog_Delete_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnReportDialog_Delete_content" event="Click" />
+    <EventBinding id="Report.BtnReportDialogDelete.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportDialogDelete" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
@@ -41,19 +41,19 @@
           <Step order="2">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportDelete_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportDelete" />
               </Target>
             </Action>
           </Step>
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Report_content.BtnReportDialog_View_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnReportDialog_View_content" event="Click" />
+    <EventBinding id="Report.BtnReportDialogView.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportDialogView" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportView_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportView" />
           </Target>
         </Action>
       </EventHandler>
@@ -78,19 +78,19 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Report_content.BtnReportPageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnReportPageDown" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportPageDown" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report" widgetRefId="Table1">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report" widgetRefId="Table1">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
               </Target>
             </Action>
@@ -106,19 +106,19 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Report_content.BtnReportPageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnReportPageUp" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportPageUp" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report" widgetRefId="Table1">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report" widgetRefId="Table1">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
               </Target>
             </Action>
@@ -133,7 +133,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-	<EventBinding id="ContentLoaded.Report_content.RefreshList">
+    <EventBinding id="ContentLoaded.Report_content.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;Report_content&quot;">
         <Action>

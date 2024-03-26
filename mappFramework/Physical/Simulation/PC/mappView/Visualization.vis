@@ -44,8 +44,8 @@
     <BindingsSet refId="Report" />
     <BindingsSet refId="ReportDialogView" />
     <BindingsSet refId="ReportDialogCreate" />
-    <BindingsSet refId="PackML_content_binding" />
-    <BindingsSet refId="PackML_Navigation_content_binding" />
+    <BindingsSet refId="PackML" />
+    <BindingsSet refId="PackMLNavigation" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="AlarmXCurrent" />
@@ -85,8 +85,8 @@
     <EventBindingsSet refId="ReportDialogDelete" />
     <EventBindingsSet refId="Report" />
     <EventBindingsSet refId="ReportDialogView" />
-    <EventBindingsSet refId="PackML_content_eventbinding" />
-    <EventBindingsSet refId="PackML_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="PackML" />
+    <EventBindingsSet refId="PackMLNavigation" />
   </EventBindingsSets>
   <Dialogs>
     <Dialog refId="BackupCreate" />
@@ -144,7 +144,7 @@
     <Content refId="ReportDialogCreate" />
     <Content refId="ReportDialogDelete" />
     <Content refId="ReportDialogView" />
-    <Content refId="PackML_content" />
+    <Content refId="PackML" />
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="PLCopenState" />

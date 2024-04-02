@@ -2,14 +2,14 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="mappServices" PackageType="mappServices" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\AlarmX</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\Audit</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\AppAxis_1</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\Backup</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\File</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\Recipe</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\UserX</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\Report</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappServices\PackML</Object>
+    <Object Type="Package" Description="mapp Framework AlarmX files">AlarmX</Object>
+    <Object Type="Package" Description="mapp Framework Audit files">Audit</Object>
+    <Object Type="Package" Description="mapp Framework AppAxis_1 files">AppAxis_1</Object>
+    <Object Type="Package" Description="mapp Framework Backup files">Backup</Object>
+    <Object Type="Package" Description="mapp Framework File files">File</Object>
+    <Object Type="Package" Description="mapp Framework Recipe files">Recipe</Object>
+    <Object Type="Package" Description="mapp Framework UserX files">UserX</Object>
+    <Object Type="Package" Description="mapp Framework Report files" TransferedForTargetSourceCompare="true">Report</Object>
+    <Object Type="Package" Description="mapp Framework PackML files" TransferedForTargetSourceCompare="true">PackML</Object>
   </Objects>
 </Package>

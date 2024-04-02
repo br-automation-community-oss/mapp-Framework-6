@@ -13,15 +13,15 @@
     <Object Type="File" Reference="true">\Physical\Simulation\PC\mappView\Report.vis</Object>
     <Object Type="File" Reference="true">\Physical\Simulation\PC\mappView\UserX.vis</Object>
     <Object Type="File" Reference="true">\Physical\Simulation\PC\mappView\PackML.vis</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\AlarmX</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\DemoPage</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\Axis</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\Backup</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\File</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\Recipe</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\UserX</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\Audit</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\Report</Object>
-    <Object Type="Package" Reference="true">\Physical\Simulation\PC\mappView\PackML</Object>
+    <Object Type="Package" Description="mapp Framework AlarmX mapp View Files">AlarmX</Object>
+    <Object Type="Package" Description="mapp Framework Demo Page mapp View Files">DemoPage</Object>
+    <Object Type="Package" Description="mapp Framework Axis mapp View Files">Axis</Object>
+    <Object Type="Package" Description="mapp Framework Backup mapp View Files">Backup</Object>
+    <Object Type="Package" Description="mapp Framework File mapp View Files">File</Object>
+    <Object Type="Package" Description="mapp Framework Recipe mapp View Files">Recipe</Object>
+    <Object Type="Package" Description="mapp Framework UserX  mapp View Files">UserX</Object>
+    <Object Type="Package" Description="mapp Framework Audit  mapp View Files">Audit</Object>
+    <Object Type="Package" Description="mapp Framework Report  mapp View Files">Report</Object>
+    <Object Type="Package" Description="mapp Framework PackML  mapp View Files">PackML</Object>
   </Objects>
 </Package>

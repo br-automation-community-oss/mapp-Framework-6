@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="File" Reference="true">\Physical\Simulation\PC\mappServices\Report\SimpleCfg.mpreportcore</Object>
     <Object Type="File" Reference="true">\Physical\Simulation\PC\mappServices\Report\AdvCfg.mpreportcore</Object>
-    <Object Type="File" Reference="true">\Physical\Simulation\PC\mappServices\Report\ReportFile.mpfilemanagerui</Object>
+	<Object Type="File" Reference="true">\Physical\Simulation\PC\mappServices\Report\ReportFile.mpfilemanagerui</Object>
   </Objects>
 </Package>

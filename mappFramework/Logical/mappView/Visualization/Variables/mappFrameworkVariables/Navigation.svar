@@ -10,15 +10,15 @@
     <Variable name="Variable5" xsi:type="BOOL" value="true" />    
     -->
     
-    <Variable name="NavigationAlarm" xsi:type="ANY_STRING" value="AlarmX_content" />
-    <Variable name="NavigationRecipe" xsi:type="ANY_STRING" value="Recipe_content" />
-    <Variable name="NavigationUser" xsi:type="ANY_STRING" value="UserX_content" />
-    <Variable name="NavigationBackup" xsi:type="ANY_STRING" value="Backup_content" />
-    <Variable name="NavigationFile" xsi:type="ANY_STRING" value="File_content" />
-    <Variable name="NavigationAxis" xsi:type="ANY_STRING" value="Axis_content" />
-    <Variable name="NavigationAudit" xsi:type="ANY_STRING" value="Audit_content" />
-    <Variable name="NavigationReport" xsi:type="ANY_STRING" value="Report_content" />
-    <Variable name="NavigationPackML" xsi:type="ANY_STRING" value="PackML_content" />   
+    <Variable name="NavigationAlarm" xsi:type="ANY_STRING" value="AlarmX" />
+    <Variable name="NavigationRecipe" xsi:type="ANY_STRING" value="Recipe" />
+    <Variable name="NavigationUser" xsi:type="ANY_STRING" value="UserX" />
+    <Variable name="NavigationBackup" xsi:type="ANY_STRING" value="Backup" />
+    <Variable name="NavigationFile" xsi:type="ANY_STRING" value="File" />
+    <Variable name="NavigationAxis" xsi:type="ANY_STRING" value="Axis" />
+    <Variable name="NavigationAudit" xsi:type="ANY_STRING" value="Audit" />
+    <Variable name="NavigationReport" xsi:type="ANY_STRING" value="Report" />
+    <Variable name="NavigationPackML" xsi:type="ANY_STRING" value="PackML" />   
     
     <Variable name="NavigationAlarmActive" xsi:type="BOOL" value="false" />
     <Variable name="NavigationRecipeActive" xsi:type="BOOL" value="false" /> 

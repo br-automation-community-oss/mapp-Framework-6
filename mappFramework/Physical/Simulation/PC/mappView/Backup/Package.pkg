@@ -12,7 +12,5 @@
     <Object Type="File">BackupDialog_AutoSettings_content.eventbinding</Object>
     <Object Type="File">BackupDialog_Update_content.binding</Object>
     <Object Type="File">BackupDialog_Update_content.eventbinding</Object>
-    <Object Type="File">Navigation_content.eventbinding</Object>
-    <Object Type="File">Navigation_content.binding</Object>
   </Objects>
 </Package>

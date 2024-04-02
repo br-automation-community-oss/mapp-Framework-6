@@ -11,7 +11,7 @@
         <BindingsSet refId="BackupDialog_Create_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
 		<BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
-		<BindingsSet refId="Backup_Navigation_content_binding" />
+		<BindingsSet refId="Navigation" />
 		<BindingsSet refId="BackupDialog_Update_content_binding" />
     </BindingsSets>
     <EventBindingsSets>
@@ -20,9 +20,8 @@
         <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
         <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
 		<EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
-		<EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="BackupDialog_Update_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
         <Dialog refId="BackupCreate_dialog" />
@@ -34,13 +33,13 @@
     <Contents > 
         <Content refId="Backup_content" />
 		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
     </SnippetsSets>
     <ExpressionsSets>
     </ExpressionsSets>
     <VariablesSets>
+    		<VariablesSet refId="Navigation" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>

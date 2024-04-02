@@ -11,13 +11,12 @@
         <BindingsSet refId="AlarmXCurrent_content_binding" />
 		<BindingsSet refId="AlarmXHistory_content_binding" />
 		<BindingsSet refId="AlarmXQuery_content_binding" />
-		<BindingsSet refId="AlarmX_Navigation_content_binding" />
+		<BindingsSet refId="Navigation" />
 	</BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
 		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
-		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>
@@ -27,13 +26,13 @@
 		<Content refId="AlarmXQuery_content" />
 		<Content refId="AlarmX_content" />
 		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
     </SnippetsSets>
     <ExpressionsSets>
     </ExpressionsSets>
     <VariablesSets>
+    		<VariablesSet refId="Navigation" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>

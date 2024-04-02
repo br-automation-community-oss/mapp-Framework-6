@@ -11,13 +11,13 @@
         <BindingsSet refId="File_content_binding" />
 		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
 		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" /> 
-		<BindingsSet refId="Navigation_content" />
+		<BindingsSet refId="Navigation" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="File_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
 		<Dialog refId="FileMessage_dialog" />
@@ -26,7 +26,6 @@
     <Contents > 
         <Content refId="File_content" />
 		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
     </SnippetsSets>
@@ -34,6 +33,7 @@
     </ExpressionsSets>
     <VariablesSets>
     	<VariablesSet refId="File_svar" />
+	<VariablesSet refId="Navigation" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>

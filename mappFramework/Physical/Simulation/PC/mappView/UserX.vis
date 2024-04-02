@@ -12,7 +12,7 @@
         <BindingsSet refId="UserXDialog_Export_content_binding" />	
         <BindingsSet refId="UserXDialog_Import_content_binding" />	
 		<BindingsSet refId="UserXDialog_Error_content_binding" />
-		<BindingsSet refId="UserX_Navigation_content_binding" />
+		<BindingsSet refId="Navigation" />
 		<BindingsSet refId="UserXDialog_Duplicate_content_binding" />
 	</BindingsSets>
     <EventBindingsSets> 
@@ -21,8 +21,7 @@
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
-		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content" />
+		<EventBindingsSet refId="Navigation" />
 	</EventBindingsSets>
     <Dialogs>
         <Dialog refId="UserXLogin_dialog" />
@@ -42,7 +41,6 @@
 		<Content refId="UserXDialog_Duplicate_content" />
 		<Content refId="UserXDialog_Disabled_content" />
 		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
 		<SnippetsSet refId="User_snippets" />
@@ -51,6 +49,7 @@
     </ExpressionsSets>
     <VariablesSets>
 		<VariablesSet refId="UserX_svar" />
+		<VariablesSet refId="Navigation" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
 	<Themes>

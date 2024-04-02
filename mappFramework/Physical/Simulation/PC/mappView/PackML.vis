@@ -6,11 +6,11 @@
   </Pages>
   <Navigations />
   <BindingsSets>
-    <BindingsSet refId="PackML_Navigation_content_binding" />
+    <BindingsSet refId="Navigation" />
     <BindingsSet refId="PackML_content_binding" />
   </BindingsSets>
   <EventBindingsSets>
-    <EventBindingsSet refId="PackML_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="Navigation" />
     <EventBindingsSet refId="PackML_content_eventbinding" />
   </EventBindingsSets>
   <Dialogs />
@@ -20,6 +20,7 @@
   <SnippetsSets />
   <VariablesSets>
     <VariablesSet refId="PackML_svar" />
+    <VariablesSet refId="Navigation" />
   </VariablesSets>
   <ExpressionsSets />
   <StartTheme themeRefId="BuRThemeFlat1" />

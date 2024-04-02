@@ -13,13 +13,13 @@
 		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
 		<BindingsSet refId="RecipeMachConfig_content_binding" />
 		<BindingsSet refId="RecipePars_content_binding" />
-		<BindingsSet refId="Navigation_content" />
+		<BindingsSet refId="Navigation" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="Recipe_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
-		<EventBindingsSet refId="Navigation_content" />
+		<EventBindingsSet refId="Navigation" />
     </EventBindingsSets>
     <Dialogs>
 		<Dialog refId="NewRecipe_dialog" />
@@ -34,7 +34,6 @@
 		<Content refId="RecipeDialog_NewPars_content" />
 		<Content refId="Recipe_content" /> 
 		<Content refId="Help_content" />
-		<Content refId="Navigation_content" />
 	</Contents>	
     <SnippetsSets>
         <SnippetsSet refId="Recipe_snippets" />
@@ -44,6 +43,7 @@
     </ExpressionsSets>
     <VariablesSets>
         <VariablesSet refId="Recipe_svar" />
+	   <VariablesSet refId="Navigation" />
     </VariablesSets>
     <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>

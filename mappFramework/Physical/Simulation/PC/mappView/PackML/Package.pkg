@@ -4,7 +4,5 @@
   <Objects>
     <Object Type="File">PackML_content.binding</Object>
     <Object Type="File">PackML_content.eventbinding</Object>
-    <Object Type="File">Navigation_content.binding</Object>
-    <Object Type="File">Navigation_content.eventbinding</Object>
   </Objects>
 </Package>

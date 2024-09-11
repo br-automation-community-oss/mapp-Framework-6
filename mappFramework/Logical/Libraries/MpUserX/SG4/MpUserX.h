@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpUserX 6.0.7003 */
+/* MpUserX 6.0.0 */
 
 #ifndef _MPUSERX_
 #define _MPUSERX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpUserX_VERSION
-#define _MpUserX_VERSION 6.0.7003
+#define _MpUserX_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -129,7 +129,9 @@ typedef enum MpUserXErrorEnum
 	mpUSERX_WRN_PASSWORD_WILL_EXPIRE = -2137886667,
 	mpUSERX_WRN_INVALID_DISPLAY_NAME = -2137886666,
 	mpUSERX_ERR_REQUEST_LIMIT = -1064144841,
-	mpUSERX_ERR_SESSION_LIMIT = -1064144840
+	mpUSERX_ERR_SESSION_LIMIT = -1064144840,
+	mpUSERX_ERR_DELETE_BR_ROLE = -1064144839,
+	mpUSERX_WRN_IMPORT_FILE_FORMAT = -2137886662
 } MpUserXErrorEnum;
 
 typedef struct MpUserXUIMessageBoxType
@@ -440,8 +442,8 @@ typedef struct MpUserXLogin
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
 	signed long LifeSign;
-	plcwstring (*UserName);
-	plcwstring (*Password);
+	plcwstring *UserName;
+	plcwstring *Password;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	plcwstring CurrentUser[101];

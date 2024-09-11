@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAudit 6.0.7003 */
+/* MpAudit 6.0.0 */
 
 #ifndef _MPAUDIT_
 #define _MPAUDIT_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAudit_VERSION
-#define _MpAudit_VERSION 6.0.7003
+#define _MpAudit_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -93,16 +93,16 @@ typedef enum MpAuditErrorEnum
 	mpAUDIT_ERR_BUFFER_CREATE = -1064124499,
 	mpAUDIT_ERR_WRITE_EXPORT_FILE = -1064124498,
 	mpAUDIT_ERR_READ_BUFFER_ENTRIES = -1064124497,
-	mpAUDIT_INF_ARCHIVE_NO_ENTRIES = 1083359152,
-	mpAUDIT_ERR_EVENT_RECORDER = -1064124495,
+	mpAUDIT_ERR_EVENT_RECORDER = -1064124496,
+	mpAUDIT_INF_ARCHIVE_NO_ENTRIES = 1083359153,
 	mpAUDIT_ERR_INVALID_FILE_DEV = -1064124494,
 	mpAUDIT_ERR_MAX_ARCHIVES = -1064124493,
 	mpAUDIT_ERR_MISSING_UICONNECT = -1064124492,
-	mpAUDIT_INF_WAIT_AUDIT_FB = 1083359157,
 	mpAUDIT_ERR_READ_VC_EVENTS = -1064124490,
 	mpAUDIT_WRN_OPC_AUDIT_DISABLED = -2137866313,
 	mpAUDIT_ERR_MONITOR_PV = -1064124488,
 	mpAUDIT_ERR_NO_BATCHID = -1064124487,
+	mpAUDIT_ERR_ARCHIVE_REMOVE = -1064124486,
 	mpAUDIT_ERR_QUERY_NOT_FOUND = -1064124485,
 	mpAUDIT_INF_QUERY_NO_DATA = 1083359164,
 	mpAUDIT_ERR_INVALID_FILE_NAME = -1064124483
@@ -231,10 +231,12 @@ typedef struct MpAuditDiagType
 
 typedef struct MpAuditTrailUIInfoType
 {	struct MpAuditDiagType Diag;
+	plcstring GeneratedFileName[256];
 } MpAuditTrailUIInfoType;
 
 typedef struct MpAuditExportInfoType
 {	struct MpAuditDiagType Diag;
+	plcstring GeneratedFileName[256];
 } MpAuditExportInfoType;
 
 typedef struct MpAuditQueryInfoType
@@ -266,22 +268,21 @@ typedef struct MpAuditTrailUI
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*DeviceName);
-	plcstring (*FileName);
+	plcstring *DeviceName;
+	plcstring *FileName;
 	struct MpAuditTrailUISetupType UISetup;
-	plcstring (*Language);
+	plcstring *Language;
 	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	struct MpAuditTrailUIConnectType* UIConnect;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
-	struct MpAuditTrailInfoType Info;
+	struct MpAuditTrailUIInfoType Info;
 	/* VAR (analog) */
 	unsigned char InternalState;
 	unsigned long InternalData[30];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
-	plcbit Refresh;
 	/* VAR_OUTPUT (digital) */
 	plcbit Active;
 	plcbit Error;
@@ -291,9 +292,9 @@ typedef struct MpAuditTrail
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*DeviceName);
-	plcstring (*FileName);
-	plcstring (*Language);
+	plcstring *DeviceName;
+	plcstring *FileName;
+	plcstring *Language;
 	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
@@ -306,6 +307,7 @@ typedef struct MpAuditTrail
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
+	plcbit Overwrite;
 	plcbit Export;
 	plcbit ExportArchive;
 	plcbit Clear;
@@ -340,8 +342,8 @@ typedef struct MpAuditRegPar
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*PVName);
-	plcstring (*Identifier);
+	plcstring *PVName;
+	plcstring *Identifier;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	struct MpAuditRegParInfoType Info;
@@ -362,20 +364,21 @@ typedef struct MpAuditExport
 	struct MpComIdentType* MpLink;
 	struct MpAuditExportFilterType* Filter;
 	unsigned long ToRecord;
-	plcstring (*DeviceName);
-	plcstring (*FileName);
-	plcstring (*Language);
+	plcstring *DeviceName;
+	plcstring *FileName;
+	plcstring *Language;
 	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	unsigned long Record;
-	struct MpAuditTrailInfoType Info;
+	struct MpAuditExportInfoType Info;
 	/* VAR (analog) */
 	unsigned long InternalState;
 	unsigned long InternalData[20];
 	/* VAR_INPUT (digital) */
 	plcbit Enable;
 	plcbit ErrorReset;
+	plcbit Overwrite;
 	plcbit Export;
 	/* VAR_OUTPUT (digital) */
 	plcbit Active;
@@ -389,8 +392,8 @@ typedef struct MpAuditQuery
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
 	enum MpAuditQueryModeEnum Mode;
-	plcstring (*Name);
-	plcstring (*Language);
+	plcstring *Name;
+	plcstring *Language;
 	enum MpAuditMeasurementSystemEnum MeasurementSystem;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;

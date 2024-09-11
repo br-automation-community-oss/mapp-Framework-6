@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAxis 6.0.7001 */
+/* MpAxis 6.0.0 */
 
 #ifndef _MPAXIS_
 #define _MPAXIS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAxis_VERSION
-#define _MpAxis_VERSION 6.0.7001
+#define _MpAxis_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -50,7 +50,9 @@ typedef enum MpAxisErrorEnum
 	mcAXIS_ERR_MPLINK_CHANGED = -1064239100,
 	mcAXIS_ERR_MPLINK_CORRUPT = -1064239099,
 	mcAXIS_ERR_MPLINK_IN_USE = -1064239098,
-	mcAXIS_ERR_PAR_NULL = -1064239097
+	mcAXIS_ERR_PAR_NULL = -1064239097,
+	mcAXIS_ERR_CONFIG_NULL = -1064239096,
+	mcAXIS_ERR_CONFIG_CMD_FAILED = -1067278070
 } MpAxisErrorEnum;
 
 typedef enum MpAxisGetCamPositionModeEnum
@@ -126,32 +128,41 @@ typedef enum MpAxisMoveCyclicVelocityModeEnum
 } MpAxisMoveCyclicVelocityModeEnum;
 
 typedef enum MpAxisBasicConfigSectionEnum
-{	mcAXIS_BASIC_SEC_ALL,
-	mcAXIS_BASIC_SEC_DRIVE_CTRL
+{	mcAXB_CFG_SEC_ALL,
+	mcAXB_CFG_SEC_DRIVE_CTRL
 } MpAxisBasicConfigSectionEnum;
 
 typedef enum MpAxisBasicConfigCmdEnum
 {	mcAXIS_BASIC_CFG_READ,
 	mcAXIS_BASIC_CFG_WRITE,
-	mcAXIS_BASIC_CFG_LOAD_FROM_CFG,
 	mcAXIS_BASIC_CFG_LOAD,
 	mcAXIS_BASIC_CFG_SAVE,
-	mcAXIS_BASIC_CFG_WRITE_AND_SAVE,
 	mcAXIS_BASIC_CFG_CREATE,
 	mcAXIS_BASIC_CFG_DELETE
 } MpAxisBasicConfigCmdEnum;
 
-typedef enum MpAXBHWModuleChannelEnum
-{	mcAXIS_BASIC_CFG_HW_CHANNEL1,
-	mcAXIS_BASIC_CFG_HW_CHANNEL2,
-	mcAXIS_BASIC_CFG_HW_CHANNEL3
-} MpAXBHWModuleChannelEnum;
+typedef enum MpAXBModuleChannelEnum
+{	mcAXB_CFG_HW_CHANNEL1,
+	mcAXB_CFG_HW_CHANNEL2,
+	mcAXB_CFG_HW_CHANNEL3
+} MpAXBModuleChannelEnum;
 
-typedef enum MpAXBHWModuleAxTypeEnum
-{	mcAXIS_BASIC_CFG_HW_AXIS_REAL,
-	mcAXIS_BASIC_CFG_HW_AXIS_VIRT,
-	mcAXIS_BASIC_CFG_HW_AXIS_EXT_ENC
-} MpAXBHWModuleAxTypeEnum;
+typedef enum MpAXBModuleAxTypeEnum
+{	mcAXB_CFG_AX_REAL,
+	mcAXB_CFG_AX_VIRT,
+	mcAXB_CFG_AX_EXT_ENC,
+	mcAXB_CFG_AX_PUREVAX,
+	mcAXB_CFG_AX_PUREVAX_GPAI,
+	mcAXB_CFG_AX_PUREVAX_EXT_ENC,
+	mcAXB_CFG_AX_POWER_SUPPLY
+} MpAXBModuleAxTypeEnum;
+
+typedef enum MpAXBMotorDataTypeEnum
+{	mcAXB_CFG_MOTOR_NOT_USE,
+	mcAXB_CFG_MOTOR_SYNC_ANY = 10500,
+	mcAXB_CFG_MOTOR_IND_ANY = 10501,
+	mcAXB_CFG_MOTOR_STP = 13013
+} MpAXBMotorDataTypeEnum;
 
 typedef enum MpAXBAxBaseTypEnum
 {	mcAXB_BASE_TYPE_LIN_BD = 0,
@@ -628,18 +639,24 @@ typedef struct MpAxisCyclicSetParType
 	struct MpAxisTorqueFFParType TorqueFeedForward;
 } MpAxisCyclicSetParType;
 
-typedef struct MpAXBHWModuleType
-{	plcstring OrderNumber[251];
-	plcstring Address[251];
-	enum MpAXBHWModuleChannelEnum Channel;
-	enum MpAXBHWModuleAxTypeEnum AxisType;
-} MpAXBHWModuleType;
+typedef struct MpAXBMotorType
+{	enum MpAXBMotorDataTypeEnum Type;
+	unsigned long Data;
+} MpAXBMotorType;
+
+typedef struct MpAXBModuleType
+{	plcstring ModelNumber[251];
+	plcstring Location[251];
+	enum MpAXBModuleAxTypeEnum AxisType;
+	enum MpAXBModuleChannelEnum Channel;
+	struct MpAXBMotorType Motor;
+} MpAXBModuleType;
 
 typedef struct MpAxisBasicConfigParType
 {	struct MpAxisBasicConfigType* Data;
 	enum MpAxisBasicConfigSectionEnum Section;
 	plcstring AxisName[251];
-	struct MpAXBHWModuleType HWModule;
+	struct MpAXBModuleType Module;
 } MpAxisBasicConfigParType;
 
 typedef struct MpAXBAxMoveLimPosType

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpBackup 6.0.7003 */
+/* MpBackup 6.0.0 */
 
 #ifndef _MPBACKUP_
 #define _MPBACKUP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpBackup_VERSION
-#define _MpBackup_VERSION 6.0.7003
+#define _MpBackup_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -121,8 +121,8 @@ typedef struct MpBackupCore
 {
 	/* VAR_INPUT (analog) */
 	struct MpComIdentType* MpLink;
-	plcstring (*DeviceName);
-	plcstring (*Name);
+	plcstring *DeviceName;
+	plcstring *Name;
 	/* VAR_OUTPUT (analog) */
 	signed long StatusID;
 	struct MpBackupCoreInfoType Info;

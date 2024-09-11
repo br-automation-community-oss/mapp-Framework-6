@@ -447,42 +447,59 @@ Parameters left at "0" disable the associated advanced function. *)
 	END_STRUCT;
 	MpAxisBasicConfigSectionEnum : 
 		(
-		mcAXIS_BASIC_SEC_ALL, (*Whole configuration structere is used*)
-		mcAXIS_BASIC_SEC_DRIVE_CTRL (*Only Drive.Controller section is used*)
+		mcAXB_CFG_SEC_ALL, (*Whole configuration structere is used*)
+		mcAXB_CFG_SEC_DRIVE_CTRL (*Only Drive.Controller section is used*)
 		);
 	MpAxisBasicConfigCmdEnum : 
 		(
 		mcAXIS_BASIC_CFG_READ, (*Reads the selected parameterization settings from axis into the process variable*)
 		mcAXIS_BASIC_CFG_WRITE, (*Writes the settings specified in the process variable to the parameterization of the axis*)
-		mcAXIS_BASIC_CFG_LOAD_FROM_CFG, (*Loads the currently stored configuration on the target system to the parameterization of the axis*)
 		mcAXIS_BASIC_CFG_LOAD, (*Loads the axis configuration into the process variable*)
 		mcAXIS_BASIC_CFG_SAVE, (*Saves the settings that are specified in the process variable to the axis configuration*)
-		mcAXIS_BASIC_CFG_WRITE_AND_SAVE, (*Writes the settings specified in the process variable to the parameterization of the axis and saves it into axis configuration*)
 		mcAXIS_BASIC_CFG_CREATE, (*Creates configurations based on given parameters*)
 		mcAXIS_BASIC_CFG_DELETE (*Deletes configuration based on given parameters*)
 		);
-	MpAXBHWModuleChannelEnum : 
+	MpAXBModuleChannelEnum : 
 		(
-		mcAXIS_BASIC_CFG_HW_CHANNEL1, (*Channel 1 of hw module*)
-		mcAXIS_BASIC_CFG_HW_CHANNEL2, (*Channel 2 of hw module*)
-		mcAXIS_BASIC_CFG_HW_CHANNEL3 (*Channel 3 of hw module*)
+		mcAXB_CFG_HW_CHANNEL1, (*Channel 1 of hw module*)
+		mcAXB_CFG_HW_CHANNEL2, (*Channel 2 of hw module*)
+		mcAXB_CFG_HW_CHANNEL3 (*Channel 3 of hw module*)
 		);
-	MpAXBHWModuleAxTypeEnum : 
+	MpAXBModuleAxTypeEnum : 
 		(
-		mcAXIS_BASIC_CFG_HW_AXIS_REAL, (*Real axis configuration section*)
-		mcAXIS_BASIC_CFG_HW_AXIS_VIRT, (*Virtual axis configuration section*)
-		mcAXIS_BASIC_CFG_HW_AXIS_EXT_ENC (*External encoder configuration section*)
+		mcAXB_CFG_AX_REAL, (*Real axis configuration section*)
+		mcAXB_CFG_AX_VIRT, (*Virtual axis configuration section*)
+		mcAXB_CFG_AX_EXT_ENC, (*External encoder configuration section*)
+		mcAXB_CFG_AX_PUREVAX, (*Pure virtual axis*)
+		mcAXB_CFG_AX_PUREVAX_GPAI, (*	Pure virtual axis GPAI*)
+		mcAXB_CFG_AX_PUREVAX_EXT_ENC, (*Pure virtual GPAI external encoder*)
+		mcAXB_CFG_AX_POWER_SUPPLY (*Power supply module*)
 		);
-	MpAXBHWModuleType : 	STRUCT 
-		OrderNumber : STRING[250];
-		Address : STRING[250];
-		Channel : MpAXBHWModuleChannelEnum;
-		AxisType : MpAXBHWModuleAxTypeEnum;
+	MpAXBMotorDataTypeEnum : 
+		(
+		mcAXB_CFG_MOTOR_NOT_USE, (*Motor data not used*)
+		mcAXB_CFG_MOTOR_SYNC_ANY := 10500, (*Motor data synchronous any, McCfgMotSynType*)
+		mcAXB_CFG_MOTOR_IND_ANY := 10501, (*Motor data induction any, McCfgMotInductType*)
+		mcAXB_CFG_MOTOR_STP := 13013 (*Motor data stepper, McSAMType*)
+		);
+
+	MpAXBModuleType : 	STRUCT 
+		ModelNumber : STRING[250];
+		Location : STRING[250];
+		AxisType : MpAXBModuleAxTypeEnum;
+		Channel : MpAXBModuleChannelEnum;
+		Motor : MpAXBMotorType;
 	END_STRUCT;
+
+	MpAXBMotorType : 	STRUCT
+		Type : MpAXBMotorDataTypeEnum; 
+		Data : UDINT;
+	END_STRUCT;
+
 	MpAxisBasicConfigParType : 	STRUCT 
 		Data : REFERENCE TO MpAxisBasicConfigType;
 		Section : MpAxisBasicConfigSectionEnum;
 		AxisName : STRING[250];
-		HWModule : MpAXBHWModuleType;
+		Module : MpAXBModuleType;
 	END_STRUCT;
 END_TYPE

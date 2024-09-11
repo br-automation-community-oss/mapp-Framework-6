@@ -47,7 +47,7 @@ ACTION AxisStateMachine:
 			END_IF
 
 			AxisControl.Status.Busy := MpAxisBasicAppAxis.Power;
-			IF (MpAxisBasicAppAxis.PowerOn) THEN
+			IF ((MpAxisBasicAppAxis.PowerOn) AND (NOT MpAxisBasicAppAxis.CommandBusy)) THEN
 				AxisControl.Status.Busy := FALSE;
 				State := STATE_HOME;
 			ELSE
@@ -57,12 +57,12 @@ ACTION AxisStateMachine:
 		// Restore home position
 		STATE_HOME:
 			AxisControl.Status.Status := 'Waiting for home';
-			IF ((NOT MpAxisBasicAppAxis.IsHomed) AND (MpAxisBasicAppAxis.PowerOn)) THEN
+			IF ((NOT MpAxisBasicAppAxis.IsHomed) AND (MpAxisBasicAppAxis.PowerOn) AND (EDGENEG(MpAxisBasicAppAxis.CommandBusy))) THEN
 				AxisControl.Status.ReferenceRequired := TRUE;
 				State := STATE_REFERENCE;
 			END_IF
 
-			IF (MpAxisBasicAppAxis.IsHomed) THEN
+			IF ((MpAxisBasicAppAxis.IsHomed) AND (NOT MpAxisBasicAppAxis.CommandBusy)) THEN
 				AxisControl.Status.ReferenceRequired := FALSE;
 				AxisControl.Status.Busy := FALSE;
 				AxisControl.Command.Reference := FALSE;

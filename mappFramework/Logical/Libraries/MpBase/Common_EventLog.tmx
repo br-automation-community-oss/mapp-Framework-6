@@ -3,7 +3,7 @@
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Do not change anything in this file, else the tmx-file will not be recognized as a valid system text anymore</note>
     <prop type="x-BR-TS:Namespace">BR/EventLog</prop>
-    <prop type="x-BR-TS:systemtextsig">RG9cxCTAOdM63Wf/SF2RPfFGg4JsMTq3fMPnAJThplRBoYcdBXVrAmVguG6QoxhBk0Ku6bb5MQSVIbpizhLeLNHjI661aNnoRKRhcfDRKl0v0mQcoBrash3afoqXjj6CPEb8Skygck2MbaE83p7oo6/k6kqXrKAwWVUZamkQNG0=</prop>
+    <prop type="x-BR-TS:systemtextsig">D/IzZPVRt42ItoYwvKwww1dUjqjZ8kYKcAPmlKc4jvUObZL26Z161Z8i1lVvTwRFtTk7X534/Sf1mwi/rVKU7MgSIU6aTR4e8rhPqTvPLg+V5IQJUEPYLEXao64nyTUkeASqokRFwX9CtmG1xkz35QGwEi0a7zVzWrB4ieqbZd0=</prop>
   </header>
   <body>
     <tu tuid="-1064239091">
@@ -820,6 +820,22 @@
       </tuv>
       <tuv xml:lang="en">
         <seg>Entered task name "{2}" is too long and was truncated: "{3}"</seg>
+      </tuv>
+    </tu>
+    <tu tuid="-1064239089">
+      <tuv xml:lang="de">
+        <seg>Komponente {2} ist im Fehlerzustand</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Component {2} is in error-state</seg>
+      </tuv>
+    </tu>
+    <tu tuid="-1064239090">
+      <tuv xml:lang="de">
+        <seg>Ungültiger Komponenten-Typ (falscher MpLink verbunden?)</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Invalid component-type (incorrect MpLink connected?)</seg>
       </tuv>
     </tu>
   </body>

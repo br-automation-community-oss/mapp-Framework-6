@@ -8,8 +8,7 @@
         <Property ID="Message" Value="{$IAT/AppAxis_1/Info/Name} : {$Axis/Alarms/ReferenceRequired}" />
         <Property ID="Code" Value="0" />
         <Property ID="Severity" Value="10" />
-        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
-          <Property ID="AutoReset" Value="TRUE" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">        
           <Property ID="Acknowledge" Value="1" />
           <Property ID="Confirm" Value="0" />
           <Property ID="MultipleInstances" Value="TRUE" />
@@ -43,8 +42,7 @@
         <Property ID="Message" Value="{$IAT/AppAxis_1/Info/Name} : {$Axis/Alarms/AxisSpeedNotSet}" />
         <Property ID="Code" Value="250" />
         <Property ID="Severity" Value="20" />
-        <Selector ID="Behavior" Value="EdgeAlarm">
-          <Property ID="AutoReset" Value="TRUE" />
+        <Selector ID="Behavior" Value="EdgeAlarm">         
           <Property ID="Acknowledge" Value="1" />
           <Property ID="Confirm" Value="0" />
           <Property ID="MultipleInstances" Value="TRUE" />

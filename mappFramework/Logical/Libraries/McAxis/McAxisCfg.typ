@@ -467,8 +467,14 @@ TYPE
 		( (*Value source 1-8 selector setting*)
 		mcAFAVSVS_ACP_PARID := 0 (*ACOPOS ParID - ParID of an ACOPOS drive*)
 		);
+	McAFAVSValSrcAcpParIDPosConvEnum :
+		( (*Related values are treated as axis positions*)
+		mcAFAVSVSAPP_USE := 0, (*Used - FB IOs in Measurement units and periodic*)
+		mcAFAVSVSAPP_NOT_USE := 1 (*Not used - FB IOs in units of the ParID and non-periodic*)
+		);
 	McAFAVSValSrcAcpParIDType : STRUCT (*Type mcAFAVSVS_ACP_PARID settings*)
 		ParID : UINT; (*ParID which is used as value source*)
+		PosConv : McAFAVSValSrcAcpParIDPosConvEnum; (*Related values are treated as axis positions*)
 	END_STRUCT;
 	McAFAVSValSrcType : STRUCT (*Selection of the value source*)
 		Type : McAFAVSValSrcEnum; (*Value source 1-8 selector setting*)
@@ -761,5 +767,8 @@ TYPE
 	END_STRUCT;
 	McCfgAxFeatAcpNetwErrReacType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_NETW_ERR_REAC*)
 		NetworkErrorReaction : McAFANERNetwErrReacType; (*Reaction in case of a network error*)
+	END_STRUCT;
+	McCfgAxFeatAcpCycDatProcType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_CYC_DAT_PROC*)
+		ProcessingTaskClass : McPTCEnum; (*Cyclic task class for command processing*)
 	END_STRUCT;
 END_TYPE

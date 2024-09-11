@@ -892,7 +892,8 @@ TYPE
 		mcAPICEXIT_SSI := 8, (*SSI -*)
 		mcAPICEXIT_HIPERFACE_DSL := 9, (*HIPERFACE DSL -*)
 		mcAPICEXIT_TFMT := 10, (*T-Format - Tamagawa digital interface*)
-		mcAPICEXIT_RES := 11 (*Resolver -*)
+		mcAPICEXIT_RES := 11, (*Resolver -*)
+		mcAPICEXIT_ENDAT_3 := 12 (*EnDat 3 -*)
 		);
 	McAP3PICEITEnDatType : STRUCT (*Type mcAPICEXIT_ENDAT settings*)
 		LineResistance : REAL; (*Line resistance encoder supply [Ohm]*)
@@ -1108,7 +1109,8 @@ TYPE
 		mcAP3SPICEIT_SSI := 8, (*SSI -*)
 		mcAP3SPICEIT_HIPERFACE_DSL := 9, (*HIPERFACE DSL -*)
 		mcAP3SPICEIT_TFMT := 10, (*T-Format - Tamagawa digital encoder*)
-		mcAP3SPICEIT_RES := 11 (*Resolver -*)
+		mcAP3SPICEIT_RES := 11, (*Resolver -*)
+		mcAP3SPICEIT_ENDAT_3 := 12 (*EnDat 3 -*)
 		);
 	McAP3SPICEITSinType : STRUCT (*Type mcAP3SPICEIT_SIN settings*)
 		LineResistance : REAL; (*Line resistance encoder supply [Ohm]*)
@@ -1372,6 +1374,28 @@ TYPE
 		DigitalInputsOutputs : McAPICIODigInOutType;
 		AnalogInputs : McAPICIOAnInType;
 		AnalogOutputs : McAPICIOAnOutType;
+	END_STRUCT;
+	McBRMntEnum :
+		( (*Mounting selector setting*)
+		mcBRM_VERTICAL := 0, (*Vertical - Braking resistor is mounted vertical*)
+		mcBRM_HORIZONTAL := 1 (*Horizontal - Braking resistor is mounted horizontal*)
+		);
+	McBRMntVerticalType : STRUCT (*Type mcBRM_VERTICAL settings*)
+		ThermalResistance : REAL; (*Thermal resistance [K/W]*)
+	END_STRUCT;
+	McBRMntHorizontalType : STRUCT (*Type mcBRM_HORIZONTAL settings*)
+		ThermalResistance : REAL; (*Thermal resistance [K/W]*)
+	END_STRUCT;
+	McBRMntType : STRUCT (*Mounting variant*)
+		Type : McBRMntEnum; (*Mounting selector setting*)
+		Vertical : McBRMntVerticalType; (*Type mcBRM_VERTICAL settings*)
+		Horizontal : McBRMntHorizontalType; (*Type mcBRM_HORIZONTAL settings*)
+	END_STRUCT;
+	McCfgBrkResType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_BRK_RES*)
+		Resistance : REAL; (*Electrical resistance [Ohm]*)
+		LimitTemperature : REAL; (*Maximum temperature [°C]*)
+		ThermalCapacity : REAL; (*Thermal capacity [Ws/K]*)
+		Mounting : McBRMntType; (*Mounting variant*)
 	END_STRUCT;
 	McAMEType : STRUCT (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
 		Gearbox : McCfgGearBoxType; (*Specifies a gearbox by defining the ratio between a gearbox input and output*)
@@ -1685,7 +1709,7 @@ TYPE
 	McACMVFCVFAutCfgNotUseType : STRUCT (*Type mcACMVFCVFAC_NOT_USE settings*)
 		BoostVoltage : REAL; (*Boost voltage [V]*)
 		RatedVoltage : REAL; (*Rated voltage [V]*)
-		RatedFrequency : REAL; (*Rated frequency [cps]*)
+		RatedFrequency : REAL; (*Rated frequency [Hz]*)
 	END_STRUCT;
 	McACMVFCVFAutCfgType : STRUCT (*Automatic configuration of parameters*)
 		Type : McACMVFCVFAutCfgEnum; (*Automatic configuration selector setting*)
@@ -2026,13 +2050,13 @@ TYPE
 		Variable : McADIAllSrcVarType; (*Type mcADIAS_VAR settings*)
 	END_STRUCT;
 	McADILvlEnum :
-		( (*Level of the digital input hardware which leads to an active level of the functionality*)
+		( (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 		mcADIL_HIGH := 0, (*High*)
 		mcADIL_LOW := 1 (*Low*)
 		);
 	McADIHomeSwType : STRUCT (*Homing switch input functionality*)
 		Source : McADIHomeSwSrcType; (*Source of the digital input hardware which is used for this functionality*)
-		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality*)
+		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 	END_STRUCT;
 	McADIPosLimSwSrcType : STRUCT (*Source of the digital input hardware which is used for this functionality*)
 		Type : McADIAllSrcEnum; (*Source selector setting*)
@@ -2040,7 +2064,7 @@ TYPE
 	END_STRUCT;
 	McADIPosLimSwType : STRUCT (*Positive limit switch input functionality*)
 		Source : McADIPosLimSwSrcType; (*Source of the digital input hardware which is used for this functionality*)
-		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality*)
+		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 	END_STRUCT;
 	McADINegLimSwSrcType : STRUCT (*Source of the digital input hardware which is used for this functionality*)
 		Type : McADIAllSrcEnum; (*Source selector setting*)
@@ -2048,7 +2072,7 @@ TYPE
 	END_STRUCT;
 	McADINegLimSwType : STRUCT (*Negative limit switch input functionality*)
 		Source : McADINegLimSwSrcType; (*Source of the digital input hardware which is used for this functionality*)
-		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality*)
+		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 	END_STRUCT;
 	McADITrg1SrcType : STRUCT (*Source of the digital input hardware which is used for this functionality*)
 		Type : McADIAllSrcEnum; (*Source selector setting*)
@@ -2056,7 +2080,7 @@ TYPE
 	END_STRUCT;
 	McADITrg1Type : STRUCT (*Trigger 1 input functionality*)
 		Source : McADITrg1SrcType; (*Source of the digital input hardware which is used for this functionality*)
-		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality*)
+		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 	END_STRUCT;
 	McADITrg2SrcType : STRUCT (*Source of the digital input hardware which is used for this functionality*)
 		Type : McADIAllSrcEnum; (*Source selector setting*)
@@ -2064,7 +2088,7 @@ TYPE
 	END_STRUCT;
 	McADITrg2Type : STRUCT (*Trigger 2 input functionality*)
 		Source : McADITrg2SrcType; (*Source of the digital input hardware which is used for this functionality*)
-		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality*)
+		Level : McADILvlEnum; (*Level of the digital input hardware which leads to an active level of the functionality, not used with 'Force by function block'*)
 	END_STRUCT;
 	McADIQstopInEnum :
 		( (*Digital input functionality triggering an axis quickstop*)
@@ -2132,7 +2156,7 @@ TYPE
 	McASPMComplType : STRUCT (*Type mcASPM_COMPL settings*)
 		LoadModel : McASLMType; (*Parameters of the load simulation model*)
 	END_STRUCT;
-	McASPMType : STRUCT (*Parameters for the simulation of this real axis on the PLC*)
+	McASPMType : STRUCT (*Parameters for the simulation of this real axis on the PLC in case of 'Activate ACOPOS simulation on PLC = On' or ARsim is active*)
 		Type : McASPMEnum; (*Simulation mode on PLC selector setting*)
 		Complete : McASPMComplType; (*Type mcASPM_COMPL settings*)
 	END_STRUCT;
@@ -2150,7 +2174,7 @@ TYPE
 		Complete : McASAMComplType; (*Type mcASAM_COMPL settings*)
 	END_STRUCT;
 	McASType : STRUCT (*Parameters which influence the simulation possibilities of this axis*)
-		ModeOnPLC : McASPMType; (*Parameters for the simulation of this real axis on the PLC*)
+		ModeOnPLC : McASPMType; (*Parameters for the simulation of this real axis on the PLC in case of 'Activate ACOPOS simulation on PLC = On' or ARsim is active*)
 		ModeOnACOPOS : McASAMType; (*Parameters for the motor and load simulation on the drive*)
 	END_STRUCT;
 	McAAFType : STRUCT (*Features for an axis*)
@@ -2536,7 +2560,8 @@ TYPE
 		mcAEX41IT_HIPERFACE_DSL := 4, (*HIPERFACE DSL -*)
 		mcAEX41IT_TFMT := 5, (*T-Format - Tamagawa digital interface*)
 		mcAEX41IT_MOT_DAT_IF := 6, (*Motion Data Interface - B&R bi-directional asynchronous serial interface*)
-		mcAEX41IT_ENDAT_SAFEMOTION := 7 (*EnDat SafeMOTION -*)
+		mcAEX41IT_ENDAT_SAFEMOTION := 7, (*EnDat SafeMOTION -*)
+		mcAEX41IT_ENDAT_3 := 8 (*EnDat 3 -*)
 		);
 	McAEX41BPwrSupEnum :
 		( (*Power supply of the encoder*)
@@ -2639,7 +2664,8 @@ TYPE
 		mcAEX42IT_HIPERFACE_DSL := 4, (*HIPERFACE DSL -*)
 		mcAEX42IT_TFMT := 5, (*T-Format - Tamagawa digital interface*)
 		mcAEX42IT_MOT_DAT_IF := 6, (*Motion Data Interface - B&R bi-directional asynchronous serial interface*)
-		mcAEX42IT_ENDAT_SAFEMOTION := 7 (*EnDat SafeMOTION -*)
+		mcAEX42IT_ENDAT_SAFEMOTION := 7, (*EnDat SafeMOTION -*)
+		mcAEX42IT_ENDAT_3 := 8 (*EnDat 3 -*)
 		);
 	McAEX42BPwrSupEnum :
 		( (*Power supply of the encoder*)
@@ -2742,7 +2768,8 @@ TYPE
 		mcAEX43IT_HIPERFACE_DSL := 4, (*HIPERFACE DSL -*)
 		mcAEX43IT_TFMT := 5, (*T-Format - Tamagawa digital interface*)
 		mcAEX43IT_MOT_DAT_IF := 6, (*Motion Data Interface - B&R bi-directional asynchronous serial interface*)
-		mcAEX43IT_ENDAT_SAFEMOTION := 7 (*EnDat SafeMOTION -*)
+		mcAEX43IT_ENDAT_SAFEMOTION := 7, (*EnDat SafeMOTION -*)
+		mcAEX43IT_ENDAT_3 := 8 (*EnDat 3 -*)
 		);
 	McAEX43BPwrSupEnum :
 		( (*Power supply of the encoder*)
@@ -3230,7 +3257,8 @@ TYPE
 		mcAEEON03_IO_CH_INT := 2, (*I/O channel INT - Data from a signed 16 bit I/O channel*)
 		mcAEEON03_IO_CH_UINT := 3, (*I/O channel UINT - Data from an unsigned 16 bit I/O channel*)
 		mcAEEON03_IO_CH_SINT := 4, (*I/O channel SINT - Data from a signed 8 bit I/O channel*)
-		mcAEEON03_IO_CH_USINT := 5 (*I/O channel USINT - Data from an unsigned 8 bit I/O channel*)
+		mcAEEON03_IO_CH_USINT := 5, (*I/O channel USINT - Data from an unsigned 8 bit I/O channel*)
+		mcAEEON03_NOT_USE := 6 (*Not used - Encoder status not used*)
 		);
 	McAEEON03IOChDINTType : STRUCT (*Type mcAEEON03_IO_CH_DINT settings*)
 		ChannelMapping : STRING[250]; (*Input source for the encoder status*)
@@ -3325,7 +3353,8 @@ TYPE
 		mcAEEON06_IO_CH_INT := 2, (*I/O channel INT - Data from a signed 16 bit I/O channel*)
 		mcAEEON06_IO_CH_UINT := 3, (*I/O channel UINT - Data from an unsigned 16 bit I/O channel*)
 		mcAEEON06_IO_CH_SINT := 4, (*I/O channel SINT - Data from a signed 8 bit I/O channel*)
-		mcAEEON06_IO_CH_USINT := 5 (*I/O channel USINT - Data from an unsigned 8 bit I/O channel*)
+		mcAEEON06_IO_CH_USINT := 5, (*I/O channel USINT - Data from an unsigned 8 bit I/O channel*)
+		mcAEEON06_NOT_USE := 6 (*Not used - Encoder status not used*)
 		);
 	McAEEON06IOChDINTType : STRUCT (*Type mcAEEON06_IO_CH_DINT settings*)
 		ChannelMapping : STRING[250]; (*Input source for the encoder status*)

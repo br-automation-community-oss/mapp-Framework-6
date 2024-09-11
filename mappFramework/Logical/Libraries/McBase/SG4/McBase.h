@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McBase 6.0.7001 */
+/* McBase 6.0.0 */
 
 #ifndef _MCBASE_
 #define _MCBASE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McBase_VERSION
-#define _McBase_VERSION 6.0.7001
+#define _McBase_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -230,6 +230,7 @@ typedef enum McCfgTypeEnum
 	mcCFG_CAMLST = 1500,
 	mcCFG_PROC_POINT = 1601,
 	mcCFG_TRK_PATH = 1700,
+	mcCFG_TRK_PATH_SCN = 1701,
 	mcCFG_PICK_CORE = 2100,
 	mcCFG_PICK_REG = 2110,
 	mcCFG_PICK_REG_SCN = 2111,
@@ -249,6 +250,7 @@ typedef enum McCfgTypeEnum
 	mcCFG_AX_FEAT_BRK = 10105,
 	mcCFG_AX_FEAT_MECH_DEV_COMP = 10106,
 	mcCFG_AX_FEAT_ACP_NETW_ERR_REAC = 10108,
+	mcCFG_AX_FEAT_ACP_CYC_DAT_PROC = 10112,
 	mcCFG_MOT_SYN = 10500,
 	mcCFG_MOT_INDUCT = 10501,
 	mcCFG_MOT_SYN_AMC = 10502,
@@ -257,6 +259,7 @@ typedef enum McCfgTypeEnum
 	mcCFG_ACP_P3_PL_IN_CARD_ENC = 10512,
 	mcCFG_ACP_P3_SNG_PL_IN_CARD_ENC = 10513,
 	mcCFG_ACP_PL_IN_CARD_IO = 10514,
+	mcCFG_BRK_RES = 10530,
 	mcCFG_ACP_AX = 11000,
 	mcCFG_ACP_AX_REF = 11011,
 	mcCFG_ACP_MECH_ELM = 11012,
@@ -368,6 +371,17 @@ typedef enum McCfgTypeEnum
 	mcCFG_AXGRP_FEAT_TRK = 21126,
 	mcCFG_AXGRP_FEAT_PIPE_CUT = 21127,
 	mcCFG_ASM = 31000,
+	mcCFG_ASM_COGG_COMP = 31001,
+	mcCFG_ASM_ELONG_COMP = 31002,
+	mcCFG_ASM_DEFAULT_CTRL_PARAM = 31003,
+	mcCFG_ASM_ADD_CTRL_PARAM = 31004,
+	mcCFG_ASM_STOP_REACTION = 31005,
+	mcCFG_ASM_SPEED_FILTER = 31006,
+	mcCFG_ASM_MAGNET_PLATE = 31007,
+	mcCFG_ASM_SCOPE_OF_ERR_REAC = 31008,
+	mcCFG_ASM_SH_IDENT_TIME = 31009,
+	mcCFG_ASM_POS_CTRL_LAG_MON = 31010,
+	mcCFG_ASM_DIVERTER = 31011,
 	mcCFG_ASM_FEAT_CPLG = 31101,
 	mcCFG_ASM_FEAT_SIM_SH_DEF = 31102,
 	mcCFG_ASM_FEAT_SEC_TRACE = 31103,
@@ -380,6 +394,8 @@ typedef enum McCfgTypeEnum
 	mcCFG_SEC_COMP = 31301,
 	mcCFG_SEC_SUB = 31302,
 	mcCFG_SH_STEREO_TYP = 31400,
+	mcCFG_SH_JERK_FILT = 31401,
+	mcCFG_SH_STATE_TRANS = 31402,
 	mcCFG_SEG = 31500,
 	mcCFG_MS_CUS_STD = 50001,
 	mcCFG_MS_2AX_CNC_XY = 51201,
@@ -456,6 +472,11 @@ typedef enum McMMCLogSelUseSupSubcEEnum
 {	mcMMCLSUSSE_INACT = 0,
 	mcMMCLSUSSE_ACT = 1
 } McMMCLogSelUseSupSubcEEnum;
+
+typedef enum McMMCMcAcpDrvPLKCycPerParIDEnum
+{	mcMMCMPCPP_ONE = 1,
+	mcMMCMPCPP_TWO = 2
+} McMMCMcAcpDrvPLKCycPerParIDEnum;
 
 typedef enum McOHGCSOTypEnum
 {	mcOHGCSOT_CMPT = 0,
@@ -654,6 +675,11 @@ typedef enum McPPTAcpTrakPtBarrFunEnum
 {	mcPPTAPBF_OFF = 0,
 	mcPPTAPBF_ON = 1
 } McPPTAcpTrakPtBarrFunEnum;
+
+typedef enum McPPTAcpTrakPtPPMMonEnum
+{	mcPPTAcpTrakPtPPMMon_OFF = 0,
+	mcPPTAcpTrakPtPPMMon_SH_TRG = 1
+} McPPTAcpTrakPtPPMMonEnum;
 
 typedef enum McCfgLocLenUnitEnum
 {	mcCLLU_G_SET = 0,
@@ -910,9 +936,14 @@ typedef struct McMMCLogType
 {	struct McMMCLogSelType Selective;
 } McMMCLogType;
 
+typedef struct McMMCMcAcpDrvType
+{	enum McMMCMcAcpDrvPLKCycPerParIDEnum POWERLINKCyclesPerParID;
+} McMMCMcAcpDrvType;
+
 typedef struct McCfgMMCfgType
 {	struct McMMCProcType Processing;
 	struct McMMCLogType Logger;
+	struct McMMCMcAcpDrvType McAcpDrv;
 } McCfgMMCfgType;
 
 typedef struct McCfgTransXYZType
@@ -1253,12 +1284,23 @@ typedef struct McPPTAcpTrakPtBarrFunType
 {	enum McPPTAcpTrakPtBarrFunEnum Type;
 } McPPTAcpTrakPtBarrFunType;
 
+typedef struct McPPTAcpTrakPtPPMMonShTrgType
+{	unsigned short BatchSize;
+	float PartsPerShuttle;
+} McPPTAcpTrakPtPPMMonShTrgType;
+
+typedef struct McPPTAcpTrakPtPPMMonType
+{	enum McPPTAcpTrakPtPPMMonEnum Type;
+	struct McPPTAcpTrakPtPPMMonShTrgType ShuttleTriggered;
+} McPPTAcpTrakPtPPMMonType;
+
 typedef struct McPPTAcpTrakPtType
 {	struct McCfgReferenceType SectorReference;
 	double Position;
 	enum McPPTAcpTrakPtPosRelToEnum PositionRelativeTo;
 	unsigned short TriggerEventBufferSize;
 	struct McPPTAcpTrakPtBarrFunType BarrierFunctionality;
+	struct McPPTAcpTrakPtPPMMonType ThroughputMonitor;
 } McPPTAcpTrakPtType;
 
 typedef struct McPPTypType

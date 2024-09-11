@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpAx 6.0.7001 */
+/* McAcpAx 6.0.0 */
 
 #ifndef _MCACPAX_
 #define _MCACPAX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpAx_VERSION
-#define _McAcpAx_VERSION 6.0.7001
+#define _McAcpAx_VERSION 6.0.0
 #endif
 
 #include <bur/plctypes.h>
@@ -537,7 +537,8 @@ typedef enum McAPICEncXIfTypEnum
 	mcAPICEXIT_SSI = 8,
 	mcAPICEXIT_HIPERFACE_DSL = 9,
 	mcAPICEXIT_TFMT = 10,
-	mcAPICEXIT_RES = 11
+	mcAPICEXIT_RES = 11,
+	mcAPICEXIT_ENDAT_3 = 12
 } McAPICEncXIfTypEnum;
 
 typedef enum McAPICEITIncrPwrSupEnum
@@ -625,7 +626,8 @@ typedef enum McAP3SPICEIfTypEnum
 	mcAP3SPICEIT_SSI = 8,
 	mcAP3SPICEIT_HIPERFACE_DSL = 9,
 	mcAP3SPICEIT_TFMT = 10,
-	mcAP3SPICEIT_RES = 11
+	mcAP3SPICEIT_RES = 11,
+	mcAP3SPICEIT_ENDAT_3 = 12
 } McAP3SPICEIfTypEnum;
 
 typedef enum McAPICIODigIO1To3Enum
@@ -740,6 +742,11 @@ typedef enum McAPICIOAnOutAnOutUseTypEnum
 {	mcAPICIOAOAOUT_V_10V = 0,
 	mcAPICIOAOAOUT_CUR_020MA = 1
 } McAPICIOAnOutAnOutUseTypEnum;
+
+typedef enum McBRMntEnum
+{	mcBRM_VERTICAL = 0,
+	mcBRM_HORIZONTAL = 1
+} McBRMntEnum;
 
 typedef enum McAELEnum
 {	mcAEL_ONE_ENC = 0,
@@ -1126,7 +1133,8 @@ typedef enum McAEEncX41IfTypEnum
 	mcAEX41IT_HIPERFACE_DSL = 4,
 	mcAEX41IT_TFMT = 5,
 	mcAEX41IT_MOT_DAT_IF = 6,
-	mcAEX41IT_ENDAT_SAFEMOTION = 7
+	mcAEX41IT_ENDAT_SAFEMOTION = 7,
+	mcAEX41IT_ENDAT_3 = 8
 } McAEEncX41IfTypEnum;
 
 typedef enum McAEX41BPwrSupEnum
@@ -1192,7 +1200,8 @@ typedef enum McAEEncX42IfTypEnum
 	mcAEX42IT_HIPERFACE_DSL = 4,
 	mcAEX42IT_TFMT = 5,
 	mcAEX42IT_MOT_DAT_IF = 6,
-	mcAEX42IT_ENDAT_SAFEMOTION = 7
+	mcAEX42IT_ENDAT_SAFEMOTION = 7,
+	mcAEX42IT_ENDAT_3 = 8
 } McAEEncX42IfTypEnum;
 
 typedef enum McAEX42BPwrSupEnum
@@ -1258,7 +1267,8 @@ typedef enum McAEEncX43IfTypEnum
 	mcAEX43IT_HIPERFACE_DSL = 4,
 	mcAEX43IT_TFMT = 5,
 	mcAEX43IT_MOT_DAT_IF = 6,
-	mcAEX43IT_ENDAT_SAFEMOTION = 7
+	mcAEX43IT_ENDAT_SAFEMOTION = 7,
+	mcAEX43IT_ENDAT_3 = 8
 } McAEEncX43IfTypEnum;
 
 typedef enum McAEX43BPwrSupEnum
@@ -1490,7 +1500,8 @@ typedef enum McAEEON03Enum
 	mcAEEON03_IO_CH_INT = 2,
 	mcAEEON03_IO_CH_UINT = 3,
 	mcAEEON03_IO_CH_SINT = 4,
-	mcAEEON03_IO_CH_USINT = 5
+	mcAEEON03_IO_CH_USINT = 5,
+	mcAEEON03_NOT_USE = 6
 } McAEEON03Enum;
 
 typedef enum McAEEON04Enum
@@ -1514,7 +1525,8 @@ typedef enum McAEEON06Enum
 	mcAEEON06_IO_CH_INT = 2,
 	mcAEEON06_IO_CH_UINT = 3,
 	mcAEEON06_IO_CH_SINT = 4,
-	mcAEEON06_IO_CH_USINT = 5
+	mcAEEON06_IO_CH_USINT = 5,
+	mcAEEON06_NOT_USE = 6
 } McAEEON06Enum;
 
 typedef enum McAEEON07Enum
@@ -3365,6 +3377,27 @@ typedef struct McCfgAcpPlInCrdIOType
 	struct McAPICIOAnInType AnalogInputs;
 	struct McAPICIOAnOutType AnalogOutputs;
 } McCfgAcpPlInCrdIOType;
+
+typedef struct McBRMntVerticalType
+{	float ThermalResistance;
+} McBRMntVerticalType;
+
+typedef struct McBRMntHorizontalType
+{	float ThermalResistance;
+} McBRMntHorizontalType;
+
+typedef struct McBRMntType
+{	enum McBRMntEnum Type;
+	struct McBRMntVerticalType Vertical;
+	struct McBRMntHorizontalType Horizontal;
+} McBRMntType;
+
+typedef struct McCfgBrkResType
+{	float Resistance;
+	float LimitTemperature;
+	float ThermalCapacity;
+	struct McBRMntType Mounting;
+} McCfgBrkResType;
 
 typedef struct McAMEType
 {	struct McCfgGearBoxType Gearbox;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=6.0.1.886 FileVersion="4.9"?>
+<?AutomationStudio Version=6.0.2.177 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="PC" Type="PC_any" Version="1.1.2.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="mappFramework6_Simulation" />

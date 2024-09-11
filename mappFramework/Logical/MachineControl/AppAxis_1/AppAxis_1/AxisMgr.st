@@ -45,6 +45,8 @@ PROGRAM _CYCLIC
 
 	// Call function block
 	MpAlarmXCoreAxis();
+	
+	MC_BR_CheckRestorePositionData_0(Axis := ADR(gMpLinkAppAxis_1), DataAddress := ADR(RestorePosition_AppAxis_1));
 
 END_PROGRAM
 

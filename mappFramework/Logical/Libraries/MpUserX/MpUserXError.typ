@@ -48,13 +48,15 @@ TYPE
         mpUSERX_ERR_LDAP_ERROR := -1064144850, (* LDAP error: {2:ErrorText} ({1:ErrorNumber}) [Error: 28718, 0xc092702e] *)
         mpUSERX_ERR_NO_SERVER_CONNECTION := -1064144849, (* No connection to the central user management server available [Error: 28719, 0xc092702f] *)
         mpUSERX_ERR_INVALID_CREDENTIALS := -1064144848, (* Invalid credentials (username and/ or password) [Error: 28720, 0xc0927030] *)
-        mpUSERX_ERR_ACTION_NOT_ALLOWED := -1064144847, (* The attempted action ({2:Action}) is not allowed for central user management. [Error: 28721, 0xc0927031] *)
+        mpUSERX_ERR_ACTION_NOT_ALLOWED := -1064144847, (* Action ({2:Action}) not allowed due to central management or system user constraints. [Error: 28721, 0xc0927031] *)
         mpUSERX_WRN_LDAP_WARNING := -2137886670, (* LDAP warning: {2:ErrorText} ({1:ErrorNumber}) [Warning: 28722, 0x80927032] *)
         mpUSERX_ERR_PASSWORD_RESTRICTION := -1064144845, (* Could not change password. New password does not meet password policy (e.g. length, complexity, history). [Error: 28723, 0xc0927033] *)
         mpUSERX_ERR_FUNCTION_UNAVAILABLE := -1064144844, (* Function is not available (runtime mismatch) [Error: 28724, 0xc0927034] *)
         mpUSERX_WRN_PASSWORD_WILL_EXPIRE := -2137886667, (* User's password will expire [Warning: 28725, 0x80927035] *)
         mpUSERX_WRN_INVALID_DISPLAY_NAME := -2137886666, (* Attribute {2:DisplayName} does not exist or has no valid value. 'Username' was used instead. [Warning: 28726, 0x80927036] *)
         mpUSERX_ERR_REQUEST_LIMIT := -1064144841, (* Request limit reached. Command currently not possible [Error: 28727, 0xc0927037] *)
-        mpUSERX_ERR_SESSION_LIMIT := -1064144840 (* User session limit reached. Login currently not possible [Error: 28728, 0xc0927038] *)
+        mpUSERX_ERR_SESSION_LIMIT := -1064144840, (* User session limit reached. Login currently not possible [Error: 28728, 0xc0927038] *)
+        mpUSERX_ERR_DELETE_BR_ROLE := -1064144839, (* BR system role cannot be deleted [Error: 28729, 0xc0927039] *)
+        mpUSERX_WRN_IMPORT_FILE_FORMAT := -2137886662 (* Invalid import file format [Warning: 28730, 0x8092703a] *)
         );
 END_TYPE

@@ -7,6 +7,5 @@
     <Object Type="Configuration">UnitTest</Object>
     <Object Type="Configuration">UnitTestVC4</Object>
     <Object Type="Configuration">SourceReference</Object>
-    <Object Type="Configuration">Config1</Object>
   </Objects>
 </Physical>

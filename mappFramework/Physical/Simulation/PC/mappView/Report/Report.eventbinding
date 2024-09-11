@@ -135,7 +135,7 @@
     </EventBinding>
     <EventBinding id="ContentLoaded.Report_content.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-      <EventHandler condition="contentId = &quot;Report_content&quot;">
+      <EventHandler condition="contentId = &quot;Report&quot;">
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpFileManagerUIConnect.File.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />

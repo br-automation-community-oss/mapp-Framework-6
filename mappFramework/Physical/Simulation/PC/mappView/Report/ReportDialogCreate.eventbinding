@@ -41,7 +41,7 @@
     </EventBinding>
     <EventBinding id="ReportDialogCreate.ContentLoaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-      <EventHandler condition="contentId = &quot;ReportDialog_Create_content&quot;">
+      <EventHandler condition="contentId = &quot;ReportDialog_Create&quot;">
         <Action>
           <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="ReportDialogCreate" widgetRefId="ContentGroup">
             <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />

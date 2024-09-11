@@ -59,7 +59,7 @@
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;Recipe_content&quot;">
+      <EventHandler condition="contentId = &quot;Recipe&quot;">
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />

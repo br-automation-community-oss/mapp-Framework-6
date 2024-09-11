@@ -129,7 +129,7 @@
     </EventBinding>
     <EventBinding id="ContentLoaded.File_content.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-      <EventHandler condition="contentId = &quot;File_content&quot;">
+      <EventHandler condition="contentId = &quot;File&quot;">
         <Sequence>
           <Step order="0">
             <Action>
@@ -147,7 +147,7 @@
           </Step>
         </Sequence>
       </EventHandler>
-      <EventHandler condition="contentId &lt;&gt; &quot;File_content&quot;">
+      <EventHandler condition="contentId &lt;&gt; &quot;File&quot;">
         <Action>
           <Target xsi:type="session.VariableAction" refId="SessionVarFileContentActive">
             <Method xsi:type="session.VariableAction.SetValueBool" value="false" />

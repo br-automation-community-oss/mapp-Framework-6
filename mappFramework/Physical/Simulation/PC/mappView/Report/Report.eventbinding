@@ -77,7 +77,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Report_content.BtnReportPageDown.Click">
+    <EventBinding id="Report.BtnReportPageDown.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportPageDown" event="Click" />
       <EventHandler>
         <Sequence>
@@ -105,7 +105,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Report_content.BtnReportPageUp.Click">
+    <EventBinding id="Report.BtnReportPageUp.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report" widgetRefId="BtnReportPageUp" event="Click" />
       <EventHandler>
         <Sequence>
@@ -133,7 +133,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="ContentLoaded.Report_content.RefreshList">
+    <EventBinding id="ContentLoaded.Report.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;Report&quot;">
         <Action>

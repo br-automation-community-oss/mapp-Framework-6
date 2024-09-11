@@ -172,7 +172,7 @@
 			</EventHandler>
 		</EventBinding>-->
 		
-		<EventBinding id="AxisAuto_content.NumericInput1.ValueChanged">
+		<EventBinding id="AxisAuto.NumericInput1.ValueChanged">
 			<Source xsi:type="widget.Event" widgetRefId="NumInSetSpeed" event="ValueChanged" />
 			<EventHandler>
 				<Action>
@@ -182,7 +182,7 @@
 				</Action>
 			</EventHandler>
 		</EventBinding>
-		<EventBinding id="AxisAuto_content.PushBtnUpdate.MouseUp">
+		<EventBinding id="AxisAuto.PushBtnUpdate.MouseUp">
 			<Source xsi:type="widget.Event" widgetRefId="PushBtnUpdate" event="MouseUp" />
 			<EventHandler>
 				<Action>

@@ -29,7 +29,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="ReportDialog_Create_content.BtnCancel.Click">
+    <EventBinding id="ReportDialogCreate.BtnCancel.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="ReportDialogCreate" widgetRefId="BtnCancel" event="Click" />
       <EventHandler>
         <Action>

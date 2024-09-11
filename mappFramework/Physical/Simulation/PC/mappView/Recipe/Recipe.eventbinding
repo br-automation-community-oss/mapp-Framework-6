@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="Recipe" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Recipe_content.BtnDelete.Click">
+    <EventBinding id="Recipe.BtnDelete.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnDelete" event="Click" />
       <Operand datatype="ANY_STRING" name="myDeleteRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteRecipeText">
@@ -55,7 +55,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnLoad.Click">
+    <EventBinding id="Recipe.BtnLoad.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnLoad" event="Click" />
       <Operand datatype="ANY_STRING" name="myLoadRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarLoadRecipeText">
@@ -90,7 +90,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnCreate.Click">
+    <EventBinding id="Recipe.BtnCreate.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnCreate" event="Click" />
       <EventHandler>
         <Sequence>
@@ -118,7 +118,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnEdit.Click">
+    <EventBinding id="Recipe.BtnEdit.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnEdit" event="Click" />
       <EventHandler>
         <Sequence>
@@ -146,7 +146,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnRecipePageDown.Click">
+    <EventBinding id="Recipe.BtnRecipePageDown.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnRecipePageDown" event="Click" />
       <EventHandler>
         <Action>
@@ -174,7 +174,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnRecipePageUp.Click">
+    <EventBinding id="Recipe.BtnRecipePageUp.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe" widgetRefId="BtnRecipePageUp" event="Click" />
       <EventHandler>
         <Action>
@@ -202,7 +202,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.DropDownRecipeCategory.SelectedIndexChanged">
+    <EventBinding id="Recipe.DropDownRecipeCategory.SelectedIndexChanged">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Sequence>
@@ -259,7 +259,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.loaded">
+    <EventBinding id="Recipe.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_INT" name="CategoryDropdownValue">
         <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory">
@@ -315,7 +315,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="RecipePars_content.loaded">
+    <EventBinding id="RecipePars.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="DefaultParametersMissing">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.ParameterRecipeMissing">
@@ -342,7 +342,7 @@
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND DefaultParametersMissing AND DeviceValid AND NOT DialogOpen">
+      <EventHandler condition="contentId = &quot;RecipePars&quot; AND DefaultParametersMissing AND DeviceValid AND NOT DialogOpen">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -383,7 +383,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND NOT ProductRecipeLoaded AND NOT DefaultParametersMissing AND DeviceValid AND NOT DialogOpen AND LastLoaded = &quot;&quot;">
+      <EventHandler condition="contentId = &quot;RecipePars&quot; AND NOT ProductRecipeLoaded AND NOT DefaultParametersMissing AND DeviceValid AND NOT DialogOpen AND LastLoaded = &quot;&quot;">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingLastRecipeText" header="$IAT/mappFramework/Recipe/MissingLastRecipeHeader" />
@@ -391,7 +391,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="RecipeMachConfig_content.loaded">
+    <EventBinding id="RecipeMachConfig.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="DefaultMachineSettingsMissing">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing">
@@ -467,7 +467,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.DialogClosed.EditOrNewRecipeDialog">
+    <EventBinding id="Recipe.DialogClosed.EditOrNewRecipeDialog">
       <Source xsi:type="clientSystem.Event" event="DialogClosed" />
       <EventHandler condition="dialogId = &quot;EditRecipe&quot; OR dialogId = &quot;NewRecipe&quot;">
         <Action>
@@ -477,7 +477,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.ValueChanged.SessionVarEditRecipe">
+    <EventBinding id="Recipe.ValueChanged.SessionVarEditRecipe">
       <Source xsi:type="session.Event" refId="SessionVarEditRecipe" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="CategoryDropdownValue">
         <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe" widgetRefId="DropDownRecipeCategory">
@@ -509,7 +509,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.BtnRefresh.Click">
+    <EventBinding id="Recipe.BtnRefresh.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Recipe" widgetRefId="BtnRefresh" event="Click" />
       <EventHandler>
         <Action>

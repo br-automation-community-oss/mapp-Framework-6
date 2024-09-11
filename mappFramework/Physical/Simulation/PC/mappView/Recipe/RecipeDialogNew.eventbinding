@@ -119,14 +119,14 @@
             <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
           </Target>
           <Result>
-            <ResultHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 1 AND result = true">
+            <ResultHandler condition="dialogId = &quot;NewRecipe&quot; AND CategoryDropdown = 1 AND result = true">
               <Action>
                 <Target xsi:type="clientSystem.Action">
                   <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialogNewMachConfig" dialogId="NewRecipe" areaId="AreaRecipe" />
                 </Target>
               </Action>
             </ResultHandler>
-            <ResultHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 0 AND result = true">
+            <ResultHandler condition="dialogId = &quot;NewRecipe&quot; AND CategoryDropdown = 0 AND result = true">
               <Action>
                 <Target xsi:type="clientSystem.Action">
                   <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialogNewPars" dialogId="NewRecipe" areaId="AreaRecipe" />

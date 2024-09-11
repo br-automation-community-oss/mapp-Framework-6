@@ -11,7 +11,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserXDialog_Disabled_content.MPushBtnCancelDisabled.Click">
+    <EventBinding id="UserXDialog_Disabled.MPushBtnCancelDisabled.Click">
       <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="UserXDialogDisabled" widgetRefId="MPushBtnCancelDisabled" event="Click" />
       <EventHandler>
         <Action>

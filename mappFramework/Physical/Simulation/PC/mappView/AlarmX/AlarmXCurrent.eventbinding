@@ -18,7 +18,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXCurrent_content.PushBtnAcknowledgeAlarm.Click">
+    <EventBinding id="AlarmXCurrent.PushBtnAcknowledgeAlarm.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent" widgetRefId="PushBtnAcknowledgeAlarm" event="Click" />
       <EventHandler>
         <Action>
@@ -28,7 +28,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXCurrent_content.PushBtnAcknowledgeAllAlarms.Click">
+    <EventBinding id="AlarmXCurrent.PushBtnAcknowledgeAllAlarms.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent" widgetRefId="PushBtnAcknowledgeAllAlarms" event="Click" />
       <EventHandler>
         <Action>
@@ -38,7 +38,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXCurrent_content.AlarmListCurrentAlarms.ItemClick">
+    <EventBinding id="AlarmXCurrent.AlarmListCurrentAlarms.ItemClick">
       <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="AlarmXCurrent" widgetRefId="AlarmListCurrentAlarms" event="ItemClick" />
       <EventHandler>
         <Action>
@@ -153,7 +153,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXCurrent_content.PushBtnActiveAlarmSort.Click">
+    <EventBinding id="AlarmXCurrent.PushBtnActiveAlarmSort.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent" widgetRefId="PushBtnActiveAlarmSort" event="Click" />
       <EventHandler>
         <Action>
@@ -163,7 +163,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXCurrent_content.PushBtnActiveAlarmFilter.Click">
+    <EventBinding id="AlarmXCurrent.PushBtnActiveAlarmFilter.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent" widgetRefId="PushBtnActiveAlarmFilter" event="Click" />
       <EventHandler>
         <Action>

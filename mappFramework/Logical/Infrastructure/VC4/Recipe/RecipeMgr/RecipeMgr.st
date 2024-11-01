@@ -6,7 +6,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
-	
+
 	// Create folder for this component on the user file device
 	DirCreateRecipe(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
 
@@ -14,7 +14,7 @@ PROGRAM _INIT
 	WHILE (DirCreateRecipe.status = ERR_FUB_BUSY) DO
 		DirCreateRecipe();
 	END_WHILE
-	
+
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreateRecipe.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateRecipe.status = ERR_OK) THEN
 		DirCreateRecipe(enable := FALSE);
@@ -146,12 +146,12 @@ PROGRAM _INIT
 
 	HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 
-	VC4_Init;	
-	
+	VC4_Init;
+
 END_PROGRAM
 
-PROGRAM _CYCLIC	
-	
+PROGRAM _CYCLIC
+
 	// Call actions
 	FormatDeviceDataProvider;
 	LoadPreview;
@@ -193,7 +193,7 @@ PROGRAM _CYCLIC
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgr:MachineSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
-	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);	
+	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);
 
 	// Call function blocks
 	MpRecipeSys();
@@ -206,7 +206,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
 	MpRecipeSys.Enable := FALSE;
 	MpRecipeUISys.Enable := FALSE;
 	MpRecipeRegPar_PreviewPar.Enable := FALSE;

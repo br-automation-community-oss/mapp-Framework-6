@@ -14,11 +14,11 @@ PROGRAM _INIT
 	IF DirCreateAlarm.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreateAlarm(enable := FALSE);
 	END_IF
-	
+
 	 // Initial visibility setup
 	VC4_Init;
-	
-	// Call action to intialize alarm samples
+
+	// Call action to initialize alarm samples
 	AlarmSampleInit;
 
 	// Initialize mapp function blocks
@@ -73,7 +73,7 @@ PROGRAM _CYCLIC
 	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') THEN
 		// Warning is active. Add code here to respond to warning situation.
 	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Info') THEN
-		// Info is active. Add code here to resond to info situation.
+		// Info is active. Add code here to respond to info situation.
 	END_IF
 
 	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
@@ -114,7 +114,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
 	MpAlarmXCoreMain.Enable := FALSE;
 	MpAlarmXListUIMain.Enable := FALSE;
 	MpAlarmXHistoryMain.Enable := FALSE;

@@ -46,14 +46,14 @@ PROGRAM _CYCLIC
 
 	// Call function block
 	MpAlarmXCoreAxis();
-	
+
 	MC_BR_CheckRestorePositionData_0(Axis := ADR(gMpLinkAppAxis_1), DataAddress := ADR(RestorePosition_AppAxis_1));
 
 END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks.
+	// Disable the function blocks to unlink the MpLinks.
 	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
 	MpRecipeRegParPar.Enable := FALSE;
 	MpRecipeRegParCfg.Enable := FALSE;

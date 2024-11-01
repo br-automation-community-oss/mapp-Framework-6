@@ -14,7 +14,7 @@ PROGRAM _INIT
 	IF DirCreateReport.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreateReport(enable := FALSE);
 	END_IF
-	
+
 	// Initialize mapp function blocks
 	MpReportCoreSys.Language := ADR('en');
 	MpReportCoreSys.DeviceName := ADR('mappReportFiles');
@@ -42,7 +42,7 @@ PROGRAM _INIT
 		TimeIndex := TimeIndex + 15;
 	END_FOR
 
-	// Ficticious number to serve as an example in the report
+	// Fictitious number to serve as an example in the report
 	ReportExample.AdvancedReport.BatchNumber := 325454685;
 
 END_PROGRAM
@@ -58,11 +58,11 @@ PROGRAM _CYCLIC
 	// Call all cyclic actions
 	ReportFormat;
 	ReportFileExplorer;
-	
+
 	// Generate command
 	MpReportCoreSys.Generate := HmiReport.Commands.Generate;
 	MpReportCoreSys.FileName := ADR(HmiReport.Parameters.Name);
-	
+
 	// Assign address references
 	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUIReport.MpLink := ADR(gMpLinkFileManagerUIReport);
@@ -79,7 +79,7 @@ PROGRAM _EXIT
 	// Disable the function blocks to unlink the MpLinks
 	MpReportCoreSys.Enable := FALSE;
 	MpFileManagerUIReport.Enable := FALSE;
-	
+
 	// Call function blocks
 	MpReportCoreSys();
 	MpFileManagerUIReport();

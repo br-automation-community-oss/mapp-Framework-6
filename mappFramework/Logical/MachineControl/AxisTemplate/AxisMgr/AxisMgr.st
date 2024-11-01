@@ -24,7 +24,7 @@ PROGRAM _INIT
 
 	// Enable mapp function blocks
 	MpAxisBasicAppAxis.Enable := TRUE;
-	MpAlarmXCore_0.Enable := TRUE;	
+	MpAlarmXCore_0.Enable := TRUE;
 
 END_PROGRAM
 
@@ -48,7 +48,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks.
+	// Disable the function blocks to unlink the MpLinks.
 	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
 	MpRecipeRegPar_Par.Enable := FALSE;
 	MpRecipeRegPar_Cfg.Enable := FALSE;

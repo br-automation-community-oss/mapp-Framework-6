@@ -17,7 +17,7 @@ PROGRAM _INIT
 
 	 // Initial visibility setup
 	VC4_Init;
-	
+
 	// Initialize mapp function blocks
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;
@@ -80,7 +80,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
 	MpUserXManagerUISys.Enable := FALSE;
 	MpUserXLoginUISys.Enable := FALSE;
 	MpUserXLoginSys.Enable := FALSE;

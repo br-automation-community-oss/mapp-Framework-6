@@ -4,41 +4,30 @@
   <Element ID="User" Type="User">
     <Property ID="Password" Value="$argon2id$v=19$m=512,t=70,p=1$RfqKL+B1c2qy$AigLITBXVDKyZuS+smJuyz16wr5rNeRfYLn7JZ2tTyU" />
     <Group ID="Roles">
-      <Property ID="Role[1]" Value="BR_Engineer" />
-      <Property ID="Role[2]" Value="BR_Anonymous" />
-      <Property ID="Role[3]" Value="BR_Observer" />
+      <Property ID="Role[1]" Value="Everyone" />
     </Group>
   </Element>
   <Element ID="Admin" Type="User">
     <Property ID="Password" Value="$argon2id$v=19$m=512,t=70,p=1$hqXmJYg5dbes$VBW3gvaZOtIjc88ho0i63vzMFt+9ALQBmhCz6rR2PUo" />
     <Group ID="Roles">
-      <Property ID="Role[1]" Value="BR_Engineer" />
-      <Property ID="Role[2]" Value="BR_Anonymous" />
-      <Property ID="Role[3]" Value="BR_Observer" />
-      <Property ID="Role[4]" Value="BR_SafetyAdmin" />
-      <Property ID="Role[5]" Value="BR_SecurityAdmin" />
-      <Property ID="Role[6]" Value="Administrators" />
-      <Property ID="Role[7]" Value="Everyone" />
-      <Property ID="Role[8]" Value="Operators" />
-      <Property ID="Role[9]" Value="Service" />
+      <Property ID="Role[1]" Value="Administrators" />
+      <Property ID="Role[2]" Value="Everyone" />
+      <Property ID="Role[3]" Value="Operators" />
+      <Property ID="Role[4]" Value="Service" />
     </Group>
   </Element>
   <Element ID="Operator" Type="User">
     <Property ID="Password" Value="$argon2id$v=19$m=512,t=70,p=1$+nhaCdpp4o3E$9iOKJPLupo5mPBNOCCTRg8bLhZ6OwJoLIwInzElyBWA" />
     <Group ID="Roles">
-      <Property ID="Role[1]" Value="BR_Anonymous" />
-      <Property ID="Role[2]" Value="BR_Engineer" />
-      <Property ID="Role[3]" Value="BR_Observer" />
-      <Property ID="Role[4]" Value="Operators" />
-      <Property ID="Role[5]" Value="Everyone" />
+      <Property ID="Role[1]" Value="Operators" />
+      <Property ID="Role[2]" Value="Everyone" />
     </Group>
   </Element>
   <Element ID="Service_Tech" Type="User">
     <Property ID="Password" Value="$argon2id$v=19$m=512,t=70,p=1$Q1xr3GGBxo+I$jR/GAXeSbJX8Y4pJHMB5SwXPWYVZfvdlNn4rrQ7nLlM" />
     <Group ID="Roles">
-      <Property ID="Role[1]" Value="BR_Observer" />
-      <Property ID="Role[2]" Value="Service" />
-      <Property ID="Role[3]" Value="Everyone" />
+      <Property ID="Role[1]" Value="Service" />
+      <Property ID="Role[2]" Value="Everyone" />
     </Group>
   </Element>
 </Configuration>

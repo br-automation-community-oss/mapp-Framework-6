@@ -39,7 +39,7 @@ PROGRAM _INIT
 	MpRecipeUISys.UISetup := MpRecipeUISetup;
 	MpRecipeUISys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
 	MpRecipeUISys.Category := ADR(HmiRecipe.Parameters.Category);
-	MpRecipeUISys.Header := ADR(Header);
+	MpRecipeUISys.Header := ADR(UIHeader);
 	MpRecipeUISys();
 
 	MpRecipeSys.MpLink := ADR(gMpLinkRecipeXml);
@@ -208,7 +208,7 @@ PROGRAM _CYCLIC
 	MpRecipeUISys.UIConnect := ADR(MpRecipeUIConnect);
 	MpRecipeUISys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
 	MpRecipeUISys.Category := ADR(HmiRecipe.Parameters.Category);
-	MpRecipeUISys.Header := ADR(Header);
+	MpRecipeUISys.Header := ADR(UIHeader);
 	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');

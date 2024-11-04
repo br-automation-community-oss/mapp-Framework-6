@@ -217,7 +217,7 @@ ACTION RecipeHMIcommands:
 				END_IF
 			END_IF
 
-			Header.Name := STRING_TO_WSTRING(MpRecipeUIConnect.New.FileName);
+			Header.Name := MpRecipeUIConnect.New.FileName;
 			DTGetTimeRecipe.enable := TRUE;
 			REPEAT
 				DTGetTimeRecipe();

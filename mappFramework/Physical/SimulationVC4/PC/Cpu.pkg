@@ -20,11 +20,11 @@
     <Object Type="Package">VC</Object>
   </Objects>
   <Configuration ModuleId="PC_any">
-    <AutomationRuntime Version="6.0.7000" />
+    <AutomationRuntime Version="6.0.2" />
     <Build GccVersion="11.3.0" />
     <DefaultTargetMemory Tasks="UserROM" />
     <Safety SafetyRelease="0.0" />
     <Transfer AddToUserPart="True" AdditionalUserDir="\Logical\UserPartition" AllowDowngrade="False" AllowInitialTransfer="False" AllowPartitioning="False" ExecuteInitExitProgram="False" ForceInitialTransfer="False" IdentificationTypeValue="" IgnoreVersion="False" KeepNonVolatileMemory="False" ModuleSystemForPip="" PreserveVariableValues="True" ProjectConsistent="True" RebootDuringTransfer="False" SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" TargetIdentificationType="Always" TryToBootInRunMode="False" UserFilesIgnoreDifference="False" />
-    <Vc FirmwareVersion="6.0.7000" />
+    <Vc FirmwareVersion="6.0.0" />
   </Configuration>
 </Cpu>

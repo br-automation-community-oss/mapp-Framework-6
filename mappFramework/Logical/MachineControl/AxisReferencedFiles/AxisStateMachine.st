@@ -33,6 +33,7 @@ ACTION AxisStateMachine:
 			AxisControl.Status.Status := 'Initializing';
 			ChangeConfiguration;
 			ChangeParameter;
+			AxisControl.Status.Busy := TRUE;
 			IF (((ConfigurationState = CONFIG_STATE_READY) OR (ConfigurationState = CONFIG_STATE_NOT_USED)) AND ((ParameterState = PAR_STATE_READY) OR (ParameterState = PAR_STATE_NOT_USED)) AND (MpAxisBasicAppAxis.Active)) THEN
 				AxisControl.Status.IsReady := TRUE;
 
@@ -46,7 +47,7 @@ ACTION AxisStateMachine:
 				MpAxisBasicAppAxis.Power := AxisControl.Command.Power;
 			END_IF
 
-			AxisControl.Status.Busy := MpAxisBasicAppAxis.Power;
+			AxisControl.Status.Busy := AxisControl.Command.Power;
 			IF ((MpAxisBasicAppAxis.PowerOn) AND (NOT MpAxisBasicAppAxis.CommandBusy)) THEN
 				AxisControl.Status.Busy := FALSE;
 				State := STATE_HOME;
@@ -57,7 +58,7 @@ ACTION AxisStateMachine:
 		// Restore home position
 		STATE_HOME:
 			AxisControl.Status.Status := 'Waiting for home';
-			IF ((NOT MpAxisBasicAppAxis.IsHomed) AND (MpAxisBasicAppAxis.PowerOn) AND (EDGENEG(MpAxisBasicAppAxis.CommandBusy))) THEN
+			IF ((NOT MpAxisBasicAppAxis.IsHomed) AND (MpAxisBasicAppAxis.PowerOn) AND (NOT MpAxisBasicAppAxis.CommandBusy)) THEN
 				AxisControl.Status.ReferenceRequired := TRUE;
 				State := STATE_REFERENCE;
 			END_IF

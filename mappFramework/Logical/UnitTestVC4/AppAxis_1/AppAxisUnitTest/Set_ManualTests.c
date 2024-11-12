@@ -70,8 +70,7 @@ _TEARDOWN_TEST(void)
 	if ((AxisControl.Status.ErrorActive == true) || (MpAlarmXCoreAxis.PendingAlarms > 0))
 	{
 		AxisControl.Command.Reset = true;
-#warning "Fix Me!"
-//		MpAlarmXAcknowledgeAll_0.Execute = true;
+		MpAlarmXAcknowledgeAll = true;
 	}
 	TEST_BUSY_CONDITION(AxisControl.Status.ErrorActive);
 	AxisControl.Command.Reset = false;
@@ -95,13 +94,6 @@ _CYCLIC_SET(void)
 	MpAlarmXListUI_0.UISetup.AlarmListSize = 50;
 	strcpy(MpAlarmXListUI_0.UISetup.TimeStampPattern, "%Y %m %d %H:%M:%S");
 	MpAlarmXListUI(&MpAlarmXListUI_0);
-
-#warning "Fix Me!"
-//	  MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
-//	  MpAlarmXAcknowledgeAll_0.Enable = true;
-//	  MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
-//	  TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandBusy);
-//	  MpAlarmXAcknowledgeAll_0.Execute = false;
 
 }
 

@@ -44,6 +44,7 @@ PROGRAM _CYCLIC
 	// Assign MpLink
 	MpAlarmXCoreAxis.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
 
+	MpAlarmXCoreAxis.AcknowledgeAll := AcknowledgeAll;
 	// Call function block
 	MpAlarmXCoreAxis();
 

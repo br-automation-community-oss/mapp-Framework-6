@@ -45,7 +45,7 @@
       <Property ID="TargetFile[31]" Value="mappView.Resources.Texts.mappFrameworkTexts.ReportTexts.tmx" />
       <Property ID="TargetFile[32]" Value="Infrastructure.PackML.PackMLAlarms.tmx" />
       <Property ID="TargetFile[33]" Value="mappView.Resources.Texts.mappFrameworkTexts.PackMLTexts.tmx" />
-      <Property ID="TargetFile[34]" Value="mappView.Widgets.PackMLLib.Resources.Texts.PackMLTexts.tmx" />
+      <Property ID="TargetFile[34]" Value="mappView.Widgets.PackML_support_lib.Resources.Texts.PackMLTexts.tmx" />
     </Group>
   </Element>
 </Configuration>

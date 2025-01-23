@@ -16,7 +16,7 @@
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numOutParentStateCurr" 		top="0" left="0" width="1" height="1" 	zIndex="11" imageList="['']"  visible="false" selectedIndex="0"/>
   </Widgets>
   <Properties>
-  
+
     <Property xsi:type="StructureBindableProperty" name="PackMLModule" type="MpPackMLModule" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
@@ -24,21 +24,21 @@
 	   		<Mapping widget="txtOutModeCurr"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Info.ModeCurrent" />
 			<Mapping widget="numOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
 			<Mapping widget="txtOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
-			
+
 			<!--<Mapping widget="lblBlocked"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Blocked" />
 			<Mapping widget="lblStarved"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Starved" />-->
-						
+
 		</Mappings>
 	</Property>
-  
+
 	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="PackML Module" category="Appearance" required="false">
       <Description>Text for box</Description>
       <Mappings>
-        <Mapping widget="grpPackMLModule" property="text"/>		
+        <Mapping widget="grpPackMLModule" property="text"/>
       </Mappings>
     </Property>
-	
-    <!-- 
+
+    <!--
     Simple non bindable property:
     Property Attributes
     xsi:type: NonBindableProperty
@@ -50,7 +50,7 @@
         <Mapping widget="" property=""/>
       </Mappings>
     </Property>
-    
+
     Simple bindable property:
     <Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
       <Description>Description will be shown in property grid.</Description>
@@ -246,7 +246,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-			
+
   </EventBindings>
 
 </CompoundWidget>

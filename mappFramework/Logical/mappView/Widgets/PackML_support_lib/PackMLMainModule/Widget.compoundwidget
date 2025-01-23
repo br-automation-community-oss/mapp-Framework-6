@@ -1,81 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="PackMLMainModuleSlim" width="220" height="335" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="PackMLMainModule" width="285" height="390" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-  	<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLModule" 		top="0" left="0" width="220" height="335" zIndex="0" text="PackML Module AcpTrak" textAlign="left" style="Infobox">
+  	<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLModule" top="0" left="0" width="285" height="380" zIndex="0" text="PackML Module AcpTrak" textAlign="left" style="Infobox" backColor="rgba(255, 255, 255, 0)">
       <Widgets>
-	  	<Widget xsi:type="widgets.brease.Label" id="lblModeCurrent" 		top="5" left="0" width="60" zIndex="9" text="Mode:" fontSize="16px" margin="5px 0px 5px 5px" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutModeCurr" 	top="5" left="65" width="150" zIndex="10" margin="5px 5px 5px 0px" />
-        <Widget xsi:type="widgets.brease.Label" id="lblStateCurrent" 		top="40" left="0" width="60" zIndex="0" text="State:" fontSize="16px" margin="0px 0px 5px 5px" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutStateCurr" 	top="40" left="65" width="150" zIndex="2" margin="0px 5px 5px 0px" />
-        <Widget xsi:type="widgets.brease.Label" id="lblStateInfo" 			top="75" left="0" width="60" zIndex="1" text="Info:" fontSize="16px" margin="0px 0px 5px 5px" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutStateInfo" 	top="75" left="65" width="150" height="55" zIndex="3" breakWord="true" multiLine="true" textAlign="left top" padding="0px 0px 0px 15px" margin="0px 5px 5px 0px" />
-	         
-		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLPlankInfo" top="130" left="0" width="220" height="170" zIndex="19" text="SubModule Info" style="Infobox">
-	      <Widgets>        
-			<Widget xsi:type="widgets.brease.Label" 		id="lblWaitingForDetails" 		top="50" left="0" width="220" zIndex="1" text="Waiting for details" textAlign="center" fontSize="16px" />
+	    <Widget xsi:type="widgets.brease.Rectangle" id="recTopBack" 			top="0" left="0" width="285" height="55" zIndex="0" borderStyle="none" borderWidth="0px" backColor="rgba(255, 255, 255, 1)" />
+	  	<Widget xsi:type="widgets.brease.Label" 	id="lblBlocked" 			top="10" left="165" width="110" height="30" zIndex="1" text="BLOCKED" borderWidth="2px" borderStyle="solid" textAlign="center" fontSize="18px" visible="false" />
+        <Widget xsi:type="widgets.brease.Label" 	id="lblStarved" 			top="10" left="10" width="110" height="30" zIndex="2" text="STARVED" borderWidth="2px" borderStyle="solid" textAlign="center" fontSize="18px" visible="false" />
+        <Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLInfo" 			top="50" left="0" width="285" height="140" zIndex="3" childPositioning="relative" style="transparent" backColor="rgba(255, 255, 255, 1)">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.Label" id="lblModeCurrent" 		top="0" left="0" width="120" zIndex="9" text="Mode Current:" fontSize="16px" margin="5px 0px 5px 5px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="txtOutModeCurr" 	top="0" left="0" width="150" zIndex="10" margin="5px 5px 5px 0px" />
+            <Widget xsi:type="widgets.brease.Label" id="lblStateCurrent" 		top="0" left="0" width="120" zIndex="0" text="State Current:" fontSize="16px" margin="0px 0px 5px 5px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="txtOutStateCurr" 	top="0" left="0" width="150" zIndex="2" margin="0px 5px 5px 0px" />
+            <Widget xsi:type="widgets.brease.Label" id="lblStateInfo" 			top="0" left="0" width="120" zIndex="1" text="State Info:" fontSize="16px" margin="0px 0px 5px 5px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="txtOutStateInfo" 	top="0" left="0" width="150" height="55" zIndex="3" breakWord="true" multiLine="true" textAlign="left top" padding="0px 0px 0px 15px" margin="0px 5px 5px 0px" />
+          </Widgets>
+        </Widget>
+
+		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLAbortedInfo" top="185" left="0" width="285" height="170" zIndex="20" text="Aborted By Module" style="Infobox" visible="false">
+	      <Widgets>
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedModuleName" 		top="10" left="10" width="120" zIndex="1" text="Module Name:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedStateCurrent" 	top="40" left="10" width="120" zIndex="2" text="State Current:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedStateInfo" 		top="70" left="10" width="120" zIndex="4" text="State Info:" fontSize="16px" />
+			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutModuleName" 	top="10" left="130" width="150" zIndex="0" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutStateCurr" 	top="40" left="130" width="150" zIndex="5" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutStateInfo" 	top="75" left="130" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
 	      </Widgets>
 	    </Widget>
-		
-		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLAbortedInfo" top="130" left="0" width="220" height="170" zIndex="20" text="Aborted By Module" style="Infobox" visible="false">
-	      <Widgets>        
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedModuleName" 		top="5" left="0" width="60" zIndex="1" text="Module:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedStateCurrent" 	top="40" left="0" width="60" zIndex="2" text="State:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblAbortedStateInfo" 		top="75" left="0" width="60" zIndex="4" text="Info:" fontSize="16px" />
-			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutModuleName" 	top="5" left="65" width="150" zIndex="0" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutStateCurr" 	top="40" left="65" width="150" zIndex="5" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtAbortedOutStateInfo" 	top="75" left="65" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
+
+		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLBlockedInfo" top="185" left="0" width="285" height="170" zIndex="21" text="Blocked By Module" style="Infobox" visible="false">
+	      <Widgets>
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedModuleName" 		top="10" left="10" width="120" zIndex="1" text="Module Name:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedStateCurrent" 	top="40" left="10" width="120" zIndex="2" text="State Current:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedStateInfo" 		top="70" left="10" width="120" zIndex="4" text="State Info:" fontSize="16px" />
+			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutModuleName" 	top="10" left="130" width="150" zIndex="0" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutStateCurr" 	top="40" left="130" width="150" zIndex="5" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutStateInfo" 	top="75" left="130" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
 	      </Widgets>
 	    </Widget>
-		
-		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLBlockedInfo" top="130" left="0" width="220" height="170" zIndex="21" text="Blocked By Module" style="Infobox" visible="false">
-	      <Widgets>        
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedModuleName" 		top="5" left="0" width="60" zIndex="1" text="Module:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedStateCurrent" 	top="40" left="0" width="60" zIndex="2" text="State:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblBlockedStateInfo" 		top="75" left="0" width="60" zIndex="4" text="Info:" fontSize="16px" />
-			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutModuleName" 	top="5" left="65" width="150" zIndex="0" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutStateCurr" 	top="40" left="65" width="150" zIndex="5" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtBlockedOutStateInfo" 	top="75" left="65" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
+
+		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLStarvingInfo" top="185" left="0" width="285" height="170" zIndex="22" text="Starving By Module" style="Infobox" visible="false">
+	      <Widgets>
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingModuleName" 		top="10" left="10" width="120" zIndex="1" text="Module Name:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingStateCurrent" 	top="40" left="10" width="120" zIndex="2" text="State Current:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingStateInfo" 		top="70" left="10" width="120" zIndex="4" text="State Info:" fontSize="16px" />
+			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutModuleName" 	top="10" left="130" width="150" zIndex="0" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutStateCurr" 	top="40" left="130" width="150" zIndex="5" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutStateInfo" 	top="75" left="130" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
 	      </Widgets>
 	    </Widget>
-		
-		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLStarvingInfo" top="130" left="0" width="220" height="170" zIndex="22" text="Starving By Module" style="Infobox" visible="false">
-	      <Widgets>        
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingModuleName" 		top="5" left="0" width="60" zIndex="1" text="Module:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingStateCurrent" 	top="40" left="0" width="60" zIndex="2" text="State:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblStarvingStateInfo" 		top="75" left="0" width="60" zIndex="4" text="Info:" fontSize="16px" />
-			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutModuleName" 	top="5" left="65" width="150" zIndex="0" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutStateCurr" 	top="40" left="65" width="150" zIndex="5" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtStarvingOutStateInfo" 	top="75" left="65" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
+
+		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLWaitingInfo" top="185" left="0" width="285" height="170" zIndex="23" text="Waiting For Module" style="Infobox" visible="false">
+	      <Widgets>
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingModuleName" 		top="10" left="10" width="120" zIndex="1" text="Module Name:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingStateCurrent" 	top="40" left="10" width="120" zIndex="2" text="State Current:" fontSize="16px" />
+	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingStateInfo" 		top="70" left="10" width="120" zIndex="4" text="State Info:" fontSize="16px" />
+			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutModuleName" 	top="10" left="130" width="150" zIndex="0" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutStateCurr" 	top="40" left="130" width="150" zIndex="5" />
+	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutStateInfo" 	top="75" left="130" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
 	      </Widgets>
 	    </Widget>
-		
-		<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLWaitingInfo" top="130" left="0" width="220" height="170" zIndex="23" text="Waiting For Module" style="Infobox" visible="false">
-	      <Widgets>        
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingModuleName" 		top="5" left="0" width="60" zIndex="1" text="Module:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingStateCurrent" 	top="40" left="0" width="60" zIndex="2" text="State:" fontSize="16px" />
-	        <Widget xsi:type="widgets.brease.Label" 		id="lblWaitingStateInfo" 		top="75" left="0" width="60" zIndex="4" text="Info:" fontSize="16px" />
-			<Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutModuleName" 	top="5" left="65" width="150" zIndex="0" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutStateCurr" 	top="40" left="65" width="150" zIndex="5" />
-	        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtWaitingOutStateInfo" 	top="75" left="65" width="150" height="55" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
-	      </Widgets>
-	    </Widget>
-       
+
       </Widgets>
     </Widget>
 	<!--<Widget xsi:type="widgets.brease.ImageList" 	id="numOutSubStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="10" imageList="['']"  visible="false" selectedIndex="0"/>-->
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numOutStateCurr" 			top="0" left="0" width="1" height="1" 	zIndex="10" imageList="['']"  visible="false" selectedIndex="-1"/>
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numOutParentStateCurr" 		top="0" left="0" width="1" height="1" 	zIndex="11" imageList="['']"  visible="false" selectedIndex="-1"/>
-	
+
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numBlockedOutStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="20" imageList="['']"  visible="false" selectedIndex="-1"/>
-	
+
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numAbortedOutStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="30" imageList="['']"  visible="false" selectedIndex="-1"/>
-	
+
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numStarvingOutStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="40" imageList="['']"  visible="false" selectedIndex="-1"/>
-	
+
 	<Widget xsi:type="widgets.brease.ImageList" 	id="numWaitingOutStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="50" imageList="['']"  visible="false" selectedIndex="-1"/>
   </Widgets>
   <Properties>
-  
+
     <Property xsi:type="StructureBindableProperty" name="PackMLModule" type="MpPackMLModule" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
@@ -83,61 +84,61 @@
 	   		<Mapping widget="txtOutModeCurr"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Info.ModeCurrent" />
 			<Mapping widget="numOutStateCurr"   type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
 			<Mapping widget="txtOutStateInfo"   type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
-			
-			<!--<Mapping widget="lblBlocked"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Blocked" />
+
+			<Mapping widget="lblBlocked"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Blocked" />
 			<Mapping widget="lblStarved"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Starved" />
--->					
+
 		</Mappings>
 	</Property>
-	
+
 	<Property xsi:type="StructureBindableProperty" name="PackMLAbortedInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
        <!-- OUTPUT -->
 	   		<Mapping widget="txtAbortedOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
 			<Mapping widget="numAbortedOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
-			<Mapping widget="txtAbortedOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+			<Mapping widget="txtAbortedOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
 		</Mappings>
 	</Property>
-	
+
 	<Property xsi:type="StructureBindableProperty" name="PackMLBlockedInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
        <!-- OUTPUT -->
 	   		<Mapping widget="txtBlockedOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
 			<Mapping widget="numBlockedOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
-			<Mapping widget="txtBlockedOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+			<Mapping widget="txtBlockedOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
 		</Mappings>
 	</Property>
-	
+
 	<Property xsi:type="StructureBindableProperty" name="PackMLStarvingInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
        <!-- OUTPUT -->
 	   		<Mapping widget="txtStarvingOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
 			<Mapping widget="numStarvingOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
-			<Mapping widget="txtStarvingOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+			<Mapping widget="txtStarvingOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
 		</Mappings>
 	</Property>
-	
+
 	<Property xsi:type="StructureBindableProperty" name="PackMLWaitingInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
        <!-- OUTPUT -->
 	   		<Mapping widget="txtWaitingOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
 			<Mapping widget="numWaitingOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
-			<Mapping widget="txtWaitingOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+			<Mapping widget="txtWaitingOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
 		</Mappings>
 	</Property>
-  
+
 	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="PackML Module" category="Appearance" required="false">
       <Description>Text for box</Description>
       <Mappings>
-        <Mapping widget="grpPackMLModule" property="text"/>		
+        <Mapping widget="grpPackMLModule" property="text"/>
       </Mappings>
     </Property>
-	
-    <!-- 
+
+    <!--
     Simple non bindable property:
     Property Attributes
     xsi:type: NonBindableProperty
@@ -149,7 +150,7 @@
         <Mapping widget="" property=""/>
       </Mappings>
     </Property>
-    
+
     Simple bindable property:
     <Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
       <Description>Description will be shown in property grid.</Description>
@@ -345,7 +346,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
 	<EventBinding id="BlockedStateCurrent">
       <Source xsi:type="widget.Event" widgetRefId="numBlockedOutStateCurr" event="SelectedIndexChanged" />
       <EventHandler condition="selectedIndex > 0">
@@ -510,7 +511,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
 		<EventBinding id="WaitingStateCurrent">
       <Source xsi:type="widget.Event" widgetRefId="numWaitingOutStateCurr" event="SelectedIndexChanged" />
       <EventHandler condition="selectedIndex > 0">
@@ -840,7 +841,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
 	<EventBinding id="AbortedStateCurrent">
       <Source xsi:type="widget.Event" widgetRefId="numAbortedOutStateCurr" event="SelectedIndexChanged" />
       <EventHandler condition="selectedIndex > 0">
@@ -1005,7 +1006,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
   </EventBindings>
 
 </CompoundWidget>

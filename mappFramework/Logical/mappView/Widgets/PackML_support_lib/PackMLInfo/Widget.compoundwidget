@@ -2,7 +2,7 @@
 <CompoundWidget id="PackMLInfo" width="410" height="230" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
   	<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLInfo" top="0" left="0" width="410" height="230" zIndex="0" style="Infobox">
-      <Widgets>        
+      <Widgets>
         <Widget xsi:type="widgets.brease.Label" 		id="lblModuleName" 		top="10" left="20" width="160" zIndex="1" text="Module Name:" fontSize="16px" />
         <Widget xsi:type="widgets.brease.Label" 		id="lblStateCurrent" 	top="50" left="20" width="160" zIndex="2" text="State Current:" fontSize="16px" />
         <Widget xsi:type="widgets.brease.Label" 		id="lblSubStateCurrent" top="90" left="20" width="160" zIndex="3" text="Sub State Current:" fontSize="16px" />
@@ -18,7 +18,7 @@
 	<Widget xsi:type="widgets.brease.DropDownBox" 	id="numOutSubStateCurr" top="0" left="0" width="1" height="1" 	zIndex="10" visible="false" selectedIndex="-1" />
   </Widgets>
   <Properties>
-  
+
     <Property xsi:type="StructureBindableProperty" name="PackMLInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
@@ -26,24 +26,24 @@
 	   		<Mapping widget="txtOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
 			<Mapping widget="numOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
 			<Mapping widget="numOutSubStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="SubStateCurrent" />
-			<Mapping widget="txtOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+			<Mapping widget="txtOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
 		</Mappings>
 	</Property>
-  
+
 	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="PackML Info" category="Appearance" required="false">
       <Description>Text for box</Description>
       <Mappings>
-        <Mapping widget="grpPackMLInfo" property="text"/>		
+        <Mapping widget="grpPackMLInfo" property="text"/>
       </Mappings>
     </Property>
-	
+
 	<Property xsi:type="NonBindableProperty" name="dataProvider" type="ItemCollection" defaultValue="[{'value':'0','text':''},{'value':'1','text':'SubState 1'}]" category="Data" required="false">
       <Description>Dataprovider for sub state current</Description>
       <Mappings>
-        <Mapping widget="numOutSubStateCurr" property="dataProvider"/>		
+        <Mapping widget="numOutSubStateCurr" property="dataProvider"/>
       </Mappings>
     </Property>
-    <!-- 
+    <!--
     Simple non bindable property:
     Property Attributes
     xsi:type: NonBindableProperty
@@ -55,7 +55,7 @@
         <Mapping widget="" property=""/>
       </Mappings>
     </Property>
-    
+
     Simple bindable property:
     <Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
       <Description>Description will be shown in property grid.</Description>
@@ -251,9 +251,9 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
 	<EventBinding id="SubStateCurrent">
-      <Source xsi:type="widget.Event" widgetRefId="numOutSubStateCurr" event="SelectedIndexChanged" /> 
+      <Source xsi:type="widget.Event" widgetRefId="numOutSubStateCurr" event="SelectedIndexChanged" />
       <EventHandler condition="selectedIndex = 0">
         <Action>
           <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
@@ -304,7 +304,7 @@
         </Action>
       </EventHandler>
 	</EventBinding>
-	
+
   </EventBindings>
 
 </CompoundWidget>

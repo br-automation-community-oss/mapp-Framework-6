@@ -1,6 +1,3 @@
 VAR RETAIN
-	RestorePosition_AppAxis_1 : {REDUND_UNREPLICABLE} McPureVAxRestorePosType; (*Data structure for retsore position mode*)
-END_VAR
-VAR
-	MC_BR_CheckRestorePositionData_0 : MC_BR_CheckRestorePositionData;
+    RestorePosition_AppAxis_1 : {REDUND_UNREPLICABLE} McPureVAxRestorePosType; (*Data structure for retsore position mode*)
 END_VAR

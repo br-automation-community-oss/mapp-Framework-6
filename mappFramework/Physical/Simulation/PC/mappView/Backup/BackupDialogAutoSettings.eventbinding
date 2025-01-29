@@ -32,5 +32,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="BackupDialogAutoSettings.DropDownInterval.SelectedIndexChanged">
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="BackupDialogAutoSettings" widgetRefId="DropDownInterval" event="SelectedIndexChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="BackupDialogAutoSettings" widgetRefId="DropDownDay">
+            <Method xsi:type="widgets.brease.DropDownBox.Action.SetEnable" value="=selectedIndex=1" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<vdef:Visualization id="MyVisuAudit" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+<vdef:Visualization id="Audit" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
 	<StartPage pageRefId="Demo" />
 	<Pages>
 		<Page refId="Demo" />
@@ -18,17 +18,17 @@
 		<EventBindingsSet refId="AuditDialogArchiveSettings" />
 		<EventBindingsSet refId="Navigation" />
 	</EventBindingsSets>
-	<Dialogs>  
+	<Dialogs>
 		<Dialog refId="AuditArchiveSettings" />
 	</Dialogs>
-	<Contents > 
+	<Contents >
 		<Content refId="Audit" />
 		<Content refId="AuditTrail" />
 		<Content refId="AuditQuery" />
 		<Content refId="CustomEvents" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
-	</Contents>	
+	</Contents>
 	<SnippetsSets />
 	<VariablesSets>
 		<VariablesSet refId="Navigation" />

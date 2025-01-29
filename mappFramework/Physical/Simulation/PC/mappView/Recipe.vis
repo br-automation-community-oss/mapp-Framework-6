@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<vdef:Visualization id="MyVisuRecipe" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+<vdef:Visualization id="Recipe" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
 	<StartPage pageRefId="Demo" />
 	<Pages>
 		<Page refId="Demo" />
 	</Pages>
 	<Navigations>
 		<!--<Navigation refId="" />-->
-	</Navigations>  
+	</Navigations>
 	<BindingsSets>
 		<BindingsSet refId="Recipe" />
 		<BindingsSet refId="RecipeDialogNewPars" />
@@ -25,17 +25,17 @@
 		<Dialog refId="NewRecipe" />
 		<Dialog refId="EditRecipe" />
 	</Dialogs>
-	<Contents > 
+	<Contents >
 		<Content refId="RecipePars" />
 		<Content refId="RecipeMachConfig" />
-		<Content refId="RecipeDialogEditMachConfig" /> 
+		<Content refId="RecipeDialogEditMachConfig" />
 		<Content refId="RecipeDialogEditPars" />
 		<Content refId="RecipeDialogNewMachConfig" />
 		<Content refId="RecipeDialogNewPars" />
-		<Content refId="Recipe" /> 
+		<Content refId="Recipe" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
-	</Contents>	
+	</Contents>
 	<SnippetsSets>
 		<SnippetsSet refId="Recipe" />
 	</SnippetsSets>

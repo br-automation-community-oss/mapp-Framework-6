@@ -1581,10 +1581,36 @@ TYPE
 	McACLFType : STRUCT (*Parameters of the loop filters*)
 		LoopFilter : ARRAY[0..2] OF McACLFSType; (*Type of the loop filter*)
 	END_STRUCT;
+	McACCTMEnum :
+		( (*Cycle time mode selector setting*)
+		mcACCTM_STD := 0, (*Standard - 400µs/200µs/200µs*)
+		mcACCTM_ADV := 1, (*Advanced - 100µs/100µs/100µs*)
+		mcACCTM_PWR := 2 (*Power - 50µs/50µs/50µs*)
+		);
+	McACCTMSgenEnum :
+		( (*Set value generation selector setting*)
+		mcACCTMSgen_STD := 0, (*Standard - Standard: 400µs*)
+		mcACCTMSgen_CYCLE_TIME_OF_CTRL := 128 (*Cycle time of controller - Position controller cycle time*)
+		);
+	McACCTMSgenType : STRUCT (*Selects if set value generation is done in the faster position controller cycle*)
+		Type : McACCTMSgenEnum; (*Set value generation selector setting*)
+	END_STRUCT;
+	McACCTMAdvType : STRUCT (*Type mcACCTM_ADV settings*)
+		SetValueGeneration : McACCTMSgenType; (*Selects if set value generation is done in the faster position controller cycle*)
+	END_STRUCT;
+	McACCTMPwrType : STRUCT (*Type mcACCTM_PWR settings*)
+		SetValueGeneration : McACCTMSgenType; (*Selects if set value generation is done in the faster position controller cycle*)
+	END_STRUCT;
+	McACCTMType : STRUCT (*Controller cascade cycle time mode; Position/Speed/Current; Check documentation for limitations*)
+		Type : McACCTMEnum; (*Cycle time mode selector setting*)
+		Advanced : McACCTMAdvType; (*Type mcACCTM_ADV settings*)
+		Power : McACCTMPwrType; (*Type mcACCTM_PWR settings*)
+	END_STRUCT;
 	McACMPCType : STRUCT (*Type mcACM_POS_CTRL settings*)
 		Position : McACPCType; (*Position controller parameters*)
 		Speed : McACSCType; (*Speed controller parameters*)
 		LoopFilters : McACLFType; (*Parameters of the loop filters*)
+		CycleTimeMode : McACCTMType; (*Controller cascade cycle time mode; Position/Speed/Current; Check documentation for limitations*)
 	END_STRUCT;
 	McACPCFFType : STRUCT (*Position controller parameters*)
 		ProportionalGain : REAL; (*Proportional amplification [1/s]*)
@@ -1613,6 +1639,7 @@ TYPE
 		Speed : McACSCType; (*Speed controller parameters*)
 		FeedForward : McACMPCFFFFwdType; (*Torque feed-forward control parameters*)
 		LoopFilters : McACLFType; (*Parameters of the loop filters*)
+		CycleTimeMode : McACCTMType; (*Controller cascade cycle time mode; Position/Speed/Current; Check documentation for limitations*)
 	END_STRUCT;
 	McACMPCMBCPosType : STRUCT (*Position controller parameters*)
 		ProportionalGain : REAL; (*Proportional amplification [1/s]*)
@@ -1694,6 +1721,7 @@ TYPE
 		Feedback : McACMPCMBCFdbkType; (*Feedback control parameters*)
 		Model : McACMPCMBCMdlType; (*Load model parameters*)
 		LoopFilters : McACLFType; (*Parameters of the loop filters*)
+		CycleTimeMode : McACCTMType; (*Controller cascade cycle time mode; Position/Speed/Current; Check documentation for limitations*)
 	END_STRUCT;
 	McACMVFCVFTypEnum :
 		( (*Type of characteristic curve*)
@@ -3640,7 +3668,22 @@ TYPE
 	McCfgAxFeatAInType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_A_IN*)
 		ProductFamily : McAFAIProdFamType;
 	END_STRUCT;
+	McAFAPTTranOrdEnum :
+		( (*Transfer order in reference to other configuration parameters*)
+		mcAFAPTTO_END_OF_INIT := 0, (*End of initialization - Transfer after other configuration parameters*)
+		mcAFAPTTO_ST_OF_INIT := 1 (*Start of initialization - Transfer before other configuration parameters*)
+		);
 	McCfgAxFeatAcpParTblType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_PAR_TBL*)
 		ACOPOSParameterTableReference : STRING[250]; (*Name of the ACOPOS parameter table*)
+		TransferOrder : McAFAPTTranOrdEnum; (*Transfer order in reference to other configuration parameters*)
+	END_STRUCT;
+	McAFASPTCTranOrdEnum :
+		( (*Transfer order in reference to other configuration parameters*)
+		mcAFASPTCTO_END_OF_INIT := 0, (*End of initialization - Transfer after other configuration parameters*)
+		mcAFASPTCTO_ST_OF_INIT := 1 (*Start of initialization - Transfer before other configuration parameters*)
+		);
+	McCfgAxFeatAcpSptChartType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_SPT_CHART*)
+		ACOPOSSptChartReference : McCfgReferenceType; (*Name of the ACOPOS spt chart*)
+		TransferOrder : McAFASPTCTranOrdEnum; (*Transfer order in reference to other configuration parameters*)
 	END_STRUCT;
 END_TYPE

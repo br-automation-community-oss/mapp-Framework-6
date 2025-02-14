@@ -22,6 +22,7 @@ PROGRAM _INIT
 
 	// Initialize mapp function blocks
 	MpBackupCoreSys.MpLink := ADR(gMpLinkBackupCore);
+	MpBackupCoreSys.Name := ADR(HmiBackup.Parameters.Name);
 	MpBackupCoreSys.Enable := TRUE;
 	MpBackupCoreSys();
 
@@ -213,6 +214,7 @@ PROGRAM _CYCLIC
 	END_IF
 
 	MpBackupCoreSys.MpLink := ADR(gMpLinkBackupCore);
+	MpBackupCoreSys.Name := ADR(HmiBackup.Parameters.Name);
 	MpBackupCoreSys.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	MpBackupCoreSys();
 

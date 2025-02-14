@@ -10,12 +10,7 @@
     </Group>
     <Group ID="Audit">
       <Group ID="Events">
-        <Property ID="[0]" Value="33" />
-        <Property ID="[1]" Value="2" />
-        <Property ID="[2]" Value="16" />
-        <Property ID="[3]" Value="113" />
-        <Property ID="[4]" Value="48" />
-        <Property ID="[5]" Value="149" />
+        <Property ID="[0]" Value="402" />
       </Group>
       <Selector ID="Memory" Value="0">
         <Property ID="Size" Value="200" />
@@ -23,8 +18,8 @@
         <Property ID="BufferSize" Value="10" />
       </Selector>
       <Group ID="TextSource">
-        <Property ID="DisplayFormat" Value="MpAudit/Display/SysF/Event/Root" />
-        <Property ID="ExportFormat" Value="MpAudit/SysF/Event/Root" />
+        <Property ID="DisplayFormat" Value="{&amp;typ} - {&amp;msg} - {&amp;cmt}" />
+        <Property ID="ExportFormat" Value="{&amp;typ} - {&amp;msg} - {&amp;cmt}" />
       </Group>
       <Selector ID="Archive" Value="On">
         <Property ID="Mode" Value="0" />

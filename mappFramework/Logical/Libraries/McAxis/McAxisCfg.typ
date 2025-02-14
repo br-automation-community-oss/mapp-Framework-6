@@ -10,39 +10,39 @@ TYPE
 		);
 	McABTLinBdType : STRUCT (*Type mcABT_LIN_BD settings*)
 		MeasurementUnit : McCfgLocLenUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 	END_STRUCT;
 	McABTLinType : STRUCT (*Type mcABT_LIN settings*)
 		MeasurementUnit : McCfgLocLenUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 	END_STRUCT;
 	McABTLinPerPerSetType : STRUCT (*Possible position value range of a periodic axis*)
-		Period : LREAL; (*The value range for axis positions is [0 , Period[ [Measurement units]*)
+		Period : LREAL; (*The value range for axis positions is [0 , Period[ [measurement units]*)
 	END_STRUCT;
 	McABTLinPerType : STRUCT (*Type mcABT_LIN_PER settings*)
 		MeasurementUnit : McCfgLocLenUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 		PeriodSettings : McABTLinPerPerSetType; (*Possible position value range of a periodic axis*)
 	END_STRUCT;
 	McABTRotBdType : STRUCT (*Type mcABT_ROT_BD settings*)
 		MeasurementUnit : McCfgLocRotUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 	END_STRUCT;
 	McABTRotType : STRUCT (*Type mcABT_ROT settings*)
 		MeasurementUnit : McCfgLocRotUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 	END_STRUCT;
 	McABTRotPerPerSetType : STRUCT (*Possible position value range of a periodic axis*)
-		Period : LREAL; (*The value range for axis positions is [0 , Period[ [Measurement units]*)
+		Period : LREAL; (*The value range for axis positions is [0 , Period[ [measurement units]*)
 	END_STRUCT;
 	McABTRotPerType : STRUCT (*Type mcABT_ROT_PER settings*)
 		MeasurementUnit : McCfgLocRotUnitEnum; (*Measurement unit for the axis*)
-		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [measurement units]*)
 		CountDirection : McCfgCntDirEnum; (*Direction of the axis in which the position value is increasing*)
 		PeriodSettings : McABTRotPerPerSetType; (*Possible position value range of a periodic axis*)
 	END_STRUCT;
@@ -133,7 +133,7 @@ TYPE
 		JerkTime : REAL; (*Used jerk filter time ('Jerk time' <= 'Maximum jerk time') [s]*)
 	END_STRUCT;
 	McAFPGJFJerkLimType : STRUCT (*Type mcAFPGJF_JERK_LIM settings*)
-		JerkLimit : REAL; (*Jerk limit in any movement direction [Measurement units/s³]*)
+		JerkLimit : REAL; (*Jerk limit in any movement direction [measurement units/s³]*)
 	END_STRUCT;
 	McAFPGJFType : STRUCT (*Jerk filter*)
 		Type : McAFPGJFEnum; (*Jerk filter selector setting*)
@@ -769,6 +769,6 @@ TYPE
 		NetworkErrorReaction : McAFANERNetwErrReacType; (*Reaction in case of a network error*)
 	END_STRUCT;
 	McCfgAxFeatAcpCycDatProcType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_CYC_DAT_PROC*)
-		ProcessingTaskClass : McPTCEnum; (*Cyclic task class for command processing*)
+		ProcessingTaskClass : McPTCEnum; (*Task class for cyclic data processing*)
 	END_STRUCT;
 END_TYPE

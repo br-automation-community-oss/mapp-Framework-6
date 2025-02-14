@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="PackMLModuleInfoBanner" width="1520" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="PackMLInfoBanner" width="1520" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
 	<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLModule" top="0" left="0" width="1520" height="100" zIndex="0" text="PackML Module" textAlign="left" style="Infobox">
       <Widgets>
@@ -28,40 +28,40 @@
 	<Description>Bind to the robot service interface</Description>
 		<Mappings>
        <!-- OUTPUT -->
-	   		<Mapping widget="txtOutModeCurr"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Info.ModeCurrent" />
-			<Mapping widget="numOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
-			<Mapping widget="txtOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />
+	   		<Mapping widget="txtOutModeCurr" type="String" property="value" mode="twoWay" mapToNode="false" memberPath="Info.ModeCurrent" />
+			<Mapping widget="numOutStateCurr" type="Number" property="selectedIndex" mode="twoWay" mapToNode="false" memberPath="StateCurrent" />
+			<Mapping widget="txtOutStateInfo" type="String" property="value" mode="twoWay" mapToNode="false" memberPath="StateInfo" />
 
-			<Mapping widget="lblBlocked"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Blocked" />
-			<Mapping widget="lblStarved"   	type="Boolean"  property="visible" mode="oneWay" mapToNode="false"  memberPath="Starved" />
+			<Mapping widget="lblBlocked" type="Boolean" property="visible" mode="oneWay" mapToNode="false" memberPath="Blocked" />
+			<Mapping widget="lblStarved" type="Boolean" property="visible" mode="oneWay" mapToNode="false" memberPath="Starved" />
 
-			<Mapping widget="txtOutParentName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Info.Parent.Name" />
-			<Mapping widget="numOutParentStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="Info.Parent.StateCurrent" />
+			<Mapping widget="txtOutParentName" type="String" property="value" mode="twoWay" mapToNode="false" memberPath="Info.Parent.Name" />
+			<Mapping widget="numOutParentStateCurr" type="Number" property="selectedIndex" mode="twoWay" mapToNode="false" memberPath="Info.Parent.StateCurrent" />
 		</Mappings>
 	</Property>
 
 	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="PackML Module" category="Appearance" required="false">
       <Description>Text for box</Description>
       <Mappings>
-        <Mapping widget="grpPackMLModule" property="text"/>
+        <Mapping widget="grpPackMLModule" property="text" />
       </Mappings>
     </Property>
 
 	<Property xsi:type="NonBindableProperty" name="parentVisible" type="Boolean" defaultValue="true" category="Appearance" required="false">
       <Description>Parent info visibility</Description>
       <Mappings>
-        <Mapping widget="lblParent" property="visible"/>
-		<Mapping widget="lblParentName" property="visible"/>
-		<Mapping widget="lblParentStateCurrent" property="visible"/>
-		<Mapping widget="txtOutParentStateCurr" property="visible"/>
-		<Mapping widget="txtOutParentName" property="visible"/>
+        <Mapping widget="lblParent" property="visible" />
+		<Mapping widget="lblParentName" property="visible" />
+		<Mapping widget="lblParentStateCurrent" property="visible" />
+		<Mapping widget="txtOutParentStateCurr" property="visible" />
+		<Mapping widget="txtOutParentName" property="visible" />
       </Mappings>
     </Property>
 
 	<Property xsi:type="BindableProperty" name="flyoutPin" type="Boolean" defaultValue="false" readOnly="false" category="Appearance" localizable="false" typeRefId="" nodeRefId="">
       <Description>Pin flyout</Description>
       <Mappings>
-        <Mapping widget="tbFlyoutPin" property="value" mode="twoWay"/>
+        <Mapping widget="tbFlyoutPin" property="value" mode="twoWay" />
       </Mappings>
     </Property>
 

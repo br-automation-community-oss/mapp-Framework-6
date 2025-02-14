@@ -11,7 +11,7 @@
     <Group ID="Backup">
       <Selector ID="AutomaticBackup" Value="Enabled">
         <Property ID="NamePrefix" Value="myBackupPrefix" />
-        <Property ID="DeviceName" Value="USB1" />
+        <Property ID="DeviceName" Value="mappBackupFiles" />
         <Selector ID="Mode" Value="Weekly">
           <Property ID="Day" Value="4" />
           <Property ID="Time" Value="0" />

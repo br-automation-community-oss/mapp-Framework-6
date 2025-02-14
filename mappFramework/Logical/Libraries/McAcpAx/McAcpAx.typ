@@ -9,6 +9,9 @@ TYPE
 		mcACPAX_PARTYPE_UINT,  (*Data type: Whole number, 2 bytes, positive numbers only*)
 		mcACPAX_PARTYPE_UDINT,  (*Data type: Whole number, 4 bytes, positive numbers only*)
 		mcACPAX_PARTYPE_REAL,  (*Data type: Floating point, 4 bytes*)
+		mcACPAX_PARTYPE_DINT_REAL := 64, (*Data type: 4 byte signed integer + 4 byte floating point (a.k.a I4+R4)*)
+		mcACPAX_PARTYPE_DINT_REAL_COUNT := 65, (*Data type: 4 byte signed integer + 4 byte floating point + 4 byte unsigned integer for count (a.k.a I4+R4+UI4Cnt)*)
+		mcACPAX_PARTYPE_DINT_REAL_TIME := 66, (*Data type: 4 byte signed integer + 4 byte floating point + 4 byte unsigned integer for time stamp (a.k.a I4+R4+UI4Time)*)
 		mcACPAX_PARTYPE_VOID := 65535   (*General data type*)
 	);
 
@@ -22,7 +25,8 @@ TYPE
 	(
 		mcACPAX_PARID_GET := 0,  (*Read ParID(s)*)
 		mcACPAX_PARID_SET,	 (*Write ParID(s)*)
-		mcACPAX_PARID_GET_NO_NCT  (*Read ParID(s) without entry in the NCT*)
+		mcACPAX_PARID_GET_NO_NCT,  (*Read ParID(s) without entry in the NCT*)
+		mcACPAX_PARID_GET_NO_LOG  (*Read ParID(s) without NCT and logger entry. If an error occurs while reading, an entry is still created.*)
 	);
 
 	McAcpAxProcessParTabModeEnum :
@@ -207,6 +211,11 @@ TYPE
 		mcACPAX_RECEIVE_CHANNEL_3 := 3, (*Select channel 3*)
 		mcACPAX_RECEIVE_CHANNEL_4 := 4, (*Select channel 4*)
 		mcACPAX_RECEIVE_CHANNEL_5 := 5 (*Select channel 5*)
+	);
+
+	McAcpAxSctrlLimitLoadModeEnum :
+	(
+		mcACPAX_SLL_LIMIT_AND_REPORT := 0  (*Limit load (torque) and report limitation status.*)
 	);
 
 	McAcpAxHomingAddTorqLimParType : STRUCT
@@ -692,6 +701,7 @@ TYPE
 		NodeNumber : USINT; (*Node number of the POWERLINK station from which data should be received.*)
 		BitOffset : UINT; (*Bit offset of the POWERLINK data in the telegram from the transmitter from which point the data is read, must be a multiple of 16.*)
 		ReceiveChannel : McAcpAxReceiveChannelEnum; (*Requested channel number on the axis to be used to receive the data.*)
+		CycleTime : UDINT; (*Update cycle time of the transmitted user data [us].*)
 	END_STRUCT;
 
 	McAcpAxAdvReceiveParIDOnPLCType : STRUCT
@@ -723,5 +733,10 @@ TYPE
 		FourByteCount : USINT; (*Number of four byte (32 bit) data in this record.*)
 		ParIDCount : USINT; (*Number of ParIDs configured in this record (i.e. OneByteCount + TwoByteCount + FourByteCount).*)
 		ParID : ARRAY[0..11] OF UINT; (*Array of ParIDs configured in this record.*)
+	END_STRUCT;
+
+	McAcpAxAdvSctrlLimitLoadParType : STRUCT
+		LoadPositiveParID : UINT; (*Parameter ID of the positive load (torque) limit.*)
+		LoadNegativeParID : UINT; (*Parameter ID of the negative load (torque) limit.*)
 	END_STRUCT;
 END_TYPE

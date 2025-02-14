@@ -172,7 +172,9 @@ TYPE
 		( (*General purpose axis interface selector setting*)
 		mcPVAGPAI_NOT_USE := 0, (*Not used - No connection to a device used*)
 		mcPVAGPAI_USE := 1, (*Used - Interface provides output data to control a device and receives status information of a device*)
-		mcPVAGPAI_EXT_ENC := 2 (*External encoder - Interface to read an external encoder*)
+		mcPVAGPAI_EXT_ENC := 2, (*External encoder - Interface to read an external encoder*)
+		mcPVAGPAI_DS402_CSP := 3, (*DS402 CSP - Interface provides output data to control a DS402 drive with activated CSP mode and receives status information of a DS402 drive*)
+		mcPVAGPAI_DS402_VL := 4 (*DS402 VL - Interface provides output data to control a DS402 drive with activated VL mode and receives status information of a DS402 drive*)
 		);
 	McPVAMActModSimOnPLCEnum :
 		( (*Activates or deactivates the module simulation on the PLC*)
@@ -197,8 +199,9 @@ TYPE
 		);
 	McPVAELOEExtPosTypEnum :
 		( (*Position type selector setting*)
-		mcPVAELOEEPT_ABS := 0, (*Absolute - Get position from an absolute encoder*)
-		mcPVAELOEEPT_INCR := 1 (*Incremental - Get position from an incremental encoder*)
+		mcPVAELOEEPT_ABS := 0, (*Absolute - Get position from an absolute multiturn encoder*)
+		mcPVAELOEEPT_INCR := 1, (*Incremental - Get position from an incremental encoder*)
+		mcPVAELOEEPT_ABS_SINGLETURN := 2 (*Absolute singleturn - Get position from an absolute singleturn encoder*)
 		);
 	McPVAELOEExtPosTypAbsPosRngType : STRUCT (*Defines the range of the position value*)
 		LowerLimit : DINT; (*Lower limit of encoder range*)
@@ -207,9 +210,13 @@ TYPE
 	McPVAELOEExtPosTypAbsType : STRUCT (*Type mcPVAELOEEPT_ABS settings*)
 		PositionRange : McPVAELOEExtPosTypAbsPosRngType; (*Defines the range of the position value*)
 	END_STRUCT;
+	McPVAELOEExtPosTypAbsSType : STRUCT (*Type mcPVAELOEEPT_ABS_SINGLETURN settings*)
+		PositionRange : McPVAELOEExtPosTypAbsPosRngType; (*Defines the range of the position value*)
+	END_STRUCT;
 	McPVAELOEExtPosTypType : STRUCT (*Type of the encoder*)
 		Type : McPVAELOEExtPosTypEnum; (*Position type selector setting*)
 		Absolute : McPVAELOEExtPosTypAbsType; (*Type mcPVAELOEEPT_ABS settings*)
+		AbsoluteSingleturn : McPVAELOEExtPosTypAbsSType; (*Type mcPVAELOEEPT_ABS_SINGLETURN settings*)
 	END_STRUCT;
 	McPVAELOEExtPosSrcEnum :
 		( (*Position source selector setting*)
@@ -748,11 +755,24 @@ TYPE
 		Type : McPVACOSetSpdEnum; (*Set speed selector setting*)
 		Used : McPVACOSetSpdUseType; (*Type mcPVACOSS_USE settings*)
 	END_STRUCT;
+	McPVACOSetPosEnum :
+		( (*Set position selector setting*)
+		mcPVACOSP_NOT_USE := 0, (*Not used -*)
+		mcPVACOSP_USE_INCR := 1 (*Used [Increments] -*)
+		);
+	McPVACOSetPosUseIncrType : STRUCT (*Type mcPVACOSP_USE_INCR settings*)
+		Destination : McPVACOAllDestType; (*Destination for the set position value*)
+	END_STRUCT;
+	McPVACOSetPosType : STRUCT (*Set position value*)
+		Type : McPVACOSetPosEnum; (*Set position selector setting*)
+		UsedIncrements : McPVACOSetPosUseIncrType; (*Type mcPVACOSP_USE_INCR settings*)
+	END_STRUCT;
 	McPVACOType : STRUCT (*Various output functionalities to be linked to PVs*)
 		PowerOn : McPVACOPwrOnType; (*Power on signal*)
 		ErrorReset : McPVACOErrRstType; (*Error reset signal*)
 		BrakeControl : McPVACOBrkCtrlType; (*Parameter of the holding break*)
 		SetSpeed : McPVACOSetSpdType; (*Set speed value*)
+		SetPosition : McPVACOSetPosType; (*Set position value*)
 	END_STRUCT;
 	McPVAGPAIUseSimLdSimModEnum :
 		( (*Load simulation mode selector setting*)
@@ -782,10 +802,160 @@ TYPE
 		EncoderLink : McPVAELType; (*Used position input*)
 		DigitalInputs : McPVADIType; (*Various digital input functionalities e.g. like homing switch or triggers*)
 	END_STRUCT;
+	McPVAESPosTypEnum :
+		( (*Position type selector setting*)
+		mcPVAESPT_ABS := 0, (*Absolute - Get position from an absolute multiturn encoder*)
+		mcPVAESPT_ABS_SINGLETURN := 2 (*Absolute singleturn - Get position from an absolute singleturn encoder*)
+		);
+	McPVAESPosTypType : STRUCT (*Type of the encoder*)
+		Type : McPVAESPosTypEnum; (*Position type selector setting*)
+	END_STRUCT;
+	McPVAESType : STRUCT (*Defines the encoder parameters*)
+		IncrementsPerRevolution : DINT; (*Increments per revolution of used encoder*)
+		PositionType : McPVAESPosTypType; (*Type of the encoder*)
+	END_STRUCT;
+	McPVAAPSEnum :
+		( (*Source selector setting*)
+		mcPVAAPS_VAR := 0, (*Variable - Get the position actual value from a signed 32 bit variable*)
+		mcPVAAPS_IO_CH := 1 (*I/O channel - Get the position actual value from a signed 32 bit I/O channel*)
+		);
+	McPVAAPSVarType : STRUCT (*Type mcPVAAPS_VAR settings*)
+		PVMapping : STRING[250]; (*Input source for the position actual value*)
+	END_STRUCT;
+	McPVAAPSIOChType : STRUCT (*Type mcPVAAPS_IO_CH settings*)
+		ChannelMapping : STRING[250]; (*Input source for the position actual value*)
+	END_STRUCT;
+	McPVAAPSType : STRUCT (*Input source of DS402 object 0x6064: Position actual value*)
+		Type : McPVAAPSEnum; (*Source selector setting*)
+		Variable : McPVAAPSVarType; (*Type mcPVAAPS_VAR settings*)
+		IOChannel : McPVAAPSIOChType; (*Type mcPVAAPS_IO_CH settings*)
+	END_STRUCT;
+	McPVAAPVREnum :
+		( (*Value range selector setting*)
+		mcPVAAPVR_DEF := 0, (*Default - Default range 2^32*)
+		mcPVAAPVR_SET_MAN := 1 (*Set manually - Limits of 0x6064_PositionActualValue*)
+		);
+	McPVAAPVRSetManType : STRUCT (*Type mcPVAAPVR_SET_MAN settings*)
+		LowerLimit : DINT; (*Lower limit of 0x6064_PositionActualValue*)
+		UpperLimit : DINT; (*Upper limit of 0x6064_PositionActualValue*)
+	END_STRUCT;
+	McPVAAPVRType : STRUCT (*Defines the range of DS402 object 0x6064_Position_actual_value*)
+		Type : McPVAAPVREnum; (*Value range selector setting*)
+		SetManually : McPVAAPVRSetManType; (*Type mcPVAAPVR_SET_MAN settings*)
+	END_STRUCT;
+	McPVAPAVType : STRUCT (*Settings for the position actual value*)
+		Source : McPVAAPSType; (*Input source of DS402 object 0x6064: Position actual value*)
+		ValueRange : McPVAAPVRType; (*Defines the range of DS402 object 0x6064_Position_actual_value*)
+	END_STRUCT;
+	McPVASIDModOkType : STRUCT (*Communication ready status signal*)
+		Source : McPVASIAllSrcType; (*Source of the status information*)
+	END_STRUCT;
+	McPVASIDStatWordType : STRUCT (*DS402 object 0x6041: Status word*)
+		Source : McPVASIAllSrcType; (*Source of the status information*)
+	END_STRUCT;
+	McPVASIDErrCType : STRUCT (*DS402 object 0x603F: Error code (Number specifying the error or warning that has occured)*)
+		Source : McPVASIAllSrcType; (*Source of the status information*)
+	END_STRUCT;
+	McPVASIDType : STRUCT (*Various status information to be linked to PVs or Channels*)
+		ModuleOk : McPVASIDModOkType; (*Communication ready status signal*)
+		StatusWord : McPVASIDStatWordType; (*DS402 object 0x6041: Status word*)
+		ErrorCode : McPVASIDErrCType; (*DS402 object 0x603F: Error code (Number specifying the error or warning that has occured)*)
+	END_STRUCT;
+	McPVACODCCtrlWordEnum :
+		( (*Control word selector setting*)
+		mcPVACODCCW_USE := 1 (*Used -*)
+		);
+	McPVACODCCtrlWordUseType : STRUCT (*Type mcPVACODCCW_USE settings*)
+		Destination : McPVACOAllDestType; (*Destination for the control word*)
+	END_STRUCT;
+	McPVACODCCtrlWordType : STRUCT (*DS402 object 0x6040: Control word*)
+		Type : McPVACODCCtrlWordEnum; (*Control word selector setting*)
+		Used : McPVACODCCtrlWordUseType; (*Type mcPVACODCCW_USE settings*)
+	END_STRUCT;
+	McPVACODCTgtPosEnum :
+		( (*Target position selector setting*)
+		mcPVACODCTP_USE := 1 (*Used -*)
+		);
+	McPVACODCTgtPosUseType : STRUCT (*Type mcPVACODCTP_USE settings*)
+		Destination : McPVACOAllDestType; (*Destination for the target position value*)
+	END_STRUCT;
+	McPVACODCTgtPosType : STRUCT (*DS402 object 0x607A: Target position*)
+		Type : McPVACODCTgtPosEnum; (*Target position selector setting*)
+		Used : McPVACODCTgtPosUseType; (*Type mcPVACODCTP_USE settings*)
+	END_STRUCT;
+	McPVACODCType : STRUCT (*Various control outputs to be linked to PVs*)
+		ControlWord : McPVACODCCtrlWordType; (*DS402 object 0x6040: Control word*)
+		TargetPosition : McPVACODCTgtPosType; (*DS402 object 0x607A: Target position*)
+	END_STRUCT;
+	McPVAGPAIDS402CSPType : STRUCT (*Type mcPVAGPAI_DS402_CSP settings*)
+		MechanicalElements : McPVAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
+		EncoderSettings : McPVAESType; (*Defines the encoder parameters*)
+		PositionActualValue : McPVAPAVType; (*Settings for the position actual value*)
+		DigitalInputs : McPVADIType; (*Various digital input functionalities e.g. like homing switch or triggers*)
+		StatusInputs : McPVASIDType; (*Various status information to be linked to PVs or Channels*)
+		ControlOutputs : McPVACODCType; (*Various control outputs to be linked to PVs*)
+	END_STRUCT;
+	McPVAVASEnum :
+		( (*Source selector setting*)
+		mcPVAVAS_VAR := 0, (*Variable - Get the velocity actual value from a signed 16 bit variable*)
+		mcPVAVAS_IO_CH := 1 (*I/O channel - Get the velocity actual value from a signed 16 bit I/O channel*)
+		);
+	McPVAVASVarType : STRUCT (*Type mcPVAVAS_VAR settings*)
+		PVMapping : STRING[250]; (*Input source for the velocity actual value*)
+	END_STRUCT;
+	McPVAVASIOChType : STRUCT (*Type mcPVAVAS_IO_CH settings*)
+		ChannelMapping : STRING[250]; (*Input source for the velocity actual value*)
+	END_STRUCT;
+	McPVAVASType : STRUCT (*Input source of the velocity actual value*)
+		Type : McPVAVASEnum; (*Source selector setting*)
+		Variable : McPVAVASVarType; (*Type mcPVAVAS_VAR settings*)
+		IOChannel : McPVAVASIOChType; (*Type mcPVAVAS_IO_CH settings*)
+	END_STRUCT;
+	McPVAVAVType : STRUCT (*DS402 object 0x6044: vl velocity actual value*)
+		Source : McPVAVASType; (*Input source of the velocity actual value*)
+	END_STRUCT;
+	McPVACODVCtrlWordEnum :
+		( (*Control word selector setting*)
+		mcPVACODVCW_USE := 1 (*Used -*)
+		);
+	McPVACODVCtrlWordUseType : STRUCT (*Type mcPVACODVCW_USE settings*)
+		Destination : McPVACOAllDestType; (*Destination for the control word*)
+	END_STRUCT;
+	McPVACODVCtrlWordType : STRUCT (*DS402 object 0x6040: Control word*)
+		Type : McPVACODVCtrlWordEnum; (*Control word selector setting*)
+		Used : McPVACODVCtrlWordUseType; (*Type mcPVACODVCW_USE settings*)
+	END_STRUCT;
+	McPVACODVTgtVelEnum :
+		( (*Target velocity selector setting*)
+		mcPVACODVTV_USE := 1 (*Used -*)
+		);
+	McPVACODVTgtVelUseType : STRUCT (*Type mcPVACODVTV_USE settings*)
+		Destination : McPVACOAllDestType; (*Destination for the target velocity value*)
+	END_STRUCT;
+	McPVACODVTgtVelType : STRUCT (*DS402 object 0x6042: vl target velocity*)
+		Type : McPVACODVTgtVelEnum; (*Target velocity selector setting*)
+		Used : McPVACODVTgtVelUseType; (*Type mcPVACODVTV_USE settings*)
+	END_STRUCT;
+	McPVACODVType : STRUCT (*Various control outputs to be linked to PVs*)
+		ControlWord : McPVACODVCtrlWordType; (*DS402 object 0x6040: Control word*)
+		TargetVelocity : McPVACODVTgtVelType; (*DS402 object 0x6042: vl target velocity*)
+	END_STRUCT;
+	McPVAGPAIDS402VLType : STRUCT (*Type mcPVAGPAI_DS402_VL settings*)
+		MechanicalElements : McPVAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
+		EncoderLink : McPVAELType; (*Used position input*)
+		Controller : McPVACType; (*Axis controller parameters*)
+		MovementErrorLimits : McPVAMELType; (*Limit values that result in a stop reaction when exceeded*)
+		VelocityActualValue : McPVAVAVType; (*DS402 object 0x6044: vl velocity actual value*)
+		DigitalInputs : McPVADIType; (*Various digital input functionalities e.g. like homing switch or triggers*)
+		StatusInputs : McPVASIDType; (*Various status information to be linked to PVs or Channels*)
+		ControlOutputs : McPVACODVType; (*Various control outputs to be linked to PVs*)
+	END_STRUCT;
 	McPVAGPAIType : STRUCT (*Connect a PureVAx to any kind of drive*)
 		Type : McPVAGPAIEnum; (*General purpose axis interface selector setting*)
 		Used : McPVAGPAIUseType; (*Type mcPVAGPAI_USE settings*)
 		ExternalEncoder : McPVAGPAIExtEncType; (*Type mcPVAGPAI_EXT_ENC settings*)
+		DS402CSP : McPVAGPAIDS402CSPType; (*Type mcPVAGPAI_DS402_CSP settings*)
+		DS402VL : McPVAGPAIDS402VLType; (*Type mcPVAGPAI_DS402_VL settings*)
 	END_STRUCT;
 	McPVAFType : STRUCT (*Features for an axis*)
 		FeatureReference : McCfgUnboundedArrayType; (*Name of the axis feature reference*)
@@ -856,5 +1026,23 @@ TYPE
 	END_STRUCT;
 	McCfgPureVAxZeroVibFltrType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_ZERO_VIB_FLTR*)
 		ZeroVibrationFilter : McPVAZVFType; (*Zero vibration filter*)
+	END_STRUCT;
+	McCfgPureVAxEncSetType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_ENC_SET*)
+		EncoderSettings : McPVAESType; (*Defines the encoder parameters*)
+	END_STRUCT;
+	McCfgPureVAxPosActValType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_POS_ACT_VAL*)
+		PositionActualValue : McPVAPAVType; (*Settings for the position actual value*)
+	END_STRUCT;
+	McCfgPureVAxStatInDs402Type : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_STAT_IN_DS402*)
+		StatusInputs : McPVASIDType; (*Various status information to be linked to PVs or Channels*)
+	END_STRUCT;
+	McCfgPureVAxCtrlOutDs402CSPType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_CTRL_OUT_DS402C*)
+		ControlOutputs : McPVACODCType; (*Various control outputs to be linked to PVs*)
+	END_STRUCT;
+	McCfgPureVAxCtrlOutDs402VLType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_CTRL_OUT_DS402V*)
+		ControlOutputs : McPVACODVType; (*Various control outputs to be linked to PVs*)
+	END_STRUCT;
+	McCfgPureVAxVelActValType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PURE_V_AX_VEL_ACT_VAL*)
+		VelocityActualValue : McPVAVAVType; (*DS402 object 0x6044: vl velocity actual value*)
 	END_STRUCT;
 END_TYPE

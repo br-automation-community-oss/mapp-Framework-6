@@ -473,7 +473,9 @@ Parameters left at "0" disable the associated advanced function. *)
 		mcAXB_CFG_AX_PUREVAX, (*Pure virtual axis*)
 		mcAXB_CFG_AX_PUREVAX_GPAI, (*	Pure virtual axis GPAI*)
 		mcAXB_CFG_AX_PUREVAX_EXT_ENC, (*Pure virtual GPAI external encoder*)
-		mcAXB_CFG_AX_POWER_SUPPLY (*Power supply module*)
+		mcAXB_CFG_AX_POWER_SUPPLY, (*Power supply module*)
+		mcAXB_CFG_AX_PUREVAX_DS402_CSP,
+		mcAXB_CFG_AX_PUREVAX_DS402_VL
 		);
 	MpAXBMotorDataTypeEnum : 
 		(

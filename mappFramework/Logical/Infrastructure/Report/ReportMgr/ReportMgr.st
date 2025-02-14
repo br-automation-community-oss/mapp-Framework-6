@@ -25,6 +25,7 @@ PROGRAM _INIT
 	MpReportCoreSys.DeviceName := ADR('mappReportFiles');
 	MpReportCoreSys.MpLink := ADR(gMpLinkSimpleReport);
 	MpReportCoreSys.FileName := ADR(HmiReport.Parameters.Name);
+	MpReportCoreSys.ReportID := ADR('SimpleReport');
 	HmiReport.Parameters.Name := 'SimpleReport';
 	HmiReport.Parameters.SortType := 'NameAsc';
 	MpReportCoreSys();

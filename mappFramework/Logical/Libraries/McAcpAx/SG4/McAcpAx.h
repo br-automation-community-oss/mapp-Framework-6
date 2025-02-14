@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpAx 6.0.0 */
+/* McAcpAx 6.2.0 */
 
 #ifndef _MCACPAX_
 #define _MCACPAX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpAx_VERSION
-#define _McAcpAx_VERSION 6.0.0
+#define _McAcpAx_VERSION 6.2.0
 #endif
 
 #include <bur/plctypes.h>
@@ -43,6 +43,9 @@ typedef enum McAcpAxDataTypeEnum
 	mcACPAX_PARTYPE_UINT,
 	mcACPAX_PARTYPE_UDINT,
 	mcACPAX_PARTYPE_REAL,
+	mcACPAX_PARTYPE_DINT_REAL = 64,
+	mcACPAX_PARTYPE_DINT_REAL_COUNT = 65,
+	mcACPAX_PARTYPE_DINT_REAL_TIME = 66,
 	mcACPAX_PARTYPE_VOID = 65535
 } McAcpAxDataTypeEnum;
 
@@ -54,7 +57,8 @@ typedef enum McAcpAxProcessDataBlockModeEnum
 typedef enum McAcpAxProcessParIDModeEnum
 {	mcACPAX_PARID_GET = 0,
 	mcACPAX_PARID_SET,
-	mcACPAX_PARID_GET_NO_NCT
+	mcACPAX_PARID_GET_NO_NCT,
+	mcACPAX_PARID_GET_NO_LOG
 } McAcpAxProcessParIDModeEnum;
 
 typedef enum McAcpAxProcessParTabModeEnum
@@ -215,6 +219,10 @@ typedef enum McAcpAxReceiveChannelEnum
 	mcACPAX_RECEIVE_CHANNEL_4 = 4,
 	mcACPAX_RECEIVE_CHANNEL_5 = 5
 } McAcpAxReceiveChannelEnum;
+
+typedef enum McAcpAxSctrlLimitLoadModeEnum
+{	mcACPAX_SLL_LIMIT_AND_REPORT = 0
+} McAcpAxSctrlLimitLoadModeEnum;
 
 typedef enum McMSMotEnum
 {	mcMSM_DEF = 0
@@ -807,6 +815,17 @@ typedef enum McACLFSLLimEnum
 {	mcACLFSLLim_ACP_PARID = 0,
 	mcACLFSLLim_FIX_VAL = 1
 } McACLFSLLimEnum;
+
+typedef enum McACCTMEnum
+{	mcACCTM_STD = 0,
+	mcACCTM_ADV = 1,
+	mcACCTM_PWR = 2
+} McACCTMEnum;
+
+typedef enum McACCTMSgenEnum
+{	mcACCTMSgen_STD = 0,
+	mcACCTMSgen_CYCLE_TIME_OF_CTRL = 128
+} McACCTMSgenEnum;
 
 typedef enum McACMPCFFFFwdEnum
 {	mcACMPCFFFF_STD = 0,
@@ -1602,6 +1621,16 @@ typedef enum McAFAIACPP3AnInEnum
 	mcAFAIACPP3AI_SS1X41E3 = 2
 } McAFAIACPP3AnInEnum;
 
+typedef enum McAFAPTTranOrdEnum
+{	mcAFAPTTO_END_OF_INIT = 0,
+	mcAFAPTTO_ST_OF_INIT = 1
+} McAFAPTTranOrdEnum;
+
+typedef enum McAFASPTCTranOrdEnum
+{	mcAFASPTCTO_END_OF_INIT = 0,
+	mcAFASPTCTO_ST_OF_INIT = 1
+} McAFASPTCTranOrdEnum;
+
 typedef struct McAcpAxHomingAddTorqLimParType
 {	float PositiveDirection;
 	float NegativeDirection;
@@ -1925,10 +1954,29 @@ typedef struct McACLFType
 {	struct McACLFSType LoopFilter[3];
 } McACLFType;
 
+typedef struct McACCTMSgenType
+{	enum McACCTMSgenEnum Type;
+} McACCTMSgenType;
+
+typedef struct McACCTMAdvType
+{	struct McACCTMSgenType SetValueGeneration;
+} McACCTMAdvType;
+
+typedef struct McACCTMPwrType
+{	struct McACCTMSgenType SetValueGeneration;
+} McACCTMPwrType;
+
+typedef struct McACCTMType
+{	enum McACCTMEnum Type;
+	struct McACCTMAdvType Advanced;
+	struct McACCTMPwrType Power;
+} McACCTMType;
+
 typedef struct McACMPCType
 {	struct McACPCType Position;
 	struct McACSCType Speed;
 	struct McACLFType LoopFilters;
+	struct McACCTMType CycleTimeMode;
 } McACMPCType;
 
 typedef struct McACPCFFType
@@ -1956,6 +2004,7 @@ typedef struct McACMPCFFType
 	struct McACSCType Speed;
 	struct McACMPCFFFFwdType FeedForward;
 	struct McACLFType LoopFilters;
+	struct McACCTMType CycleTimeMode;
 } McACMPCFFType;
 
 typedef struct McACMPCMBCPosType
@@ -2037,6 +2086,7 @@ typedef struct McACMPCMBCType
 	struct McACMPCMBCFdbkType Feedback;
 	struct McACMPCMBCMdlType Model;
 	struct McACLFType LoopFilters;
+	struct McACCTMType CycleTimeMode;
 } McACMPCMBCType;
 
 typedef struct McACMVFCVFAutCfgNotUseType
@@ -2751,6 +2801,7 @@ typedef struct McAcpAxAdvInitReceiveNetDataType
 {	unsigned char NodeNumber;
 	unsigned short BitOffset;
 	enum McAcpAxReceiveChannelEnum ReceiveChannel;
+	unsigned long CycleTime;
 } McAcpAxAdvInitReceiveNetDataType;
 
 typedef struct McAcpAxAdvReceiveParIDOnPLCType
@@ -2783,6 +2834,11 @@ typedef struct McAcpAxCyclicDataInfoType
 {	struct McAcpAxCyclicDataWriteInfoType Write;
 	struct McAcpAxCyclicDataReadInfoType Read;
 } McAcpAxCyclicDataInfoType;
+
+typedef struct McAcpAxAdvSctrlLimitLoadParType
+{	unsigned short LoadPositiveParID;
+	unsigned short LoadNegativeParID;
+} McAcpAxAdvSctrlLimitLoadParType;
 
 typedef struct McMSAMCMotDefVLimUseType
 {	float MaximumDCBusVoltage;
@@ -4843,7 +4899,31 @@ typedef struct McCfgAxFeatAInType
 
 typedef struct McCfgAxFeatAcpParTblType
 {	plcstring ACOPOSParameterTableReference[251];
+	enum McAFAPTTranOrdEnum TransferOrder;
 } McCfgAxFeatAcpParTblType;
+
+typedef struct McCfgAxFeatAcpSptChartType
+{	struct McCfgReferenceType ACOPOSSptChartReference;
+	enum McAFASPTCTranOrdEnum TransferOrder;
+} McCfgAxFeatAcpSptChartType;
+
+typedef struct MC_BR_GetParIDText_AcpAx
+{
+	/* VAR_INPUT (analog) */
+	struct McAxisType* Axis;
+	unsigned short ParID;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	plcstring DataText[33];
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_GetParIDText_AcpAx_typ;
 
 typedef struct MC_BR_InitHome_AcpAx
 {
@@ -5575,9 +5655,52 @@ typedef struct MC_BR_GetCyclicDataInfo_AcpAx
 	plcbit Error;
 } MC_BR_GetCyclicDataInfo_AcpAx_typ;
 
+typedef struct MC_BR_SctrlLimitLoad_AcpAx
+{
+	/* VAR_INPUT (analog) */
+	struct McAxisType* Axis;
+	float LoadPositive;
+	float LoadNegative;
+	enum McAcpAxSctrlLimitLoadModeEnum Mode;
+	struct McAcpAxAdvSctrlLimitLoadParType AdvancedParameters;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Enable;
+	plcbit InitData;
+	/* VAR_OUTPUT (digital) */
+	plcbit Ready;
+	plcbit Busy;
+	plcbit Error;
+	plcbit DataInitialized;
+	plcbit LimitPositiveActive;
+	plcbit LimitNegativeActive;
+} MC_BR_SctrlLimitLoad_AcpAx_typ;
+
+typedef struct MC_BR_SetParIDText_AcpAx
+{
+	/* VAR_INPUT (analog) */
+	struct McAxisType* Axis;
+	unsigned short ParID;
+	plcstring DataText[33];
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_SetParIDText_AcpAx_typ;
+
 
 
 /* Prototyping of functions and function blocks */
+_BUR_PUBLIC void MC_BR_GetParIDText_AcpAx(struct MC_BR_GetParIDText_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_InitHome_AcpAx(struct MC_BR_InitHome_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_ProcessDataBlock_AcpAx(struct MC_BR_ProcessDataBlock_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_ProcessParID_AcpAx(struct MC_BR_ProcessParID_AcpAx* inst);
@@ -5615,6 +5738,8 @@ _BUR_PUBLIC void MC_BR_GetParIDTransferInfo_AcpAx(struct MC_BR_GetParIDTransferI
 _BUR_PUBLIC void MC_BR_InitReceiveNetData_AcpAx(struct MC_BR_InitReceiveNetData_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_ReceiveParIDOnPLC_AcpAx(struct MC_BR_ReceiveParIDOnPLC_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_GetCyclicDataInfo_AcpAx(struct MC_BR_GetCyclicDataInfo_AcpAx* inst);
+_BUR_PUBLIC void MC_BR_SctrlLimitLoad_AcpAx(struct MC_BR_SctrlLimitLoad_AcpAx* inst);
+_BUR_PUBLIC void MC_BR_SetParIDText_AcpAx(struct MC_BR_SetParIDText_AcpAx* inst);
 
 
 #ifdef __cplusplus

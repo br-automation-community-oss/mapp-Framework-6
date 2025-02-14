@@ -13,5 +13,7 @@
     <Object Type="File">ReportMgr.uad</Object>
     <Object Type="File">UserXMgr.uad</Object>
     <Object Type="File">AxisMgr.uad</Object>
+    <Object Type="File">OpcUa.uad</Object>
+    <Object Type="File">AlarmTest.uad</Object>
   </Objects>
 </Package>

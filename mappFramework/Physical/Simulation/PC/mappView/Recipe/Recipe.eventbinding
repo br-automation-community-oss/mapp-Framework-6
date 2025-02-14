@@ -484,14 +484,14 @@
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="oldValue = 1 AND newValue=false AND  CategoryDropdownValue=0">
+      <EventHandler condition="oldValue = true AND newValue = false AND  CategoryDropdownValue = 0">
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
             <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars" />
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="oldValue = 1 AND newValue=false AND  CategoryDropdownValue=1">
+      <EventHandler condition="oldValue = true AND newValue = false AND CategoryDropdownValue = 1">
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe" widgetRefId="ContentCtrlPreview">
             <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig" />

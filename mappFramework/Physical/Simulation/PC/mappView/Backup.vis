@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<vdef:Visualization id="MyVisuBackup" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+<vdef:Visualization id="Backup" autoUpdate="false" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
 	<StartPage pageRefId="Demo" />
 	<Pages>
 		<Page refId="Demo" />
 	</Pages>
 	<Navigations>
 		<!--<Navigation refId="" />-->
-	</Navigations>  
+	</Navigations>
 	<BindingsSets>
 		<BindingsSet refId="BackupDialogCreate" />
 		<BindingsSet refId="Backup" />
@@ -30,11 +30,11 @@
 		<Dialog refId="BackupAutoSettings" />
 		<Dialog refId="BackupUpdate" />
 	</Dialogs>
-	<Contents > 
+	<Contents >
 		<Content refId="Backup" />
 		<Content refId="Help" />
 		<Content refId="Navigation" />
-	</Contents>	
+	</Contents>
 	<SnippetsSets>
 	</SnippetsSets>
 	<ExpressionsSets>

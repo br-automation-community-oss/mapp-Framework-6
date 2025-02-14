@@ -38,6 +38,5 @@
     <Object Type="Library" Language="Binary" Description="Recipe management">MpRecipe</Object>
     <Object Type="Library" Language="Binary" Description="Report generation">MpReport</Object>
     <Object Type="Library" Language="Binary" Description="Communication library for mappView widgets">MpServer</Object>
-    <Object Type="Library" Language="IEC" TransferedForTargetSourceCompare="true">UserOee</Object>
   </Objects>
 </Package>
